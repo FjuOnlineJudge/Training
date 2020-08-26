@@ -1,9 +1,20 @@
-site_name: My Docs
+site_name: FJCU CPC 訓練網
 
 nav:
   - 首頁: index.md
-  - 基本資料型態: type.md
-
+  - 語法篇:
+    - 基本介紹: syntax/intro.md
+    - 基本資料型態: syntax/type.md
+    - 輸入輸出: syntax/inputOutput.md
+    - 運算子: syntax/operator.md
+    - 條件判斷: syntax/condition.md
+    - 迴圈: syntax/loop.md
+    - 字串: syntax/string.md
+    - 陣列: syntax/array.md
+    - 函式與遞迴: syntax/functionAndRecursive.md
+    - struct: syntax/struct.md
+  - 雜項:
+    - 複雜度: other/complexity.md
 
 python:
    version: 2 # for unicode
