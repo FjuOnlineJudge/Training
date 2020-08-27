@@ -15,6 +15,7 @@ nav:
     - struct: syntax/struct.md
   - 雜項:
     - 複雜度: other/complexity.md
+    - define: other/define.md
   - 資料結構:
     - STL: dataStructure/stl.md
     - 堆疊: dataStructure/stack.md
