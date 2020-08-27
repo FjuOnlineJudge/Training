@@ -15,6 +15,13 @@ nav:
     - struct: syntax/struct.md
   - 雜項:
     - 複雜度: other/complexity.md
+  - 資料結構:
+    - STL: dataStructure/stl.md
+    - 堆疊: dataStructure/stack.md
+    - 隊列: dataStructure/queue.md
+    - List: dataStructure/list.md
+    - heap: dataStructure/heap.md
+    - 二元平衡樹: dataStructure/bst.md
 
 python:
    version: 2 # for unicode
