@@ -1,4 +1,4 @@
-# priorty_queue 優先佇列
+# Heap
 維護最大/小值，可插入、刪除、及詢問最大/小值，一種實作為binary heap
 ```cpp
 int heap[N],top=0;
@@ -25,6 +25,7 @@ void pop(){
     }
 }
 ```
+C++ 的 `priorty_queue` (優先隊列)，是一種 Heap 的實作。
 * 標頭檔：`<queue>`
 * 建構式：`priorty_queue <T> pq`
 * 建構式：`priorty_queue <T,Con,Cmp> pq`
