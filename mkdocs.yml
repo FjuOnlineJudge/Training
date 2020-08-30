@@ -34,7 +34,7 @@ nav:
     - 圖論概念: graph/concept.md
     - 圖的儲存: graph/save.md
     - 圖的遍歷: graph/traverse.md
-    - 時間戳記: graph/timestamp.md
+    - 時間戳記: graph/timeStamp.md
     - 最低共同祖先: graph/lca.md
     - 並查集: graph/disjointSet.md
     - 最小生成樹: graph/mst.md
@@ -43,6 +43,11 @@ nav:
     - 哈密頓: graph/hamilton.md
     - 拓譜排序: graph/topology.md
     - 連通性: graph/connectivity.md
+  - 數論:
+    - 質數和因數: math/primeAndFactor.md
+    - 模: math/mod.md
+    - 歐拉定理及相關應用: math/euler.md
+    - 中國剩餘定理: math/chineseRemainderTheorem.md
 
 python:
    version: 2 # for unicode
