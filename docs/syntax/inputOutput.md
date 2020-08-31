@@ -16,12 +16,12 @@ specifier(格式碼)，是用來指定輸入的型態，下表為常用的格式
 
 | 格式碼 | 說明                   |
 | ------ | ---------------------- |
-| \%d    | int                    |
-| \%u    | unsigned int           |
-| \%lld  | long long int          |
-| \%llu  | unsigned long long int |
-| \%f    | float                  |
-| \%lf   | double                 |
+| %d    | int                    |
+| %u    | unsigned int           |
+| %lld  | long long int          |
+| %llu  | unsigned long long int |
+| %f    | float                  |
+| %lf   | double                 |
 
 ```cpp
 #include <cstdio>
