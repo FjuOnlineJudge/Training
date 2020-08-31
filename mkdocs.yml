@@ -5,7 +5,7 @@ nav:
   - 工具:
     - 命令列: tool/cmd.md
     - Code::Blocks: tool/codeBlocks.md
-    - Sublime Text: tool/sublime.md
+    - Sublime Text: tool/sublimeText.md
     - VS Code: tool/vsCode.md
   - 語法篇:
     - 基本介紹: syntax/intro.md
