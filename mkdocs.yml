@@ -2,6 +2,11 @@ site_name: FJCU CPC 訓練網
 
 nav:
   - 首頁: index.md
+  - 工具:
+    - 命令列: tool/cmd.md
+    - Code::Blocks: tool/codeBlocks.md
+    - Sublime Text: tool/sublime.md
+    - VS Code: tool/vsCode.md
   - 語法篇:
     - 基本介紹: syntax/intro.md
     - 基本資料型態: syntax/type.md
