@@ -12,6 +12,7 @@ nav:
     - 字串: syntax/string.md
     - 陣列: syntax/array.md
     - 函式與遞迴: syntax/functionAndRecursive.md
+    - 指標: syntax/pointer.md
     - struct: syntax/struct.md
   - 雜項:
     - 複雜度: other/complexity.md
