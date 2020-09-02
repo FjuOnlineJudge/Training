@@ -1,1 +1,1 @@
-remark ./docs -o
+remark ./docs -o -r .remarkrc
