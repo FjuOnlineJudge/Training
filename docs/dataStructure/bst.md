@@ -1,6 +1,8 @@
-set 和 map 皆為平衡二元樹，支援插入、刪除及查詢一個值，不同的是，set 會回傳鍵值，map 則是回傳對應值，也可以說 set 的鍵值和對應值一樣
+# 二元平衡樹
 
-# set
+set 和 map 皆為二元平衡樹，支援插入、刪除及查詢一個值，不同的是，set 會回傳鍵值，map 則是回傳對應值，也可以說 set 的鍵值和對應值一樣
+
+## set
 
 - 標頭檔： `<set>` 
 - 建構式： `set <T1> s` 
@@ -39,7 +41,7 @@ int main() {
     1 : not find
     1 : not find
 
-# map
+## map
 
 - 標頭檔： `<map>` 
 - 建構式： `map <T1, T2> m` 
@@ -84,13 +86,13 @@ int main() {
     owo : not find
     owo : find
 
-# multi - 系列
+## multi - 系列
 
 可插入重複元素，代價為 map 無法用下標運算子
 
 - equal_range (T1 a)：回傳 iterator 的 `pair<lower_bound (a),upper_bound (a)>` ，為 a 所在範圍
 - erase (T1 a)：刪除所有元素 a，如果只要刪除一個，用 `s.erase (s.find (a))` 
 
-# unorder - 系列
+## unorder - 系列
 
 降低常數，期望複雜度少一個 log，代價為不會排序，沒有 `lower_bound/upper_bound` ，也不會依鍵值大小遍歷。迭代器為單向。

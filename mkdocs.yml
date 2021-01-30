@@ -4,19 +4,19 @@ nav:
   - 首頁: index.md
   - 工具:
     - 命令列: tool/cmd.md
-    - Code::Blocks: tool/codeBlocks.md
-    - Sublime Text: tool/sublimeText.md
-    - VS Code: tool/vsCode.md
+    - Code::Blocks: tool/codeblocks.md
+    - Sublime Text: tool/sublimetext.md
+    - VS Code: tool/vscode.md
   - 語法篇:
     - 基本介紹: syntax/intro.md
     - 基本資料型態: syntax/type.md
-    - 輸入輸出: syntax/inputOutput.md
+    - 輸入輸出: syntax/inputoutput.md
     - 運算子: syntax/operator.md
     - 條件判斷: syntax/condition.md
     - 迴圈: syntax/loop.md
     - 字串: syntax/string.md
     - 陣列: syntax/array.md
-    - 函式與遞迴: syntax/functionAndRecursive.md
+    - 函式與遞迴: syntax/functionandrecursive.md
     - 指標: syntax/pointer.md
     - struct: syntax/struct.md
   - 雜項:
@@ -25,35 +25,35 @@ nav:
   - 資料結構:
     - STL: dataStructure/stl.md
     - 堆疊: dataStructure/stack.md
-    - 隊列: dataStructure/queue.md
+    - 佇列: dataStructure/queue.md
     - List: dataStructure/list.md
     - heap: dataStructure/heap.md
     - 二元平衡樹: dataStructure/bst.md
   - 基礎演算法:
     - 何謂演算法: algorithm/index.md
     - 枚舉: algorithm/enumerate.md
-    - 二分搜: algorithm/binarySearch.md
-    - 分治: algorithm/divideAndConquer.md
+    - 二分搜: algorithm/binarysearch.md
+    - 分治: algorithm/divideandconquer.md
     - 貪心: algorithm/greedy.md
   - 圖論:
     - 圖論簡介: graph/index.md
     - 圖論概念: graph/concept.md
     - 圖的儲存: graph/save.md
     - 圖的遍歷: graph/traverse.md
-    - 時間戳記: graph/timeStamp.md
+    - 時間戳記: graph/timestamp.md
     - 最低共同祖先: graph/lca.md
-    - 並查集: graph/disjointSet.md
+    - 並查集: graph/disjointset.md
     - 最小生成樹: graph/mst.md
-    - 最短路徑: graph/shortestPath.md
+    - 最短路徑: graph/shortestpath.md
     - 歐拉回路: graph/euler.md
     - 哈密頓: graph/hamilton.md
     - 拓譜排序: graph/topology.md
     - 連通性: graph/connectivity.md
   - 數論:
-    - 質數和因數: math/primeAndFactor.md
+    - 質數和因數: math/prime_and_factor.md
     - 模: math/mod.md
     - 歐拉定理及相關應用: math/euler.md
-    - 中國剩餘定理: math/chineseRemainderTheorem.md
+    - 中國剩餘定理: math/chineseremaindertheorem.md
 
 python:
    version: 2 # for unicode

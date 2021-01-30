@@ -1,27 +1,28 @@
-#### Visual Studio Code
-* 載點: https://code.visualstudio.com/
+# Visual Studio Code
 
-* C/C++ Extension
-    ![](https://i.imgur.com/k2P2aL3.png)
+- 載點： <https://code.visualstudio.com/> 
 
-* 內建終端機
-    * 呼叫終端機: Ctrl + \` 
-    ![](https://i.imgur.com/3uYeKMm.png)
-    
-    * 預設是powershell，建議調成cmd
-    ![](https://i.imgur.com/DxnA6OR.png)
-    選Command Prompt
-    ![](https://i.imgur.com/D5dTMRE.png)
-    按 + 打開即是cmd
-    
-* 常用熱鍵
+-   C/C++ Extension
+    - ![](image/vsCode1.png)
 
-|指令|功能|
-|:--:|:--:|
-|Ctrl + X|刪除行|
-|Ctrl + D|選取單字（可重複選取相同的）|
-|Ctrl + Y|回復上一步|
-|Shift + Alt + F|自動排版|
+## 內建終端機
 
-* 編譯
-    * 用Command Line 編譯(gcc/g++)
+-   呼叫終端機：Ctrl +\`
+    - ![](image/vsCode2.png)
+-   預設是 powershell，建議調成 cmd
+    - ![](image/vsCode3.png)
+-   選 Command Prompt 按 `+` 打開即是 cmd
+    - ![](image/vsCode4.png)
+
+## 常用熱鍵
+
+|        指令       |       功能       |
+| :-------------: | :------------: |
+|     Ctrl + X    |       刪除行      |
+|     Ctrl + D    | 選取單字（可重複選取相同的） |
+|     Ctrl + Y    |      回復上一步     |
+| Shift + Alt + F |      自動排版      |
+
+## 編譯
+
+- 用 Command Line 編譯（gcc/g++)
