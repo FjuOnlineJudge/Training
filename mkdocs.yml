@@ -23,11 +23,11 @@ nav:
     - 複雜度: other/complexity.md
     - define: other/define.md
   - 資料結構:
-    - STL: dataStructure/stl.md
+    - 標準函式庫: dataStructure/stl.md
     - 堆疊: dataStructure/stack.md
     - 佇列: dataStructure/queue.md
     - List: dataStructure/list.md
-    - heap: dataStructure/heap.md
+    - 堆: dataStructure/heap.md
     - 二元平衡樹: dataStructure/bst.md
   - 基礎演算法:
     - 何謂演算法: algorithm/index.md
@@ -41,6 +41,7 @@ nav:
     - 圖的儲存: graph/save.md
     - 圖的遍歷: graph/traverse.md
     - 時間戳記: graph/timestamp.md
+    - 樹: graph/tree.md
     - 最低共同祖先: graph/lca.md
     - 並查集: graph/disjointset.md
     - 最小生成樹: graph/mst.md
@@ -50,7 +51,7 @@ nav:
     - 拓譜排序: graph/topology.md
     - 連通性: graph/connectivity.md
   - 數論:
-    - 質數和因數: math/prime_and_factor.md
+    - 質數和因數: math/primeandfactor.md
     - 模: math/mod.md
     - 歐拉定理及相關應用: math/euler.md
     - 中國剩餘定理: math/chineseremaindertheorem.md

@@ -1,8 +1,8 @@
-# 佇列
-
-## queue 佇列
+# 佇列 (Queue)
 
 有兩個端口，一個負責插入，另一個端口負責刪除的資料結構
+
+- ![](images/queue.gif)
 
 ```cpp
 struct Queue {
@@ -14,6 +14,8 @@ struct Queue {
   void pop() { head++; }
 }
 ```
+
+## STL
 
 - 標頭檔： `<queue>` 
 - 建構式： `queue <T> q` 
