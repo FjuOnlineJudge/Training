@@ -1,8 +1,8 @@
 # stack 堆疊
 
-- ![](images/stack.gif)
-
 有兩個端口，其中一個封閉，另一個端口負責插入、刪除的資料結構
+
+- ![](images/stack.gif)
 
 ```cpp
 struct stack {

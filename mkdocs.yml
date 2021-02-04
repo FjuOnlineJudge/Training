@@ -10,10 +10,9 @@ nav:
   - 語法篇:
     - 基本介紹: syntax/intro.md
     - 基本資料型態: syntax/type.md
-    - 輸入輸出: syntax/inputoutput.md
+    - 輸入輸出: syntax/io.md
     - 運算子: syntax/operator.md
-    - 條件判斷: syntax/condition.md
-    - 迴圈: syntax/loop.md
+    - 條件判斷與迴圈: syntax/conditionandloop.md
     - 字串: syntax/string.md
     - 陣列: syntax/array.md
     - 函式與遞迴: syntax/functionandrecursive.md
