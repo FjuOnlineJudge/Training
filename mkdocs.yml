@@ -10,7 +10,7 @@ nav:
   - 語法篇:
     - 基本介紹: syntax/intro.md
     - 基本資料型態: syntax/type.md
-    - 輸入輸出: syntax/io.md
+    - 輸入輸出: syntax/inputoutput.md
     - 運算子: syntax/operator.md
     - 條件判斷與迴圈: syntax/conditionandloop.md
     - 字串: syntax/string.md
