@@ -57,6 +57,11 @@ nav:
     - 歐拉定理及相關應用: math/euler.md
     - 中國剩餘定理: math/chineseremaindertheorem.md
 
+theme:
+  name: material
+  features:
+    - navigation.tabs
+
 python:
    version: 2 # for unicode
    setup_py_install: true
@@ -66,6 +71,10 @@ python:
 markdown_extensions: 
     - mdx_math:
         enable_dollar_delimiter: True #for use of inline $..$
+    - pymdownx.details
+    - pymdownx.superfences
+    - pymdownx.highlight:
+        linenums: True
 
 # Required to load the MathJax javascript for the mdx_math.py
 extra_javascript: ['https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML']
