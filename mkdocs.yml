@@ -18,6 +18,8 @@ nav:
     - 函式與遞迴: syntax/functionandrecursive.md
     - 指標: syntax/pointer.md
     - struct: syntax/struct.md
+    # - C++函式庫:
+    #     - algorithm: syntax/algorithm.md
   - 雜項:
     - 複雜度: other/complexity.md
     - define: other/define.md
