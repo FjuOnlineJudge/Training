@@ -13,12 +13,14 @@ nav:
     - 輸入輸出: syntax/inputoutput.md
     - 運算子: syntax/operator.md
     - 條件判斷與迴圈: syntax/conditionandloop.md
-    - 字串: syntax/string.md
     - 陣列: syntax/array.md
+    - C 式字串: syntax/cstylestring.md
     - 函式與遞迴: syntax/functionandrecursive.md
     - 指標: syntax/pointer.md
     - struct: syntax/struct.md
-    # - C++函式庫:
+    - 函式庫:
+        - cctype: syntax/cctype.md
+        - cstring: syntax/cstring.md
     #     - algorithm: syntax/algorithm.md
   - 雜項:
     - 複雜度: other/complexity.md
@@ -69,12 +71,14 @@ python:
 #the third-party extenison mdx_math.py comes with a setup.py script
 # Thank you Dmitry Shachnev (https://github.com/mitya57/python-markdown-math) 
 markdown_extensions: 
+    - footnotes
     - mdx_math:
         enable_dollar_delimiter: True #for use of inline $..$
     - pymdownx.details
-    - pymdownx.superfences
     - pymdownx.highlight:
         linenums: True
+    - pymdownx.superfences
+    - pymdownx.tabbed
 
 # Required to load the MathJax javascript for the mdx_math.py
 extra_javascript: ['https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML']
