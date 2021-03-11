@@ -17,7 +17,7 @@ nav:
     - C 式字串: syntax/cstylestring.md
     - 函式與遞迴: syntax/functionandrecursive.md
     - 指標: syntax/pointer.md
-    - struct: syntax/struct.md
+    - 自定義結構: syntax/structure.md
     - 函式庫:
         - cctype: syntax/cctype.md
         - cstring: syntax/cstring.md

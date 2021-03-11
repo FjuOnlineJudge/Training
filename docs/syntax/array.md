@@ -7,7 +7,7 @@
 ```cpp
 type var[size];
 ```
-type：資料的型態，可為 `C/C++` 提供的[基礎資料型態](./type.md)或是自定義的型態[struct](./struct.md)。
+type：資料的型態，可為 `C/C++` 提供的[基礎資料型態](./type.md)或是[自定義的結構](./structure.md)。
 var：變數名稱
 size：陣列大小，必須是數字或常數(`C++` 的 `const`)，不可是變數。
 

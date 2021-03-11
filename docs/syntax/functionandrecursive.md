@@ -13,7 +13,7 @@ return_type function_name(parameter list) {
 
 - `function_name`: 函式的名稱
 - `parameter`: 函式的參數
-- `return_type`: 函式的回傳值型態，可為 `C/C++` 提供的[基礎資料型態](./type.md)或是自定義的型態[struct](./struct.md)，如果不需有回傳值，可設為 `void`，
+- `return_type`: 函式的回傳值型態，可為 `C/C++` 提供的[基礎資料型態](./type.md)或是[自定義的結構](./structure.md)，如果不需有回傳值，可設為 `void`，
 - `return` 是 `C/C++` 關鍵子，回傳函式結果，需與函式的回傳值型態相符。當函式的回傳值型態為 `void`，可以省略。
 
 === "範例 1"
@@ -215,3 +215,4 @@ int factorial(int i) {
 [^1]: [如何撰寫函式 (Function) - Michael Chen 的技術文件](https://michaelchen.tech/c-programming/function/)
 [^2]: [函式簡介 - openhome.cc](https://openhome.cc/Gossip/CppGossip/FunctionABC.html)
 [^3]: [遞迴 - openhome.cc](https://openhome.cc/Gossip/CGossip/Recursion.html)
+[^4]: [變數範圍 - openhome.cc](https://openhome.cc/Gossip/CppGossip/Scope.html)
