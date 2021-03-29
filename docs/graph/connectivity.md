@@ -1,4 +1,4 @@
-# Connectivity
+# 連通性 (Connectivity)
 
 一張任意兩點接連通的圖叫做連通圖，在實際情況，例如網路或電力的架設都希望線路是連通的，要是地方壞掉，我們希望影響能越小越好。在圖論中，有算法可以找出去掉那些部分會使得圖變成不連通的，以下詳細說明。
 
@@ -6,12 +6,12 @@
 
 根據 DFS 的順序（時間戳記），對邊進行分類，這些分類在之後的章節會用到。
 
-- Tree edge：連到兒子的邊
-- Back edge：子孫連到祖先的邊
-- Forward edge：連到子孫（非兒子）的邊
-- Cross edge：連到非直系血親的邊
-
-其中有向圖是四種邊都有，無向圖只有前面兩種。
+| 名稱                 | 指向     | 無向圖 | 有向圖 |
+| ------------------ | ------ | --- | --- |
+| 樹邊 (Tree edge)     | 兒子     | 有   | 有   |
+| 回邊 (Back edge)     | 祖先     | 有   | 有   |
+| 前向邊 (Forward edge) | 非兒子的子孫 | 無   | 有   |
+| 交錯邊 (Cross edge)   | 旁系血親   | 無   | 有   |
 
 ## 無向圖的雙連通
 
@@ -21,25 +21,53 @@
 
 在之前提到的例子，網路的架設，需要特別注意雙連通的問題，萬一有部分的線路（邊）或是設備（點）損壞，就有可能導致一部分的網路不連通。以下分別從點和邊的角度探討雙連通。
 
-## 點雙連通
+## Tarjan 算法：找 $low$ 函數
+
+Tarjan 算法，可解決許多連通性的問題，最核心的是找出每個點 $low$ 函數。
+
+-  $depth[u]$ : 點 $u$ 的深度。
+-  $low[u]$ : $u$ 在不經過父親連到自己的 Tree Edge 的情況下，所能到達祖先的最低深度。
+
+在無向圖中，只會遇到 Tree Edge 和 Back Edge，以下針對兩種情況說明：
+
+- Edge $u\to v$ is a tree edge: $v$ 是 $u$ 的兒子， $u$ 可能經由 $v$ 走到其他祖先，遞迴找尋 $low[v]$ ，再更新 $low[v]=min(low[u],low[v])$ 。
+- Edge $u\to v$ is a back edge: $v$ 是 $u$ 的祖先，更新 $low[v]=min(low[u],depth[v])$ 。
+
+```cpp
+int low[MXV], depth[MXV];
+bool visit[MXV];
+vector<int> G[MXV];
+
+void dfs(int now, int cur_depth) {
+  visit[now] = true;
+  depth[now] = low[now] = cur_depth;
+  for (auto i : G[now]) {
+    if (visit[i]) { // ancestor
+      low[now] = min(low[now], depth[i]);
+    } else { // offspring
+      dfs(i, cur_depth + 1);
+      low[now] = min(low[now], low[i]);
+    }
+  }
+  return;
+}
+```
+
+## 點雙連通：找割點
 
 要判斷一張圖是否點雙連通，就要檢查他是否有割點，如果沒有割點，則這張圖為點雙連通。
 
 割點：給定一張圖 $G$ ，如果移除點 $v$ 及連接 $v$ 的邊之後，圖 $G$ 不再連通，點 $v$ 都被稱為 $G$ 的一個割點（cut-vertex）或關節點（articulation-vertex, articulation-point)。
 
-至於怎麼找出割點，我們用 tarjan 演算法。首先我們用 DFS 為無向圖建立一顆 DFS 樹。無向圖的 DFS 樹只有 Tree Edge 和 Back Edge，所以一個節點是不可能透過其他子樹回到祖先的，如果不經過父節點的情況下，無法走回祖先，那麼該節點的父節點就是割點了。所以要判斷一個點是不是割點，就要判斷它的子節點能不能不經由它會到祖先，tanjan 演算法定義一個 $low$ 函數， $low$ 函數的定義為一個點透過自己本身和子孫，能走到最小祖先的深度， $low$ 函數可以在 DFS 時一並計算。
-有了 $low$ 函數，就可以判斷子節點是否不透過自己連回祖先。對於一個非根節點，如果有任一子節點不能不透過自己連回祖先，該點就是割點。對於根節點，如果子節點 $>1$ ，該點就是割點。我們整理成以下步驟：
+根據 $low$ 函數，以下兩種情況能判斷一個點為割點：
 
-- DFS：在 DFS 過程維護 $Low$ 函數
-- 非根節點：如果有任一子節點不能不透過自己連回祖先，該點就是割點
-- 根節點：如果子節點 $>1$ ，該點就是割點
-
-如果計算樹邊，那麼兒子的 $low$ 函數只要 $>=$ 父親自己的深度，如果不算樹邊的話，那麼兒子的 $low$ 函數需嚴格大於父親自己的深度。
+- 非根結點 $u$ ：存在一個孩子 $v, low[v]\leq depth[u]$ 。
+- 根節點 $root$ ：擁有 $\geq$ 兩個兒子。
 
 ```cpp
-int low[N], depth[N];
-bool is_cut_vertex[N], visit[N];
-vector<int> G[N];
+int low[MXV], depth[MXV];
+bool is_cut_vertex[MXV], visit[MXV];
+vector<int> G[MXV];
 
 void dfs(int now, int cur_depth) {
   visit[now] = true;
@@ -70,12 +98,17 @@ void dfs(int now, int cur_depth) {
 
 割邊：給定一張圖 $G$ ，如果移除邊 $e$ 及 $e$ 連接的點之後，圖 $G$ 再連通，邊 $e$ 都被稱為 $G$ 的一個割邊（cut-edge）或橋（bridge)。
 
-樹邊才有可能是橋，其他的邊拔除仍然可以藉由樹邊連通。類似地如果子節點只能從父親到它這條邊去走回祖先，那麼父親到兒子的這條邊就是橋。我們同樣可以用定義並維護 $low$ 函數，但是根節點不再是特例。
+樹邊才有可能是橋，其他的邊拔除仍然可以藉由樹邊連通。
+
+根據 $low$ 函數，以下情況能判斷一個點為割邊：
+
+-   樹邊 $u\to v$ ： $low[v] < depth[u]$ 。
+    -  $low[v] == depth[u]$ 代表有 $u,v$ 之間存在至少兩條路徑。
 
 ```cpp
-int low[N], depth[N];
-bool visit[N];
-vector<int> G[N];
+int low[MXV], depth[MXV];
+bool visit[MXV];
+vector<int> G[MXV];
 vector<pair<int, int>> my_cut_edge;
 
 void dfs(int now, int cur_depth, int parent) {
@@ -108,6 +141,10 @@ bool is_2_edge_connected(int n) {
 
 和前面點雙連通相同，時間複雜度為 $O(V+E)$ 
 
+???+ "重邊處理"
+    如果不處理重邊，有可能讓一條邊從非割邊判成割邊。
+    處理方式為用 `set,map` 存邊的兩點編號，當遇到一條往父親的邊 $e$ ，如果出現過相同起始點的邊 $e_1$ ，那麼 $e$ 不是樹邊，可以透過 $e$ 回到父親。
+
 ## 雙連通元件
 
 - 連通元件：一張圖 $G$ 有很多子圖，如果一個子圖 $G'$ 是連通的，我們稱之為連通元件（connected component)，如果一個連通元件滿足 "加上任意一個其他的點就不再連通"，則稱這樣的連通元件是 "極大的"(maximal)。
@@ -126,10 +163,10 @@ bool is_2_edge_connected(int n) {
 
 ```cpp
 typedef pair<int, int> PII;
-int low[N], depth[N];
-bool is_cut_vertex[N], visit[N];
-vector<int> G[N];
-vector<PII> BCC[N];
+int low[MXV], depth[MXV];
+bool is_cut_vertex[MXV], visit[MXV];
+vector<int> G[MXV];
+vector<PII> BCC[MXV];
 int bcc_cnt = 0;
 stack<PII> st;
 
@@ -253,3 +290,10 @@ int kosaraju(int n) {
   return scc_count;
 }
 ```
+
+## 例題
+
+-   割點模板題
+    -  [UVa00796 - Critical Links](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=737) 
+-   割邊模板題
+    -  [UVa00315 - Network](https://onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=251) 

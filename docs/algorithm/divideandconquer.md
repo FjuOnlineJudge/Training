@@ -10,10 +10,10 @@
 
 - 切割：把序列分成兩半然後遞迴。
 - 終止條件：直到序列長度為 1，這時候已為一個排好的序列，直接回傳。
-- 合併：利用傳回來的兩序列（左序列、右序列）進行排序。合併的方法為比較兩序列最左邊的元素，較小的元素排在前頭，要特別注意某個序列為空的情況。
-    實作時需多開一個陣列暫存，開兩個整數 $L,R$ 分別維護左右序列目前比較的位置。
+-   合併：利用傳回來的兩序列（左序列、右序列）進行排序。合併的方法為比較兩序列最左邊的元素，較小的元素排在前頭，要特別注意某個序列為空的情況。
+      實作時需多開一個陣列暫存，開兩個整數 $L,R$ 分別維護左右序列目前比較的位置。
 
-合併排序法是穩定的演算法，會遞迴 $\log N$ 層，合併的時間複雜度為 $O(N)$，因此時間複雜度為 $O(N\log N)$。
+合併排序法是穩定的演算法，會遞迴 $\log N$ 層，合併的時間複雜度為 $O(N)$ ，因此時間複雜度為 $O(N\log N)$ 。
 
 ```cpp
 using namespace std;
@@ -100,11 +100,11 @@ void sol(int L, int R) { // [L,R)
 
 ## 快速排序法
 
-- 切割：選定一個基準點 $x$，將其他數字分成兩堆，$< x$ 的數字排在 $x$ 前面，$\geq x$ 的數字排放在 $x$ 的後面，分堆完成，再分別遞迴排序兩堆。
+- 切割：選定一個基準點 $x$ ，將其他數字分成兩堆， $< x$ 的數字排在 $x$ 前面， $\geq x$ 的數字排放在 $x$ 的後面，分堆完成，再分別遞迴排序兩堆。
 - 終止條件：直到序列長度為 1，這時候已為一個排好的序列，直接回傳。
 - 合併：已經排好順序，不需要額外的合併動作。
 
-快速排序法是一種不穩定的演算法，最好時間複雜度為 $O(N\log N)$，最差時間複雜度為$O(N^2)$。
+快速排序法是一種不穩定的演算法，最好時間複雜度為 $O(N\log N)$ ，最差時間複雜度為 $O(N^2)$ 。
 
 ## 二維平面上最近點對
 
@@ -133,74 +133,64 @@ using namespace std;
 using dvt = double;
 const dvt INF = 1e20;
 const int MXN = 1e5 + 5;
-struct dot
-{
-    dvt x, y;
+struct dot {
+  dvt x, y;
 } p[MXN], tmp[MXN];
 
 bool cmpX(dot a, dot b) { return a.x < b.x; }
 bool cmpY(dot a, dot b) { return a.y < b.y; }
 
-dvt getDis(dot a, dot b)
-{
-    return sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
+dvt getDis(dot a, dot b) {
+  return sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
 }
 
-dvt nearestPair(int L, int R)
-{
-    if (L == R)
-    {
-        return INF;
+dvt nearestPair(int L, int R) {
+  if (L == R) {
+    return INF;
+  }
+  if (L + 1 == R) {
+    return getDis(p[L], p[R]);
+  }
+  int M = (L + R) >> 1;
+  dvt d = min(nearestPair(L, M), nearestPair(M, R));
+  int k = 0;
+  for (int i = L; i <= R; ++i) {
+    if (fabs(p[i].x - p[M].x) <= d) {
+      tmp[k++] = p[i];
     }
-    if (L + 1 == R)
-    {
-        return getDis(p[L], p[R]);
+  }
+  sort(tmp, tmp + k, cmpY);
+  for (int i = 0; i < k; ++i) {
+    for (int j = i + 1; j < k && tmp[j].y - tmp[i].y < d; ++j) {
+      double d2 = getDis(tmp[i], tmp[j]);
+      d = min(d, d2);
     }
-    int M = (L + R) >> 1;
-    dvt d = min(nearestPair(L, M), nearestPair(M, R));
-    int k = 0;
-    for (int i = L; i <= R; ++i)
-    {
-        if (fabs(p[i].x - p[M].x) <= d)
-        {
-            tmp[k++] = p[i];
-        }
-    }
-    sort(tmp, tmp + k, cmpY);
-    for (int i = 0; i < k; ++i)
-    {
-        for (int j = i + 1; j < k && tmp[j].y - tmp[i].y < d; ++j)
-        {
-            double d2 = getDis(tmp[i], tmp[j]);
-            d = min(d, d2);
-        }
-    }
-    return d;
+  }
+  return d;
 }
 
-int main()
-{
-    int n;
-    scanf("%d", &n);
-    for (int i = 0; i < n; ++i)
-    {
-        scanf("%lf%lf", &p[i].x, &p[i].y);
-    }
-    sort(p, p + n, cmpX);
-    dvt res = nearestPair(0, n - 1);
-    printf("%.2lf\n", res);
+int main() {
+  int n;
+  scanf("%d", &n);
+  for (int i = 0; i < n; ++i) {
+    scanf("%lf%lf", &p[i].x, &p[i].y);
+  }
+  sort(p, p + n, cmpX);
+  dvt res = nearestPair(0, n - 1);
+  printf("%.2lf\n", res);
 }
 ```
 
 ## 其他分治題目
 
 ???+ "UVA 1608：Non-boring sequences"
-    給定一個序列 $A$，判斷使否每一個連續的子序列，都有一個數字，只在該子序列出現一次。
+    給定一個序列 $A$ ，判斷使否每一個連續的子序列，都有一個數字，只在該子序列出現一次。
     ??? "解題思路"
-        只要在序列 $[a_L,a_R]$ 中找到一個符合的數字 $A_i=x$，那麼所有在 $a_L$ 到 $a_R$ 之間，包含 $a_i$ 的連續子序列都符合，接著再判斷 $[a_L,i-1]$ 和 $[i+1,a_R]$ 兩個子序列是否符合即可。
+        只要在序列 $[a_L,a_R]$ 中找到一個符合的數字 $A_i=x$ ，那麼所有在 $a_L$ 到 $a_R$ 之間，包含 $a_i$ 的連續子序列都符合，接著再判斷 $[a_L,i-1]$ 和 $[i+1,a_R]$ 兩個子序列是否符合即可。
         為了提升搜尋符合的數字，使用中途相遇法，從兩邊一起從中間找尋。
     ??? "參考程式碼"
-        作者：[allem40306](https://github.com/allem40306)
+        作者： [allem40306](https://github.com/allem40306) 
+    
         ```cpp
         #include <iostream>
         #include <map>
@@ -275,6 +265,6 @@ int main()
 -   二維平面上最近點對
     -  [UVa 10245 - The Closest Pair Problem](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1186) 
 
+[^1]:  [計算幾何 平面最近點對 nlogn 分治演算法 求平面中距離最近的兩點 in IT 閱讀](https://www.itread01.com/content/1544101384.html) 
 
-[^1]:  [計算幾何 平面最近點對 nlogn分治演算法 求平面中距離最近的兩點 in IT閱讀](https://www.itread01.com/content/1544101384.html) 
 [^2]:  [平面最近点对 in OI WiKi](https://oi-wiki.org/geometry/nearest-points/) 
