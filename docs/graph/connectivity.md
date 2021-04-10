@@ -13,11 +13,14 @@
 | 前向邊 (Forward edge) | 非兒子的子孫 | 無   | 有   |
 | 交錯邊 (Cross edge)   | 旁系血親   | 無   | 有   |
 
+![](images/dfsEdge.png)
+
 ## 無向圖的雙連通
 
-- 點連通度：最少要移除多少個點才會讓整張圖不再連通
-- 邊連通度：最少要移除多少條邊才會讓整張圖不再連通
-- 雙連通：移除任意一個 "x" 後，圖依然是連通的，就稱為 "x - 雙連通"。依照 "x" 的不同，可分為 "點雙連通" 及 "邊雙連通"。
+- 點連通度：最少要移除多少個點才會讓整張圖不再連通。
+- 邊連通度：最少要移除多少條邊才會讓整張圖不再連通。
+- 點雙連通：移除任意一個點後，圖依然是連通的(點連通度 $>1$)。
+- 邊雙連通：移除任意一個邊後，圖依然是連通的(邊連通度 $>1$)。
 
 在之前提到的例子，網路的架設，需要特別注意雙連通的問題，萬一有部分的線路（邊）或是設備（點）損壞，就有可能導致一部分的網路不連通。以下分別從點和邊的角度探討雙連通。
 
@@ -59,6 +62,8 @@ void dfs(int now, int cur_depth) {
 
 割點：給定一張圖 $G$ ，如果移除點 $v$ 及連接 $v$ 的邊之後，圖 $G$ 不再連通，點 $v$ 都被稱為 $G$ 的一個割點（cut-vertex）或關節點（articulation-vertex, articulation-point)。
 
+![](images/cutVertex.png)
+
 根據 $low$ 函數，以下兩種情況能判斷一個點為割點：
 
 - 非根結點 $u$ ：存在一個孩子 $v, low[v]\leq depth[u]$ 。
@@ -92,11 +97,13 @@ void dfs(int now, int cur_depth) {
 
 這個演算法主要是做 DFS，所以時間複雜度為 $O(V+E)$ 
 
-## 邊雙連通
+## 邊雙連通：找割邊
 
 和點連通相似，要判斷一張圖是否邊雙連通，就要檢查他是否有割邊，如果沒有割邊，則這張圖為邊雙連通。
 
 割邊：給定一張圖 $G$ ，如果移除邊 $e$ 及 $e$ 連接的點之後，圖 $G$ 再連通，邊 $e$ 都被稱為 $G$ 的一個割邊（cut-edge）或橋（bridge)。
+
+![](images/cutEdge.png)
 
 樹邊才有可能是橋，其他的邊拔除仍然可以藉由樹邊連通。
 
@@ -215,13 +222,96 @@ void dfs(int now, int cur_depth, int f) {
 
 - 強連通：對於有向圖上的兩點 $A,B$ ，若存在一條路徑從 $A$ 到 $B$ ，以及存在一條路徑從 $B$ 到 $A$ ，則我們稱 $A,B$ 兩點強連通（strongly connected)
 - 強連通圖：如果一張有向圖上任意兩點皆強連通，則這張圖為強連通圖（strongly connected graph)
-- 強連通元件：如果一張圖中的某個子圖是一張強連通圖，我們稱這個子圖為強連通子圖（strongly connected subgraph)，或是強連通元件（strongly connected component)
+- 強連通元件：如果一張圖中的某個子圖是一張強連通圖，我們稱這個子圖為強連通子圖（strongly connected subgraph)，或是強連通元件（strongly connected component, SCC)
 
 強連通為有向圖中很重要的性質，如果將強連通元件各自縮成一點，新圖是一張有向無環圖（Directed Acyclic Graph, DAG)，DAG 有許多強力性質，可以讓圖上的問題變得有解，有些圖論題目一開始會先找出 SCC 來解題。
 
 ## 強連通元件
+這裡會介紹兩種做法，Tarjan 和 Kosaraju's algorithm。
 
-Tarjan 演算法也可以找出強連通元件，不過邏輯會很複雜，所以我們介紹另一種演算法叫做 Kosaraju's algorithm。
+### Tarjan
+Tarjan 的思維如下：SCC 是由一個或多個環組成，$dep$ 改成維護節點的時間戳，當一個節點深度等於 $low$ 函數時，代表找到一個 SCC。和找雙連通元件相似，開一個 `stack` 維護目前走過的點。
+
+以下是程式碼，和上述相似，此算法會做一次 $DFS$ ，時間複雜度為 $O(V+E)$。
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+const int MXV = 100005;
+int sccCnt, sccNo[MXV];
+vector<int> G[MXV], dep(MXV), low(MXV);
+bitset<MXV> isStack, isRoot;
+stack<int> st;
+int t;
+
+void init(int n, int m)
+{
+    t = 0;
+    fill(dep.begin(), dep.end(), 0);
+    sccCnt = 0;
+    memset(sccNo, 0, sizeof(sccNo));
+    isStack.reset();
+    isRoot.set();
+    while (!st.empty())
+    {
+        st.pop();
+    }
+    for (int i = 1; i <= n; ++i)
+    {
+        G[i].clear();
+    }
+    for (int i = 0, x, y; i != m; ++i)
+    {
+        cin >> x >> y;
+        G[x].push_back(y);
+    }
+}
+
+void tarjan(int u)
+{
+    dep[u] = low[u] = ++t;
+    st.push(u);
+    isStack[u] = true;
+    for (auto v : G[u])
+    {
+        if (dep[v] == 0)
+        {
+            tarjan(v);
+            low[u] = min(low[u], low[v]);
+        }
+        else if (isStack[v])
+        {
+            low[u] = min(low[u], dep[v]);
+        }
+    }
+    if (low[u] == dep[u])
+    {
+        ++sccCnt;
+        int tmp;
+        do
+        {
+            tmp = st.top();
+            st.pop();
+            isStack[tmp] = false;
+            sccNo[tmp] = sccCnt;
+        } while (tmp != u);
+    }
+}
+
+int main()
+{
+    init(n, m); // |V| = n, |E| = m
+    for (int i = 1; i <= n; ++i)
+    {
+        if (dep[i] == 0)
+        {
+            tarjan(i);
+        }
+    }
+}
+```
+
+### Kosaraju's algorithm
 
 Kosaraju's algorithm 基於觀察到的兩件事而成，第一件事為將原圖每條邊都反向，得到的新圖，所有 SCC 的位置依舊相同。第二件事為如果我們用 "正確的" 順序遍歷圖，每次遍歷到的點視為同一個 SCC，那麼是有可能可以找出正確的 SCC 的。
 我們分成三種情況來討論那樣才是正確的遍歷順序。
@@ -243,7 +333,7 @@ Kosaraju's algorithm 基於觀察到的兩件事而成，第一件事為將原�
 - 如果 $B$ 先被拜訪， $B$ 一定會走到 $A$ ， $A$ 拜訪完畢時， $B$ 一定還沒拜訪完畢，因此 $A$ 的離開戳記依然會小於 $B$ 的離開戳記。
 - 得證 $A$ 的離開戳記一定會小於 $B$ 的離開戳記，即 $B$ 在序列中會在 $A$ 前面。
 
-以下是程式碼，此算法會做兩次 $DFS$ ，時間複雜度為 $O(V+E)$ 。。
+以下是程式碼，此算法會做兩次 $DFS$ ，時間複雜度為 $O(V+E)$ ，效率比 Tarjan 低一些，但 Kosaraju's algorithm 較容易實作。
 
 ```cpp
 vector<int> G[MXN];
@@ -252,42 +342,53 @@ vector<int> leave;
 bitset<MXN> visit;
 int at_scc[MXN];
 
-void dfs_for_stamp(int now) {
-  visit[now] = true;
-  for (auto i : rev_G[now]) {
-    if (!visit[i]) {
-      dfs_for_stamp(i);
+void dfs_for_stamp(int now)
+{
+    visit[now] = true;
+    for (auto i : rev_G[now])
+    {
+        if (!visit[i])
+        {
+            dfs_for_stamp(i);
+        }
     }
-  }
-  leave.push_back(now);
+    leave.push_back(now);
 }
 
-void dfs_for_scc(int now, int cur_scc) {
-  visit[now] = true;
-  at_scc[now] = cur_scc;
-  for (auto i : G[now]) {
-    if (!visit[i]) {
-      dfs_for_scc(i, cur_scc);
+void dfs_for_scc(int now, int cur_scc)
+{
+    visit[now] = true;
+    at_scc[now] = cur_scc;
+    for (auto i : G[now])
+    {
+        if (!visit[i])
+        {
+            dfs_for_scc(i, cur_scc);
+        }
     }
-  }
 }
 
-int kosaraju(int n) {
-  visit.reset();
-  leave.clear();
-  for (int i = 0; i < n; ++i) {
-    if (!visit[i]) {
-      dfs_for_stamp(i);
+int kosaraju(int n)
+{
+    visit.reset();
+    leave.clear();
+    for (int i = 0; i < n; ++i)
+    {
+        if (!visit[i])
+        {
+            dfs_for_stamp(i);
+        }
     }
-  }
-  visit.reset();
-  int scc_count = 0;
-  for (int i = n - 1; i >= 0; --i) {
-    if (!visit[leave[i]]) {
-      dfs_for_scc(leave[i], scc_count++);
+    visit.reset();
+    int scc_count = 0;
+    for (int i = n - 1; i >= 0; --i)
+    {
+        if (!visit[leave[i]])
+        {
+            dfs_for_scc(leave[i], scc_count++);
+        }
     }
-  }
-  return scc_count;
+    return scc_count;
 }
 ```
 
@@ -297,3 +398,10 @@ int kosaraju(int n) {
     -  [UVa00796 - Critical Links](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=737) 
 -   割邊模板題
     -  [UVa00315 - Network](https://onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=251) 
+- 雙連通元件
+    - [UVa10972 - RevolC FaeLoN](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=547&problem=1913&mosmsg=Submission+received+with+ID+14127122)
+- 強連通元件
+    - [UVa11504 - Dominos](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=0&problem=2499&mosmsg=Submission+received+with+ID+26283005)
+
+[^1]: [有向圖強連通分量的Tarjan算法 in https://byvoid.com/](https://byvoid.com/)
+[^2]: [有向圖的強連通元件Strongly Connected Component in 天邊。世界](https://timbian.wordpress.com/2015/02/16/strongly-connected-component/)
