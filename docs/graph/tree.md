@@ -53,13 +53,36 @@
     - Complete Binary Tree：每層節點全滿，除了最後一層，最後一層節點靠左。
     - Perfect Binary Tree：每層節點全滿，perfect binary tree 也是 full binary tree 和 complete binary tree。
 
-### 儲存
+## 儲存
+### 紀錄子節點
+最常遇到的情況。用 Adjacency Matrix 或 Adjacency List。
 
-#### 陣列
+### 紀錄父節點
+```cpp
+int par[MXV];
+```
+### 二元樹
+紀錄左子節點和右子節點
+```cpp
+int Lc[MXV], Rc[MXV];
+// or
+int chlid[MXV][2];
+```
 
-陣列是最簡單的一種，根據根節點可為 $0$ 或 $1$ ，詳細情況如下：
+### Complete Binary Tree
+- 根據 Complete Binary Tree，可以開一個陣列，從上到下，從左到右依序編號。
+- 子節點
+	- 根節點可為 $0$ 或 $1$ 
+	-   根為 $0$ ，左子節點是 $2x+1$ ，右子節點是 $2x+2$ 
+	    - ![](images/tree_array_1.jpg)
+	-   根為 $1$ ，左子節點是 $2x$ ，右子節點是 $2x+1$ 
+	    - ![](images/tree_array_2.jpg)
 
--   根為 $0$ ，左子節點是 $2x+1$ ，右子節點是 $2x+2$ 
-    - ![](images/tree_array_1.jpg)
--   根為 $1$ ，左子節點是 $2x$ ，右子節點是 $2x+1$ 
-    - ![](images/tree_array_2.jpg)
+### 利用指標儲存的樹
+以下為常見用指標儲存的樹，這裡不提如何實作。
+。- 二元搜尋(平衡)樹
+	- 樹的旋轉
+- 線段樹及相關可支援區間查詢的樹
+	- 區間刪除
+	- 區間搬移
+

@@ -4,9 +4,9 @@ nav:
   - 首頁: index.md
   - 工具:
     - 命令列: tool/cmd.md
-    - Code::Blocks: tool/codeBlocks.md
-    - Sublime Text: tool/sublimeText.md
-    - VS Code: tool/vsCode.md
+    - Code::Blocks: tool/codeblocks.md
+    - Sublime Text: tool/sublimetext.md
+    - VS Code: tool/vscode.md
   - 語法篇:
     - 基本介紹: syntax/intro.md
     - 基本資料型態: syntax/type.md
