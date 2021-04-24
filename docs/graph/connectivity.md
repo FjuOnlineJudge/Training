@@ -19,8 +19,8 @@
 
 - 點連通度：最少要移除多少個點才會讓整張圖不再連通。
 - 邊連通度：最少要移除多少條邊才會讓整張圖不再連通。
-- 點雙連通：移除任意一個點後，圖依然是連通的(點連通度 $>1$)。
-- 邊雙連通：移除任意一個邊後，圖依然是連通的(邊連通度 $>1$)。
+- 點雙連通：移除任意一個點後，圖依然是連通的（點連通度 $>1$ )。
+- 邊雙連通：移除任意一個邊後，圖依然是連通的（邊連通度 $>1$ )。
 
 在之前提到的例子，網路的架設，需要特別注意雙連通的問題，萬一有部分的線路（邊）或是設備（點）損壞，就有可能導致一部分的網路不連通。以下分別從點和邊的角度探討雙連通。
 
@@ -227,12 +227,14 @@ void dfs(int now, int cur_depth, int f) {
 強連通為有向圖中很重要的性質，如果將強連通元件各自縮成一點，新圖是一張有向無環圖（Directed Acyclic Graph, DAG)，DAG 有許多強力性質，可以讓圖上的問題變得有解，有些圖論題目一開始會先找出 SCC 來解題。
 
 ## 強連通元件
+
 這裡會介紹兩種做法，Tarjan 和 Kosaraju's algorithm。
 
 ### Tarjan
-Tarjan 的思維如下：SCC 是由一個或多個環組成，$dep$ 改成維護節點的時間戳，當一個節點深度等於 $low$ 函數時，代表找到一個 SCC。和找雙連通元件相似，開一個 `stack` 維護目前走過的點。
 
-以下是程式碼，和上述相似，此算法會做一次 $DFS$ ，時間複雜度為 $O(V+E)$。
+Tarjan 的思維如下：SCC 是由一個或多個環組成， $dep$ 改成維護節點的時間戳，當一個節點深度等於 $low$ 函數時，代表找到一個 SCC。和找雙連通元件相似，開一個 `stack` 維護目前走過的點。
+
+以下是程式碼，和上述相似，此算法會做一次 $DFS$ ，時間複雜度為 $O(V+E)$ 。
 
 ```cpp
 #include <bits/stdc++.h>
@@ -244,70 +246,56 @@ bitset<MXV> isStack, isRoot;
 stack<int> st;
 int t;
 
-void init(int n, int m)
-{
-    t = 0;
-    fill(dep.begin(), dep.end(), 0);
-    sccCnt = 0;
-    memset(sccNo, 0, sizeof(sccNo));
-    isStack.reset();
-    isRoot.set();
-    while (!st.empty())
-    {
-        st.pop();
-    }
-    for (int i = 1; i <= n; ++i)
-    {
-        G[i].clear();
-    }
-    for (int i = 0, x, y; i != m; ++i)
-    {
-        cin >> x >> y;
-        G[x].push_back(y);
-    }
+void init(int n, int m) {
+  t = 0;
+  fill(dep.begin(), dep.end(), 0);
+  sccCnt = 0;
+  memset(sccNo, 0, sizeof(sccNo));
+  isStack.reset();
+  isRoot.set();
+  while (!st.empty()) {
+    st.pop();
+  }
+  for (int i = 1; i <= n; ++i) {
+    G[i].clear();
+  }
+  for (int i = 0, x, y; i != m; ++i) {
+    cin >> x >> y;
+    G[x].push_back(y);
+  }
 }
 
-void tarjan(int u)
-{
-    dep[u] = low[u] = ++t;
-    st.push(u);
-    isStack[u] = true;
-    for (auto v : G[u])
-    {
-        if (dep[v] == 0)
-        {
-            tarjan(v);
-            low[u] = min(low[u], low[v]);
-        }
-        else if (isStack[v])
-        {
-            low[u] = min(low[u], dep[v]);
-        }
+void tarjan(int u) {
+  dep[u] = low[u] = ++t;
+  st.push(u);
+  isStack[u] = true;
+  for (auto v : G[u]) {
+    if (dep[v] == 0) {
+      tarjan(v);
+      low[u] = min(low[u], low[v]);
+    } else if (isStack[v]) {
+      low[u] = min(low[u], dep[v]);
     }
-    if (low[u] == dep[u])
-    {
-        ++sccCnt;
-        int tmp;
-        do
-        {
-            tmp = st.top();
-            st.pop();
-            isStack[tmp] = false;
-            sccNo[tmp] = sccCnt;
-        } while (tmp != u);
-    }
+  }
+  if (low[u] == dep[u]) {
+    ++sccCnt;
+    int tmp;
+    do {
+      tmp = st.top();
+      st.pop();
+      isStack[tmp] = false;
+      sccNo[tmp] = sccCnt;
+    } while (tmp != u);
+  }
 }
 
-int main()
-{
-    init(n, m); // |V| = n, |E| = m
-    for (int i = 1; i <= n; ++i)
-    {
-        if (dep[i] == 0)
-        {
-            tarjan(i);
-        }
+int main() {
+  init(n, m); // |V| = n, |E| = m
+  for (int i = 1; i <= n; ++i) {
+    if (dep[i] == 0) {
+      tarjan(i);
     }
+  }
 }
 ```
 
@@ -342,53 +330,42 @@ vector<int> leave;
 bitset<MXN> visit;
 int at_scc[MXN];
 
-void dfs_for_stamp(int now)
-{
-    visit[now] = true;
-    for (auto i : rev_G[now])
-    {
-        if (!visit[i])
-        {
-            dfs_for_stamp(i);
-        }
+void dfs_for_stamp(int now) {
+  visit[now] = true;
+  for (auto i : rev_G[now]) {
+    if (!visit[i]) {
+      dfs_for_stamp(i);
     }
-    leave.push_back(now);
+  }
+  leave.push_back(now);
 }
 
-void dfs_for_scc(int now, int cur_scc)
-{
-    visit[now] = true;
-    at_scc[now] = cur_scc;
-    for (auto i : G[now])
-    {
-        if (!visit[i])
-        {
-            dfs_for_scc(i, cur_scc);
-        }
+void dfs_for_scc(int now, int cur_scc) {
+  visit[now] = true;
+  at_scc[now] = cur_scc;
+  for (auto i : G[now]) {
+    if (!visit[i]) {
+      dfs_for_scc(i, cur_scc);
     }
+  }
 }
 
-int kosaraju(int n)
-{
-    visit.reset();
-    leave.clear();
-    for (int i = 0; i < n; ++i)
-    {
-        if (!visit[i])
-        {
-            dfs_for_stamp(i);
-        }
+int kosaraju(int n) {
+  visit.reset();
+  leave.clear();
+  for (int i = 0; i < n; ++i) {
+    if (!visit[i]) {
+      dfs_for_stamp(i);
     }
-    visit.reset();
-    int scc_count = 0;
-    for (int i = n - 1; i >= 0; --i)
-    {
-        if (!visit[leave[i]])
-        {
-            dfs_for_scc(leave[i], scc_count++);
-        }
+  }
+  visit.reset();
+  int scc_count = 0;
+  for (int i = n - 1; i >= 0; --i) {
+    if (!visit[leave[i]]) {
+      dfs_for_scc(leave[i], scc_count++);
     }
-    return scc_count;
+  }
+  return scc_count;
 }
 ```
 
@@ -398,10 +375,11 @@ int kosaraju(int n)
     -  [UVa00796 - Critical Links](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=737) 
 -   割邊模板題
     -  [UVa00315 - Network](https://onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=251) 
-- 雙連通元件
-    - [UVa10972 - RevolC FaeLoN](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=547&problem=1913&mosmsg=Submission+received+with+ID+14127122)
-- 強連通元件
-    - [UVa11504 - Dominos](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=0&problem=2499&mosmsg=Submission+received+with+ID+26283005)
+-   雙連通元件
+    -  [UVa10972 - RevolC FaeLoN](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=547&problem=1913&mosmsg=Submission+received+with+ID+14127122) 
+-   強連通元件
+    -  [UVa11504 - Dominos](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=0&problem=2499&mosmsg=Submission+received+with+ID+26283005) 
 
-[^1]: [有向圖強連通分量的Tarjan算法 in https://byvoid.com/](https://byvoid.com/)
-[^2]: [有向圖的強連通元件Strongly Connected Component in 天邊。世界](https://timbian.wordpress.com/2015/02/16/strongly-connected-component/)
+[^1]:  [有向圖強連通分量的 Tarjan 算法 in https://byvoid.com/](https://byvoid.com/) 
+
+[^2]:  [有向圖的強連通元件 Strongly Connected Component in 天邊。世界](https://timbian.wordpress.com/2015/02/16/strongly-connected-component/) 
