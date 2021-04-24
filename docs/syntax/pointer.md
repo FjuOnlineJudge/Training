@@ -158,3 +158,5 @@ int main() {
   cout << a << ' ' << b << '\n'; // 2 1
 }
 ```
+
+[^1]: [指標與位址 in openhome.cc](https://openhome.cc/Gossip/CGossip/Pointer.html)
