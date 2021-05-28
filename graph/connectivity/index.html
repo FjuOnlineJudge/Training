@@ -1,0 +1,2115 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
+    
+    
+      
+        <title>連通性 - FJCU CPC 訓練網</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#connectivity" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="FJCU CPC 訓練網" class="md-header__button md-logo" aria-label="FJCU CPC 訓練網" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FJCU CPC 訓練網
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              連通性
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      首頁
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tool/cmd/" class="md-tabs__link">
+        工具
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../syntax/intro/" class="md-tabs__link">
+        語法篇
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../other/complexity/" class="md-tabs__link">
+        雜項
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../dataStructure/stl/" class="md-tabs__link">
+        資料結構
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../algorithm/" class="md-tabs__link">
+        基礎演算法
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        圖論
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../dynamicProgramming/intro/" class="md-tabs__link">
+        動態規劃
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../math/primeandfactor/" class="md-tabs__link">
+        數論
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FJCU CPC 訓練網" class="md-nav__button md-logo" aria-label="FJCU CPC 訓練網" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    FJCU CPC 訓練網
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        首頁
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        工具
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="工具" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          工具
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool/cmd/" class="md-nav__link">
+        命令列
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool/codeblocks.md" class="md-nav__link">
+        Code::Blocks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool/sublimetext.md" class="md-nav__link">
+        Sublime Text
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool/vscode.md" class="md-nav__link">
+        VS Code
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        語法篇
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="語法篇" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          語法篇
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntax/intro/" class="md-nav__link">
+        基本介紹
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntax/type/" class="md-nav__link">
+        基本資料型態
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntax/inputoutput/" class="md-nav__link">
+        輸入輸出
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntax/operator/" class="md-nav__link">
+        運算子
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntax/conditionandloop/" class="md-nav__link">
+        條件判斷與迴圈
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntax/array/" class="md-nav__link">
+        陣列
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntax/cstylestring/" class="md-nav__link">
+        C 式字串
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntax/functionandrecursive/" class="md-nav__link">
+        函式與遞迴
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntax/pointer/" class="md-nav__link">
+        指標
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntax/structure/" class="md-nav__link">
+        自定義結構
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_11" type="checkbox" id="__nav_3_11" >
+      
+      <label class="md-nav__link" for="__nav_3_11">
+        函式庫
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="函式庫" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_11">
+          <span class="md-nav__icon md-icon"></span>
+          函式庫
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntax/cctype/" class="md-nav__link">
+        cctype
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntax/cstring/" class="md-nav__link">
+        cstring
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        雜項
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="雜項" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          雜項
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../other/complexity/" class="md-nav__link">
+        複雜度
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../other/define/" class="md-nav__link">
+        define
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        資料結構
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="資料結構" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          資料結構
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dataStructure/stl/" class="md-nav__link">
+        標準函式庫
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dataStructure/stack/" class="md-nav__link">
+        堆疊
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dataStructure/queue/" class="md-nav__link">
+        佇列
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dataStructure/list/" class="md-nav__link">
+        List
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dataStructure/heap/" class="md-nav__link">
+        堆
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dataStructure/bst/" class="md-nav__link">
+        二元平衡樹
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        基礎演算法
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="基礎演算法" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          基礎演算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/" class="md-nav__link">
+        何謂演算法
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/enumerate/" class="md-nav__link">
+        枚舉
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/binarysearch/" class="md-nav__link">
+        二分搜
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/divideandconquer/" class="md-nav__link">
+        分治
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/greedy/" class="md-nav__link">
+        貪心
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+      
+      <label class="md-nav__link" for="__nav_7">
+        圖論
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="圖論" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          圖論
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        圖論簡介
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concept/" class="md-nav__link">
+        圖論概念
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../save/" class="md-nav__link">
+        圖的儲存
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../traverse/" class="md-nav__link">
+        圖的遍歷
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../timestamp/" class="md-nav__link">
+        時間戳記
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tree/" class="md-nav__link">
+        樹
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lca/" class="md-nav__link">
+        最低共同祖先
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../disjointset/" class="md-nav__link">
+        並查集
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mst/" class="md-nav__link">
+        最小生成樹
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shortestpath/" class="md-nav__link">
+        最短路徑
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../euler/" class="md-nav__link">
+        歐拉回路
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hamilton/" class="md-nav__link">
+        哈密頓
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topology/" class="md-nav__link">
+        拓譜排序
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          連通性
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        連通性
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dfs" class="md-nav__link">
+    DFS 邊分類
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    無向圖的雙連通
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tarjan-low" class="md-nav__link">
+    Tarjan 算法：找 low 函數
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    點雙連通：找割點
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    邊雙連通：找割邊
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    雙連通元件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    有向圖的強連通
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    強連通元件
+  </a>
+  
+    <nav class="md-nav" aria-label="強連通元件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tarjan" class="md-nav__link">
+    Tarjan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kosarajus-algorithm" class="md-nav__link">
+    Kosaraju's algorithm
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    例題
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        動態規劃
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="動態規劃" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          動態規劃
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dynamicProgramming/intro/" class="md-nav__link">
+        動態規劃簡介
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dynamicProgramming/knapsack/" class="md-nav__link">
+        背包 DP
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        數論
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="數論" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          數論
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/primeandfactor/" class="md-nav__link">
+        質數和因數
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/mod/" class="md-nav__link">
+        模
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/euler/" class="md-nav__link">
+        歐拉定理及相關應用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/chineseremaindertheorem/" class="md-nav__link">
+        中國剩餘定理
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dfs" class="md-nav__link">
+    DFS 邊分類
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    無向圖的雙連通
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tarjan-low" class="md-nav__link">
+    Tarjan 算法：找 low 函數
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    點雙連通：找割點
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    邊雙連通：找割邊
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    雙連通元件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    有向圖的強連通
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    強連通元件
+  </a>
+  
+    <nav class="md-nav" aria-label="強連通元件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tarjan" class="md-nav__link">
+    Tarjan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kosarajus-algorithm" class="md-nav__link">
+    Kosaraju's algorithm
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    例題
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="connectivity">連通性 (Connectivity)</h1>
+<p>一張任意兩點接連通的圖叫做連通圖，在實際情況，例如網路或電力的架設都希望線路是連通的，要是地方壞掉，我們希望影響能越小越好。在圖論中，有算法可以找出去掉那些部分會使得圖變成不連通的，以下詳細說明。</p>
+<h2 id="dfs">DFS 邊分類</h2>
+<p>根據 DFS 的順序（時間戳記），對邊進行分類，這些分類在之後的章節會用到。</p>
+<table>
+<thead>
+<tr>
+<th>名稱</th>
+<th>指向</th>
+<th>無向圖</th>
+<th>有向圖</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>樹邊 (Tree edge)</td>
+<td>兒子</td>
+<td>有</td>
+<td>有</td>
+</tr>
+<tr>
+<td>回邊 (Back edge)</td>
+<td>祖先</td>
+<td>有</td>
+<td>有</td>
+</tr>
+<tr>
+<td>前向邊 (Forward edge)</td>
+<td>非兒子的子孫</td>
+<td>無</td>
+<td>有</td>
+</tr>
+<tr>
+<td>交錯邊 (Cross edge)</td>
+<td>旁系血親</td>
+<td>無</td>
+<td>有</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="../images/dfsEdge.png" /></p>
+<h2 id="_1">無向圖的雙連通</h2>
+<ul>
+<li>點連通度：最少要移除多少個點才會讓整張圖不再連通。</li>
+<li>邊連通度：最少要移除多少條邊才會讓整張圖不再連通。</li>
+<li>點雙連通：移除任意一個點後，圖依然是連通的（點連通度 <script type="math/tex">>1</script> )。</li>
+<li>邊雙連通：移除任意一個邊後，圖依然是連通的（邊連通度 <script type="math/tex">>1</script> )。</li>
+</ul>
+<p>在之前提到的例子，網路的架設，需要特別注意雙連通的問題，萬一有部分的線路（邊）或是設備（點）損壞，就有可能導致一部分的網路不連通。以下分別從點和邊的角度探討雙連通。</p>
+<h2 id="tarjan-low">Tarjan 算法：找 <script type="math/tex">low</script> 函數</h2>
+<p>Tarjan 算法，可解決許多連通性的問題，最核心的是找出每個點 <script type="math/tex">low</script> 函數。</p>
+<ul>
+<li>
+<script type="math/tex">depth[u]</script> : 點 <script type="math/tex">u</script> 的深度。</li>
+<li>
+<script type="math/tex">low[u]</script> : <script type="math/tex">u</script> 在不經過父親連到自己的 Tree Edge 的情況下，所能到達祖先的最低深度。</li>
+</ul>
+<p>在無向圖中，只會遇到 Tree Edge 和 Back Edge，以下針對兩種情況說明：</p>
+<ul>
+<li>Edge <script type="math/tex">u\to v</script> is a tree edge: <script type="math/tex">v</script> 是 <script type="math/tex">u</script> 的兒子， <script type="math/tex">u</script> 可能經由 <script type="math/tex">v</script> 走到其他祖先，遞迴找尋 <script type="math/tex">low[v]</script> ，再更新 <script type="math/tex">low[v]=min(low[u],low[v])</script> 。</li>
+<li>Edge <script type="math/tex">u\to v</script> is a back edge: <script type="math/tex">v</script> 是 <script type="math/tex">u</script> 的祖先，更新 <script type="math/tex">low[v]=min(low[u],depth[v])</script> 。</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">low</span><span class="p">[</span><span class="n">MXV</span><span class="p">],</span> <span class="n">depth</span><span class="p">[</span><span class="n">MXV</span><span class="p">];</span>
+<span class="kt">bool</span> <span class="n">visit</span><span class="p">[</span><span class="n">MXV</span><span class="p">];</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">G</span><span class="p">[</span><span class="n">MXV</span><span class="p">];</span>
+
+<span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">now</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cur_depth</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">visit</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="n">depth</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">low</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">cur_depth</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">i</span> <span class="p">:</span> <span class="n">G</span><span class="p">[</span><span class="n">now</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">visit</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span> <span class="c1">// ancestor</span>
+      <span class="n">low</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">low</span><span class="p">[</span><span class="n">now</span><span class="p">],</span> <span class="n">depth</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// offspring</span>
+      <span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">cur_depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+      <span class="n">low</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">low</span><span class="p">[</span><span class="n">now</span><span class="p">],</span> <span class="n">low</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="_2">點雙連通：找割點</h2>
+<p>要判斷一張圖是否點雙連通，就要檢查他是否有割點，如果沒有割點，則這張圖為點雙連通。</p>
+<p>割點：給定一張圖 <script type="math/tex">G</script> ，如果移除點 <script type="math/tex">v</script> 及連接 <script type="math/tex">v</script> 的邊之後，圖 <script type="math/tex">G</script> 不再連通，點 <script type="math/tex">v</script> 都被稱為 <script type="math/tex">G</script> 的一個割點（cut-vertex）或關節點（articulation-vertex, articulation-point)。</p>
+<p><img alt="" src="../images/cutVertex.png" /></p>
+<p>根據 <script type="math/tex">low</script> 函數，以下兩種情況能判斷一個點為割點：</p>
+<ul>
+<li>非根結點 <script type="math/tex">u</script> ：存在一個孩子 <script type="math/tex">v, low[v]\leq depth[u]</script> 。</li>
+<li>根節點 <script type="math/tex">root</script> ：擁有 <script type="math/tex">\geq</script> 兩個兒子。</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">low</span><span class="p">[</span><span class="n">MXV</span><span class="p">],</span> <span class="n">depth</span><span class="p">[</span><span class="n">MXV</span><span class="p">];</span>
+<span class="kt">bool</span> <span class="n">is_cut_vertex</span><span class="p">[</span><span class="n">MXV</span><span class="p">],</span> <span class="n">visit</span><span class="p">[</span><span class="n">MXV</span><span class="p">];</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">G</span><span class="p">[</span><span class="n">MXV</span><span class="p">];</span>
+
+<span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">now</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cur_depth</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">visit</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="n">depth</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">low</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">cur_depth</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">cut_son</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">i</span> <span class="p">:</span> <span class="n">G</span><span class="p">[</span><span class="n">now</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">visit</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span> <span class="c1">// ancestor</span>
+      <span class="n">low</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">low</span><span class="p">[</span><span class="n">now</span><span class="p">],</span> <span class="n">depth</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// offspring</span>
+      <span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">cur_depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+      <span class="n">cut_son</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="n">low</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">low</span><span class="p">[</span><span class="n">now</span><span class="p">],</span> <span class="n">low</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">low</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">depth</span><span class="p">[</span><span class="n">now</span><span class="p">])</span>
+        <span class="n">is_cut_vertex</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">cur_depth</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">is_cut_vertex</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">cut_son</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>這個演算法主要是做 DFS，所以時間複雜度為 <script type="math/tex">O(V+E)</script>
+</p>
+<h2 id="_3">邊雙連通：找割邊</h2>
+<p>和點連通相似，要判斷一張圖是否邊雙連通，就要檢查他是否有割邊，如果沒有割邊，則這張圖為邊雙連通。</p>
+<p>割邊：給定一張圖 <script type="math/tex">G</script> ，如果移除邊 <script type="math/tex">e</script> 及 <script type="math/tex">e</script> 連接的點之後，圖 <script type="math/tex">G</script> 再連通，邊 <script type="math/tex">e</script> 都被稱為 <script type="math/tex">G</script> 的一個割邊（cut-edge）或橋（bridge)。</p>
+<p><img alt="" src="../images/cutEdge.png" /></p>
+<p>樹邊才有可能是橋，其他的邊拔除仍然可以藉由樹邊連通。</p>
+<p>根據 <script type="math/tex">low</script> 函數，以下情況能判斷一個點為割邊：</p>
+<ul>
+<li>樹邊 <script type="math/tex">u\to v</script> ： <script type="math/tex">low[v] < depth[u]</script> 。<ul>
+<li>
+<script type="math/tex">low[v] == depth[u]</script> 代表有 <script type="math/tex">u,v</script> 之間存在至少兩條路徑。</li>
+</ul>
+</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">low</span><span class="p">[</span><span class="n">MXV</span><span class="p">],</span> <span class="n">depth</span><span class="p">[</span><span class="n">MXV</span><span class="p">];</span>
+<span class="kt">bool</span> <span class="n">visit</span><span class="p">[</span><span class="n">MXV</span><span class="p">];</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">G</span><span class="p">[</span><span class="n">MXV</span><span class="p">];</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">my_cut_edge</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">now</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cur_depth</span><span class="p">,</span> <span class="kt">int</span> <span class="n">parent</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">visit</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="n">depth</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">low</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">cur_depth</span><span class="p">;</span>
+  <span class="c1">// int cut_son = 0;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">i</span> <span class="p">:</span> <span class="n">G</span><span class="p">[</span><span class="n">now</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="n">parent</span><span class="p">)</span>
+      <span class="k">continue</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">visit</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span> <span class="c1">// ancestor</span>
+      <span class="n">low</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">low</span><span class="p">[</span><span class="n">now</span><span class="p">],</span> <span class="n">depth</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// offspring</span>
+      <span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">cur_depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">now</span><span class="p">);</span>
+      <span class="c1">// cut_son += 1;</span>
+      <span class="n">low</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">low</span><span class="p">[</span><span class="n">now</span><span class="p">],</span> <span class="n">low</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">low</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">depth</span><span class="p">[</span><span class="n">now</span><span class="p">])</span>
+        <span class="n">my_cut_edge</span><span class="p">.</span><span class="n">push_bach</span><span class="p">({</span><span class="n">now</span><span class="p">,</span> <span class="n">i</span><span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="nf">is_2_edge_connected</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">cut_edge</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">memset</span><span class="p">(</span><span class="n">visit</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">visit</span><span class="p">));</span>
+  <span class="n">dfs</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">-1</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">my_cut_edge</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>和前面點雙連通相同，時間複雜度為 <script type="math/tex">O(V+E)</script>
+</p>
+<details open="open"><summary>重邊處理</summary><p>如果不處理重邊，有可能讓一條邊從非割邊判成割邊。
+處理方式為用 <code>set,map</code> 存邊的兩點編號，當遇到一條往父親的邊 <script type="math/tex">e</script> ，如果出現過相同起始點的邊 <script type="math/tex">e_1</script> ，那麼 <script type="math/tex">e</script> 不是樹邊，可以透過 <script type="math/tex">e</script> 回到父親。</p>
+</details>
+<h2 id="_4">雙連通元件</h2>
+<ul>
+<li>連通元件：一張圖 <script type="math/tex">G</script> 有很多子圖，如果一個子圖 <script type="math/tex">G'</script> 是連通的，我們稱之為連通元件（connected component)，如果一個連通元件滿足 "加上任意一個其他的點就不再連通"，則稱這樣的連通元件是 "極大的"(maximal)。</li>
+<li>邊雙連通元件：如果一張的某個子圖是一張邊雙連通圖，我們就成這張子圖為邊連通元子圖（bi-edge-connected graph）或邊雙連通元件（bi-edge-connected component)。</li>
+<li>點雙連通元件：如果一張的某個子圖是一張點雙連通圖，我們就成這張子圖為點連通元子圖（bi-vertex-connected graph）或點雙連通元件（bi-vertex-connected component)。</li>
+</ul>
+<p>一般來說，我們會討論極大的連通元件，以下所有的連通元件都是極大的。</p>
+<p>要一張張圖的所有邊雙連通元件，只要拔掉所有橋，剩下的圖就是原圖所有的邊連通元件。</p>
+<p>至於點連通元件就沒那麼簡單了，因為同一個割點有可能同時存在多的點連通元件內，並且點的相鄰邊不一定不同的點連通元件中，所以我們不能直接拔點拔掉來求出點雙連通元件。</p>
+<p>至於為什麼會有這樣的差異，是因為一般的圖是以點為主題，邊用來描敘點和點之間的東西。而點連通問題則是以邊為主體，點用來描述邊和邊之間的關係，後者描述的關係不是二元關係，所以讓問題變得複雜。</p>
+<p>那我們就以邊的角度來思考點雙連通元件，對於一個點 <script type="math/tex">p</script> ，與父親點 <script type="math/tex">f</script> 之間有條邊 <script type="math/tex">e_f</script> ，與兒子點 <script type="math/tex">c</script> 之間有條邊 <script type="math/tex">e_c</script> ，如果 <script type="math/tex">low(c)>depth(p)</script> （不計算樹邊），則 <script type="math/tex">e_f</script> 和 <script type="math/tex">e_c</script> 不在同一個點連通元件內，反之 <script type="math/tex">e_f</script> 和 <script type="math/tex">e_c</script> 在同一個點雙連通元件內。根據以上性質，我們可以在 DFS 過程中維護一個 <code>stack</code> ，紀錄目前經過的邊，當遇到割點時，可以快速找出點雙連通元件。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">PII</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">low</span><span class="p">[</span><span class="n">MXV</span><span class="p">],</span> <span class="n">depth</span><span class="p">[</span><span class="n">MXV</span><span class="p">];</span>
+<span class="kt">bool</span> <span class="n">is_cut_vertex</span><span class="p">[</span><span class="n">MXV</span><span class="p">],</span> <span class="n">visit</span><span class="p">[</span><span class="n">MXV</span><span class="p">];</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">G</span><span class="p">[</span><span class="n">MXV</span><span class="p">];</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">PII</span><span class="o">&gt;</span> <span class="n">BCC</span><span class="p">[</span><span class="n">MXV</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">bcc_cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">stack</span><span class="o">&lt;</span><span class="n">PII</span><span class="o">&gt;</span> <span class="n">st</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">now</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cur_depth</span><span class="p">,</span> <span class="kt">int</span> <span class="n">f</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">visit</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="n">depth</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">low</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">cur_depth</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">cut_son</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">i</span> <span class="p">:</span> <span class="n">G</span><span class="p">[</span><span class="n">now</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">f</span><span class="p">)</span>
+      <span class="k">continue</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">visit</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span> <span class="c1">// ancestor</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">depth</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">depth</span><span class="p">[</span><span class="n">now</span><span class="p">])</span> <span class="p">{</span>
+        <span class="n">low</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">low</span><span class="p">[</span><span class="n">now</span><span class="p">],</span> <span class="n">depth</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="n">st</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="n">now</span><span class="p">,</span> <span class="n">i</span><span class="p">});</span>
+      <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// offspring</span>
+      <span class="n">st</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="n">now</span><span class="p">,</span> <span class="n">i</span><span class="p">});</span>
+      <span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">cur_depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">now</span><span class="p">);</span>
+      <span class="n">cut_son</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="n">low</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">low</span><span class="p">[</span><span class="n">now</span><span class="p">],</span> <span class="n">low</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">low</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">depth</span><span class="p">[</span><span class="n">now</span><span class="p">])</span> <span class="p">{</span>
+        <span class="n">is_cut_vertex</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">auto</span> <span class="n">t</span> <span class="o">=</span> <span class="n">st</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+        <span class="n">st</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">t</span> <span class="o">!=</span> <span class="n">make_pair</span><span class="p">(</span><span class="n">now</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span> <span class="p">{</span>
+          <span class="n">BCC</span><span class="p">[</span><span class="n">bcc_cnt</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+          <span class="n">t</span> <span class="o">=</span> <span class="n">st</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+          <span class="n">st</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="n">BCC</span><span class="p">[</span><span class="n">bcc_cnt</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+        <span class="o">++</span><span class="n">bcc_cnt</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">cur_depth</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">is_cut_vertex</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">cut_son</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>這個演算法一樣有做 DFS，並且維護一個 stack，每條邊都會被丟進去一次，因此時間複雜度為 <script type="math/tex">O(V+E)</script> 。</p>
+<h2 id="_5">有向圖的強連通</h2>
+<p>談完了無向圖，就來談論有向圖，有向圖的邊具有方向性，因此比無向圖更難達成 "連通" 的性質，於是為了跟無向圖做區分，訂了一個術語 "強連通" 來表示有向圖的連通性。</p>
+<ul>
+<li>強連通：對於有向圖上的兩點 <script type="math/tex">A,B</script> ，若存在一條路徑從 <script type="math/tex">A</script> 到 <script type="math/tex">B</script> ，以及存在一條路徑從 <script type="math/tex">B</script> 到 <script type="math/tex">A</script> ，則我們稱 <script type="math/tex">A,B</script> 兩點強連通（strongly connected)</li>
+<li>強連通圖：如果一張有向圖上任意兩點皆強連通，則這張圖為強連通圖（strongly connected graph)</li>
+<li>強連通元件：如果一張圖中的某個子圖是一張強連通圖，我們稱這個子圖為強連通子圖（strongly connected subgraph)，或是強連通元件（strongly connected component, SCC)</li>
+</ul>
+<p>強連通為有向圖中很重要的性質，如果將強連通元件各自縮成一點，新圖是一張有向無環圖（Directed Acyclic Graph, DAG)，DAG 有許多強力性質，可以讓圖上的問題變得有解，有些圖論題目一開始會先找出 SCC 來解題。</p>
+<h2 id="_6">強連通元件</h2>
+<p>這裡會介紹兩種做法，Tarjan 和 Kosaraju's algorithm。</p>
+<h3 id="tarjan">Tarjan</h3>
+<p>Tarjan 的思維如下：SCC 是由一個或多個環組成， <script type="math/tex">dep</script> 改成維護節點的時間戳，當一個節點深度等於 <script type="math/tex">low</script> 函數時，代表找到一個 SCC。和找雙連通元件相似，開一個 <code>stack</code> 維護目前走過的點。</p>
+<p>以下是程式碼，和上述相似，此算法會做一次 <script type="math/tex">DFS</script> ，時間複雜度為 <script type="math/tex">O(V+E)</script> 。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">MXV</span> <span class="o">=</span> <span class="mi">100005</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">sccCnt</span><span class="p">,</span> <span class="n">sccNo</span><span class="p">[</span><span class="n">MXV</span><span class="p">];</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">G</span><span class="p">[</span><span class="n">MXV</span><span class="p">],</span> <span class="n">dep</span><span class="p">(</span><span class="n">MXV</span><span class="p">),</span> <span class="n">low</span><span class="p">(</span><span class="n">MXV</span><span class="p">);</span>
+<span class="n">bitset</span><span class="o">&lt;</span><span class="n">MXV</span><span class="o">&gt;</span> <span class="n">isStack</span><span class="p">,</span> <span class="n">isRoot</span><span class="p">;</span>
+<span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">st</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">t</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">init</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">fill</span><span class="p">(</span><span class="n">dep</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">dep</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="n">sccCnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">memset</span><span class="p">(</span><span class="n">sccNo</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">sccNo</span><span class="p">));</span>
+  <span class="n">isStack</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
+  <span class="n">isRoot</span><span class="p">.</span><span class="n">set</span><span class="p">();</span>
+  <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">st</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">st</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">clear</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">m</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">y</span><span class="p">;</span>
+    <span class="n">G</span><span class="p">[</span><span class="n">x</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">tarjan</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">dep</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">low</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="o">++</span><span class="n">t</span><span class="p">;</span>
+  <span class="n">st</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+  <span class="n">isStack</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">G</span><span class="p">[</span><span class="n">u</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">dep</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">tarjan</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+      <span class="n">low</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">low</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="n">low</span><span class="p">[</span><span class="n">v</span><span class="p">]);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">isStack</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="p">{</span>
+      <span class="n">low</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">low</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="n">dep</span><span class="p">[</span><span class="n">v</span><span class="p">]);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">low</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">==</span> <span class="n">dep</span><span class="p">[</span><span class="n">u</span><span class="p">])</span> <span class="p">{</span>
+    <span class="o">++</span><span class="n">sccCnt</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">tmp</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+      <span class="n">tmp</span> <span class="o">=</span> <span class="n">st</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+      <span class="n">st</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+      <span class="n">isStack</span><span class="p">[</span><span class="n">tmp</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+      <span class="n">sccNo</span><span class="p">[</span><span class="n">tmp</span><span class="p">]</span> <span class="o">=</span> <span class="n">sccCnt</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">!=</span> <span class="n">u</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">init</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span> <span class="c1">// |V| = n, |E| = m</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">dep</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">tarjan</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<h3 id="kosarajus-algorithm">Kosaraju's algorithm</h3>
+<p>Kosaraju's algorithm 基於觀察到的兩件事而成，第一件事為將原圖每條邊都反向，得到的新圖，所有 SCC 的位置依舊相同。第二件事為如果我們用 "正確的" 順序遍歷圖，每次遍歷到的點視為同一個 SCC，那麼是有可能可以找出正確的 SCC 的。
+我們分成三種情況來討論那樣才是正確的遍歷順序。</p>
+<ul>
+<li>
+<script type="math/tex">A,B</script> 在同一個 SCC 裡：先拜訪誰都可以，反正另外一個點也會被拜訪到</li>
+<li>
+<script type="math/tex">A,B</script> 互相都不能走到對方：這種情況也是先拜訪誰都可以，反正毫不相干</li>
+<li>
+<script type="math/tex">A</script> 走的到 <script type="math/tex">B</script> ， <script type="math/tex">B</script> 走不到 <script type="math/tex">A</script> （單向通行）：這種情況只能先走 <script type="math/tex">B</script> 再走 <script type="math/tex">A</script> ，否則先走 <script type="math/tex">A</script> 的話， <script type="math/tex">B</script> 會被認為和 <script type="math/tex">A</script> 在同一個 SCC 內</li>
+</ul>
+<p>所以只要給出一個順序，對於所有只有 <script type="math/tex">A</script> 走的到 <script type="math/tex">B</script> ， <script type="math/tex">B</script> 走不到 <script type="math/tex">A</script> 的點對 <script type="math/tex">(A,B)</script> 都滿足 <script type="math/tex">B</script> 會比 <script type="math/tex">B</script> 先被走到，這個演算法就行得通了。基於這個道理，Kosaraju's algorithm 就誕生了：</p>
+<ul>
+<li>將圖上所有邊反向，得到新圖 <script type="math/tex">G'</script>
+</li>
+<li>在圖 <script type="math/tex">G'</script> 上找一個未拜訪過的點 DFS 並且記錄時間戳，DFS 完後，如果還有點未被 DFS，再進行前敘動作。</li>
+<li>依時間戳的離開戳記對點由大到小排序，所得序列即為所求。再根據這個序列在原圖 <script type="math/tex">G</script> 做 DFS，每次 DFS 到的點形成一個 SCC。</li>
+</ul>
+<p>現在來證明這個序列滿足我們的要求：</p>
+<ul>
+<li>對於圖 G 上任意單向通行的點對 <script type="math/tex">A\rightarrow B</script> ，在 <script type="math/tex">G'</script> 上會變成單向通行的點對 <script type="math/tex">B\rightarrow A</script> 。</li>
+<li>如果 <script type="math/tex">A</script> 先被拜訪，因為 <script type="math/tex">A</script> 沒辦法做到 <script type="math/tex">B</script> ，所以 <script type="math/tex">A</script> 會先拜訪完畢，因此 <script type="math/tex">A</script> 的離開戳記會小於 <script type="math/tex">B</script> 的離開戳記。</li>
+<li>如果 <script type="math/tex">B</script> 先被拜訪， <script type="math/tex">B</script> 一定會走到 <script type="math/tex">A</script> ， <script type="math/tex">A</script> 拜訪完畢時， <script type="math/tex">B</script> 一定還沒拜訪完畢，因此 <script type="math/tex">A</script> 的離開戳記依然會小於 <script type="math/tex">B</script> 的離開戳記。</li>
+<li>得證 <script type="math/tex">A</script> 的離開戳記一定會小於 <script type="math/tex">B</script> 的離開戳記，即 <script type="math/tex">B</script> 在序列中會在 <script type="math/tex">A</script> 前面。</li>
+</ul>
+<p>以下是程式碼，此算法會做兩次 <script type="math/tex">DFS</script> ，時間複雜度為 <script type="math/tex">O(V+E)</script> ，效率比 Tarjan 低一些，但 Kosaraju's algorithm 較容易實作。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">G</span><span class="p">[</span><span class="n">MXN</span><span class="p">];</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">rev_G</span><span class="p">[</span><span class="n">MXN</span><span class="p">];</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">leave</span><span class="p">;</span>
+<span class="n">bitset</span><span class="o">&lt;</span><span class="n">MXN</span><span class="o">&gt;</span> <span class="n">visit</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">at_scc</span><span class="p">[</span><span class="n">MXN</span><span class="p">];</span>
+
+<span class="kt">void</span> <span class="nf">dfs_for_stamp</span><span class="p">(</span><span class="kt">int</span> <span class="n">now</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">visit</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">i</span> <span class="p">:</span> <span class="n">rev_G</span><span class="p">[</span><span class="n">now</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">visit</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
+      <span class="n">dfs_for_stamp</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="n">leave</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">now</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">dfs_for_scc</span><span class="p">(</span><span class="kt">int</span> <span class="n">now</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cur_scc</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">visit</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="n">at_scc</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">cur_scc</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">i</span> <span class="p">:</span> <span class="n">G</span><span class="p">[</span><span class="n">now</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">visit</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
+      <span class="n">dfs_for_scc</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">cur_scc</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">kosaraju</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">visit</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
+  <span class="n">leave</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">visit</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
+      <span class="n">dfs_for_stamp</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="n">visit</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
+  <span class="kt">int</span> <span class="n">scc_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">visit</span><span class="p">[</span><span class="n">leave</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span> <span class="p">{</span>
+      <span class="n">dfs_for_scc</span><span class="p">(</span><span class="n">leave</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">scc_count</span><span class="o">++</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">scc_count</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="_7">例題</h2>
+<ul>
+<li>割點模板題<ul>
+<li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;category=24&amp;page=show_problem&amp;problem=737">UVa00796 - Critical Links</a> </li>
+</ul>
+</li>
+<li>割邊模板題<ul>
+<li><a href="https://onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=251">UVa00315 - Network</a> </li>
+</ul>
+</li>
+<li>雙連通元件<ul>
+<li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;category=547&amp;problem=1913&amp;mosmsg=Submission+received+with+ID+14127122">UVa10972 - RevolC FaeLoN</a> </li>
+</ul>
+</li>
+<li>強連通元件<ul>
+<li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;category=0&amp;problem=2499&amp;mosmsg=Submission+received+with+ID+26283005">UVa11504 - Dominos</a> </li>
+</ul>
+</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://byvoid.com/">有向圖強連通分量的 Tarjan 算法 in https://byvoid.com/</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://timbian.wordpress.com/2015/02/16/strongly-connected-component/">有向圖的強連通元件 Strongly Connected Component in 天邊。世界</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../topology/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              拓譜排序
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../../dynamicProgramming/intro/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              動態規劃簡介
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+    
+  </body>
+</html>
