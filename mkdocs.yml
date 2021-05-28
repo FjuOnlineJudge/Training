@@ -55,6 +55,7 @@ nav:
     - 連通性: graph/connectivity.md
   - 動態規劃:
     - 動態規劃簡介: dynamicProgramming/intro.md
+    - 背包 DP: dynamicProgramming/knapsack.md
   - 數論:
     - 質數和因數: math/primeandfactor.md
     - 模: math/mod.md
