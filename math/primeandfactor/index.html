@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.9">
     
     
       
@@ -18,10 +18,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
         
       
     
@@ -38,6 +38,8 @@
     
     
       
+
+
     
     
   </head>
@@ -1210,6 +1212,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    質因數分解
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    例題練習
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1236,19 +1252,7 @@
   
     <li class="md-nav__item">
       <a href="../euler/" class="md-nav__link">
-        歐拉定理及相關應用
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../chineseremaindertheorem/" class="md-nav__link">
-        中國剩餘定理
+        歐拉函數
       </a>
     </li>
   
@@ -1326,6 +1330,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    質因數分解
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    例題練習
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1376,7 +1394,7 @@
 <p>複雜度可到 <script type="math/tex">O(N\log\log N)</script> ，如果不從平方開始剃除，則會退化至 <script type="math/tex">O(N\log N)</script>
 </p>
 <h3 id="_4">線性篩法</h3>
-<p>將一般篩法優化至 <script type="math/tex">O(N)</script> ，我們期望每個合數都只被其最小質因數剔除，這樣可以確保其均攤的線性。實作上，我們讓每一個數去替除自己乘上「 <strong>小於等於</strong> 其質因數的所有質數」的數字即可。</p>
+<p>每個合數都只被其最小質因數剔除，此算法時間複雜度為 <script type="math/tex">O(N)</script>。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1398,20 +1416,21 @@
 <span class="kt">void</span> <span class="nf">PrimeTable</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">is_notp</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
   <span class="n">is_notp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_notp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">is_notp</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
       <span class="n">p</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">j</span> <span class="p">:</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">p</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">)</span>
         <span class="k">break</span><span class="p">;</span>
-      <span class="n">is_notp</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="n">is_notp</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
         <span class="k">break</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
+<p>程式碼關鍵在於 <code>if (i % p[j] == 0)</code>，由於 <script type="math/tex">p</script> 裡面的元素都是遞增的，當這行成立，代表 <script type="math/tex">i</script> 的 <script type="math/tex">p[j]</script> 最小質數，<script type="math/tex">i\cdot p[j+1], i\cdot p[j+2], ...</script> 都是 <script type="math/tex">p[j]</script> 的倍數，都已經被 <script type="math/tex">p[j]</script> 剔除(例如：<script type="math/tex">9</script> 的最小質因數為 <script type="math/tex">3</script>，<script type="math/tex">9\cdot 5,9\cdot 7</script> 都是 <script type="math/tex">3</script> 的倍數，他們會被 <script type="math/tex">3</script> 剔除)，因此不必再篩下去。</p>
 <h2 id="_5">因數</h2>
 <p>我們能將任意一個正整數做質因數分解，形式為 <script type="math/tex">N=P_{1}^{x_{1}}P_{2}^{x_{2}}P_{3}^{x_{3}}...=\Pi P_{i}^{x_{i}}</script> ，根據此形式，我們可以求出任一正整數的因數個數及因數總和</p>
 <ul>
@@ -1421,7 +1440,7 @@
 </li>
 </ul>
 <h2 id="_6">最大公因數</h2>
-<p>最大公因數（Greatest Common Divisor, GCD)，可以用輾轉相除法求得。</p>
+<p>最大公因數 (Greatest Common Divisor, GCD)，可以用輾轉相除法求得。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -1434,7 +1453,66 @@
 </code></pre></div>
 </td></tr></table>
 <p>複雜度為 <script type="math/tex">O(\log(min(a,b)))</script> ，最慘狀況發生在兩數為費式數列相鄰項時， <code>C++&lt;algorithm&gt;</code> 有內建的 <code>__gcd</code> 可以用。</p>
-<p>最小公倍數（Least Common Multiple,LCM)，則為兩數相乘再除以他們的 GCD，為避免溢位狀況，可先將一數除以 GCD，再乘以另外一數。</p>
+<p>最小公倍數 (Least Common Multiple,LCM)，則為兩數相乘再除以他們的 GCD，為避免溢位狀況，可先將一數除以 GCD，再乘以另外一數。</p>
+<h2 id="_7">質因數分解</h2>
+<details open="open"><summary>質因數分解</summary><p>給定一個數字 <script type="math/tex">N</script>，請列出他的所有質數。</p>
+</details>
+<p>質因數是一道常見的題目，以下有幾個要點：</p>
+<ul>
+<li>只要枚舉所有 <script type="math/tex">\leq\sqrt{N}</script> 的質數。</li>
+<li>
+<script type="math/tex">N</script> 在質因數分解的過程中會一直被更新，當找到 <script type="math/tex">N</script> 的一個質數 <script type="math/tex">p</script>，請將 <script type="math/tex">N</script> 除以 <script type="math/tex">p</script> 得到新的 <script type="math/tex">N</script>，縮小搜尋範圍，若是新的 <script type="math/tex">N</script> 還可被 <script type="math/tex">p</script> 整除，重複上述動作，直到 <script type="math/tex">N</script> 無法被 <script type="math/tex">p</script> 整除。</li>
+<li>最後再檢查 <script type="math/tex">N</script> 是否為 <script type="math/tex">1</script>，若不是，則 <script type="math/tex">N</script> 也是質數。</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">primeFactorization</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">p</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;</span><span class="n">n</span><span class="p">)</span><span class="k">break</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">%</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">n</span><span class="o">%</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">n</span> <span class="o">/=</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">!=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="_8">例題練習</h2>
+<ul>
+<li>質數篩法<ul>
+<li><a href="https://onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=347">UVa 406 - Prime Cuts</a></li>
+<li>只要先求出最大數的平方根內的質數：<a href="https://onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1081">UVa 10140 - Prime Distance</a></li>
+</ul>
+</li>
+<li>質因數分解<ul>
+<li><a href="https://zerojudge.tw/ShowProblem?problemid=a010">Zerojudge a010: 因數分解</a></li>
+</ul>
+</li>
+</ul>
                 
               
               
@@ -1453,7 +1531,8 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../../dynamicProgramming/knapsack/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../../dynamicProgramming/knapsack/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 背包 DP" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1468,7 +1547,8 @@
         </a>
       
       
-        <a href="../mod/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../mod/" class="md-footer__link md-footer__link--next" aria-label="Next: 模" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -1503,10 +1583,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.82b56eb2.min.js"></script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
       

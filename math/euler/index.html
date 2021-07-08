@@ -10,18 +10,18 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.9">
     
     
       
-        <title>歐拉定理及相關應用 - FJCU CPC 訓練網</title>
+        <title>歐拉函數 - FJCU CPC 訓練網</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
         
       
     
@@ -38,6 +38,8 @@
     
     
       
+
+
     
     
   </head>
@@ -89,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              歐拉定理及相關應用
+              歐拉函數
             
           </span>
         </div>
@@ -1171,12 +1173,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          歐拉定理及相關應用
+          歐拉函數
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        歐拉定理及相關應用
+        歐拉函數
       </a>
       
         
@@ -1195,28 +1197,62 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    歐拉函數
+    定義
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    費馬小定理
+    性質
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    歐拉定理
+    計算
   </a>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    相關定理
+  </a>
+  
+    <nav class="md-nav" aria-label="相關定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    費馬小定理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    歐拉定理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#wilsons-theorem" class="md-nav__link">
     Wilson's theorem
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    例題練習
   </a>
   
 </li>
@@ -1225,18 +1261,6 @@
   
 </nav>
       
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../chineseremaindertheorem/" class="md-nav__link">
-        中國剩餘定理
-      </a>
     </li>
   
 
@@ -1274,28 +1298,62 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    歐拉函數
+    定義
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    費馬小定理
+    性質
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    歐拉定理
+    計算
   </a>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    相關定理
+  </a>
+  
+    <nav class="md-nav" aria-label="相關定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    費馬小定理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    歐拉定理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#wilsons-theorem" class="md-nav__link">
     Wilson's theorem
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    例題練習
   </a>
   
 </li>
@@ -1313,10 +1371,22 @@
               
                 
                 
-                <h1 id="_1">歐拉定理及相關應用</h1>
-<h2 id="_2">歐拉函數</h2>
-<p>歐拉函數計算對於一個整數 N，小於等於 N 的正整數中，有幾個和 N 互質。通常用 <script type="math/tex">\Phi(n)</script> 表示。其公式為 <script type="math/tex">\Phi(N)=N\times\Pi_{p|N}(1-\frac{1}{p})</script>
-</p>
+                <h1 id="_1">歐拉函數</h1>
+<h2 id="_2">定義</h2>
+<p>歐拉函數計算對於一個整數 N，小於等於 N 的正整數中，有幾個和 N 互質。通常用 <script type="math/tex">\Phi(n)</script> 表示。</p>
+<h2 id="_3">性質</h2>
+<ul>
+<li>歐拉函數是一個積性函數: 如果 <script type="math/tex">gcd(p,q)=1,\Phi(p)\cdot\Phi(q)=\Phi(p\cdot q)</script>
+</li>
+<li>如果 <script type="math/tex">p</script> 是質數： <script type="math/tex">\Phi(p) = p-1</script>
+</li>
+<li>
+<script type="math/tex">\Phi(p^k)=p^{k−1}\times (p−1)</script>
+</li>
+</ul>
+<h2 id="_4">計算</h2>
+<p>根據上述性質，可整理出一個公式: <script type="math/tex">\Phi(N)=N\times\Pi_{p|N}(1-\frac{1}{p})</script> 。</p>
+<p>要計算 <script type="math/tex">\Phi(n)</script>，可以利用質因數分解求得。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1354,8 +1424,7 @@
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-<p>歐拉函數還有一些性質
-如果 p 是質數： <script type="math/tex">\Phi(p) = p-1</script> 以及 <script type="math/tex">\Phi(p^k)=p^{k−1}\times (p−1)</script> 如果 pq 互質： <script type="math/tex">\Phi(pq) = \Phi(p)\times\Phi(q)</script> 根據這些性質，我們能寫出一個類似質數篩法的作法。</p>
+<p>另一種辦法是利用質數篩法。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1381,14 +1450,22 @@
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="_3">費馬小定理</h2>
+<h2 id="_5">相關定理</h2>
+<h3 id="_6">費馬小定理</h3>
 <p>給定一個質數 <script type="math/tex">p</script> 及一個整數 <script type="math/tex">a</script> ，那麼： <script type="math/tex">a^p \equiv a (\mod p)</script> 如果 <script type="math/tex">gcd(a,p)=1</script> ，則： <script type="math/tex">a^{p-1} \equiv 1 (\mod p)</script>
 </p>
-<h2 id="_4">歐拉定理</h2>
-<p>歐拉定理是比較 generate 版本的費馬小定理。給定兩個整數 <script type="math/tex">n</script> 和 <script type="math/tex">a</script> ，如果 <script type="math/tex">gcd(a,n)=1</script> ，則 <script type="math/tex">a^{\Phi(n)} \equiv 1 (\mod n)</script> 如果 n 是質數， <script type="math/tex">\Phi(n)=n-1</script> ，也就是費馬小定理。</p>
-<h2 id="wilsons-theorem">Wilson's theorem</h2>
+<h3 id="_7">歐拉定理</h3>
+<p>歐拉定理是比較 generate 版本的費馬小定理。給定兩個整數 <script type="math/tex">n</script> 和 <script type="math/tex">a</script> ，如果 <script type="math/tex">gcd(a,n)=1</script> ，則 <script type="math/tex">a^{\Phi(n)} \equiv 1 (\mod n)</script> 如果 <script type="math/tex">n</script> 是質數， <script type="math/tex">\Phi(n)=n-1</script> ，也就是費馬小定理。</p>
+<h3 id="wilsons-theorem">Wilson's theorem</h3>
 <p>給定一個質數 <script type="math/tex">p</script> ，則： <script type="math/tex">(p-1)!\equiv -1 (\mod p)</script>
 </p>
+<h2 id="_8">例題練習</h2>
+<ul>
+<li>歐拉函數<ul>
+<li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=1761">UVa 10820 - Send a Table</a></li>
+</ul>
+</li>
+</ul>
                 
               
               
@@ -1407,7 +1484,8 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../mod/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../mod/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 模" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1421,20 +1499,6 @@
           </div>
         </a>
       
-      
-        <a href="../chineseremaindertheorem/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              中國剩餘定理
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
@@ -1457,10 +1521,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.82b56eb2.min.js"></script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
       

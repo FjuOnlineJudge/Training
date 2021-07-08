@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.9">
     
     
       
@@ -18,10 +18,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
         
       
     
@@ -38,6 +38,8 @@
     
     
       
+
+
     
     
   </head>
@@ -1207,6 +1209,47 @@
     模逆元
   </a>
   
+    <nav class="md-nav" aria-label="模逆元">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    方法一：擴展歐基里德
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    方法二：快速冪
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    變形
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    中國剩餘定理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    例題練習
+  </a>
+  
 </li>
       
     </ul>
@@ -1223,19 +1266,7 @@
   
     <li class="md-nav__item">
       <a href="../euler/" class="md-nav__link">
-        歐拉定理及相關應用
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../chineseremaindertheorem/" class="md-nav__link">
-        中國剩餘定理
+        歐拉函數
       </a>
     </li>
   
@@ -1298,6 +1329,47 @@
     模逆元
   </a>
   
+    <nav class="md-nav" aria-label="模逆元">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    方法一：擴展歐基里德
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    方法二：快速冪
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    變形
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    中國剩餘定理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    例題練習
+  </a>
+  
 </li>
       
     </ul>
@@ -1321,19 +1393,19 @@
 </li>
 <li>減法： <script type="math/tex">(a-b) \operatorname{mod} p= (a \operatorname{mod} p -b \operatorname{mod} p +p) \operatorname{mod} p</script>
 </li>
-<li>乘法： <script type="math/tex">(a*b) \operatorname{mod} p= (a \operatorname{mod} p *b \operatorname{mod} p ) \operatorname{mod} p</script>
+<li>乘法： <script type="math/tex">(a*b) \operatorname{mod} p= (a \operatorname{mod} p\cdot b \operatorname{mod} p ) \operatorname{mod} p</script>
 </li>
 <li>次方： <script type="math/tex">(a^b) \operatorname{mod} p= ((a \operatorname{mod} p )^b) \operatorname{mod} p</script>
 </li>
 <li>加法結合律： <script type="math/tex">((a+b) \operatorname{mod} p+c) \operatorname{mod} p = (a+(b+c)) \operatorname{mod} p</script>
 </li>
-<li>乘法結合律： <script type="math/tex">((a*b) \operatorname{mod} p*c) \operatorname{mod} p = (a*(b*c)) \operatorname{mod} p</script>
+<li>乘法結合律： <script type="math/tex">((a\cdot b) \operatorname{mod} p\cdot c) \operatorname{mod} p = (a\cdot (b\cdot c)) \operatorname{mod} p</script>
 </li>
 <li>加法交換律： <script type="math/tex">(a+b) \operatorname{mod} p=(b+a) \operatorname{mod} p</script>
 </li>
-<li>乘法交換律： <script type="math/tex">(a*b) \operatorname{mod} p=(b*a) \operatorname{mod} p</script>
+<li>乘法交換律： <script type="math/tex">(a\cdot b) \operatorname{mod} p=(b\cdot a) \operatorname{mod} p</script>
 </li>
-<li>結合律： <script type="math/tex">((a+b) \operatorname{mod} p*c)= ((a*c) \operatorname{mod} p +(b*c) \operatorname{mod} p ) \operatorname{mod} p</script>
+<li>結合律： <script type="math/tex">((a+b) \operatorname{mod} p\cdot c)= ((a\cdot c) \operatorname{mod} p +(b\cdot c) \operatorname{mod} p ) \operatorname{mod} p</script>
 </li>
 </ul>
 <h2 id="_3">同餘</h2>
@@ -1354,7 +1426,7 @@
 </ul>
 <p>參考文章： <a href="https://wangwilly.github.io/willywangkaa/2018/05/08/Discrete-mathematics-Chinese-Remainder-Theorem/">https://wangwilly.github.io/willywangkaa/2018/05/08/Discrete-mathematics-Chinese-Remainder-Theorem/</a> </p>
 <h2 id="_4">快速冪</h2>
-<p>我們常常遇到求 <script type="math/tex">a^b mod\ c</script> 為多少的題目，最簡單的作法是用迴圈花 b 次算出答案，但是在 b 很大時就無法快速算出。這時如果拆成 <script type="math/tex">a^1,a^2,a^4,...,a^{2^x}</script> ，先分別計算在乘起來，這樣只要花費 <script type="math/tex">O(\log b)</script> 的時間即可。</p>
+<p>我們常常遇到求 <script type="math/tex">a^b mod\ c</script> 為多少的題目，最簡單的作法是用迴圈花 <script type="math/tex">b</script> 次算出答案，但是在 <script type="math/tex">b</script> 很大時就無法快速算出。這時如果拆成 <script type="math/tex">a^1,a^2,a^4,...,a^{2^x}</script> ，先分別計算在乘起來，這樣只要花費 <script type="math/tex">O(\log b)</script> 的時間即可。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -1375,7 +1447,11 @@
 </code></pre></div>
 </td></tr></table>
 <h2 id="_5">模逆元</h2>
-<p>模逆元是取模下的反元素，即為找到 <script type="math/tex">a^{-1}</script> 使得 <script type="math/tex">aa^{-1}\equiv\ 1\ mod\ c</script> 。如果 a 要在 mod c 下有反元素，那麼 <script type="math/tex">gcd(a,c)=1</script> ，根據貝祖定理，可知存在整數 <script type="math/tex">x,y</script> ，使得 <script type="math/tex">ax+cy=gcd(a,c)=1</script> ，這裡的 <script type="math/tex">x</script> 即為 a 的反元素，我們可以修改找 GCD 的辦法，找出 <script type="math/tex">a</script> 的反元素。</p>
+<p>模逆元是取模下的反元素，即為找到 <script type="math/tex">a^{-1}</script> 使得 <script type="math/tex">aa^{-1}\equiv\ 1\operatorname{mod} c</script> 。</p>
+<p>整數 <script type="math/tex">a</script> 在 <script type="math/tex">\operatorname{mod} c</script> 下要有模反元素的充分必要條件為 <script type="math/tex">a,c</script> 互質。</p>
+<p>模逆元如果存在會有無限個，任意兩相鄰模逆元相差 <script type="math/tex">c</script>。</p>
+<h3 id="_6">方法一：擴展歐基里德</h3>
+<p>從上文可得知，<script type="math/tex">a</script> 在 <script type="math/tex">\operatorname{mod} c</script> 下有模反元素，則 <script type="math/tex">gcd(a,c)=1</script> ，根據貝祖定理，可知存在整數 <script type="math/tex">x,y</script> ，使得 <script type="math/tex">ax+cy=gcd(a,c)=1</script> ，這裡的 <script type="math/tex">x</script> 即為 <script type="math/tex">a</script> 的反元素，我們可以修改找最大公因數的辦法，找出 <script type="math/tex">a</script> 的模逆元。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1399,6 +1475,81 @@
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
+<h3 id="_7">方法二：快速冪</h3>
+<p>根據歐拉定理，如果 <script type="math/tex">gcd(a,c)=1</script> ，則 <script type="math/tex">a^{\Phi(c)} \equiv 1 (\mod c)</script>，將式子稍微改變一下，我們得出 <script type="math/tex">aa^{\Phi(c)-1} \equiv 1 (\operatorname{mod} c)</script>，<script type="math/tex">a^{\Phi(c)-1}</script> 是 <script type="math/tex">a</script> 在 <script type="math/tex">\operatorname{mod} c</script> 下的一個模逆元。可以利用快速冪計算 <script type="math/tex">a^{\Phi(c)-1}\operatorname{mod} c</script> 算出模逆元。</p>
+<h3 id="_8">變形</h3>
+<p>如果今天要解的式子為 <script type="math/tex">ab\equiv\ d\operatorname{mod} c</script>，已知 <script type="math/tex">a,c,d</script> 的情況下要解 <script type="math/tex">b</script>。則 <script type="math/tex">b=a^{-1}d\operatorname{mod} c\pm kc,k \in \mathbb{N}</script>。即先找出 <script type="math/tex">a</script> 在 <script type="math/tex">\operatorname{mod} c</script> 的模逆元，在乘以 <script type="math/tex">d</script> 倍即可得到 <script type="math/tex">b</script>。</p>
+<h2 id="_9">中國剩餘定理</h2>
+<p>中國剩餘定理，又稱中國餘數定理，是數論中的一個關於一元線性同餘方程組的定理。用來解決像下面這種問題：</p>
+<p>"有物不知其數，三三數之剩二，五五數之剩三，七七數之剩二。問物幾何？"，這題答案為 <script type="math/tex">23+105n,n>=0</script>
+</p>
+<p>列出這種問題的式子（設 <script type="math/tex">m_i</script> 兩兩互質）：</p>
+<p>
+<script type="math/tex; mode=display">
+\left \{ \begin{matrix} X\equiv r_1 (\operatorname{mod} m_1)\\ X\equiv r_2 (\operatorname{mod} m_2)\\ \cdot \\ \cdot \\ X\equiv r_n (\operatorname{mod} m_n)\end{matrix}\right.
+</script>
+</p>
+<p>解決這類問題最簡單適用枚舉來求解，不過如果範圍太大就會吃 TLE 了。因此我們先列出 <script type="math/tex">n</script> 個數字 <script type="math/tex">ans_1,ans_2,...,ans_n</script>:</p>
+<p>
+<script type="math/tex; mode=display">
+\left \{ \begin{matrix} ans_1\equiv r_1 (\operatorname{mod} m_1)\\ ans_1\equiv 0 (\operatorname{mod} m_2)\\ \cdot \\ \cdot \\ ans_1\equiv 0 (\operatorname{mod} m_n)\end{matrix}\right.
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\left \{ \begin{matrix} ans_2\equiv 0 (\operatorname{mod} m_1)\\ ans_2\equiv r_2 (\operatorname{mod} m_2)\\ \cdot \\ \cdot \\ ans_2\equiv 0 (\operatorname{mod} m_n)\end{matrix}\right.
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+...
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\left \{ \begin{matrix} ans_n\equiv 0 (\operatorname{mod} m_1)\\ ans_n\equiv 0 (\operatorname{mod} m_2)\\ \cdot \\ \cdot \\ ans_n\equiv r_n (\operatorname{mod} m_n)\end{matrix}\right.
+</script>
+</p>
+<p>分別算出答案後，根據加法在模運算下的性質，<script type="math/tex">n</script> 個數字的和，正是我們想要的答案。</p>
+<p>將題目分成 <script type="math/tex">n</script> 個式子後，難度一下降低許多，現在我們只要會解開每個式子就行了。以下以 <script type="math/tex">ans_1</script> 為例：</p>
+<p>
+<script type="math/tex">ans_1</script> 顯然整除 <script type="math/tex">m_2,...,m_n</script>，令 <script type="math/tex">Y_1=\frac{\Pi_{i=1}^{n} m_i}{m_1}</script>，可列出式子 <script type="math/tex">ans_1=Y_1Z_1\equiv r_1 (\operatorname{mod} m_1)</script>。於是原式就變成找模逆元的問題。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">LL</span> <span class="n">P</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">P</span> <span class="o">*=</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">LL</span> <span class="n">a</span> <span class="o">=</span> <span class="n">P</span> <span class="o">/</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+    <span class="n">extgcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="p">(</span><span class="n">ans</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">%</span> <span class="n">P</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">ans</span> <span class="o">+</span> <span class="n">P</span><span class="p">)</span> <span class="o">%</span> <span class="n">P</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="_10">例題練習</h2>
+<ul>
+<li>快速冪<ul>
+<li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=2656">UVa 11609 - Teams</a></li>
+</ul>
+</li>
+<li>模逆元<ul>
+<li><a href="https://zerojudge.tw/ShowProblem?problemid=a289">Zerojudge a289: Modular Multiplicative Inverse</a></li>
+</ul>
+</li>
+<li>中國剩餘定理 <ul>
+<li><a href="https://zerojudge.tw/ShowProblem?problemid=c641">Zerojudge c641: 滿滿的糖果屋 #2</a> (備註：這一題王老師帶的錢必定能買至少一顆糖果)</li>
+</ul>
+</li>
+</ul>
                 
               
               
@@ -1417,7 +1568,8 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../primeandfactor/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../primeandfactor/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 質數和因數" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1432,13 +1584,14 @@
         </a>
       
       
-        <a href="../euler/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../euler/" class="md-footer__link md-footer__link--next" aria-label="Next: 歐拉函數" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              歐拉定理及相關應用
+              歐拉函數
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1467,10 +1620,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.82b56eb2.min.js"></script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
       
