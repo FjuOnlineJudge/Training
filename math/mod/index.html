@@ -1214,7 +1214,7 @@
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    方法一：擴展歐基里德
+    方法一：擴展歐基里德演算法
   </a>
   
 </li>
@@ -1226,27 +1226,20 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    變形
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     中國剩餘定理
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     例題練習
   </a>
   
@@ -1334,7 +1327,7 @@
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    方法一：擴展歐基里德
+    方法一：擴展歐基里德演算法
   </a>
   
 </li>
@@ -1346,27 +1339,20 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    變形
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     中國剩餘定理
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     例題練習
   </a>
   
@@ -1412,9 +1398,9 @@
 <p>如果 <script type="math/tex">a\equiv b (\operatorname{mod} m)</script> ，我們會說 <script type="math/tex">a,b</script> 在模 <script type="math/tex">m</script> 下同餘。</p>
 <p>以下為性質：</p>
 <ul>
-<li>整除性： <script type="math/tex">a\equiv b \quad (\operatorname{mod} m) \Rightarrow c \cdot m  = a - b , c \in \mathbb{Z}</script> \ <script type="math/tex">\Rightarrow a \equiv b\quad ( \operatorname{mod} m ) \Rightarrow m \; | \; a-b</script>
+<li>整除性： <script type="math/tex">a\equiv b \quad (\operatorname{mod} m) \Rightarrow c \cdot m  = a - b , c \in \mathbb{Z}\\\Rightarrow a \equiv b\quad ( \operatorname{mod} m ) \Rightarrow m \; | \; a-b</script>
 </li>
-<li>遞移性：若 <script type="math/tex">a \equiv b \quad (\operatorname{mod} c) , b \equiv d \quad (\operatorname{mod} c)</script> \則 <script type="math/tex">a \equiv d (\operatorname{mod} c)</script>
+<li>遞移性：若 <script type="math/tex">a \equiv b \quad (\operatorname{mod} c) , b \equiv d \quad (\operatorname{mod} c)\\ 則\ a \equiv d (\operatorname{mod} c)</script>
 </li>
 <li>保持基本運算：
     <script type="math/tex; mode=display">
@@ -1424,7 +1410,6 @@
 <li>放大縮小模數： <script type="math/tex">k \in \mathbb{Z}^+ , a \equiv b \quad (\operatorname{mod} m) \Leftrightarrow k \cdot a \equiv k \cdot b \quad (\operatorname{mod} k \cdot m)</script>
 </li>
 </ul>
-<p>參考文章： <a href="https://wangwilly.github.io/willywangkaa/2018/05/08/Discrete-mathematics-Chinese-Remainder-Theorem/">https://wangwilly.github.io/willywangkaa/2018/05/08/Discrete-mathematics-Chinese-Remainder-Theorem/</a> </p>
 <h2 id="_4">快速冪</h2>
 <p>我們常常遇到求 <script type="math/tex">a^b mod\ c</script> 為多少的題目，最簡單的作法是用迴圈花 <script type="math/tex">b</script> 次算出答案，但是在 <script type="math/tex">b</script> 很大時就無法快速算出。這時如果拆成 <script type="math/tex">a^1,a^2,a^4,...,a^{2^x}</script> ，先分別計算在乘起來，這樣只要花費 <script type="math/tex">O(\log b)</script> 的時間即可。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -1450,8 +1435,12 @@
 <p>模逆元是取模下的反元素，即為找到 <script type="math/tex">a^{-1}</script> 使得 <script type="math/tex">aa^{-1}\equiv\ 1\operatorname{mod} c</script> 。</p>
 <p>整數 <script type="math/tex">a</script> 在 <script type="math/tex">\operatorname{mod} c</script> 下要有模反元素的充分必要條件為 <script type="math/tex">a,c</script> 互質。</p>
 <p>模逆元如果存在會有無限個，任意兩相鄰模逆元相差 <script type="math/tex">c</script>。</p>
-<h3 id="_6">方法一：擴展歐基里德</h3>
-<p>從上文可得知，<script type="math/tex">a</script> 在 <script type="math/tex">\operatorname{mod} c</script> 下有模反元素，則 <script type="math/tex">gcd(a,c)=1</script> ，根據貝祖定理，可知存在整數 <script type="math/tex">x,y</script> ，使得 <script type="math/tex">ax+cy=gcd(a,c)=1</script> ，這裡的 <script type="math/tex">x</script> 即為 <script type="math/tex">a</script> 的反元素，我們可以修改找最大公因數的辦法，找出 <script type="math/tex">a</script> 的模逆元。</p>
+<h3 id="_6">方法一：擴展歐基里德演算法</h3>
+<details open="open"><summary>貝祖定理</summary><p>令 <script type="math/tex">a,c</script> 為非 <script type="math/tex">0</script> 整數，存在整數解 <script type="math/tex">x,y</script> 使得 <script type="math/tex">ax+cy=gcd(a,c)</script>
+</p>
+</details>
+<p>從上文可得知，如果 <script type="math/tex">gcd(a,c)=1</script>，則 <script type="math/tex">a</script> 在 <script type="math/tex">\operatorname{mod} c</script> 下有模反元素，又根據貝祖定理，可知存在整數 <script type="math/tex">x,y</script> ，使得 <script type="math/tex">ax+cy=gcd(a,c)=1</script> ，這裡的 <script type="math/tex">x</script> 即為 <script type="math/tex">a</script> 的反元素。我們可以修改找最大公因數的辦法，找出 <script type="math/tex">a</script> 的模逆元，這個算法稱為擴展歐基里德演算法。這個演算法可以推廣到 <script type="math/tex">ax+cy=d,d\in\mathbb{Z}</script>
+</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1462,24 +1451,32 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">extgcd</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">d</span> <span class="o">=</span> <span class="n">extgcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
-    <span class="n">y</span> <span class="o">-=</span> <span class="o">-</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="n">d</span><span class="p">;</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// ax+by=c</span>
+<span class="kt">int</span> <span class="nf">extgcd</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">,</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">extgcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+        <span class="n">y</span> <span class="o">-=</span> <span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">d</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 <h3 id="_7">方法二：快速冪</h3>
 <p>根據歐拉定理，如果 <script type="math/tex">gcd(a,c)=1</script> ，則 <script type="math/tex">a^{\Phi(c)} \equiv 1 (\mod c)</script>，將式子稍微改變一下，我們得出 <script type="math/tex">aa^{\Phi(c)-1} \equiv 1 (\operatorname{mod} c)</script>，<script type="math/tex">a^{\Phi(c)-1}</script> 是 <script type="math/tex">a</script> 在 <script type="math/tex">\operatorname{mod} c</script> 下的一個模逆元。可以利用快速冪計算 <script type="math/tex">a^{\Phi(c)-1}\operatorname{mod} c</script> 算出模逆元。</p>
-<h3 id="_8">變形</h3>
-<p>如果今天要解的式子為 <script type="math/tex">ab\equiv\ d\operatorname{mod} c</script>，已知 <script type="math/tex">a,c,d</script> 的情況下要解 <script type="math/tex">b</script>。則 <script type="math/tex">b=a^{-1}d\operatorname{mod} c\pm kc,k \in \mathbb{N}</script>。即先找出 <script type="math/tex">a</script> 在 <script type="math/tex">\operatorname{mod} c</script> 的模逆元，在乘以 <script type="math/tex">d</script> 倍即可得到 <script type="math/tex">b</script>。</p>
-<h2 id="_9">中國剩餘定理</h2>
+<h2 id="_8">中國剩餘定理</h2>
 <p>中國剩餘定理，又稱中國餘數定理，是數論中的一個關於一元線性同餘方程組的定理。用來解決像下面這種問題：</p>
 <p>"有物不知其數，三三數之剩二，五五數之剩三，七七數之剩二。問物幾何？"，這題答案為 <script type="math/tex">23+105n,n>=0</script>
 </p>
@@ -1535,7 +1532,7 @@
 <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">ans</span> <span class="o">+</span> <span class="n">P</span><span class="p">)</span> <span class="o">%</span> <span class="n">P</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="_10">例題練習</h2>
+<h2 id="_9">例題練習</h2>
 <ul>
 <li>快速冪<ul>
 <li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=2656">UVa 11609 - Teams</a></li>
@@ -1550,6 +1547,14 @@
 </ul>
 </li>
 </ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://wangwilly.github.io/willywangkaa/2018/05/08/Discrete-mathematics-Chinese-Remainder-Theorem/">Discrete mathematics - Chinese Remainder Theorem</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
               
               
