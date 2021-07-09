@@ -20,15 +20,13 @@
 
 以下為性質：
 
-- 整除性： $a\equiv b \quad (\operatorname{mod} m) \Rightarrow c \cdot m  = a - b , c \in \mathbb{Z}$ \\ $\Rightarrow a \equiv b\quad ( \operatorname{mod} m ) \Rightarrow m \; | \; a-b$ 
-- 遞移性：若 $a \equiv b \quad (\operatorname{mod} c) , b \equiv d \quad (\operatorname{mod} c)$ \\則 $a \equiv d (\operatorname{mod} c)$ 
+- 整除性： $a\equiv b \quad (\operatorname{mod} m) \Rightarrow c \cdot m  = a - b , c \in \mathbb{Z}\\\Rightarrow a \equiv b\quad ( \operatorname{mod} m ) \Rightarrow m \; | \; a-b$ 
+- 遞移性：若 $a \equiv b \quad (\operatorname{mod} c) , b \equiv d \quad (\operatorname{mod} c)\\ 則\ a \equiv d (\operatorname{mod} c)$ 
 -   保持基本運算：
     $$
     \left \{ \begin{matrix} a \equiv b (\operatorname{mod} m)\\ c \equiv d (\operatorname{mod} m)\end{matrix}\right. \Rightarrow \left\{\begin{matrix}a \pm c \equiv b \pm d (\operatorname{mod} m)\\ a \cdot c \equiv b \cdot d (\operatorname{mod} m)\end{matrix}\right.
     $$
 - 放大縮小模數： $k \in \mathbb{Z}^+ , a \equiv b \quad (\operatorname{mod} m) \Leftrightarrow k \cdot a \equiv k \cdot b \quad (\operatorname{mod} k \cdot m)$ 
-
-參考文章： <https://wangwilly.github.io/willywangkaa/2018/05/08/Discrete-mathematics-Chinese-Remainder-Theorem/> 
 
 ## 快速冪
 
@@ -54,30 +52,35 @@ T pow(int a, int b, int c) { // calculate a^b%c
 
 模逆元如果存在會有無限個，任意兩相鄰模逆元相差 $c$。
 
-### 方法一：擴展歐基里德
-從上文可得知，$a$ 在 $\operatorname{mod} c$ 下有模反元素，則 $gcd(a,c)=1$ ，根據貝祖定理，可知存在整數 $x,y$ ，使得 $ax+cy=gcd(a,c)=1$ ，這裡的 $x$ 即為 $a$ 的反元素，我們可以修改找最大公因數的辦法，找出 $a$ 的模逆元。
+### 方法一：擴展歐基里德演算法
+
+???+ "貝祖定理"
+    令 $a,c$ 為非 $0$ 整數，存在整數解 $x,y$ 使得 $ax+cy=gcd(a,c)$
+
+從上文可得知，如果 $gcd(a,c)=1$，則 $a$ 在 $\operatorname{mod} c$ 下有模反元素，又根據貝祖定理，可知存在整數 $x,y$ ，使得 $ax+cy=gcd(a,c)=1$ ，這裡的 $x$ 即為 $a$ 的反元素。我們可以修改找最大公因數的辦法，找出 $a$ 的模逆元，這個算法稱為擴展歐基里德演算法。這個演算法可以推廣到 $ax+cy=d,d\in\mathbb{Z}$
 
 ```cpp
-int extgcd(int a, int b, int &x, int &y) {
-  int d = a;
-  if (b) {
-    d = extgcd(b, a % b, y, x);
-    y -= -(a / b) * x;
-  } else {
-    x = 1;
-    y = 0;
-  }
-  return d;
+// ax+by=c
+int extgcd(int a, int b, int c, int &x, int &y)
+{
+    int d = a;
+    if (b)
+    {
+        d = extgcd(b, a % b, c, y, x);
+        y -= (a / b) * x;
+    }
+    else
+    {
+        x = c;
+        y = 0;
+    }
+    return d;
 }
 ```
 
 ### 方法二：快速冪
 
 根據歐拉定理，如果 $gcd(a,c)=1$ ，則 $a^{\Phi(c)} \equiv 1 (\mod c)$，將式子稍微改變一下，我們得出 $aa^{\Phi(c)-1} \equiv 1 (\operatorname{mod} c)$，$a^{\Phi(c)-1}$ 是 $a$ 在 $\operatorname{mod} c$ 下的一個模逆元。可以利用快速冪計算 $a^{\Phi(c)-1}\operatorname{mod} c$ 算出模逆元。
-
-### 變形
-如果今天要解的式子為 $ab\equiv\ d\operatorname{mod} c$，已知 $a,c,d$ 的情況下要解 $b$。則 $b=a^{-1}d\operatorname{mod} c\pm kc,k \in \mathbb{N}$。即先找出 $a$ 在 $\operatorname{mod} c$ 的模逆元，在乘以 $d$ 倍即可得到 $b$。
-
 
 ## 中國剩餘定理
 
@@ -137,3 +140,5 @@ cout << (ans + P) % P << '\n';
     -   [Zerojudge a289: Modular Multiplicative Inverse](https://zerojudge.tw/ShowProblem?problemid=a289)
 -   中國剩餘定理 
     -   [Zerojudge c641: 滿滿的糖果屋 #2](https://zerojudge.tw/ShowProblem?problemid=c641) (備註：這一題王老師帶的錢必定能買至少一顆糖果)
+
+[^1]: [Discrete mathematics - Chinese Remainder Theorem](https://wangwilly.github.io/willywangkaa/2018/05/08/Discrete-mathematics-Chinese-Remainder-Theorem/)
