@@ -254,7 +254,12 @@ KM 演算法直接在點上調整權重，比在邊上調整權重簡單，作�
 ## 例題練習
 - 二分圖判定
     - [UVa 11396 - Claw Decomposition](https://onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2391)
-
+- 二分圖最大匹配
+    - [UVa 12083 - Guardian of Decency](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=3235)
+- 獨立集和覆蓋
+    - [UVa 11419 - SAM I AM](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2414)
+- 二分圖最大權匹配
+    - [UVa 01349 - Optimal Bus Route Design](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=4095)
 
 [^1]: [二分图的最大匹配、完美匹配和匈牙利算法 - Renfei Song's Blog](https://www.renfei.org/blog/bipartite-matching.html)
 [^2]: [Matching - 演算法筆記](https://web.ntnu.edu.tw/~algo/Matching.html#8)
