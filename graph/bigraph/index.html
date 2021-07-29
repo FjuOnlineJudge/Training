@@ -1499,17 +1499,16 @@
 </ul>
 <h2 id="_4">二分圖最大匹配</h2>
 <h3 id="hungarian-algorithm">匈牙利演算法 (Hungarian algorithm)</h3>
-<details open="open"><summary>交錯路 (Alternating Path) 及增廣路 (Agumenting Path)</summary><p>交錯路：序經過非匹配邊、匹配邊、...、非匹配邊、匹配邊、非匹配邊所形成的路徑。</p>
-<p>增廣路：從匹配點出發，經過交錯路，途中經過另一個為匹配點(起點除外)，該路徑稱為增廣路。把擴充路徑上的非匹配邊和匹配邊替換，就能使匹配數量 <script type="math/tex">+1</script>。</p>
+<details open="open"><summary>交錯路 (Alternating Path) 及增廣路 (Agumenting Path)</summary><p>交錯路：依序經過非匹配邊、匹配邊、...、非匹配邊、匹配邊、非匹配邊所形成的路徑。</p>
+<p>增廣路：從非匹配點出發，經過交錯路，最後經過另一個集合的非匹配點，該路徑稱為增廣路。把增廣路上的非匹配邊和匹配邊替換，就能使匹配數量 <script type="math/tex">+1</script>。</p>
 <p><img alt="" src="../images/matching.png" />
 <img alt="" src="../images/agumentingPath.png" /></p>
 </details>
 <details open="open"><summary>Berge's Theorem</summary><p>如果一個匹配 <script type="math/tex">M</script> 找不到任何增廣路，那麼 <script type="math/tex">M</script> 就是一個最大匹配。</p>
-<p>此定理可延伸出，如果一個為匹配點 <script type="math/tex">v</script> 找不到增廣路，那麼存在不包含 <script type="math/tex">v</script> 的匹配 <script type="math/tex">M'</script>。</p>
+<p>此定理可延伸出，如果一個非匹配點 <script type="math/tex">v</script> 找不到增廣路，那麼存在不包含 <script type="math/tex">v</script> 的最大匹配 <script type="math/tex">M'</script>。</p>
 </details>
-<p>根據 Berge's Theorem，我們得到一個算法：枚舉集合 <script type="math/tex">X</script> 未匹配的點 <script type="math/tex">s</script>，如果找到增廣路，則翻轉所有邊，否則就把 <script type="math/tex">s</script> 移出匹配。找出增廣路的方式為，從 <script type="math/tex">X</script> 集合的每個點 <script type="math/tex">s</script> 開始 DFS，去拜訪集合 <script type="math/tex">Y</script> 的每個和 <script type="math/tex">x</script> 相連的點 <script type="math/tex">y</script>，如果 <script type="math/tex">y</script> 是未匹配邊，則找到一條增廣路；如果 <script type="math/tex">y</script> 是匹配邊，則從和 <script type="math/tex">y</script> 匹配點 <script type="math/tex">x'</script> 開始 DFS 尋找增廣路。</p>
-<p>
-<script type="math/tex">X</script> 集合個每個點都匹配一次，最多有 <script type="math/tex">V</script> 個點，每次 DFS 的最多找到長度為 <script type="math/tex">E</script> 的增廣路，整體時間複雜度為 <script type="math/tex">O(VE)</script>。</p>
+<p>根據 Berge's Theorem，我們得到一個算法：枚舉集合 <script type="math/tex">X</script> 未匹配的點 <script type="math/tex">s</script>，如果找到增廣路，則翻轉所有邊，否則就把 <script type="math/tex">s</script> 移出匹配。找出增廣路的方式為，從 <script type="math/tex">X</script> 集合的每個點 <script type="math/tex">s</script> 開始 DFS，去拜訪集合 <script type="math/tex">Y</script> 的每個和 <script type="math/tex">s</script> 相連的點 <script type="math/tex">t</script>，如果 <script type="math/tex">t</script> 是未匹配點，則找到一條增廣路；如果 <script type="math/tex">t</script> 是匹配點，則從和 <script type="math/tex">t</script> 匹配點 <script type="math/tex">s'</script> 開始 DFS 尋找增廣路。</p>
+<p>s 集合個每個點都匹配一次，最多有 <script type="math/tex">V</script> 個點，每次 DFS 的最多找到長度為 <script type="math/tex">E</script> 的增廣路，整體時間複雜度為 <script type="math/tex">O(VE)</script>。</p>
 <p><img alt="" src="../images/hungarianAlgorithm.gif" /></p>
 <details><summary>參考程式碼</summary><p>作者：<a href="https://github.com/allem40306">allem40306</a>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1602,7 +1601,7 @@
 </ul>
 <p>下列說明，在找出最大匹配後，如何找出這些問題的其中一組解：</p>
 <ul>
-<li>最小點覆蓋：如果匹配點有連接到未匹配點，那麼該點包含在最小點覆蓋中。</li>
+<li>最小點覆蓋：對於每個匹配邊上的兩點，如果有一個匹配點有連接到未匹配點，將該點加入最小點覆蓋中，否則任選一點加入最小點覆蓋中。</li>
 <li>最大點獨立集：剛好跟最小點覆蓋互補。</li>
 <li>最小邊覆蓋：最大匹配的邊，加上每個未匹配點所連接的任意一條。</li>
 </ul>
@@ -1830,8 +1829,16 @@
 <li><a href="https://onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2391">UVa 11396 - Claw Decomposition</a></li>
 </ul>
 </li>
-<li>二分圖匹配<ul>
-<li>[UVa ]</li>
+<li>二分圖最大匹配<ul>
+<li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=3235">UVa 12083 - Guardian of Decency</a></li>
+</ul>
+</li>
+<li>獨立集和覆蓋<ul>
+<li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=2414">UVa 11419 - SAM I AM</a></li>
+</ul>
+</li>
+<li>二分圖最大權匹配<ul>
+<li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=4095">UVa 01349 - Optimal Bus Route Design</a></li>
 </ul>
 </li>
 </ul>
