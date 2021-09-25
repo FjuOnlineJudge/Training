@@ -44,6 +44,7 @@ nav:
     - 圖的儲存: graph/save.md
     - 圖的遍歷: graph/traverse.md
     - 時間戳記: graph/timestamp.md
+    - 有向無環圖: graph/directedacyclicgraph.md
     - 樹: graph/tree.md
     - 最低共同祖先: graph/lca.md
     - 並查集: graph/disjointset.md
@@ -51,7 +52,6 @@ nav:
     - 最短路徑: graph/shortestpath.md
     - 歐拉回路: graph/euler.md
     - 哈密頓: graph/hamilton.md
-    - 拓譜排序: graph/topology.md
     - 連通性: graph/connectivity.md
     - 二分圖: graph/bigraph.md
   - 動態規劃:
