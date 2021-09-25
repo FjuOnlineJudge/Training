@@ -949,6 +949,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../graph/directedacyclicgraph/" class="md-nav__link">
+        有向無環圖
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../graph/tree/" class="md-nav__link">
         樹
       </a>
@@ -1023,18 +1035,6 @@
     <li class="md-nav__item">
       <a href="../../graph/hamilton/" class="md-nav__link">
         哈密頓
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../graph/topology/" class="md-nav__link">
-        拓譜排序
       </a>
     </li>
   
@@ -1502,7 +1502,7 @@
 \left \{ \begin{matrix} X\equiv r_1 (\operatorname{mod} m_1)\\ X\equiv r_2 (\operatorname{mod} m_2)\\ \cdot \\ \cdot \\ X\equiv r_n (\operatorname{mod} m_n)\end{matrix}\right.
 </script>
 </p>
-<p>解決這類問題最簡單適用枚舉來求解，不過如果範圍太大就會吃 TLE 了。因此我們先列出 <script type="math/tex">n</script> 個數字 <script type="math/tex">ans_1,ans_2,...,ans_n</script>:</p>
+<p>解決這類問題最簡單是用枚舉來求解，不過如果範圍太大就會吃 TLE 了。因此我們先列出 <script type="math/tex">n</script> 個數字 <script type="math/tex">ans_1,ans_2,...,ans_n</script>:</p>
 <p>
 <script type="math/tex; mode=display">
 \left \{ \begin{matrix} ans_1\equiv r_1 (\operatorname{mod} m_1)\\ ans_1\equiv 0 (\operatorname{mod} m_2)\\ \cdot \\ \cdot \\ ans_1\equiv 0 (\operatorname{mod} m_n)\end{matrix}\right.

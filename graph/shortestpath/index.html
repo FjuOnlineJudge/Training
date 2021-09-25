@@ -951,6 +951,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../directedacyclicgraph/" class="md-nav__link">
+        有向無環圖
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../tree/" class="md-nav__link">
         樹
       </a>
@@ -1093,18 +1105,6 @@
     <li class="md-nav__item">
       <a href="../hamilton/" class="md-nav__link">
         哈密頓
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../topology/" class="md-nav__link">
-        拓譜排序
       </a>
     </li>
   
@@ -1345,7 +1345,7 @@
 <p>為多源頭最短路徑，求出所有點對的最短路徑。
 Floyd-Warshall 是一種動態規劃問題，以下是他的 dp 式。</p>
 <ul>
-<li>狀態： <script type="math/tex">dp[k][i][j]</script> 代表，若只以點 <script type="math/tex">1 ∼ k</script> 當中繼點的話，則 <script type="math/tex">dp[k][i][j]</script> 為 <script type="math/tex">i</script> 到 <script type="math/tex">j</script> 的最短路徑長。</li>
+<li>狀態： <script type="math/tex">dp[k][i][j]</script> 代表，若只以點 <script type="math/tex">1 ∼ k</script> 當中繼點的話， <script type="math/tex">i</script> 到 <script type="math/tex">j</script> 的最短路徑長。</li>
 <li>轉移： <script type="math/tex">dp[k][i][j] = min(dp[k − 1][i][k] + dp[k − 1][k][j], dp[k − 1][i][j])</script>
 </li>
 <li>基底：
@@ -1419,7 +1419,11 @@ Floyd-Warshall 是一種動態規劃問題，以下是他的 dp 式。</p>
 </td></tr></table>
 <p>此演算法還有一個優化版本叫做 Shortest Path Faster Algorithm (SPFA)，他的做法是枚舉起點是鬆弛過的邊，以鬆弛過的點除非被重新鬆弛，否則不會更動。預期複雜度為 <script type="math/tex">O(V+E)</script> ，不過最差狀況仍為 <script type="math/tex">O(VE)</script> 。</p>
 <h2 id="dijkstras-algorithm">Dijkstra’s Algorithm</h2>
-<p>同樣為單點源最短路徑，他的想法和 Prim's Algorithm 類似，每次把離樹根最近的點加入最短路徑樹裡，並把所有與該點相連的邊鬆弛，已經加入的點不會在被鬆弛。使用 <code>priority_queue</code> 的複雜度為 <script type="math/tex">O((V+E)\log E)</script> ，使用費波那契堆，複雜度為 <script type="math/tex">O(E+V\log V)</script>
+<p>同樣為單點源最短路徑，他的想法和 Prim's Algorithm 類似，每次把離樹根最近的點加入最短路徑樹裡，並把所有與該點相連的邊鬆弛，已經加入的點不會在被鬆弛。</p>
+<ul>
+<li><img alt="" src="../images/dijkstra.gif" /></li>
+</ul>
+<p>使用 <code>priority_queue</code> 的複雜度為 <script type="math/tex">O((V+E)\log E)</script> ，使用費波那契堆，複雜度為 <script type="math/tex">O(E+V\log V)</script>
 </p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>

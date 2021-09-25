@@ -949,6 +949,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../graph/directedacyclicgraph/" class="md-nav__link">
+        有向無環圖
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../graph/tree/" class="md-nav__link">
         樹
       </a>
@@ -1023,18 +1035,6 @@
     <li class="md-nav__item">
       <a href="../../graph/hamilton/" class="md-nav__link">
         哈密頓
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../graph/topology/" class="md-nav__link">
-        拓譜排序
       </a>
     </li>
   
@@ -1396,8 +1396,7 @@
 </li>
 <li>如果 <script type="math/tex">p</script> 是質數： <script type="math/tex">\Phi(p) = p-1</script>
 </li>
-<li>
-<script type="math/tex">\Phi(p^k)=p^{k−1}\times (p−1)</script>
+<li>如果 <script type="math/tex">p</script> 是質數： <script type="math/tex">\Phi(p^k)=p^{k−1}\times (p−1)</script>
 </li>
 </ul>
 <h2 id="_4">計算</h2>
@@ -1471,7 +1470,7 @@
 <p>給定一個質數 <script type="math/tex">p</script> 及一個整數 <script type="math/tex">a</script> ，那麼： <script type="math/tex">a^p \equiv a (\mod p)</script> 如果 <script type="math/tex">gcd(a,p)=1</script> ，則： <script type="math/tex">a^{p-1} \equiv 1 (\mod p)</script>
 </p>
 <h3 id="_7">歐拉定理</h3>
-<p>歐拉定理是比較 generate 版本的費馬小定理。給定兩個整數 <script type="math/tex">n</script> 和 <script type="math/tex">a</script> ，如果 <script type="math/tex">gcd(a,n)=1</script> ，則 <script type="math/tex">a^{\Phi(n)} \equiv 1 (\mod n)</script> 如果 <script type="math/tex">n</script> 是質數， <script type="math/tex">\Phi(n)=n-1</script> ，也就是費馬小定理。</p>
+<p>歐拉定理是比較 general 版本的費馬小定理。給定兩個整數 <script type="math/tex">n</script> 和 <script type="math/tex">a</script> ，如果 <script type="math/tex">gcd(a,n)=1</script> ，則 <script type="math/tex">a^{\Phi(n)} \equiv 1 (\mod n)</script> 如果 <script type="math/tex">n</script> 是質數， <script type="math/tex">\Phi(n)=n-1</script> ，也就是費馬小定理。</p>
 <h3 id="wilsons-theorem">Wilson's theorem</h3>
 <p>給定一個質數 <script type="math/tex">p</script> ，則： <script type="math/tex">(p-1)!\equiv -1 (\mod p)</script>
 </p>

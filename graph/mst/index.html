@@ -951,6 +951,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../directedacyclicgraph/" class="md-nav__link">
+        有向無環圖
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../tree/" class="md-nav__link">
         樹
       </a>
@@ -1079,18 +1091,6 @@
     <li class="md-nav__item">
       <a href="../hamilton/" class="md-nav__link">
         哈密頓
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../topology/" class="md-nav__link">
-        拓譜排序
       </a>
     </li>
   
@@ -1308,7 +1308,11 @@
                 <h1 id="minimun-spanning-tree-mst">最小生成樹（Minimun Spanning Tree, MST)</h1>
 <p>在一張圖中，如果有子圖剛好為也為一顆樹，我們就稱該子圖為生成樹。現在我們在圖上加上權重，而在所有的生成樹中，權重總和最小的，我們稱為 "最小生成樹"，最小生成樹並不唯一，以下介紹幾種最小生成樹的演算法。</p>
 <h2 id="kruskals-algorithm">Kruskal’s algorithm</h2>
-<p>Kruskal’s algorithm 的概念是，合併兩顆 MST 的時候，加入連接兩顆樹中，最小權重的邊。所以我們就利用 greedy，將邊依權重由小到大排序，如果邊的兩邊是在不同的 MST，我們就把合併（並查集應用於此），反之就跳過。排序需花 <script type="math/tex">O(E\log E)</script> 的時間，選邊需要花 <script type="math/tex">O(E\alpha(V))</script> 的時間，總共時間複雜度 <script type="math/tex">O(E(\log E+\alpha(V)))</script>
+<p>Kruskal’s algorithm 的概念是，合併兩顆 MST 的時候，加入連接兩顆樹中，最小權重的邊。所以我們就利用 greedy，將邊依權重由小到大排序，如果邊的兩邊是在不同的 MST，我們就把合併（並查集應用於此），反之就跳過。</p>
+<ul>
+<li><img alt="" src="../images/kruskal.gif" /></li>
+</ul>
+<p>排序需花 <script type="math/tex">O(E\log E)</script> 的時間，選邊需要花 <script type="math/tex">O(E\alpha(V))</script> 的時間，總共時間複雜度 <script type="math/tex">O(E(\log E+\alpha(V)))</script>
 </p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>

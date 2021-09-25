@@ -951,6 +951,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../directedacyclicgraph/" class="md-nav__link">
+        有向無環圖
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../tree/" class="md-nav__link">
         樹
       </a>
@@ -1025,18 +1037,6 @@
     <li class="md-nav__item">
       <a href="../hamilton/" class="md-nav__link">
         哈密頓
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../topology/" class="md-nav__link">
-        拓譜排序
       </a>
     </li>
   
@@ -1432,7 +1432,7 @@
                 <h1 id="connectivity">連通性 (Connectivity)</h1>
 <p>一張任意兩點接連通的圖叫做連通圖，在實際情況，例如網路或電力的架設都希望線路是連通的，要是地方壞掉，我們希望影響能越小越好。在圖論中，有算法可以找出去掉那些部分會使得圖變成不連通的，以下詳細說明。</p>
 <h2 id="dfs">DFS 邊分類</h2>
-<p>根據 DFS 的順序（時間戳記），對邊進行分類，這些分類在之後的章節會用到。</p>
+<p>根據 DFS 的順序(時間戳記），對邊進行分類，這些分類在之後的章節會用到。</p>
 <table>
 <thead>
 <tr>
@@ -1474,22 +1474,27 @@
 <ul>
 <li>點連通度：最少要移除多少個點才會讓整張圖不再連通。</li>
 <li>邊連通度：最少要移除多少條邊才會讓整張圖不再連通。</li>
-<li>點雙連通：移除任意一個點後，圖依然是連通的（點連通度 <script type="math/tex">>1</script> )。</li>
-<li>邊雙連通：移除任意一個邊後，圖依然是連通的（邊連通度 <script type="math/tex">>1</script> )。</li>
+<li>點雙連通：移除任意一個點後，圖依然是連通的(點連通度 <script type="math/tex">>1</script> )。</li>
+<li>邊雙連通：移除任意一個邊後，圖依然是連通的(邊連通度 <script type="math/tex">>1</script> )。</li>
 </ul>
-<p>在之前提到的例子，網路的架設，需要特別注意雙連通的問題，萬一有部分的線路（邊）或是設備（點）損壞，就有可能導致一部分的網路不連通。以下分別從點和邊的角度探討雙連通。</p>
+<p>在之前提到的例子，網路的架設，需要特別注意雙連通的問題，萬一有部分的線路(邊）或是設備(點）損壞，就有可能導致一部分的網路不連通。以下分別從點和邊的角度探討雙連通。</p>
 <h2 id="tarjan-low">Tarjan 算法：找 <script type="math/tex">low</script> 函數</h2>
 <p>Tarjan 算法，可解決許多連通性的問題，最核心的是找出每個點 <script type="math/tex">low</script> 函數。</p>
 <ul>
 <li>
 <script type="math/tex">depth[u]</script> : 點 <script type="math/tex">u</script> 的深度。</li>
 <li>
-<script type="math/tex">low[u]</script> : <script type="math/tex">u</script> 在不經過父親連到自己的 Tree Edge 的情況下，所能到達祖先的最低深度。</li>
+<script type="math/tex">low[u]</script> : <script type="math/tex">u</script> 在不經過父親連到自己的 Tree Edge 的情況下，所能到達祖先的最淺深度。</li>
 </ul>
 <p>在無向圖中，只會遇到 Tree Edge 和 Back Edge，以下針對兩種情況說明：</p>
 <ul>
-<li>Edge <script type="math/tex">u\to v</script> is a tree edge: <script type="math/tex">v</script> 是 <script type="math/tex">u</script> 的兒子， <script type="math/tex">u</script> 可能經由 <script type="math/tex">v</script> 走到其他祖先，遞迴找尋 <script type="math/tex">low[v]</script> ，再更新 <script type="math/tex">low[v]=min(low[u],low[v])</script> 。</li>
-<li>Edge <script type="math/tex">u\to v</script> is a back edge: <script type="math/tex">v</script> 是 <script type="math/tex">u</script> 的祖先，更新 <script type="math/tex">low[v]=min(low[u],depth[v])</script> 。</li>
+<li>Edge <script type="math/tex">u\to v</script> is a tree edge: <script type="math/tex">v</script> 是 <script type="math/tex">u</script> 的兒子， <script type="math/tex">u</script> 可能經由 <script type="math/tex">v</script> 走到其他祖先，遞迴找尋 <script type="math/tex">low[v]</script> ，再更新 <script type="math/tex">low[u]=min(low[u],low[v])</script> 。</li>
+<li>
+<p>Edge <script type="math/tex">u\to v</script> is a back edge: <script type="math/tex">v</script> 是 <script type="math/tex">u</script> 的祖先，更新 <script type="math/tex">low[u]=min(low[u],depth[v])</script> 。</p>
+</li>
+<li>
+<p><img alt="" src="../images/low.gif" /></p>
+</li>
 </ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -1528,11 +1533,11 @@
 </td></tr></table>
 <h2 id="_2">點雙連通：找割點</h2>
 <p>要判斷一張圖是否點雙連通，就要檢查他是否有割點，如果沒有割點，則這張圖為點雙連通。</p>
-<p>割點：給定一張圖 <script type="math/tex">G</script> ，如果移除點 <script type="math/tex">v</script> 及連接 <script type="math/tex">v</script> 的邊之後，圖 <script type="math/tex">G</script> 不再連通，點 <script type="math/tex">v</script> 都被稱為 <script type="math/tex">G</script> 的一個割點（cut-vertex）或關節點（articulation-vertex, articulation-point)。</p>
+<p>割點：給定一張圖 <script type="math/tex">G</script> ，如果移除點 <script type="math/tex">v</script> 及連接 <script type="math/tex">v</script> 的邊之後，圖 <script type="math/tex">G</script> 不再連通，點 <script type="math/tex">v</script> 都被稱為 <script type="math/tex">G</script> 的一個割點(cut-vertex）或關節點(articulation-vertex, articulation-point)。</p>
 <p><img alt="" src="../images/cutVertex.png" /></p>
 <p>根據 <script type="math/tex">low</script> 函數，以下兩種情況能判斷一個點為割點：</p>
 <ul>
-<li>非根結點 <script type="math/tex">u</script> ：存在一個孩子 <script type="math/tex">v, low[v]\leq depth[u]</script> 。</li>
+<li>非根節點 <script type="math/tex">u</script> ：存在一個孩子 <script type="math/tex">v, low[v]\leq depth[u]</script> 。</li>
 <li>根節點 <script type="math/tex">root</script> ：擁有 <script type="math/tex">\geq</script> 兩個兒子。</li>
 </ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1586,12 +1591,12 @@
 </p>
 <h2 id="_3">邊雙連通：找割邊</h2>
 <p>和點連通相似，要判斷一張圖是否邊雙連通，就要檢查他是否有割邊，如果沒有割邊，則這張圖為邊雙連通。</p>
-<p>割邊：給定一張圖 <script type="math/tex">G</script> ，如果移除邊 <script type="math/tex">e</script> 及 <script type="math/tex">e</script> 連接的點之後，圖 <script type="math/tex">G</script> 再連通，邊 <script type="math/tex">e</script> 都被稱為 <script type="math/tex">G</script> 的一個割邊（cut-edge）或橋（bridge)。</p>
+<p>割邊：割邊：給定一張圖 <script type="math/tex">G</script> ，如果移除邊 <script type="math/tex">e</script>，圖 <script type="math/tex">G</script> 不再連通，邊 <script type="math/tex">e</script> 都被稱為 <script type="math/tex">G</script> 的一個割邊(cut-edge)或橋(bridge)。</p>
 <p><img alt="" src="../images/cutEdge.png" /></p>
 <p>樹邊才有可能是橋，其他的邊拔除仍然可以藉由樹邊連通。</p>
-<p>根據 <script type="math/tex">low</script> 函數，以下情況能判斷一個點為割邊：</p>
+<p>根據 <script type="math/tex">low</script> 函數，以下情況能判斷割邊：</p>
 <ul>
-<li>樹邊 <script type="math/tex">u\to v</script> ： <script type="math/tex">low[v] < depth[u]</script> 。<ul>
+<li>樹邊 <script type="math/tex">u\to v</script> ： <script type="math/tex">low[v] > depth[u]</script> 。<ul>
 <li>
 <script type="math/tex">low[v] == depth[u]</script> 代表有 <script type="math/tex">u,v</script> 之間存在至少兩條路徑。</li>
 </ul>
@@ -1667,15 +1672,18 @@
 </details>
 <h2 id="_4">雙連通元件</h2>
 <ul>
-<li>連通元件：一張圖 <script type="math/tex">G</script> 有很多子圖，如果一個子圖 <script type="math/tex">G'</script> 是連通的，我們稱之為連通元件（connected component)，如果一個連通元件滿足 "加上任意一個其他的點就不再連通"，則稱這樣的連通元件是 "極大的"(maximal)。</li>
-<li>邊雙連通元件：如果一張的某個子圖是一張邊雙連通圖，我們就成這張子圖為邊連通元子圖（bi-edge-connected graph）或邊雙連通元件（bi-edge-connected component)。</li>
-<li>點雙連通元件：如果一張的某個子圖是一張點雙連通圖，我們就成這張子圖為點連通元子圖（bi-vertex-connected graph）或點雙連通元件（bi-vertex-connected component)。</li>
+<li>連通元件：一張圖 <script type="math/tex">G</script> 有很多子圖，如果一個子圖 <script type="math/tex">G'</script> 是連通的，我們稱之為連通元件(connected component)，如果一個連通元件滿足 "加上任意一個其他的點就不再連通"，則稱這樣的連通元件是 "極大的"(maximal)。</li>
+<li>邊雙連通元件：如果一張的某個子圖是一張邊雙連通圖，我們就成這張子圖為邊連通元子圖(bi-edge-connected graph）或邊雙連通元件(bi-edge-connected component)。</li>
+<li>點雙連通元件：如果一張的某個子圖是一張點雙連通圖，我們就成這張子圖為點連通元子圖(bi-vertex-connected graph）或點雙連通元件(bi-vertex-connected component)。</li>
 </ul>
 <p>一般來說，我們會討論極大的連通元件，以下所有的連通元件都是極大的。</p>
-<p>要一張張圖的所有邊雙連通元件，只要拔掉所有橋，剩下的圖就是原圖所有的邊連通元件。</p>
+<p>要求出一張圖的所有邊雙連通元件，只要拔掉所有橋，剩下的圖就是原圖所有的邊連通元件。</p>
 <p>至於點連通元件就沒那麼簡單了，因為同一個割點有可能同時存在多的點連通元件內，並且點的相鄰邊不一定不同的點連通元件中，所以我們不能直接拔點拔掉來求出點雙連通元件。</p>
 <p>至於為什麼會有這樣的差異，是因為一般的圖是以點為主題，邊用來描敘點和點之間的東西。而點連通問題則是以邊為主體，點用來描述邊和邊之間的關係，後者描述的關係不是二元關係，所以讓問題變得複雜。</p>
-<p>那我們就以邊的角度來思考點雙連通元件，對於一個點 <script type="math/tex">p</script> ，與父親點 <script type="math/tex">f</script> 之間有條邊 <script type="math/tex">e_f</script> ，與兒子點 <script type="math/tex">c</script> 之間有條邊 <script type="math/tex">e_c</script> ，如果 <script type="math/tex">low(c)>depth(p)</script> （不計算樹邊），則 <script type="math/tex">e_f</script> 和 <script type="math/tex">e_c</script> 不在同一個點連通元件內，反之 <script type="math/tex">e_f</script> 和 <script type="math/tex">e_c</script> 在同一個點雙連通元件內。根據以上性質，我們可以在 DFS 過程中維護一個 <code>stack</code> ，紀錄目前經過的邊，當遇到割點時，可以快速找出點雙連通元件。</p>
+<p>那我們就以邊的角度來思考點雙連通元件，對於一個點 <script type="math/tex">p</script> ，與父親點 <script type="math/tex">f</script> 之間有條邊 <script type="math/tex">e_f</script> ，與兒子點 <script type="math/tex">c</script> 之間有條邊 <script type="math/tex">e_c</script> ，如果 <script type="math/tex">low(c)>depth(p)</script> (不計算樹邊），則 <script type="math/tex">e_f</script> 和 <script type="math/tex">e_c</script> 不在同一個點連通元件內，反之 <script type="math/tex">e_f</script> 和 <script type="math/tex">e_c</script> 在同一個點雙連通元件內。根據以上性質，我們可以在 DFS 過程中維護一個 <code>stack</code> ，紀錄目前經過的邊，當遇到割點時，可以快速找出點雙連通元件。</p>
+<ul>
+<li><img alt="" src="../images/bivertexConnected.gif" /></li>
+</ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1767,15 +1775,18 @@
 <h2 id="_5">有向圖的強連通</h2>
 <p>談完了無向圖，就來談論有向圖，有向圖的邊具有方向性，因此比無向圖更難達成 "連通" 的性質，於是為了跟無向圖做區分，訂了一個術語 "強連通" 來表示有向圖的連通性。</p>
 <ul>
-<li>強連通：對於有向圖上的兩點 <script type="math/tex">A,B</script> ，若存在一條路徑從 <script type="math/tex">A</script> 到 <script type="math/tex">B</script> ，以及存在一條路徑從 <script type="math/tex">B</script> 到 <script type="math/tex">A</script> ，則我們稱 <script type="math/tex">A,B</script> 兩點強連通（strongly connected)</li>
-<li>強連通圖：如果一張有向圖上任意兩點皆強連通，則這張圖為強連通圖（strongly connected graph)</li>
-<li>強連通元件：如果一張圖中的某個子圖是一張強連通圖，我們稱這個子圖為強連通子圖（strongly connected subgraph)，或是強連通元件（strongly connected component, SCC)</li>
+<li>強連通：對於有向圖上的兩點 <script type="math/tex">A,B</script> ，若存在一條路徑從 <script type="math/tex">A</script> 到 <script type="math/tex">B</script> ，以及存在一條路徑從 <script type="math/tex">B</script> 到 <script type="math/tex">A</script> ，則我們稱 <script type="math/tex">A,B</script> 兩點強連通(strongly connected)</li>
+<li>強連通圖：如果一張有向圖上任意兩點皆強連通，則這張圖為強連通圖(strongly connected graph)</li>
+<li>強連通元件：如果一張圖中的某個子圖是一張強連通圖，我們稱這個子圖為強連通子圖(strongly connected subgraph)，或是強連通元件(strongly connected component, SCC)</li>
 </ul>
-<p>強連通為有向圖中很重要的性質，如果將強連通元件各自縮成一點，新圖是一張有向無環圖（Directed Acyclic Graph, DAG)，DAG 有許多強力性質，可以讓圖上的問題變得有解，有些圖論題目一開始會先找出 SCC 來解題。</p>
+<p>強連通為有向圖中很重要的性質，如果將強連通元件各自縮成一點，新圖是一張有向無環圖(Directed Acyclic Graph, DAG)，DAG 有許多強力性質，可以讓圖上的問題變得有解，有些圖論題目一開始會先找出 SCC 來解題。</p>
 <h2 id="_6">強連通元件</h2>
 <p>這裡會介紹兩種做法，Tarjan 和 Kosaraju's algorithm。</p>
 <h3 id="tarjan">Tarjan</h3>
 <p>Tarjan 的思維如下：SCC 是由一個或多個環組成， <script type="math/tex">dep</script> 改成維護節點的時間戳，當一個節點深度等於 <script type="math/tex">low</script> 函數時，代表找到一個 SCC。和找雙連通元件相似，開一個 <code>stack</code> 維護目前走過的點。</p>
+<ul>
+<li><img alt="" src="../images/strongConnectedTarjan.gif" /></li>
+</ul>
 <p>以下是程式碼，和上述相似，此算法會做一次 <script type="math/tex">DFS</script> ，時間複雜度為 <script type="math/tex">O(V+E)</script> 。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -1907,13 +1918,13 @@
 <li>
 <script type="math/tex">A,B</script> 互相都不能走到對方：這種情況也是先拜訪誰都可以，反正毫不相干</li>
 <li>
-<script type="math/tex">A</script> 走的到 <script type="math/tex">B</script> ， <script type="math/tex">B</script> 走不到 <script type="math/tex">A</script> （單向通行）：這種情況只能先走 <script type="math/tex">B</script> 再走 <script type="math/tex">A</script> ，否則先走 <script type="math/tex">A</script> 的話， <script type="math/tex">B</script> 會被認為和 <script type="math/tex">A</script> 在同一個 SCC 內</li>
+<script type="math/tex">A</script> 走的到 <script type="math/tex">B</script> ， <script type="math/tex">B</script> 走不到 <script type="math/tex">A</script> (單向通行）：這種情況只能先走 <script type="math/tex">B</script> 再走 <script type="math/tex">A</script> ，否則先走 <script type="math/tex">A</script> 的話， <script type="math/tex">B</script> 會被認為和 <script type="math/tex">A</script> 在同一個 SCC 內</li>
 </ul>
 <p>所以只要給出一個順序，對於所有只有 <script type="math/tex">A</script> 走的到 <script type="math/tex">B</script> ， <script type="math/tex">B</script> 走不到 <script type="math/tex">A</script> 的點對 <script type="math/tex">(A,B)</script> 都滿足 <script type="math/tex">B</script> 會比 <script type="math/tex">B</script> 先被走到，這個演算法就行得通了。基於這個道理，Kosaraju's algorithm 就誕生了：</p>
 <ul>
 <li>將圖上所有邊反向，得到新圖 <script type="math/tex">G'</script>
 </li>
-<li>在圖 <script type="math/tex">G'</script> 上找一個未拜訪過的點 DFS 並且記錄時間戳，DFS 完後，如果還有點未被 DFS，再進行前敘動作。</li>
+<li>在圖 <script type="math/tex">G'</script> 上找一個未拜訪過的點 DFS 並且記錄離開的時間戳，DFS 完後，如果還有點未被 DFS，再進行前述動作。</li>
 <li>依時間戳的離開戳記對點由大到小排序，所得序列即為所求。再根據這個序列在原圖 <script type="math/tex">G</script> 做 DFS，每次 DFS 到的點形成一個 SCC。</li>
 </ul>
 <p>現在來證明這個序列滿足我們的要求：</p>
@@ -1921,7 +1932,12 @@
 <li>對於圖 G 上任意單向通行的點對 <script type="math/tex">A\rightarrow B</script> ，在 <script type="math/tex">G'</script> 上會變成單向通行的點對 <script type="math/tex">B\rightarrow A</script> 。</li>
 <li>如果 <script type="math/tex">A</script> 先被拜訪，因為 <script type="math/tex">A</script> 沒辦法做到 <script type="math/tex">B</script> ，所以 <script type="math/tex">A</script> 會先拜訪完畢，因此 <script type="math/tex">A</script> 的離開戳記會小於 <script type="math/tex">B</script> 的離開戳記。</li>
 <li>如果 <script type="math/tex">B</script> 先被拜訪， <script type="math/tex">B</script> 一定會走到 <script type="math/tex">A</script> ， <script type="math/tex">A</script> 拜訪完畢時， <script type="math/tex">B</script> 一定還沒拜訪完畢，因此 <script type="math/tex">A</script> 的離開戳記依然會小於 <script type="math/tex">B</script> 的離開戳記。</li>
-<li>得證 <script type="math/tex">A</script> 的離開戳記一定會小於 <script type="math/tex">B</script> 的離開戳記，即 <script type="math/tex">B</script> 在序列中會在 <script type="math/tex">A</script> 前面。</li>
+<li>
+<p>得證 <script type="math/tex">A</script> 的離開戳記一定會小於 <script type="math/tex">B</script> 的離開戳記，即 <script type="math/tex">B</script> 在序列中會在 <script type="math/tex">A</script> 前面。</p>
+</li>
+<li>
+<p><img alt="" src="../images/strongConnectedKosaraju.gif" /></p>
+</li>
 </ul>
 <p>以下是程式碼，此算法會做兩次 <script type="math/tex">DFS</script> ，時間複雜度為 <script type="math/tex">O(V+E)</script> ，效率比 Tarjan 低一些，但 Kosaraju's algorithm 較容易實作。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2060,7 +2076,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../topology/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 拓譜排序" rel="prev">
+        <a href="../hamilton/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 哈密頓" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -2069,7 +2085,7 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              拓譜排序
+              哈密頓
             </div>
           </div>
         </a>
