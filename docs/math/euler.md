@@ -8,7 +8,7 @@
 
 -   歐拉函數是一個積性函數: 如果 $gcd(p,q)=1,\Phi(p)\cdot\Phi(q)=\Phi(p\cdot q)$
 -   如果 $p$ 是質數： $\Phi(p) = p-1$
--   $\Phi(p^k)=p^{k−1}\times (p−1)$
+-   如果 $p$ 是質數： $\Phi(p^k)=p^{k−1}\times (p−1)$
 
 ## 計算
 
@@ -62,7 +62,7 @@ void phi_table(int n) {
 
 ### 歐拉定理
 
-歐拉定理是比較 generate 版本的費馬小定理。給定兩個整數 $n$ 和 $a$ ，如果 $gcd(a,n)=1$ ，則 $a^{\Phi(n)} \equiv 1 (\mod n)$ 如果 $n$ 是質數， $\Phi(n)=n-1$ ，也就是費馬小定理。
+歐拉定理是比較 general 版本的費馬小定理。給定兩個整數 $n$ 和 $a$ ，如果 $gcd(a,n)=1$ ，則 $a^{\Phi(n)} \equiv 1 (\mod n)$ 如果 $n$ 是質數， $\Phi(n)=n-1$ ，也就是費馬小定理。
 
 ### Wilson's theorem
 

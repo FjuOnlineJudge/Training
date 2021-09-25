@@ -94,7 +94,7 @@ $$
 \left \{ \begin{matrix} X\equiv r_1 (\operatorname{mod} m_1)\\ X\equiv r_2 (\operatorname{mod} m_2)\\ \cdot \\ \cdot \\ X\equiv r_n (\operatorname{mod} m_n)\end{matrix}\right.
 $$
 
-解決這類問題最簡單適用枚舉來求解，不過如果範圍太大就會吃 TLE 了。因此我們先列出 $n$ 個數字 $ans_1,ans_2,...,ans_n$:
+解決這類問題最簡單是用枚舉來求解，不過如果範圍太大就會吃 TLE 了。因此我們先列出 $n$ 個數字 $ans_1,ans_2,...,ans_n$:
 
 $$
 \left \{ \begin{matrix} ans_1\equiv r_1 (\operatorname{mod} m_1)\\ ans_1\equiv 0 (\operatorname{mod} m_2)\\ \cdot \\ \cdot \\ ans_1\equiv 0 (\operatorname{mod} m_n)\end{matrix}\right.
