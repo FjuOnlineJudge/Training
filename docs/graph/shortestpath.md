@@ -12,7 +12,7 @@
 為多源頭最短路徑，求出所有點對的最短路徑。
 Floyd-Warshall 是一種動態規劃問題，以下是他的 dp 式。
 
-- 狀態： $dp[k][i][j]$ 代表，若只以點 $1 ∼ k$ 當中繼點的話，則 $dp[k][i][j]$ 為 $i$ 到 $j$ 的最短路徑長。
+- 狀態： $dp[k][i][j]$ 代表，若只以點 $1 ∼ k$ 當中繼點的話， $i$ 到 $j$ 的最短路徑長。
 - 轉移： $dp[k][i][j] = min(dp[k − 1][i][k] + dp[k − 1][k][j], dp[k − 1][i][j])$ 
 -   基底：
     $$
@@ -68,7 +68,11 @@ bool has_negative_cycle() {
 
 ## Dijkstra’s Algorithm
 
-同樣為單點源最短路徑，他的想法和 Prim's Algorithm 類似，每次把離樹根最近的點加入最短路徑樹裡，並把所有與該點相連的邊鬆弛，已經加入的點不會在被鬆弛。使用 `priority_queue` 的複雜度為 $O((V+E)\log E)$ ，使用費波那契堆，複雜度為 $O(E+V\log V)$ 
+同樣為單點源最短路徑，他的想法和 Prim's Algorithm 類似，每次把離樹根最近的點加入最短路徑樹裡，並把所有與該點相連的邊鬆弛，已經加入的點不會在被鬆弛。
+
+- ![](images/dijkstra.gif)
+
+使用 `priority_queue` 的複雜度為 $O((V+E)\log E)$ ，使用費波那契堆，複雜度為 $O(E+V\log V)$ 
 
 ```cpp
 struct edge {
