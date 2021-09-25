@@ -21,7 +21,7 @@ nav:
     - 函式庫:
         - cctype: syntax/cctype.md
         - cstring: syntax/cstring.md
-    #     - algorithm: syntax/algorithm.md
+        - algorithm: syntax/algorithm.md
   - 雜項:
     - 複雜度: other/complexity.md
     - define: other/define.md

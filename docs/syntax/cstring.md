@@ -7,49 +7,38 @@
     - `C`: `string.h`
     - `C++`: `cstring`
 
-## 複製
-
 -  `memcpy` : 從 `source` 複製 `num` bytes 記憶體到 `destination` 。
--  `memcpy (destination, source, num)` : 三個參數， `destination` , `source` 為指標型態， `num` 為整數。
+	-  `memcpy (destination, source, num)`
 -  `strcpy` : 從 `source` 複製 C 式字串到 `destination` 。
--  `strcpy(destination, source)` : `destination` , `source` 為字元陣列。
+	-  `strcpy(destination, source)`
 -  `strncpy` : 從 `source` 複製 `num` 個字元記憶體到 `destination` 。
--  `strncpy(destination, source, num)` : `destination` , `source` 為字元陣列， `num` 為整數。
-
-## 串接
-
+	-  `strncpy(destination, source, num)`
 -  `srtcat` : 將 `source` 接到 `destination` 後面。
--  `strcat(destination, source)` : `destination` , `source` 為字元陣列。
+	-  `strcat(destination, source)`
 -  `strncat` : 將 `source` 的前 `num` 個字元接到 `destination` 後面。
--  `strncat(destination, source, num)` : `destination` , `source` 為字元陣列， `num` 為整數。
+	-  `strncat(destination, source, num)`
+-  `memcmp` : 比較兩記憶體前 `num` bytes。
+	-  `memcmp(ptr1, ptr2, num)`
+-  `strcmp` : 比較兩字串。
+	-  `strcmp(str1, str2)`
 
-## 比較
+	???+ 比較函數結果
 
--  `memcmp` : 比較 `ptr1` , `ptr2` 兩記憶體前 `num` bytes。
--  `memcmp(ptr1, ptr2, num)` : `ptr1` , `ptr2` 為指標型態， `num` 為整數。
--  `strcmp` : 比較 `str1` , `str2` 兩字串。
--  `strcmp(str1, str2)` : `str1` , `str2` 為字元陣列。
-
-比較函數有三種結果：
-
-| 結果    | 說明       |
-| ----- | -------- |
-| &lt;0 | 前者&lt;後者 |
-| =0    | 前者 = 後者  |
-| >0    | 前者 > 後者  |
-
-## 其他
+		| 結果    | 說明       |
+		| ----- | -------- |
+		| &lt;0 | 前者&lt;後者 |
+		| =0    | 前者 = 後者  |
+		| >0    | 前者 > 後者  |
 
 -  `memset` : 設定 `ptr` 前 `num` bytes 為 `value` 
--  `memset(ptr, value, num)` : `ptr` 為指標型態， `value` 為整數，需在 `unsigned char` 範圍裡， `num` 為整數。
--  `memset` 應該是要設定字元，然而整數型態的 $0$ 和 $-1$ ，的每個 bytes 剛好也是 $0$ 和 $-1$ ，所以 `memset` 也可用來設定整數陣列全為 $0$ 和 $-1$ 。
+	-  `memset(ptr, value, num)`
+	-  `memset` 應該是要設定字元，然而整數型態的 $0$ 和 $-1$ ，的每個 bytes 剛好也是 $0$ 和 $-1$ ，所以 `memset` 也可用來設定整數陣列全為 $0$ 和 $-1$ 。
 -  `srtlen` : 回傳 C 式字串的長度
--  `strlen(str)` : `str` 為 C 式字串，回傳值為 `size_t` 型態。
+	-  `strlen(str)`
 
 ## 範例
 
 - 複製字串
-
 ```cpp
 char str1[] = "This is an apple.";
 char str2[] = "That is a banana.";
@@ -70,7 +59,6 @@ This is an apple.
 ```
 
 - 串接字串
-
 ```cpp
 char str[] = "Ha!";
 printf("Before strcpy:\n");
@@ -90,7 +78,6 @@ Ha! Hello!
 ```
 
 - 比較字串大小（字典序）
-
 ```cpp
 char str1[] = "This is an apple.";
 char str2[] = "That is a banana.";
@@ -110,7 +97,6 @@ if (res > 0) {
 ```
 
 - 設定字元陣列
-
 ```cpp
 char str[5];
 printf("Before memeset:\n");
@@ -132,7 +118,6 @@ After memeset:
 ```
 
 - 設定整數陣列
-
 ```cpp
 int arr[5];
 printf("Before memeset:\n");
