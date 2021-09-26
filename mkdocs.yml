@@ -8,7 +8,6 @@ nav:
     - Sublime Text: tool/sublimetext.md
     - VS Code: tool/vscode.md
   - 語法篇:
-    - 基本介紹: syntax/intro.md
     - 基本資料型態: syntax/type.md
     - 輸入輸出: syntax/inputoutput.md
     - 運算子: syntax/operator.md
