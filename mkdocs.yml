@@ -55,7 +55,10 @@ nav:
     - 二分圖: graph/bigraph.md
   - 動態規劃:
     - 動態規劃簡介: dynamicProgramming/intro.md
+    - 基礎問題: dynamicProgramming/basic.md
     - 背包 DP: dynamicProgramming/knapsack.md
+    - LCS 和 LIS: dynamicProgramming/lcsandlis.md
+    - 樹 DP: dynamicProgramming/tree.md
   - 數論:
     - 質數和因數: math/primeandfactor.md
     - 模: math/mod.md
