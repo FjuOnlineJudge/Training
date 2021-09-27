@@ -232,7 +232,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../algorithm/" class="md-tabs__link">
+      <a href="../../algorithm/enumerate/" class="md-tabs__link">
         基礎演算法
       </a>
     </li>
@@ -793,18 +793,6 @@
           基礎演算法
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../algorithm/" class="md-nav__link">
-        何謂演算法
-      </a>
-    </li>
-  
-
           
             
   
@@ -1486,12 +1474,12 @@
 <h2 id="_5">模逆元</h2>
 <p>模逆元是取模下的反元素，即為找到 <script type="math/tex">a^{-1}</script> 使得 <script type="math/tex">aa^{-1}\equiv\ 1\operatorname{mod} c</script> 。</p>
 <p>整數 <script type="math/tex">a</script> 在 <script type="math/tex">\operatorname{mod} c</script> 下要有模反元素的充分必要條件為 <script type="math/tex">a,c</script> 互質。</p>
-<p>模逆元如果存在會有無限個，任意兩相鄰模逆元相差 <script type="math/tex">c</script>。</p>
+<p>模逆元如果存在會有無限個，任意兩相鄰模逆元相差 <script type="math/tex">c</script> 。</p>
 <h3 id="_6">方法一：擴展歐基里德演算法</h3>
 <details open="open"><summary>貝祖定理</summary><p>令 <script type="math/tex">a,c</script> 為非 <script type="math/tex">0</script> 整數，存在整數解 <script type="math/tex">x,y</script> 使得 <script type="math/tex">ax+cy=gcd(a,c)</script>
 </p>
 </details>
-<p>從上文可得知，如果 <script type="math/tex">gcd(a,c)=1</script>，則 <script type="math/tex">a</script> 在 <script type="math/tex">\operatorname{mod} c</script> 下有模反元素，又根據貝祖定理，可知存在整數 <script type="math/tex">x,y</script> ，使得 <script type="math/tex">ax+cy=gcd(a,c)=1</script> ，這裡的 <script type="math/tex">x</script> 即為 <script type="math/tex">a</script> 的反元素。我們可以修改找最大公因數的辦法，找出 <script type="math/tex">a</script> 的模逆元，這個算法稱為擴展歐基里德演算法。這個演算法可以推廣到 <script type="math/tex">ax+cy=d,d\in\mathbb{Z}</script>
+<p>從上文可得知，如果 <script type="math/tex">gcd(a,c)=1</script> ，則 <script type="math/tex">a</script> 在 <script type="math/tex">\operatorname{mod} c</script> 下有模反元素，又根據貝祖定理，可知存在整數 <script type="math/tex">x,y</script> ，使得 <script type="math/tex">ax+cy=gcd(a,c)=1</script> ，這裡的 <script type="math/tex">x</script> 即為 <script type="math/tex">a</script> 的反元素。我們可以修改找最大公因數的辦法，找出 <script type="math/tex">a</script> 的模逆元，這個算法稱為擴展歐基里德演算法。這個演算法可以推廣到 <script type="math/tex">ax+cy=d,d\in\mathbb{Z}</script>
 </p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -1504,30 +1492,22 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// ax+by=c</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">extgcd</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">extgcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">y</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">else</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// ax+by=c</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">extgcd</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">extgcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
 <h3 id="_7">方法二：快速冪</h3>
-<p>根據歐拉定理，如果 <script type="math/tex">gcd(a,c)=1</script> ，則 <script type="math/tex">a^{\Phi(c)} \equiv 1 (\mod c)</script>，將式子稍微改變一下，我們得出 <script type="math/tex">aa^{\Phi(c)-1} \equiv 1 (\operatorname{mod} c)</script>，<script type="math/tex">a^{\Phi(c)-1}</script> 是 <script type="math/tex">a</script> 在 <script type="math/tex">\operatorname{mod} c</script> 下的一個模逆元。可以利用快速冪計算 <script type="math/tex">a^{\Phi(c)-1}\operatorname{mod} c</script> 算出模逆元。</p>
+<p>根據歐拉定理，如果 <script type="math/tex">gcd(a,c)=1</script> ，則 <script type="math/tex">a^{\Phi(c)} \equiv 1 (\mod c)</script> ，將式子稍微改變一下，我們得出 <script type="math/tex">aa^{\Phi(c)-1} \equiv 1 (\operatorname{mod} c)</script> ， <script type="math/tex">a^{\Phi(c)-1}</script> 是 <script type="math/tex">a</script> 在 <script type="math/tex">\operatorname{mod} c</script> 下的一個模逆元。可以利用快速冪計算 <script type="math/tex">a^{\Phi(c)-1}\operatorname{mod} c</script> 算出模逆元。</p>
 <h2 id="_8">中國剩餘定理</h2>
 <p>中國剩餘定理，又稱中國餘數定理，是數論中的一個關於一元線性同餘方程組的定理。用來解決像下面這種問題：</p>
 <p>"有物不知其數，三三數之剩二，五五數之剩三，七七數之剩二。問物幾何？"，這題答案為 <script type="math/tex">23+105n,n>=0</script>
@@ -1538,7 +1518,7 @@
 \left \{ \begin{matrix} X\equiv r_1 (\operatorname{mod} m_1)\\ X\equiv r_2 (\operatorname{mod} m_2)\\ \cdot \\ \cdot \\ X\equiv r_n (\operatorname{mod} m_n)\end{matrix}\right.
 </script>
 </p>
-<p>解決這類問題最簡單是用枚舉來求解，不過如果範圍太大就會吃 TLE 了。因此我們先列出 <script type="math/tex">n</script> 個數字 <script type="math/tex">ans_1,ans_2,...,ans_n</script>:</p>
+<p>解決這類問題最簡單是用枚舉來求解，不過如果範圍太大就會吃 TLE 了。因此我們先列出 <script type="math/tex">n</script> 個數字 <script type="math/tex">ans_1,ans_2,...,ans_n</script> :</p>
 <p>
 <script type="math/tex; mode=display">
 \left \{ \begin{matrix} ans_1\equiv r_1 (\operatorname{mod} m_1)\\ ans_1\equiv 0 (\operatorname{mod} m_2)\\ \cdot \\ \cdot \\ ans_1\equiv 0 (\operatorname{mod} m_n)\end{matrix}\right.
@@ -1559,27 +1539,25 @@
 \left \{ \begin{matrix} ans_n\equiv 0 (\operatorname{mod} m_1)\\ ans_n\equiv 0 (\operatorname{mod} m_2)\\ \cdot \\ \cdot \\ ans_n\equiv r_n (\operatorname{mod} m_n)\end{matrix}\right.
 </script>
 </p>
-<p>分別算出答案後，根據加法在模運算下的性質，<script type="math/tex">n</script> 個數字的和，正是我們想要的答案。</p>
+<p>分別算出答案後，根據加法在模運算下的性質， <script type="math/tex">n</script> 個數字的和，正是我們想要的答案。</p>
 <p>將題目分成 <script type="math/tex">n</script> 個式子後，難度一下降低許多，現在我們只要會解開每個式子就行了。以下以 <script type="math/tex">ans_1</script> 為例：</p>
 <p>
-<script type="math/tex">ans_1</script> 顯然整除 <script type="math/tex">m_2,...,m_n</script>，令 <script type="math/tex">Y_1=\frac{\Pi_{i=1}^{n} m_i}{m_1}</script>，可列出式子 <script type="math/tex">ans_1=Y_1Z_1\equiv r_1 (\operatorname{mod} m_1)</script>。於是原式就變成找模逆元的問題。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">LL</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<script type="math/tex">ans_1</script> 顯然整除 <script type="math/tex">m_2,...,m_n</script> ，令 <script type="math/tex">Y_1=\frac{\Pi_{i=1}^{n} m_i}{m_1}</script> ，可列出式子 <script type="math/tex">ans_1=Y_1Z_1\equiv r_1 (\operatorname{mod} m_1)</script> 。於是原式就變成找模逆元的問題。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">LL</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">P</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">LL</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">extgcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ans</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">P</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">P</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">LL</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">extgcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ans</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">P</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 <span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">ans</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">P</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
@@ -1587,15 +1565,15 @@
 <h2 id="_9">例題練習</h2>
 <ul>
 <li>快速冪<ul>
-<li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=2656">UVa 11609 - Teams</a></li>
+<li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=2656">UVa 11609 - Teams</a> </li>
 </ul>
 </li>
 <li>模逆元<ul>
-<li><a href="https://zerojudge.tw/ShowProblem?problemid=a289">Zerojudge a289: Modular Multiplicative Inverse</a></li>
+<li><a href="https://zerojudge.tw/ShowProblem?problemid=a289">Zerojudge a289: Modular Multiplicative Inverse</a> </li>
 </ul>
 </li>
-<li>中國剩餘定理 <ul>
-<li><a href="https://zerojudge.tw/ShowProblem?problemid=c641">Zerojudge c641: 滿滿的糖果屋 #2</a> (備註：這一題王老師帶的錢必定能買至少一顆糖果)</li>
+<li>中國剩餘定理<ul>
+<li><a href="https://zerojudge.tw/ShowProblem?problemid=c641">Zerojudge c641: 滿滿的糖果屋 #2</a> （備註：這一題王老師帶的錢必定能買至少一顆糖果）</li>
 </ul>
 </li>
 </ul>

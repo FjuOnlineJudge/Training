@@ -232,7 +232,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../algorithm/" class="md-tabs__link">
+      <a href="../../algorithm/enumerate/" class="md-tabs__link">
         基礎演算法
       </a>
     </li>
@@ -799,18 +799,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm/" class="md-nav__link">
-        何謂演算法
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../algorithm/enumerate/" class="md-nav__link">
         枚舉
       </a>
@@ -1331,15 +1319,15 @@
 <p>動態規劃 (Dynamic Programming, DP) 和分治法相似，會把問題分解成若干個子問題，不同的是，DP 的子問題往往都是不獨立，子問題需要依靠其他子問題的解。</p>
 <h2 id="_1">性質</h2>
 <ul>
-<li>重複子問題：相同的一個子問題,會被重複計算多次。</li>
+<li>重複子問題：相同的一個子問題，會被重複計算多次。</li>
 <li>最佳子結構：問題的最佳解包含子問題的最佳解。</li>
 <li>無後效性：子問題一旦確被定後，就不會被改變，不會被之後更大的問題所影響。</li>
 </ul>
-<details open="open"><summary>技巧：空間換取時間(記憶化搜索)</summary><p>為避免相同子問題多次計算，會使用陣列(記憶體)記住答案，提高計算效率。</p>
+<details class="tip" open="open"><summary>技巧：空間換取時間(記憶化搜索)</summary><p>為避免相同子問題多次計算，會使用陣列(記憶體)記住答案，提高計算效率。</p>
 </details>
 <h2 id="_2">步驟</h2>
 <ul>
-<li>定義狀態：要如何記錄問題的答案。通常定義 <script type="math/tex">f(p_1,p_2,...)</script>，為算出答案的函數。</li>
+<li>定義狀態：要如何記錄問題的答案。通常定義 <script type="math/tex">f(p_1,p_2,...)</script> ，為算出答案的函數。</li>
 <li>訂出初始狀態。</li>
 <li>訂出轉移式：如何從其他狀態轉移到當前狀態。</li>
 </ul>

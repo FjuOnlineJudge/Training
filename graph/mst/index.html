@@ -232,7 +232,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../algorithm/" class="md-tabs__link">
+      <a href="../../algorithm/enumerate/" class="md-tabs__link">
         基礎演算法
       </a>
     </li>
@@ -799,18 +799,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm/" class="md-nav__link">
-        何謂演算法
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../algorithm/enumerate/" class="md-nav__link">
         枚舉
       </a>
@@ -1048,6 +1036,13 @@
         <li class="md-nav__item">
   <a href="#boruvkas-algorithm" class="md-nav__link">
     Borůvka’s algorithm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    例題練習
   </a>
   
 </li>
@@ -1328,6 +1323,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    例題練習
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1389,6 +1391,11 @@
 <p>Prim’s algorithm 的思維則是，將一棵 MST 連出的邊中，加入權重最小的邊（距離最近的點），重複執行後得出最小的生成樹。在實作上，首先取一個點當 MST，更新所有與它相鄰的點，更新後把距離最小的點加入 MST（不用並查集），持續執行更新及加入點的動作，直到所有點都已加入 MST。維護最小距離用 priority_queue 維護，每個點只會被合併一次，每條邊都只會遍歷一次，複雜度 <script type="math/tex">O((V+E)logE)</script> 。另外有一個資料結構用費波那契堆（fibonacci heap）可以達到 <script type="math/tex">O(E+V\log V)</script> 。但是因為它常數比較大，實作複雜，我們不會使用它。總體而言，Kruskal 比 Prim 好用。</p>
 <h2 id="boruvkas-algorithm">Borůvka’s algorithm</h2>
 <p>Borůvka’s algorithm 和 Prim 一樣都在加入 MST 和最鄰近的點，不一樣的是，它讓所有的 MST 一起做這件事。每次找出每棵 MST 外權重最小的邊，並加入 MST（如果權重一樣，就找索引值最小的），檢查是否只剩一棵 MST，如果不是就重複掃描的動作，這裡一樣用並查集維護聯通性。\最差的情況為每次都剛好兩兩成對合併，這樣最多只會執行 <script type="math/tex">\log V</script> 次，整題複雜度為 <script type="math/tex">O((V+E)\log V)</script> )。期望複雜度可以達到 <script type="math/tex">O((V+E))</script> （因為每次並查集都會被合併 + 查詢，所以 <script type="math/tex">\alpha</script> 可以完全省略）。</p>
+<h2 id="_1">例題練習</h2>
+<ul>
+<li><a href="http://uva.onlinejudge.org/external/121/12176.pdf">UVa 12176 - Bring Your Own Horse</a> </li>
+<li><a href="http://uva.onlinejudge.org/external/12/1234.pdf">UVa 01234 - RACING</a> </li>
+</ul>
                 
               
               

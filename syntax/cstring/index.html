@@ -234,7 +234,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../algorithm/" class="md-tabs__link">
+      <a href="../../algorithm/enumerate/" class="md-tabs__link">
         基礎演算法
       </a>
     </li>
@@ -843,18 +843,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm/" class="md-nav__link">
-        何謂演算法
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../algorithm/enumerate/" class="md-nav__link">
         枚舉
       </a>
@@ -1323,36 +1311,51 @@
 </ul>
 </details>
 <ul>
-<li><code>memcpy</code> : 從 <code>source</code> 複製 <code>num</code> bytes 記憶體到 <code>destination</code> 。<ul>
-<li><code>memcpy (destination, source, num)</code></li>
-</ul>
+<li>
+<p><code>memcpy</code> : 從 <code>source</code> 複製 <code>num</code> bytes 記憶體到 <code>destination</code> 。</p>
 </li>
-<li><code>strcpy</code> : 從 <code>source</code> 複製 C 式字串到 <code>destination</code> 。<ul>
-<li><code>strcpy(destination, source)</code></li>
-</ul>
+<li>
+<p><code>memcpy (destination, source, num)</code> </p>
 </li>
-<li><code>strncpy</code> : 從 <code>source</code> 複製 <code>num</code> 個字元記憶體到 <code>destination</code> 。<ul>
-<li><code>strncpy(destination, source, num)</code></li>
-</ul>
+<li>
+<p><code>strcpy</code> : 從 <code>source</code> 複製 C 式字串到 <code>destination</code> 。</p>
 </li>
-<li><code>srtcat</code> : 將 <code>source</code> 接到 <code>destination</code> 後面。<ul>
-<li><code>strcat(destination, source)</code></li>
-</ul>
+<li>
+<p><code>strcpy(destination, source)</code> </p>
 </li>
-<li><code>strncat</code> : 將 <code>source</code> 的前 <code>num</code> 個字元接到 <code>destination</code> 後面。<ul>
-<li><code>strncat(destination, source, num)</code></li>
-</ul>
+<li>
+<p><code>strncpy</code> : 從 <code>source</code> 複製 <code>num</code> 個字元記憶體到 <code>destination</code> 。</p>
 </li>
-<li><code>memcmp</code> : 比較兩記憶體前 <code>num</code> bytes。<ul>
-<li><code>memcmp(ptr1, ptr2, num)</code></li>
-</ul>
+<li>
+<p><code>strncpy(destination, source, num)</code> </p>
+</li>
+<li>
+<p><code>srtcat</code> : 將 <code>source</code> 接到 <code>destination</code> 後面。</p>
+</li>
+<li>
+<p><code>strcat(destination, source)</code> </p>
+</li>
+<li>
+<p><code>strncat</code> : 將 <code>source</code> 的前 <code>num</code> 個字元接到 <code>destination</code> 後面。</p>
+</li>
+<li>
+<p><code>strncat(destination, source, num)</code> </p>
+</li>
+<li>
+<p><code>memcmp</code> : 比較兩記憶體前 <code>num</code> bytes。</p>
+</li>
+<li>
+<p><code>memcmp(ptr1, ptr2, num)</code> </p>
 </li>
 <li>
 <p><code>strcmp</code> : 比較兩字串。</p>
-<ul>
-<li><code>strcmp(str1, str2)</code></li>
+</li>
+<li>
+<p><code>strcmp(str1, str2)</code> </p>
+</li>
 </ul>
-<details class="比較函數結果" open="open"><summary>比較函數結果</summary><table>
+<details open="open"><summary>比較函數結果</summary></details>
+<table>
 <thead>
 <tr>
 <th>結果</th>
@@ -1374,24 +1377,27 @@
 </tr>
 </tbody>
 </table>
-</details>
-</li>
+<ul>
 <li>
 <p><code>memset</code> : 設定 <code>ptr</code> 前 <code>num</code> bytes 為 <code>value</code> </p>
-<ul>
-<li><code>memset(ptr, value, num)</code></li>
-<li><code>memset</code> 應該是要設定字元，然而整數型態的 <script type="math/tex">0</script> 和 <script type="math/tex">-1</script> ，的每個 bytes 剛好也是 <script type="math/tex">0</script> 和 <script type="math/tex">-1</script> ，所以 <code>memset</code> 也可用來設定整數陣列全為 <script type="math/tex">0</script> 和 <script type="math/tex">-1</script> 。</li>
-</ul>
 </li>
-<li><code>srtlen</code> : 回傳 C 式字串的長度<ul>
-<li><code>strlen(str)</code></li>
-</ul>
+<li>
+<p><code>memset(ptr, value, num)</code> </p>
+</li>
+<li>
+<p><code>memset</code> 應該是要設定字元，然而整數型態的 <script type="math/tex">0</script> 和 <script type="math/tex">-1</script> ，的每個 bytes 剛好也是 <script type="math/tex">0</script> 和 <script type="math/tex">-1</script> ，所以 <code>memset</code> 也可用來設定整數陣列全為 <script type="math/tex">0</script> 和 <script type="math/tex">-1</script> 。</p>
+</li>
+<li>
+<p><code>srtlen</code> : 回傳 C 式字串的長度</p>
+</li>
+<li>
+<p><code>strlen(str)</code> </p>
 </li>
 </ul>
 <h2 id="_1">範例</h2>
 <ul>
-<li>
-<p>複製字串
+<li>複製字串</li>
+</ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1424,10 +1430,10 @@
 
 <span class="cm">*/</span><span class="w"></span>
 </code></pre></div>
-</td></tr></table></p>
-</li>
-<li>
-<p>串接字串
+</td></tr></table>
+<ul>
+<li>串接字串</li>
+</ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1458,10 +1464,10 @@
 
 <span class="cm">*/</span><span class="w"></span>
 </code></pre></div>
-</td></tr></table></p>
-</li>
-<li>
-<p>比較字串大小（字典序）
+</td></tr></table>
+<ul>
+<li>比較字串大小（字典序）</li>
+</ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1492,10 +1498,10 @@
 
 <span class="cm">*/</span><span class="w"></span>
 </code></pre></div>
-</td></tr></table></p>
-</li>
-<li>
-<p>設定字元陣列
+</td></tr></table>
+<ul>
+<li>設定字元陣列</li>
+</ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1530,10 +1536,10 @@
 <span class="cm">+++++</span>
 <span class="cm">*/</span><span class="w"></span>
 </code></pre></div>
-</td></tr></table></p>
-</li>
-<li>
-<p>設定整數陣列
+</td></tr></table>
+<ul>
+<li>設定整數陣列</li>
+</ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1568,9 +1574,7 @@
 <span class="cm">-1 -1 -1 -1 -1</span>
 <span class="cm">*/</span><span class="w"></span>
 </code></pre></div>
-</td></tr></table></p>
-</li>
-</ul>
+</td></tr></table>
 <div class="footnote">
 <hr />
 <ol>

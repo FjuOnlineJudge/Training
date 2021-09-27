@@ -232,7 +232,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../algorithm/" class="md-tabs__link">
+      <a href="../../algorithm/enumerate/" class="md-tabs__link">
         基礎演算法
       </a>
     </li>
@@ -793,18 +793,6 @@
           基礎演算法
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../algorithm/" class="md-nav__link">
-        何謂演算法
-      </a>
-    </li>
-  
-
           
             
   
@@ -1449,85 +1437,58 @@
               
                 
                 
-                <h1 id="bipartite-graph">二分圖(Bipartite graph)</h1>
+                <h1 id="bipartite-graph">二分圖（Bipartite graph)</h1>
 <p>如果一張圖的點可以分成兩個集合，集合內的點彼此沒有邊相連。</p>
 <h2 id="_1">性質</h2>
 <ul>
 <li>不存在奇環，奇環為邊數為奇數的環。</li>
-<li>用兩種顏色塗所有的點，存在至少一種辦法使得任兩相鄰點對顏色相異。(著色問題)</li>
+<li>用兩種顏色塗所有的點，存在至少一種辦法使得任兩相鄰點對顏色相異。（著色問題）</li>
 </ul>
 <h2 id="_2">判別二分圖</h2>
-<p>著色問題可以用來判斷一張圖是否為二分圖，用 <code>color</code> 紀錄每個點的顏色(無色 <code>-1</code>、白色 <code>0</code>、黑色 <code>1</code>)，一開始每個點紀錄為無色。利用 BFS 或 DFS 遍歷所有點，首先，判斷一個點是否有顏色，如果點為無色，就讓這個點變成白色，否則照舊。接著，讓其他相鄰的點的顏色和這個顏色相異，如果在遍歷途中發現有任意相鄰點對同色，則該圖不是二分圖。</p>
-<details><summary>參考程式碼</summary><p>作者：<a href="https://github.com/allem40306">allem40306</a>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<p>著色問題可以用來判斷一張圖是否為二分圖，用 <code>color</code> 紀錄每個點的顏色（無色 <code>-1</code> 、白色 <code>0</code> 、黑色 <code>1</code> )，一開始每個點紀錄為無色。利用 BFS 或 DFS 遍歷所有點，首先，判斷一個點是否有顏色，如果點為無色，就讓這個點變成白色，否則照舊。接著，讓其他相鄰的點的顏色和這個顏色相異，如果在遍歷途中發現有任意相鄰點對同色，則該圖不是二分圖。</p>
+<details><summary>參考程式碼</summary><p>作者： <a href="https://github.com/allem40306">allem40306</a> </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 <span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">305</span><span class="p">;</span><span class="w"></span>
 <span class="kt">int</span><span class="w"> </span><span class="n">color</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"></span>
 <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"></span>
-
-<span class="kt">bool</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="p">){</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="nl">it</span><span class="p">:</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">s</span><span class="p">]){</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="n">it</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">){</span><span class="w"></span>
-<span class="w">            </span><span class="n">color</span><span class="p">[</span><span class="n">it</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">color</span><span class="p">[</span><span class="n">s</span><span class="p">];</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">dfs</span><span class="p">(</span><span class="n">it</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">color</span><span class="p">[</span><span class="n">it</span><span class="p">])</span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">isBipatirate</span><span class="p">(){</span><span class="w"></span>
-<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">){</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">){</span><span class="w"></span>
-<span class="w">            </span><span class="n">color</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="n">ok</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">ok</span><span class="p">){</span><span class="w"></span>
-<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;YES</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;NO</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-</td></tr></table></p>
+</td></tr></table>
+<p>bool dfs(int s){
+    for(auto it: v[s]){
+        if(color[it] == -1){
+            color[it] = 3 - color[s];
+            if(!dfs(it)) return false;
+        }
+        if(color[s] == color[it])return false;
+    }
+    return true;
+}</p>
+<p>void isBipatirate(){
+    bool ok = true;
+    for(int i = 1; i &lt;= n; ++i){
+        if(color[i] == -1){
+            color[i] = 1;
+            ok &amp;= dfs(i);
+        }
+    }
+    if(ok){
+        cout &lt;&lt; "YES\n";
+    }else{
+        cout &lt;&lt; "NO\n";
+    }
+}
+```</p>
 </details>
 <h2 id="_3">匹配</h2>
 <ul>
 <li>匹配：在圖論中是指一個邊集合，集合中任意兩條邊沒有共同頂點。<ul>
 <li>匹配點、非匹配點、匹配邊、非匹配邊</li>
-<li>最大匹配(最大邊獨立集)：一張圖的所有匹配中，有著最大邊數的匹配。</li>
+<li>最大匹配（最大邊獨立集）：一張圖的所有匹配中，有著最大邊數的匹配。</li>
 <li>完美匹配：如果一個匹配包含所有的點，那麼該匹配稱為「完美匹配」。</li>
 <li>最大權重匹配：一張圖的所有匹配中，有著最大邊權重和的匹配。</li>
 </ul>
@@ -1535,96 +1496,62 @@
 </ul>
 <h2 id="_4">二分圖最大匹配</h2>
 <h3 id="hungarian-algorithm">匈牙利演算法 (Hungarian algorithm)</h3>
-<details open="open"><summary>交錯路 (Alternating Path) 及增廣路 (Agumenting Path)</summary><p>交錯路：依序經過非匹配邊、匹配邊、...、非匹配邊、匹配邊、非匹配邊所形成的路徑。</p>
-<p>增廣路：從非匹配點出發，經過交錯路，最後經過另一個集合的非匹配點，該路徑稱為增廣路。把增廣路上的非匹配邊和匹配邊替換，就能使匹配數量 <script type="math/tex">+1</script>。</p>
+<details open="open"><summary>交錯路 (Alternating Path) 及增廣路 (Agumenting Path)</summary><p>交錯路：依序經過非匹配邊、匹配邊、。。。、非匹配邊、匹配邊、非匹配邊所形成的路徑。</p>
+<p>增廣路：從非匹配點出發，經過交錯路，最後經過另一個集合的非匹配點，該路徑稱為增廣路。把增廣路上的非匹配邊和匹配邊替換，就能使匹配數量 <script type="math/tex">+1</script> 。</p>
 <p><img alt="" src="../images/matching.png" />
 <img alt="" src="../images/agumentingPath.png" /></p>
 </details>
 <details open="open"><summary>Berge's Theorem</summary><p>如果一個匹配 <script type="math/tex">M</script> 找不到任何增廣路，那麼 <script type="math/tex">M</script> 就是一個最大匹配。</p>
-<p>此定理可延伸出，如果一個非匹配點 <script type="math/tex">v</script> 找不到增廣路，那麼存在不包含 <script type="math/tex">v</script> 的最大匹配 <script type="math/tex">M'</script>。</p>
+<p>此定理可延伸出，如果一個非匹配點 <script type="math/tex">v</script> 找不到增廣路，那麼存在不包含 <script type="math/tex">v</script> 的最大匹配 <script type="math/tex">M'</script> 。</p>
 </details>
-<p>根據 Berge's Theorem，我們得到一個算法：枚舉集合 <script type="math/tex">X</script> 未匹配的點 <script type="math/tex">s</script>，如果找到增廣路，則翻轉所有邊，否則就把 <script type="math/tex">s</script> 移出匹配。找出增廣路的方式為，從 <script type="math/tex">X</script> 集合的每個點 <script type="math/tex">s</script> 開始 DFS，去拜訪集合 <script type="math/tex">Y</script> 的每個和 <script type="math/tex">s</script> 相連的點 <script type="math/tex">t</script>，如果 <script type="math/tex">t</script> 是未匹配點，則找到一條增廣路；如果 <script type="math/tex">t</script> 是匹配點，則從和 <script type="math/tex">t</script> 匹配點 <script type="math/tex">s'</script> 開始 DFS 尋找增廣路。</p>
-<p>s 集合個每個點都匹配一次，最多有 <script type="math/tex">V</script> 個點，每次 DFS 的最多找到長度為 <script type="math/tex">E</script> 的增廣路，整體時間複雜度為 <script type="math/tex">O(VE)</script>。</p>
+<p>根據 Berge's Theorem，我們得到一個算法：枚舉集合 <script type="math/tex">X</script> 未匹配的點 <script type="math/tex">s</script> ，如果找到增廣路，則翻轉所有邊，否則就把 <script type="math/tex">s</script> 移出匹配。找出增廣路的方式為，從 <script type="math/tex">X</script> 集合的每個點 <script type="math/tex">s</script> 開始 DFS，去拜訪集合 <script type="math/tex">Y</script> 的每個和 <script type="math/tex">s</script> 相連的點 <script type="math/tex">t</script> ，如果 <script type="math/tex">t</script> 是未匹配點，則找到一條增廣路；如果 <script type="math/tex">t</script> 是匹配點，則從和 <script type="math/tex">t</script> 匹配點 <script type="math/tex">s'</script> 開始 DFS 尋找增廣路。</p>
+<p>s 集合個每個點都匹配一次，最多有 <script type="math/tex">V</script> 個點，每次 DFS 的最多找到長度為 <script type="math/tex">E</script> 的增廣路，整體時間複雜度為 <script type="math/tex">O(VE)</script> 。</p>
 <p><img alt="" src="../images/hungarianAlgorithm.gif" /></p>
-<details><summary>參考程式碼</summary><p>作者：<a href="https://github.com/allem40306">allem40306</a>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="n">rhs</span><span class="p">,</span><span class="w"> </span><span class="n">Left</span><span class="p">[</span><span class="n">MXV</span><span class="p">],</span><span class="w"> </span><span class="n">G</span><span class="p">[</span><span class="n">MXV</span><span class="p">][</span><span class="n">MXV</span><span class="p">];</span><span class="w"></span>
+<details><summary>參考程式碼</summary><p>作者： <a href="https://github.com/allem40306">allem40306</a> </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="n">rhs</span><span class="p">,</span><span class="w"> </span><span class="n">Left</span><span class="p">[</span><span class="n">MXV</span><span class="p">],</span><span class="w"> </span><span class="n">G</span><span class="p">[</span><span class="n">MXV</span><span class="p">][</span><span class="n">MXV</span><span class="p">];</span><span class="w"></span>
 <span class="n">bitset</span><span class="o">&lt;</span><span class="n">MXV</span><span class="o">&gt;</span><span class="w"> </span><span class="n">used</span><span class="p">;</span><span class="w"></span>
-
-<span class="kt">bool</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">rhs</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">G</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">used</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="n">used</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Left</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">Left</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">Left</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">sol</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">memset</span><span class="p">(</span><span class="n">Left</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">Left</span><span class="p">));</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">lhs</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">used</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">ret</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-</td></tr></table></p>
+</td></tr></table>
+<p>bool dfs(int s)
+{
+    for (int i = 1; i &lt;= rhs; i++)
+    {
+        if (!G[s][i] || used[i])
+        {
+            continue;
+        }
+        used[i] = true;
+        if (Left[i] == -1 || dfs(Left[i]))
+        {
+            Left[i] = s;
+            return true;
+        }
+    }
+    return false;
+}</p>
+<p>int sol()
+{
+    int ret = 0;
+    memset(Left, -1, sizeof(Left));
+    for (int i = 1; i &lt;= lhs; i++)
+    {
+        used.reset();
+        if (dfs(i))
+        {
+            ret++;
+        }
+    }
+    return ret;
+}
+```</p>
 </details>
 <h2 id="_5">獨立集和覆蓋</h2>
 <ul>
-<li>最大邊獨立集 <script type="math/tex">M</script>(最大匹配)：為圖上最大的邊集使得每個點至多和一條邊相鄰。</li>
-<li>最大點獨立集 <script type="math/tex">I</script>：是一張圖中，最多有幾個點互不相鄰的最大集合。</li>
-<li>最小點覆蓋 <script type="math/tex">C_V</script>：最小的點集使得圖上每條邊都至少與點集中一個點相鄰。</li>
-<li>最小邊覆蓋 <script type="math/tex">C_E</script>：最小的邊集使得圖上每個點都至少與邊集中一條邊相鄰。</li>
+<li>最大邊獨立集 <script type="math/tex">M</script> （最大匹配）：為圖上最大的邊集使得每個點至多和一條邊相鄰。</li>
+<li>最大點獨立集 <script type="math/tex">I</script> ：是一張圖中，最多有幾個點互不相鄰的最大集合。</li>
+<li>最小點覆蓋 <script type="math/tex">C_V</script> ：最小的點集使得圖上每條邊都至少與點集中一個點相鄰。</li>
+<li>最小邊覆蓋 <script type="math/tex">C_E</script> ：最小的邊集使得圖上每個點都至少與邊集中一條邊相鄰。</li>
 </ul>
 <p>根據 König’s theorem，可以整理出下列事項：</p>
 <ul>
@@ -1653,7 +1580,7 @@
 <p>每個點都要和另外一個集合的所有點相連，如果邊不存在，請補上一條權重為 <script type="math/tex">0</script> 的邊。</p>
 </li>
 </ul>
-<p>KM 演算法直接在點上調整權重，比在邊上調整權重簡單，作法是在每個點加上一個 vertex labeling，<script type="math/tex">lx,ly</script> 分別為 <script type="math/tex">X,Y</script> 集合的 vertex labeling。</p>
+<p>KM 演算法直接在點上調整權重，比在邊上調整權重簡單，作法是在每個點加上一個 vertex labeling， <script type="math/tex">lx,ly</script> 分別為 <script type="math/tex">X,Y</script> 集合的 vertex labeling。</p>
 <ul>
 <li>
 <p>
@@ -1666,8 +1593,23 @@
 </p>
 </li>
 </ul>
-<p>於是這個問題就變成最小化 <script type="math/tex">\Sigma_{i\in X} lx(i)+\Sigma_{i\in Y} ly(i)</script>，我們透過不斷調整 vertex labeling，找到一條匹配邊皆滿足 <script type="math/tex">Lx(u)+Ly(v)=w(i,j)</script> 的增廣路，最後得出的匹配邊即為答案。把一個最大化所有匹配邊的權重和，轉換成最小化所有點的權重和，在線性規劃中，是 primal problem 和 dual problem 的轉換。</p>
-<details><summary>參考程式碼</summary><p>作者：<a href="https://github.com/allem40306">allem40306</a>
+<p>於是這個問題就變成最小化 <script type="math/tex">\Sigma_{i\in X} lx(i)+\Sigma_{i\in Y} ly(i)</script> ，我們透過不斷調整 vertex labeling，找到一條匹配邊皆滿足 <script type="math/tex">Lx(u)+Ly(v)=w(i,j)</script> 的增廣路，最後得出的匹配邊即為答案。把一個最大化所有匹配邊的權重和，轉換成最小化所有點的權重和，在線性規劃中，是 primal problem 和 dual problem 的轉換。</p>
+<details><summary>參考程式碼</summary><p>作者： <a href="https://github.com/allem40306">allem40306</a> </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span> <span class="nc">KM</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">Left</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">Lx</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">Ly</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">bitset</span><span class="o">&lt;</span><span class="n">N</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vx</span><span class="p">,</span><span class="w"> </span><span class="n">vy</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">_n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_n</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1738,143 +1680,107 @@
 <span class="normal">68</span>
 <span class="normal">69</span>
 <span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span>
-<span class="normal">80</span>
-<span class="normal">81</span>
-<span class="normal">82</span>
-<span class="normal">83</span>
-<span class="normal">84</span>
-<span class="normal">85</span>
-<span class="normal">86</span>
-<span class="normal">87</span>
-<span class="normal">88</span>
-<span class="normal">89</span>
-<span class="normal">90</span>
-<span class="normal">91</span>
-<span class="normal">92</span>
-<span class="normal">93</span>
-<span class="normal">94</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
-<span class="k">struct</span> <span class="nc">KM</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">Left</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"></span>
-<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">Lx</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">Ly</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"></span>
-<span class="w">    </span><span class="n">bitset</span><span class="o">&lt;</span><span class="n">N</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vx</span><span class="p">,</span><span class="w"> </span><span class="n">vy</span><span class="p">;</span><span class="w"></span>
+<span class="normal">71</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>bool match(int i)
+{
+    vx[i] = true;
+    for (int j = 1; j &lt;= n; j++)
+    {
+        if ((fabs(Lx[i] + Ly[j] - w[i][j]) &lt; 1e-9) &amp;&amp; !vy[j])
+        {
+            vy[j] = 1;
+            if (!Left[j] || match(Left[j]))
+            {
+                Left[j] = i;
+                return true;
+            }
+        }
+    }
+    return false;
+}
 
-<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">_n</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_n</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+void update()
+{
+    T a = 1e9;
+    for (int i = 1; i &lt;= n; i++)
+    {
+        if (vx[i])
+        {
+            for (int j = 1; j &lt;= n; j++)
+            {
+                if (!vy[j])
+                {
+                    a = min(a, Lx[i] + Ly[j] - w[i][j]);
+                }
+            }
+        }
+    }
+    for (int i = 1; i &lt;= n; i++)
+    {
+        if (vx[i])
+        {
+            Lx[i] -= a;
+        }
+        if (vy[i])
+        {
+            Ly[i] += a;
+        }
+    }
+}
 
-<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">match</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">vx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">fabs</span><span class="p">(</span><span class="n">Lx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Ly</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1e-9</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">vy</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="n">vy</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Left</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">match</span><span class="p">(</span><span class="n">Left</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span><span class="w"></span>
-<span class="w">                </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="n">Left</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
-<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
-<span class="w">                </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">update</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">T</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1e9</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">vx</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">                </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">vy</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"></span>
-<span class="w">                    </span><span class="p">{</span><span class="w"></span>
-<span class="w">                        </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Lx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Ly</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span><span class="w"></span>
-<span class="w">                    </span><span class="p">}</span><span class="w"></span>
-<span class="w">                </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">vx</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="n">Lx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">vy</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="n">Ly</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">hungarian</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">Left</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Lx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ly</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="n">Lx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">Lx</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="n">vx</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span><span class="w"></span>
-<span class="w">                </span><span class="n">vy</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span><span class="w"></span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">match</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
-<span class="w">                </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">                </span><span class="p">}</span><span class="w"></span>
-<span class="w">                </span><span class="n">update</span><span class="p">();</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
-
-<span class="cm">/*</span>
-<span class="cm">usage</span>
-<span class="cm">KM&lt;int&gt; km; // declare with weight type</span>
-<span class="cm">km.init(n); // initialize with vertex</span>
-<span class="cm">km.hungarian(); // calculate</span>
-<span class="cm">km.w[][]; // weight array</span>
-<span class="cm">km.Left[i] // y_i match x_Left[i] </span>
-<span class="cm">*/</span><span class="w"></span>
+void hungarian()
+{
+    for (int i = 1; i &lt;= n; i++)
+    {
+        Left[i] = Lx[i] = Ly[i] = 0;
+        for (int j = 1; j &lt;= n; j++)
+        {
+            Lx[i] = max(Lx[i], w[i][j]);
+        }
+    }
+    for (int i = 1; i &lt;= n; i++)
+    {
+        while (1)
+        {
+            vx.reset();
+            vy.reset();
+            if (match(i))
+            {
+                break;
+            }
+            update();
+        }
+    }
+}
 </code></pre></div>
-</td></tr></table></p>
+</td></tr></table>
+<p>};</p>
+<p>/<em>
+usage
+KM<int> km; // declare with weight type
+km.init(n); // initialize with vertex
+km.hungarian(); // calculate
+km.w[][]; // weight array
+km.Left[i] // y_i match x_Left[i] 
+</em>/
+```</p>
 </details>
-<p>更多的參考程式碼可參考 <a href="http://sunmoon-template.blogspot.com/2016/05/kuhn-munkres-algorithm.html">[ Kuhn-Munkres Algorithm ] 二分圖最大權完美匹配KM算法 - 日月卦長的模板庫</a> 和 <a href="https://oi-wiki.org/graph/graph-matching/bigraph-weight-match/">二分图最大权匹配 - OI Wiki</a>。</p>
+<p>更多的參考程式碼可參考 <a href="http://sunmoon-template.blogspot.com/2016/05/kuhn-munkres-algorithm.html"><script type="math/tex; mode=display">Kuhn-Munkres Algorithm</script>二分圖最大權完美匹配 KM 算法 - 日月卦長的模板庫</a> 和 <a href="https://oi-wiki.org/graph/graph-matching/bigraph-weight-match/">二分图最大权匹配 - OI Wiki</a> 。</p>
 <h2 id="_7">例題練習</h2>
 <ul>
 <li>二分圖判定<ul>
-<li><a href="https://onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2391">UVa 11396 - Claw Decomposition</a></li>
+<li><a href="https://onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2391">UVa 11396 - Claw Decomposition</a> </li>
 </ul>
 </li>
 <li>二分圖最大匹配<ul>
-<li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=3235">UVa 12083 - Guardian of Decency</a></li>
+<li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=3235">UVa 12083 - Guardian of Decency</a> </li>
 </ul>
 </li>
 <li>獨立集和覆蓋<ul>
-<li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=2414">UVa 11419 - SAM I AM</a></li>
+<li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=2414">UVa 11419 - SAM I AM</a> </li>
 </ul>
 </li>
 <li>二分圖最大權匹配<ul>
-<li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=4095">UVa 01349 - Optimal Bus Route Design</a></li>
+<li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=4095">UVa 01349 - Optimal Bus Route Design</a> </li>
 </ul>
 </li>
 </ul>
@@ -1897,7 +1803,7 @@
 <p><a href="https://oi-wiki.org/graph/graph-matching/bigraph-weight-match/">二分图最大权匹配 - OI Wiki</a>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
-<p><a href="http://sunmoon-template.blogspot.com/2016/05/kuhn-munkres-algorithm.html">[ Kuhn-Munkres Algorithm ] 二分圖最大權完美匹配KM算法 - 日月卦長的模板庫</a>&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p><a href="http://sunmoon-template.blogspot.com/2016/05/kuhn-munkres-algorithm.html"><script type="math/tex; mode=display">Kuhn-Munkres Algorithm</script>二分圖最大權完美匹配 KM 算法 - 日月卦長的模板庫</a>&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
 <p><a href="https://jacky860226.github.io/general-graph-weighted-match-slides/#/">一般圖最大權匹配 - 日月卦長</a>&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>

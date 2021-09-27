@@ -234,7 +234,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
         基礎演算法
       </a>
     </li>
@@ -795,18 +795,6 @@
           基礎演算法
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-        何謂演算法
-      </a>
-    </li>
-  
-
           
             
   
@@ -1437,11 +1425,7 @@
                 
                 <h1 id="enumerate">枚舉（Enumerate)</h1>
 <p>枚舉是最直觀的演算法，列出所有可能的解，並判斷是否符合題目要求。容易寫出，但通常時間複雜度太大無法滿足題目時限。</p>
-<p>通常在設計枚舉找出需要枚舉的參數，在選擇是要用迴圈或遞迴方式。如果評估時間複雜度的時候發現太大時，可搭配一些技巧來降低時間複雜度。</p>
-<!-- ## 回朔
-
-枚舉有時能用遞迴實作，在遇到不可能的情形馬上回傳，這種方法就叫做回朔。 -->
-
+<p>通常在設計枚舉找出需要枚舉的參數，並選擇是要用迴圈或遞迴方式。如果評估時間複雜度的時候發現太大時，可搭配一些技巧來降低時間複雜度。</p>
 <h2 id="_1">特殊枚舉型態</h2>
 <h3 id="_2">集合</h3>
 <p>如果題目要求和集合有關係，可利用二進位表示一個集合，第 <script type="math/tex">i</script> 位代表第 <script type="math/tex">i</script> 樣物品選或不選 (0 或 1)。時間複雜度 <script type="math/tex">O(2^n)</script> ，若執行時限為 <script type="math/tex">1</script> 秒，枚舉大小最多約 <script type="math/tex">30</script> 。</p>
@@ -1450,195 +1434,125 @@
 <h2 id="_4">技巧</h2>
 <h3 id="_5">減少枚舉維度</h3>
 <p>找出需要枚舉的參數後，有些參數可能是和結果無關，或是可由其他參數推導出，移除該參數可降低時間複雜度。</p>
-<details open="open"><summary>uva10976 - Fractions Again?</summary><p>給定 <script type="math/tex">k(0 < k \leq 100)</script>，請求出所有正整數解 <script type="math/tex">x,y(x \geq y)</script>，使得 <script type="math/tex">\frac{1}{k}=\frac{1}{x}+\frac{1}{y}</script>
-</p>
-<details><summary>解題思路</summary><p>最直觀的解法是枚舉兩個參數 <script type="math/tex">x,y</script>，但其實只要知道 <script type="math/tex">x,y</script> 任意一項就可推出另外一項，有根據題目我們可以得出 <script type="math/tex">y</script> 在 <script type="math/tex">(k,2k]</script> 之間(當 <script type="math/tex">x=y</script> 時，<script type="math/tex">x=y=2k</script>)，要枚舉的範圍較小，因此我們選擇枚舉 <script type="math/tex">y</script> 的算法，時間複雜度為 <script type="math/tex">O(k)</script>
+<details class="question" open="open"><summary>uva10976 - Fractions Again?</summary><p>給定 <script type="math/tex">k(0 < k \leq 100)</script> ，請求出所有正整數解 <script type="math/tex">x,y(x \geq y)</script> ，使得 <script type="math/tex">\frac{1}{k}=\frac{1}{x}+\frac{1}{y}</script>
 </p>
 </details>
-<details><summary>參考程式碼</summary><p>作者：<a href="https://github.com/allem40306">allem40306</a>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<p>最直觀的解法是枚舉兩個參數 <script type="math/tex">x,y</script> ，但其實只要知道 <script type="math/tex">x,y</script> 任意一項就可推出另外一項，有根據題目我們可以得出 <script type="math/tex">y</script> 在 <script type="math/tex">(k,2k]</script> 之間（當 <script type="math/tex">x=y</script> 時， <script type="math/tex">x=y=2k</script> )，要枚舉的範圍較小，因此我們選擇枚舉 <script type="math/tex">y</script> 的算法，時間複雜度為 <script type="math/tex">O(k)</script>
+</p>
+<details><summary>參考程式碼</summary><p>作者： <a href="https://github.com/allem40306">allem40306</a> </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 <span class="cp">#define N 10005</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">){</span><span class="w"></span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">ar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span><span class="w"></span>
-<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">i</span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span><span class="w"></span>
-<span class="w">                </span><span class="n">ans</span><span class="p">[</span><span class="n">ar</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
-<span class="w">                </span><span class="n">ans</span><span class="p">[</span><span class="n">ar</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"></span>
-<span class="w">                </span><span class="n">ar</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ar</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ar</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;1/%d = 1/%d + 1/%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">ans</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">ans</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-</td></tr></table></p>
-</details>
+</td></tr></table>
+<p>int main(){
+    int n;
+    while (cin &gt;&gt; n){
+        int ans[N][2], ar = 0;
+        for (int i = n + 1; i &lt;= 2 * n; i++){
+            int r = i - n;
+            if ((i<em>n) % r == 0){
+                ans[ar][1] = i;
+                ans[ar][0] = (i</em>n) / r;
+                ar++;
+            }
+        }
+        printf("%d\n", ar);
+        for (int i = 0; i &lt; ar; i++)
+            printf("1/%d = 1/%d + 1/%d\n", n, ans[i][0], ans[i][1]);
+    }
+}
+```</p>
 </details>
 <h3 id="_6">雙指標</h3>
 <p>利用兩個指標線性遍歷陣列，得出答案。「雙指標」可為兩個指標或是兩個整數型態變數紀錄位置。</p>
-<details open="open"><summary>題目</summary><p>給定一個長度為 <script type="math/tex">N,(N \leq 100000)</script> 的序列 <script type="math/tex">A</script>，求出一組 <script type="math/tex">i,j(i>j)</script> 使得 <script type="math/tex">a_i-a_j</script> 最大</p>
-<details><summary>解題思路</summary><p>首先會直觀的想到一個 <script type="math/tex">O(N^2)</script> 的算法：枚舉 <script type="math/tex">i,j</script> 算出結果後取最大值。
-接著可以想到對於每個數字 <script type="math/tex">a_i</script> 只要和最小的 <script type="math/tex">a_j</script>(<script type="math/tex">min_j</script>) 相減即可，又 <script type="math/tex">min_j</script> 具有單調性，即 <script type="math/tex">min_j</script> 的位置會不變或向右移，因此可以利用一個指標遍歷序列，一個指標紀錄當前 <script type="math/tex">min_j</script> 的位置，時間複雜度 <script type="math/tex">O(N)</script>。</p>
+<details class="question" open="open"><summary>Question</summary><p>給定一個長度為 <script type="math/tex">N,(N \leq 100000)</script> 的序列 <script type="math/tex">A</script> ，求出一組 <script type="math/tex">i,j(i>j)</script> 使得 <script type="math/tex">a_i-a_j</script> 最大</p>
 </details>
-<details><summary>參考程式碼</summary><p>作者：<a href="https://github.com/allem40306">allem40306</a>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<p>首先會直觀的想到一個 <script type="math/tex">O(N^2)</script> 的算法：枚舉 <script type="math/tex">i,j</script> 算出結果後取最大值。
+接著可以想到對於每個數字 <script type="math/tex">a_i</script> 只要和最小的 <script type="math/tex">a_j</script> ( <script type="math/tex">min_j</script> ) 相減即可，又 <script type="math/tex">min_j</script> 具有單調性，即 <script type="math/tex">min_j</script> 的位置會不變或向右移，因此可以利用一個指標遍歷序列，一個指標紀錄當前 <script type="math/tex">min_j</script> 的位置，時間複雜度 <script type="math/tex">O(N)</script> 。</p>
+<details><summary>參考程式碼</summary><p>作者： <a href="https://github.com/allem40306">allem40306</a> </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">100000</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">minj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">minj</span><span class="p">]);</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">minj</span><span class="p">])</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">minj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-</td></tr></table></p>
+</td></tr></table>
+<p>int main()
+{
+    int n;
+    vector<int> v(100000);
+    cin &gt;&gt; n;
+    for (int i = 0; i &lt; n; ++i)
+    {
+        cin &gt;&gt; v[i];
+    }
+    int minj = 0, ans = v[1] - v[0];
+    for (int i = 1; i &lt; n; ++i)
+    {
+        ans = max(ans, v[i] - v[minj]);
+        if (v[i] &lt; v[minj])
+        {
+            minj = i;
+        }
+    }
+    cout &lt;&lt; ans &lt;&lt; '\n';
+}
+```</p>
 </details>
+<hr />
+<details class="question" open="open"><summary>11572 - Unique Snowflakes</summary><p>給定一個長度為 <script type="math/tex">N,(N \leq 100000)</script> 的序列 <script type="math/tex">A</script> ，求出最長序列，當中沒有重複的數字</p>
 </details>
-<details open="open"><summary>11572 - Unique Snowflakes</summary><p>給定一個長度為 <script type="math/tex">N,(N \leq 100000)</script> 的序列 <script type="math/tex">A</script>，求出最長序列，當中沒有重複的數字</p>
-<details><summary>解題思路</summary><p>我們可以設兩個指標，左指標和右指標，每次迭代右指標先往前一個位置，如果左右指標之間有重複的數字，就將左指標往前一個位置，直到沒有左右指標之間沒有重複的數字。利用 <code>set</code> 來維護是否有重複數字，時間複雜度 <script type="math/tex">O(N\log N)</script>。</p>
-</details>
-<details><summary>參考程式碼</summary><p>作者：<a href="https://github.com/allem40306">allem40306</a>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<p>我們可以設兩個指標，左指標和右指標，每次迭代右指標先往前一個位置，如果左右指標之間有重複的數字，就將左指標往前一個位置，直到沒有左右指標之間沒有重複的數字。利用 <code>set</code> 來維護是否有重複數字，時間複雜度 <script type="math/tex">O(N\log N)</script> 。</p>
+<details><summary>參考程式碼</summary><p>作者： <a href="https://github.com/allem40306">allem40306</a> </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;set&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">1000000</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">st</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="o">--</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">st</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="n">R</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="o">++</span><span class="n">R</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">while</span><span class="p">(</span><span class="n">st</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">R</span><span class="p">]))</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="n">st</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">L</span><span class="o">++</span><span class="p">]);</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="n">st</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">R</span><span class="p">]);</span><span class="w"></span>
-<span class="w">            </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-</td></tr></table></p>
-</details>
+</td></tr></table>
+<p>int main()
+{
+    int t, n;
+    cin &gt;&gt; t;
+    vector<int> v(1000000);
+    set<int> st;
+    while (t--)
+    {
+        st.clear();
+        cin &gt;&gt; n;
+        for (int i = 0; i &lt; n; ++i)
+        {
+            cin &gt;&gt; v[i];
+        }
+        int ans = 0;
+        for (int L = 0, R = 0;R &lt; n;++R)
+        {
+            while(st.count(v[R]))
+            {
+                st.erase(v[L++]);
+            }
+            st.insert(v[R]);
+            ans = max(ans, R - L + 1);
+        }
+        cout &lt;&lt; ans &lt;&lt; '\n';
+    }
+}
+```</p>
 </details>
 <h3 id="_7">折半枚舉</h3>
 <p>有時遇到複雜度 <script type="math/tex">O(2^n)</script> 的算法，在無法用其他方法降低複雜度情況下，可以試著將元素切成兩半，分別算出答案，再用其他算法組合起來，時間複雜度通常為 <script type="math/tex">O(2^{\frac{n}{2}})</script> 或 <script type="math/tex">O(2^{\frac{n}{2}}\log 2^{\frac{n}{2}})</script> 等。</p>
-<details open="open"><summary>uva01326 - Jurassic Remains</summary><p>給定 <script type="math/tex">N(N\leq 24)</script> 串英文字串，請最多可以包含幾個字串，使得這些字串內每個字元都出現偶數次。</p>
-<details><summary>解題思路</summary><p>先把每個字串轉成一個二進位，第 <script type="math/tex">i</script> 位表示字串有(0:偶數, 1:奇數) 個字元 i(0:A, 1:B, ...)。如果有一堆字串內每個字元都出現偶數次，那麼他們的 xor 值 <script type="math/tex">=0</script>。
-這題關於「集合」，可用二進位枚舉，加上判斷，時間複雜度 <script type="math/tex">O(N\times 2^N)</script>。
-這題更快的做法是拆半枚舉，把前 <script type="math/tex">\frac{N}{2}</script> 和後 <script type="math/tex">\frac{N}{2}</script> 字串分別枚舉，分別把結果存在不同的 map 裡面，如果兩個 map 有相同的 xor 值，代表兩個集合的字串合起來，每個字元都出現偶數次。這種做法時間複雜度為 <script type="math/tex">O(2^{\frac{n}{2}}\log 2^{\frac{n}{2}})</script>
+<details class="question" open="open"><summary>uva01326 - Jurassic Remains</summary><p>給定 <script type="math/tex">N(N\leq 24)</script> 串英文字串，請最多可以包含幾個字串，使得這些字串內每個字元都出現偶數次。</p>
+</details>
+<p>先把每個字串轉成一個二進位，第 <script type="math/tex">i</script> 位表示字串有（0: 偶數，1: 奇數）個字元 i (0:A, 1:B, ...)。如果有一堆字串內每個字元都出現偶數次，那麼他們的 xor 值 <script type="math/tex">=0</script> 。</p>
+<p>這題關於「集合」，可用二進位枚舉，加上判斷，時間複雜度 <script type="math/tex">O(N\times 2^N)</script> 。</p>
+<p>這題更快的做法是拆半枚舉，把前 <script type="math/tex">\frac{N}{2}</script> 和後 <script type="math/tex">\frac{N}{2}</script> 字串分別枚舉，分別把結果存在不同的 map 裡面，如果兩個 map 有相同的 xor 值，代表兩個集合的字串合起來，每個字元都出現偶數次。這種做法時間複雜度為 <script type="math/tex">O(2^{\frac{n}{2}}\log 2^{\frac{n}{2}})</script>
 </p>
-</details>
-</details>
 <h3 id="_8">剪枝</h3>
 <p>在使用遞迴枚舉時，當搜尋到一組解答，發現該組解和其延伸的解，皆無法達到達到需求，就停止搜尋，改搜尋其他組解，該技巧叫做「剪枝」。</p>
 <p>明確地來說，以下狀況需使用「剪枝」：</p>
@@ -1646,75 +1560,45 @@
 <li>發現解答是不合法的。</li>
 <li>在最佳化問題，發現無法成為最佳解。</li>
 </ul>
-<details open="open"><summary>剪枝例題</summary><p>給定一個數字 <script type="math/tex">N</script>，要你求出有幾組正整數解 <script type="math/tex">x_1,x_2,x_3,...,x_m</script>，使得 <script type="math/tex">x_1+x_2+x_3+...+x_m = N</script>。順序不同視為相同解，例如 <script type="math/tex">1+2</script> 和 <script type="math/tex">2+1</script> 視為相同組解。</p>
-<details><summary>解題思路</summary><p>為了避免算到重複組合，我們讓 <script type="math/tex">x_1 \leq x_2 \leq ...</script>。
-設目前解總和為 <script type="math/tex">sum</script>，最後一項為 <script type="math/tex">max</script>，下一項 <script type="math/tex">i</script> 就從 <script type="math/tex">max</script> 開始嘗試，當嘗試到 <script type="math/tex">sum + i > N</script> 時，就停止嘗試(剪枝)。</p>
+<details class="qusetion" open="open"><summary>Qusetion</summary><p>給定一個數字 <script type="math/tex">N</script> ，要你求出有幾組正整數解 <script type="math/tex">x_1,x_2,x_3,...,x_m</script> ，使得 <script type="math/tex">x_1+x_2+x_3+...+x_m = N</script> 。順序不同視為相同解，例如 <script type="math/tex">1+2</script> 和 <script type="math/tex">2+1</script> 視為相同組解。</p>
 </details>
-<details><summary>參考程式碼</summary><p>作者：<a href="https://github.com/allem40306">allem40306</a>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<p>為了避免算到重複組合，我們讓 <script type="math/tex">x_1 \leq x_2 \leq ...</script> 。</p>
+<p>設目前解總和為 <script type="math/tex">sum</script> ，最後一項為 <script type="math/tex">max</script> ，下一項 <script type="math/tex">i</script> 就從 <script type="math/tex">max</script> 開始嘗試，當嘗試到 <script type="math/tex">sum + i > N</script> 時，就停止嘗試（剪枝）。</p>
+<details><summary>參考程式碼</summary><p>作者： <a href="https://github.com/allem40306">allem40306</a> </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 <span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p">;</span><span class="w"></span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">mx</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">tar</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="o">++</span><span class="n">ans</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mx</span><span class="p">;;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">tar</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// IOS;</span>
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tar</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="n">dfs</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-</td></tr></table></p>
-</details>
+</td></tr></table>
+<p>void dfs(int mx, int sum)
+{
+    if (sum == tar)
+    {
+        ++ans;
+    }
+    for (int i = mx;; ++i)
+    {
+        if (sum + i &gt; tar)
+        {
+            break;
+        }
+        dfs(i, sum + i);
+    }
+    return;
+}</p>
+<p>int main()
+{
+    // IOS;
+    while (cin &gt;&gt; tar)
+    {
+        ans = 0;
+        dfs(1, 0);
+        cout &lt;&lt; ans &lt;&lt; '\n';
+    }
+}
+```</p>
 </details>
                 
               
@@ -1735,7 +1619,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: 何謂演算法" rel="prev">
+        <a href="../../dataStructure/bst/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 二元平衡樹" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1744,7 +1628,7 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              何謂演算法
+              二元平衡樹
             </div>
           </div>
         </a>

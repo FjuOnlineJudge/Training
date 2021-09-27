@@ -232,7 +232,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../algorithm/" class="md-tabs__link">
+      <a href="../../algorithm/enumerate/" class="md-tabs__link">
         基礎演算法
       </a>
     </li>
@@ -799,18 +799,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm/" class="md-nav__link">
-        何謂演算法
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../algorithm/enumerate/" class="md-nav__link">
         枚舉
       </a>
@@ -1190,10 +1178,10 @@
       
         <li class="md-nav__item">
   <a href="#dp-dp" class="md-nav__link">
-    換根 DP (全方位樹 DP)
+    換根 DP（全方位樹 DP)
   </a>
   
-    <nav class="md-nav" aria-label="換根 DP (全方位樹 DP)">
+    <nav class="md-nav" aria-label="換根 DP（全方位樹 DP)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1205,6 +1193,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    例題練習
+  </a>
   
 </li>
       
@@ -1322,10 +1317,10 @@
       
         <li class="md-nav__item">
   <a href="#dp-dp" class="md-nav__link">
-    換根 DP (全方位樹 DP)
+    換根 DP（全方位樹 DP)
   </a>
   
-    <nav class="md-nav" aria-label="換根 DP (全方位樹 DP)">
+    <nav class="md-nav" aria-label="換根 DP（全方位樹 DP)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1337,6 +1332,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    例題練習
+  </a>
   
 </li>
       
@@ -1354,17 +1356,22 @@
                 
                 
                 <h1 id="dp">樹 DP</h1>
-<p>在樹上 DP，通常會使用 DFS (遞迴)，從父節點遞迴到子節點，再合併子節點的答案</p>
+<p>在樹上 DP，通常會使用 DFS（遞迴），從父節點遞迴到子節點，再合併子節點的答案。</p>
 <h2 id="_1">最小點覆蓋</h2>
-<p>給定一棵樹 <script type="math/tex">T</script>，樹上所有點一開始為白色，要求將一些點塗成黑色，使得所有的邊至少與一個黑色點相連，求最少要塗幾個點?</p>
+<details class="question" open="open"><summary>最小點覆蓋</summary><p>給定一棵樹 <script type="math/tex">T</script> ，樹上所有點一開始為白色，要求將一些點塗成黑色，使得所有的邊至少與一個黑色點相連，求最少要塗幾個點？</p>
+</details>
 <ul>
-<li>狀態：<script type="math/tex">dp[u][c]</script> 代表以 <script type="math/tex">u</script> 為根的子樹，在點 <script type="math/tex">u</script> 為 (0: 白色; 1: 黑色)，最小需要幾個點為黑色。</li>
-<li>初始狀態：如果 <script type="math/tex">u</script> 是葉節點，<script type="math/tex">dp[u][0]=0,dp[u][1]=1</script>。</li>
+<li>
+<p>狀態： <script type="math/tex">dp[u][c]</script> 代表以 <script type="math/tex">u</script> 為根的子樹，在點 <script type="math/tex">u</script> 為 (0: 白色；1: 黑色），最小需要幾個點為黑色。</p>
+</li>
+<li>
+<p>初始狀態：如果 <script type="math/tex">u</script> 是葉節點， <script type="math/tex">dp[u][0]=0,dp[u][1]=1</script> 。</p>
+</li>
 <li>
 <p>轉移</p>
 <ul>
-<li>當 <script type="math/tex">u</script> 為白色，<script type="math/tex">u</script> 的子節點應為黑色</li>
-<li>當 <script type="math/tex">u</script> 為黑色，<script type="math/tex">u</script> 的子節點可為白色或黑色</li>
+<li>當 <script type="math/tex">u</script> 為白色， <script type="math/tex">u</script> 的子節點應為黑色</li>
+<li>當 <script type="math/tex">u</script> 為黑色， <script type="math/tex">u</script> 的子節點可為白色或黑色</li>
 <li>
 <script type="math/tex">dp[u][0]=\Sigma_{(u,v)\in E}dp[v][1]</script>
 </li>
@@ -1381,12 +1388,13 @@
 </ul>
 </li>
 </ul>
-<h2 id="dp-dp">換根 DP (全方位樹 DP)</h2>
-<p>進行兩次 DFS，第一次求子節點對當前節點的貢獻(樹 DP)，第二次：根據求父節點點對當前節點的貢獻。</p>
+<h2 id="dp-dp">換根 DP（全方位樹 DP)</h2>
+<p>進行兩次 DFS，第一次求子節點對當前節點的貢獻（樹 DP)，第二次：根據求父節點點對當前節點的貢獻。</p>
 <h3 id="_2">樹直徑</h3>
-<p>一棵樹中，最長的路徑稱為樹直徑。給定一顆點數為 <script type="math/tex">V</script> 的樹，求直徑長度。</p>
-<p>第一種做法是枚舉所有的點為根，求出兩顆深度最深的子樹 <script type="math/tex">h_1,h_2</script>，找出最大的 <script type="math/tex">h_1+h_2+1</script>，一次 DFS 的時間複雜度為 <script type="math/tex">O(V+E)</script>，整體時間複雜度 <script type="math/tex">O(V(V+E))</script>。</p>
-<p>第二種做法是用換根 DP。第一次 DFS 固定一點為根，求出每個點最深的兩顆子樹高度 (<script type="math/tex">h_1,h_2</script>)。第二次 DFS 對於每個點 <script type="math/tex">u</script>，求出經過父節點最長的路徑 (<script type="math/tex">h_3</script>)。取 <script type="math/tex">h_1,h_2,h_3</script> 前兩大數值和再加 <script type="math/tex">1</script> 即為答案。這種作法使用了兩次 DFS，時間複雜度 <script type="math/tex">O(V+E)</script>
+<details class="question" open="open"><summary>樹直徑</summary><p>一棵樹中，最長的路徑稱為樹直徑。給定一顆樹，求直徑長度。</p>
+</details>
+<p>第一種做法是枚舉所有的點為根，求出兩顆深度最深的子樹 <script type="math/tex">h_1,h_2</script> ，找出最大的 <script type="math/tex">h_1+h_2+1</script> ，一次 DFS 的時間複雜度為 <script type="math/tex">O(V+E)</script> ，整體時間複雜度 <script type="math/tex">O(V(V+E))</script> 。</p>
+<p>第二種做法是用換根 DP。第一次 DFS 固定一點為根，求出每個點最深的兩顆子樹高度 ( <script type="math/tex">h_1,h_2</script> )。第二次 DFS 對於每個點 <script type="math/tex">u</script> ，求出經過父節點最長的路徑 ( <script type="math/tex">h_3</script> )。取 <script type="math/tex">h_1,h_2,h_3</script> 前兩大數值和再加 <script type="math/tex">1</script> 即為答案。這種作法使用了兩次 DFS，時間複雜度 <script type="math/tex">O(V+E)</script>
 </p>
 <p><img alt="" src="../images/treeDiameter1.gif" /></p>
 <p><img alt="" src="../images/treeDiameter2.gif" /></p>
@@ -1435,80 +1443,65 @@
 <span class="normal">43</span>
 <span class="normal">44</span>
 <span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<span class="normal">46</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 <span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MXV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15</span><span class="p">;</span><span class="w"></span>
 <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">G</span><span class="p">[</span><span class="n">MXV</span><span class="p">];</span><span class="w"></span>
 <span class="kt">int</span><span class="w"> </span><span class="n">high</span><span class="p">[</span><span class="n">MXV</span><span class="p">][</span><span class="mi">2</span><span class="p">];</span><span class="w"></span>
 <span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="p">[</span><span class="n">MXV</span><span class="p">],</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">MXV</span><span class="p">];</span><span class="w"></span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">height</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="nl">v</span> <span class="p">:</span><span class="w"> </span><span class="n">G</span><span class="p">[</span><span class="n">u</span><span class="p">])</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">dfs</span><span class="p">(</span><span class="n">v</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">height</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">u</span><span class="p">],</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">v</span><span class="p">])</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
-<span class="w">            </span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">v</span><span class="p">])</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">height</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="nl">v</span> <span class="p">:</span><span class="w"> </span><span class="n">G</span><span class="p">[</span><span class="n">u</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">v</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">height</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">u</span><span class="p">],</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">v</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
+<span class="w">      </span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">v</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">dfs2</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">legnth</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">ans</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">]],</span><span class="w"> </span><span class="n">legnth</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="nl">v</span> <span class="p">:</span><span class="w"> </span><span class="n">G</span><span class="p">[</span><span class="n">u</span><span class="p">])</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">dfs2</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">]],</span><span class="w"> </span><span class="n">legnth</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="k">else</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">dfs2</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">]],</span><span class="w"> </span><span class="n">legnth</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">dfs2</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">legnth</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">ans</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">]],</span><span class="w"> </span><span class="n">legnth</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="nl">v</span> <span class="p">:</span><span class="w"> </span><span class="n">G</span><span class="p">[</span><span class="n">u</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">dfs2</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">]],</span><span class="w"> </span><span class="n">legnth</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">dfs2</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">high</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">]],</span><span class="w"> </span><span class="n">legnth</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="n">G</span><span class="p">[</span><span class="n">x</span><span class="p">].</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">y</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">dfs2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ans</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">G</span><span class="p">[</span><span class="n">x</span><span class="p">].</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">y</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="n">dfs</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">dfs2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ans</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
+<h2 id="_3">例題練習</h2>
+<ul>
+<li>最小點覆蓋<ul>
+<li><a href="http://uva.onlinejudge.org/external/12/1292.pdf">UVa 01292 - Strategic game</a> </li>
+</ul>
+</li>
+<li>換根 DP<ul>
+<li><a href="https://atcoder.jp/contests/dp/tasks/dp_v">AtCoder Educational DP Contest V - Subtree</a> </li>
+</ul>
+</li>
+</ul>
                 
               
               

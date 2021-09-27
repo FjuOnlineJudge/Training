@@ -232,7 +232,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../algorithm/" class="md-tabs__link">
+      <a href="../../algorithm/enumerate/" class="md-tabs__link">
         基礎演算法
       </a>
     </li>
@@ -799,18 +799,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm/" class="md-nav__link">
-        何謂演算法
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../algorithm/enumerate/" class="md-nav__link">
         枚舉
       </a>
@@ -1061,6 +1049,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    例題練習
+  </a>
   
 </li>
       
@@ -1424,6 +1419,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    例題練習
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1452,15 +1454,9 @@
 </ul>
 <h2 id="_2">術語</h2>
 <ul>
-<li>
-<p>根 (root)：樹的一個代表性的點，通常會被當遍歷的起點，有給定根點的樹叫 有根樹，反之為無根樹。無根樹有時依照題目需求，需要隨機找一個點當根。</p>
-</li>
-<li>
-<p>葉節點 (leaf)：度數 <script type="math/tex">\leq 1</script> 的節點。</p>
-</li>
-<li>
-<p>距離 (distance)：為兩個點所形成路徑之邊數，或是路徑上權重之和。</p>
-</li>
+<li>根 (root)：樹的一個代表性的點，通常會被當遍歷的起點，有給定根點的樹叫 有根樹，反之為無根樹。無根樹有時依照題目需求，需要隨機找一個點當根。</li>
+<li>葉節點 (leaf)：度數 <script type="math/tex">\leq 1</script> 的節點。</li>
+<li>距離 (distance)：為兩個點所形成路徑之邊數，或是路徑上權重之和。</li>
 </ul>
 <hr />
 <ul>
@@ -1468,13 +1464,13 @@
 <p>父節點 (parent)、子節點 (child：有根樹中，兩個相連的節點，較接近樹根的為父節點，另一個為子節點。</p>
 </li>
 <li>
-<p>祖先 (ancestor)：有根樹中，節點到根結點中，所有的節點皆為祖先。依題目所需，有時自己也是自己的祖先(尤其是根最常這樣定義)。</p>
+<p>祖先 (ancestor)：有根樹中，節點到根結點中，所有的節點皆為祖先。依題目所需，有時自己也是自己的祖先（尤其是根最常這樣定義）。</p>
 </li>
 <li>
 <p>兄弟 (siblings)：相同父親的節點。</p>
 </li>
 <li>
-<p>後代 (descendant)：所有視自己為祖先的點(不包含自己)。</p>
+<p>後代 (descendant)：所有視自己為祖先的點（不包含自己）。</p>
 </li>
 <li>
 <p><img alt="" src="../images/treeRelations.png" /></p>
@@ -1482,21 +1478,13 @@
 </ul>
 <hr />
 <ul>
-<li>
-<p>深度 (depth)：有根樹中，節點到根結點之距離。</p>
-</li>
-<li>
-<p>高度 (height)：有根樹中，節點到與它距離最大的葉節點的距離稱為高度。根的高度稱為這整顆樹的高度。</p>
-</li>
+<li>深度 (depth)：有根樹中，節點到根結點之距離。</li>
+<li>高度 (height)：有根樹中，節點到與它距離最大的葉節點的距離稱為高度。根的高度稱為這整顆樹的高度。</li>
 </ul>
 <hr />
 <ul>
-<li>
-<p>子樹 (subtree)：如果 <script type="math/tex">T_1</script> 為 <script type="math/tex">T</script> 的子樹，則 <script type="math/tex">V_1\in V</script> ， <script type="math/tex">E_1\in E</script> 。</p>
-</li>
-<li>
-<p>森林 (Forest)：由無數個互不連通的樹所形的圖為森林。</p>
-</li>
+<li>子樹 (subtree)：如果 <script type="math/tex">T_1</script> 為 <script type="math/tex">T</script> 的子樹，則 <script type="math/tex">V_1\in V</script> ， <script type="math/tex">E_1\in E</script> 。</li>
+<li>森林 (Forest)：由無數個互不連通的樹所形的圖為森林。</li>
 </ul>
 <h2 id="_3">二元樹</h2>
 <ul>
@@ -1561,6 +1549,14 @@
 <li>線段樹及相關可支援區間查詢的樹<ul>
 <li>區間刪除</li>
 <li>區間搬移</li>
+</ul>
+</li>
+</ul>
+<h2 id="_9">例題練習</h2>
+<ul>
+<li><a href="https://codeforces.com/problemset/problem/913/B">Codeforces 913B - Christmas Spruce</a> </li>
+<li>樹的前中後序<ul>
+<li><a href="http://uva.onlinejudge.org/external/5/548.pdf">UVa 00548 - Tree</a> </li>
 </ul>
 </li>
 </ul>

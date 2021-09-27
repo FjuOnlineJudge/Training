@@ -234,7 +234,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
+      <a href="../enumerate/" class="md-tabs__link md-tabs__link--active">
         基礎演算法
       </a>
     </li>
@@ -801,18 +801,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-        何謂演算法
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../enumerate/" class="md-nav__link">
         枚舉
       </a>
@@ -1337,7 +1325,7 @@
 </code></pre></div>
 </td></tr></table>
 <p>有些題目為 "最多/最少為何會成立"，那麼如果你可以在良好的時間檢查出 " 如果代價是 <script type="math/tex">x</script> ，那可不可以達成目標 "，並且 <script type="math/tex">x</script> 具有單調性，那麼你可以轉換成 " 如果代價是 <script type="math/tex">x</script> ，那可不可以達成目標 " 傳換成 <script type="math/tex">F(x)</script> ，對答案（x）進行二分搜。
-二分搜要注意兩件事，一個是無限迴圈，要避免它可以在腦中先模擬一下。一個是在實數中二分搜，因為實數的稠密性，題目會有誤差容忍（例如 <script type="math/tex">10^{-6}</script> )，只要在誤差內都是容許的。</p>
+二分搜要注意兩件事，一個是無限迴圈，要避免它可以在腦中先模擬一下。一個是在實數中二分搜，因為實數的稠密性，題目會有誤差容忍值（例如 <script type="math/tex">10^{-6}</script> )，只要在誤差內都是容許的。</p>
 <h2 id="_2">三分搜</h2>
 <p>對於 U 型函數（例如 <script type="math/tex">y=F(x)=x^2</script> )，我們想要找尋其極值，意謂其左右兩側皆各自遞增/遞減，我們可以利用三分搜來解決（二分搜只能解決全體單調性，不能解決有兩邊的）。
 考慮三分後從左到右四個採樣點的關係</p>
@@ -1349,15 +1337,16 @@
 <li>
 <script type="math/tex">S(a) > S(b) > S(c) < S(d)</script> ，此時最小值一定不在最左邊</li>
 <li>
-<script type="math/tex">S(a) > S(b) > S(c) > S(d)</script> ，此時最小值一定不在最左邊
-    這段描敘還可以再簡化</li>
+<script type="math/tex">S(a) > S(b) > S(c) > S(d)</script> ，此時最小值一定不在最左邊</li>
+</ul>
+<p>這段描敘還可以再簡化：</p>
+<ul>
 <li>
 <script type="math/tex">S(b) < S(c)</script> ，此時最小值一定不在最右邊</li>
 <li>
-<script type="math/tex">S(b) > S(c)</script> ，此時最小值一定不在最左邊
-    每次都至少可以讓區間縮小 <script type="math/tex">\frac{1}{3}</script>
-</li>
+<script type="math/tex">S(b) > S(c)</script> ，此時最小值一定不在最左邊</li>
 </ul>
+<p>每次迭代先求出 <script type="math/tex">b,c</script> 的值，再利用簡化過的規則，使區間減少 <script type="math/tex">\frac{1}{3}</script> 。令 <script type="math/tex">EPS</script> 為誤差容忍值，一開始的範圍為 <script type="math/tex">[L,R]</script> ，迴圈大約需迭代 <script type="math/tex">\log_{1.5}\frac{R-L}{EPS}</script> 次（ <script type="math/tex">\log_{1.5}10</script> 大約為 <script type="math/tex">5.6</script> )。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>

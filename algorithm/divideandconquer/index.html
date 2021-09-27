@@ -234,7 +234,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
+      <a href="../enumerate/" class="md-tabs__link md-tabs__link--active">
         基礎演算法
       </a>
     </li>
@@ -801,18 +801,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-        何謂演算法
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../enumerate/" class="md-nav__link">
         枚舉
       </a>
@@ -874,25 +862,38 @@
     合併排序法
   </a>
   
+    <nav class="md-nav" aria-label="合併排序法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    逆序數對
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     快速排序法
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     二維平面上最近點對
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    其他分治題目
+  <a href="#uva-1608non-boring-sequences" class="md-nav__link">
+    UVA 1608：Non-boring sequences
   </a>
   
 </li>
@@ -1326,25 +1327,38 @@
     合併排序法
   </a>
   
+    <nav class="md-nav" aria-label="合併排序法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    逆序數對
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     快速排序法
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     二維平面上最近點對
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    其他分治題目
+  <a href="#uva-1608non-boring-sequences" class="md-nav__link">
+    UVA 1608：Non-boring sequences
   </a>
   
 </li>
@@ -1441,105 +1455,70 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<details open="open"><summary>經典題目 逆序數對</summary><p>給定一個長度為 <script type="math/tex">N</script> 的序列，求有幾組數對 <script type="math/tex">i,j</script> 滿足 <script type="math/tex">i < j</script> 且 <script type="math/tex">a_i > a_j</script> 。</p>
-<details><summary>解題思路</summary><p>這題我們可以轉換成，給定一個序列 <script type="math/tex">N</script>，在只能將相鄰位置交換的情況下，需要換幾次才能將序列從小排到大。
-交換次數可以在合併排序法的「合併」程式碼中計算，只要右序列有元素小於前面的元素，就會形成逆序數對，也就是上面範例程式碼 <code>arr[i]&gt;arr[j]</code> 的情況，這時候每一個左序列尚未排序完畢的元素，都會和 <code>arr[j]</code> 形成逆序數對。</p>
+<h3 id="_3">逆序數對</h3>
+<details class="question" open="open"><summary>逆序數對</summary><p>給定一個長度為 <script type="math/tex">N</script> 的序列，求有幾組數對 <script type="math/tex">i,j</script> 滿足 <script type="math/tex">i < j</script> 且 <script type="math/tex">a_i > a_j</script> 。</p>
 </details>
-<details><summary>參考程式碼</summary><p>作者：<a href="https://github.com/allem40306">allem40306</a>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
+<p>這題我們可以轉換成，給定一個序列 <script type="math/tex">N</script> ，在只能將相鄰位置交換的情況下，需要換幾次才能將序列從小排到大。</p>
+<p>交換次數可以在合併排序法的「合併」程式碼中計算，只要右序列有元素小於前面的元素，就會形成逆序數對，也就是上面範例程式碼 <code>arr[i]&gt;arr[j]</code> 的情況，這時候每一個左序列尚未排序完畢的元素，都會和 <code>arr[j]</code> 形成逆序數對。</p>
+<details><summary>參考程式碼</summary><p>作者： <a href="https://github.com/allem40306">allem40306</a> </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 <span class="cp">#define L 500010</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">L</span><span class="p">],</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="n">L</span><span class="p">];</span><span class="w"></span>
-
-<span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">sol</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">right</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">middle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">right</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sol</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">middle</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sol</span><span class="p">(</span><span class="n">middle</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">middle</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">middle</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">middle</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">buf</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">];</span><span class="w"></span>
-<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">buf</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">];</span><span class="w"></span>
-<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"></span>
-<span class="w">        </span><span class="n">buf</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">];</span><span class="w"></span>
-<span class="w">      </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">buf</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">];</span><span class="w"></span>
-<span class="w">        </span><span class="n">ans</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">middle</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="n">k</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">right</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="n">k</span><span class="p">];</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">){</span><span class="w"></span>
-<span class="w">    </span><span class="n">memset</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">));</span><span class="w"></span>
-<span class="w">    </span><span class="n">memset</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">));</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sol</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-</td></tr></table></p>
+</td></tr></table>
+<p>long long sol(int left, int right) {
+  if (right - left &lt;= 1)return 0;
+  int middle = (right + left) / 2;
+  long long ans = sol(left, middle) + sol(middle, right);
+  int i = left, j = middle, k = left;
+  while (i &lt; middle || j &lt; right) {
+    if (i &gt;= middle)
+      buf[k] = arr[j++];
+    else if (j &gt;= right)
+      buf[k] = arr[i++];
+    else {
+      if (arr[i]&lt;=arr[j])
+        buf[k] = arr[i++];
+      else {
+        buf[k] = arr[j++];
+        ans += middle - i;
+      }
+    }
+    k++;
+  }
+  for (int k = left; k &lt; right; k++)
+    arr[k] = buf[k];
+  return ans;
+}</p>
+<p>int main() {
+  int n;
+  while (cin &gt;&gt; n, n){
+    memset(arr, 0, sizeof(arr));
+    memset(buf, 0, sizeof(buf));
+    for (int i = 0; i &lt; n; i++)cin &gt;&gt; arr[i];
+    cout &lt;&lt; sol(0, n) &lt;&lt; endl;
+  }
+}
+```</p>
 </details>
-</details>
-<h2 id="_3">快速排序法</h2>
+<h2 id="_4">快速排序法</h2>
 <ul>
 <li>切割：選定一個基準點 <script type="math/tex">x</script> ，將其他數字分成兩堆， <script type="math/tex">< x</script> 的數字排在 <script type="math/tex">x</script> 前面， <script type="math/tex">\geq x</script> 的數字排放在 <script type="math/tex">x</script> 的後面，分堆完成，再分別遞迴排序兩堆。</li>
 <li>終止條件：直到序列長度為 1，這時候已為一個排好的序列，直接回傳。</li>
 <li>合併：已經排好順序，不需要額外的合併動作。</li>
 </ul>
 <p>快速排序法是一種不穩定的演算法，最好時間複雜度為 <script type="math/tex">O(N\log N)</script> ，最差時間複雜度為 <script type="math/tex">O(N^2)</script> 。</p>
-<h2 id="_4">二維平面上最近點對</h2>
-<p>給定二維平面上的 <script type="math/tex">N</script> 個點，要找出距離最近的兩個點。</p>
+<h2 id="_5">二維平面上最近點對</h2>
+<details class="question" open="open"><summary>二維平面上最近點對</summary><p>給定二維平面上的 <script type="math/tex">N</script> 個點，要找出距離最近的兩個點。</p>
+</details>
 <p>一開始先將點依 <script type="math/tex">x</script> 座標排序。</p>
 <ul>
 <li>切割：將點分成一半，分別遞迴。</li>
@@ -1666,10 +1645,11 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="_5">其他分治題目</h2>
-<details open="open"><summary>UVA 1608：Non-boring sequences</summary><details><summary>解題思路</summary><p>只要在序列 <script type="math/tex">[a_L,a_R]</script> 中找到一個符合的數字 <script type="math/tex">A_i=x</script> ，那麼所有在 <script type="math/tex">a_L</script> 到 <script type="math/tex">a_R</script> 之間，包含 <script type="math/tex">a_i</script> 的連續子序列都符合，接著再判斷 <script type="math/tex">[a_L,i-1]</script> 和 <script type="math/tex">[i+1,a_R]</script> 兩個子序列是否符合即可。
-為了提升搜尋符合的數字，使用中途相遇法，從兩邊一起從中間找尋。</p>
+<h2 id="uva-1608non-boring-sequences">UVA 1608：Non-boring sequences</h2>
+<details class="question" open="open"><summary>UVA 1608：Non-boring sequences</summary><p>給定一個序列 <script type="math/tex">A</script> ，判斷使否每一個連續的子序列，都有一個數字，只在該子序列出現一次。</p>
 </details>
+<p>只要在序列 <script type="math/tex">[a_L,a_R]</script> 中找到一個符合的數字 <script type="math/tex">A_i=x</script> ，那麼所有在 <script type="math/tex">a_L</script> 到 <script type="math/tex">a_R</script> 之間，包含 <script type="math/tex">a_i</script> 的連續子序列都符合，接著再判斷 <script type="math/tex">[a_L,i-1]</script> 和 <script type="math/tex">[i+1,a_R]</script> 兩個子序列是否符合即可。</p>
+<p>此外如果 <script type="math/tex">A_i</script> 只從一端開始找，最差的時間複雜度為 <script type="math/tex">O(N^2)</script> ，為了避免超時，從兩端開始找，最差的情況就是每次都剛好在中間找到 <script type="math/tex">A_i</script> ，時間複雜度為 <script type="math/tex">O(N\log N)</script> 。</p>
 <details><summary>參考程式碼</summary><p>作者： <a href="https://github.com/allem40306">allem40306</a> </p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -1800,7 +1780,6 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-</details>
 </details>
 <h2 id="_6">例題練習</h2>
 <ul>

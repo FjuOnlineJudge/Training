@@ -232,7 +232,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../algorithm/" class="md-tabs__link">
+      <a href="../../algorithm/enumerate/" class="md-tabs__link">
         基礎演算法
       </a>
     </li>
@@ -793,18 +793,6 @@
           基礎演算法
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../algorithm/" class="md-nav__link">
-        何謂演算法
-      </a>
-    </li>
-  
-
           
             
   
@@ -1383,25 +1371,25 @@
                 
                 <h1 id="dp-knapsack-dp">背包 DP (Knapsack DP)</h1>
 <h2 id="0-1">0-1 背包問題</h2>
-<details open="open"><summary>0-1 背包問題</summary><p>給定 <script type="math/tex">N</script> 個物品的重量 <script type="math/tex">w_i</script> 和價值 <script type="math/tex">v_i</script>，和一個容量為 <script type="math/tex">W</script> 的背包。選取若干件物品放入背包，在不超過背包容量的情況下，背包內物品價值總和最大為何?</p>
+<details class="question" open="open"><summary>0-1 背包問題</summary><p>給定 <script type="math/tex">N</script> 個物品的重量 <script type="math/tex">w_i</script> 和價值 <script type="math/tex">v_i</script>，和一個容量為 <script type="math/tex">W</script> 的背包。選取若干件物品放入背包，在不超過背包容量的情況下，背包內物品價值總和最大為何?</p>
 </details>
-<p>每種物品有兩個狀態不放與放，可對應二進位的 <script type="math/tex">0</script> 和 <script type="math/tex">1</script>，故稱為「0-1 背包問題」。</p>
+<p>每種物品有兩個狀態不放與放，可對應二進位的 <script type="math/tex">0</script> 和 <script type="math/tex">1</script> ，故稱為「0-1 背包問題」。</p>
 <p>題目有三項資料，物品個數、物品重量、物品價值，利用這些資料設計出狀態式：</p>
 <ul>
-<li>狀態：<script type="math/tex">f(i,j)</script> 代表前 <script type="math/tex">i</script> 樣物品在重量總和 <script type="math/tex">\leq j</script> 的情況下，物品價值總和最大值。</li>
-<li>初始狀態：<script type="math/tex">f(i,j)=0,\ if\ i = 0</script>。</li>
+<li>狀態： <script type="math/tex">f(i,j)</script> 代表前 <script type="math/tex">i</script> 樣物品在重量總和 <script type="math/tex">\leq j</script> 的情況下，物品價值總和最大值。</li>
+<li>初始狀態： <script type="math/tex">f(i,j)=0,\ if\ i = 0</script> 。</li>
 </ul>
 <p>當算好 <script type="math/tex">i-1</script> 個物品的狀態，對於第 <script type="math/tex">i</script> 個物品有兩種選擇</p>
 <ul>
 <li>不放：重量和價值不變 <script type="math/tex">\to</script>
-<script type="math/tex">f(i,j)=f(i-1,j)</script>。</li>
-<li>放：重量 <script type="math/tex">+w_i</script>，價值 <script type="math/tex">+v_i</script>
-<script type="math/tex">\to f(i,j)=f(i-1,j-w_i)+v_i</script>。</li>
+<script type="math/tex">f(i,j)=f(i-1,j)</script> 。</li>
+<li>放：重量 <script type="math/tex">+w_i</script> ，價值 <script type="math/tex">+v_i</script>
+<script type="math/tex">\to f(i,j)=f(i-1,j-w_i)+v_i</script> 。</li>
 </ul>
 <p>轉移式就由上面兩種選擇歸納出：</p>
 <ul>
 <li>
-<script type="math/tex">f(i,j)=max(f(i-1,j),f(i-1,j-w_i)+v_i)</script>。</li>
+<script type="math/tex">f(i,j)=max(f(i-1,j),f(i-1,j-w_i)+v_i)</script> 。</li>
 </ul>
 <p>以下為利用二維陣列儲存答案的範例：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1415,30 +1403,24 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">MXN</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">MXW</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">MXN</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">MXW</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
 <span class="n">memset</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">dp</span><span class="p">));</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">MXN</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">];</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">MXW</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="err">−</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">MXN</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">MXW</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="err">−</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
 <span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">MXN</span><span class="p">][</span><span class="n">MXW</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
 <h3 id="_1">滾動陣列</h3>
-<p>空間複雜度 <script type="math/tex">O(NW)</script>，採用「滾動陣列」，可以降低空間複雜度</p>
+<p>空間複雜度 <script type="math/tex">O(NW)</script> ，採用「滾動陣列」，可以降低空間複雜度</p>
 <p><img alt="" src="../images/knapsack01.png" /></p>
-<p>由上圖可得知，當在計算 <script type="math/tex">f(i,j)</script> 時，只會用到上一列的資料，因此我們的需要陣列大小降到 <script type="math/tex">2\times W</script>。</p>
+<p>由上圖可得知，當在計算 <script type="math/tex">f(i,j)</script> 時，只會用到上一列的資料，因此我們的需要陣列大小降到 <script type="math/tex">2\times W</script> 。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1448,57 +1430,47 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">MXW</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">MXW</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
 <span class="n">memset</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">dp</span><span class="p">));</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dp</span><span class="p">[(</span><span class="n">i</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">];</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">MXW</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[(</span><span class="n">i</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="err">−</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">dp</span><span class="p">[(</span><span class="n">i</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dp</span><span class="p">[(</span><span class="n">i</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">MXW</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[(</span><span class="n">i</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="err">−</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">dp</span><span class="p">[(</span><span class="n">i</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
 <p>再來，如果我們將 <script type="math/tex">f(i,j)</script> 當中的 <script type="math/tex">j</script> 由大到小計算。</p>
 <p><img alt="" src="../images/knapsack02.png" /></p>
-<p>會發現計算 <script type="math/tex">f(i,j)</script> 時，<script type="math/tex">f(i-1,j),f(i-1,j+1),f(i-1,j+2),...,f(i-1,C)</script> 也不會用到，可以將 <script type="math/tex">f(i,j),f(i,j+1),f(i,j+2),...,f(i,W)</script> 覆蓋到 <script type="math/tex">f(i-1,j),f(i-1,j+1),f(i-1,j+2),...,f(i-1,W)</script> 上面。我們可以再次縮小陣列，變成大小為 <script type="math/tex">W</script> 的一維陣列。</p>
+<p>會發現計算 <script type="math/tex">f(i,j)</script> 時， <script type="math/tex">f(i-1,j),f(i-1,j+1),f(i-1,j+2),...,f(i-1,C)</script> 也不會用到，可以將 <script type="math/tex">f(i,j),f(i,j+1),f(i,j+2),...,f(i,W)</script> 覆蓋到 <script type="math/tex">f(i-1,j),f(i-1,j+1),f(i-1,j+2),...,f(i-1,W)</script> 上面。我們可以再次縮小陣列，變成大小為 <script type="math/tex">W</script> 的一維陣列。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">MXW</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">MXW</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
 <span class="n">memset</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">dp</span><span class="p">));</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MXW</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="o">--</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="err">−</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MXW</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="o">--</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="err">−</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<details open="open"><summary>滾動陣列</summary><p>覆蓋不會用到的資訊，降低記憶體使用量。</p>
+<details class="tip" open="open"><summary>滾動陣列</summary><p>覆蓋不會用到的資訊，降低記憶體使用量。</p>
 </details>
-<p>0-1 背包問題時間複雜度 <script type="math/tex">O(NW)</script>，空間複雜度 <script type="math/tex">O(N)</script>。</p>
+<p>0-1 背包問題時間複雜度 <script type="math/tex">O(NW)</script> ，空間複雜度 <script type="math/tex">O(N)</script> 。</p>
 <h3 id="_2">背包問題另一種狀態式</h3>
 <ul>
-<li><a href="https://atcoder.jp/contests/dp/tasks/dp_e">AtCoder Educational DP Contest E - Knapsack 2</a></li>
+<li><a href="https://atcoder.jp/contests/dp/tasks/dp_e">AtCoder Educational DP Contest E - Knapsack 2</a> </li>
 </ul>
-<p>這題的 <script type="math/tex">W</script> 範圍在 <script type="math/tex">[1,10^9]</script>，用上述的狀態式肯定 <code>TLE</code>，因此我們將狀態式改成：</p>
+<p>這題的 <script type="math/tex">W</script> 範圍在 <script type="math/tex">[1,10^9]</script> ，用上述的狀態式肯定 <code>TLE</code> ，因此我們將狀態式改成：</p>
 <ul>
-<li>狀態：<script type="math/tex">f(i,j)</script> 代表前 <script type="math/tex">i</script> 樣物品在價值總和為 <script type="math/tex">j</script> 的情況下，重量總和最小值。</li>
-<li>初始狀態：<script type="math/tex">f(i,0)=0,\ where\ 0\leq 1< n,else\ f(i,j)=\infty</script>。</li>
+<li>狀態： <script type="math/tex">f(i,j)</script> 代表前 <script type="math/tex">i</script> 樣物品在價值總和為 <script type="math/tex">j</script> 的情況下，重量總和最小值。</li>
+<li>初始狀態： <script type="math/tex">f(i,0)=0,\ where\ 0\leq 1< n,else\ f(i,j)=\infty</script> 。</li>
 </ul>
 <p>轉移式改成：</p>
 <ul>
@@ -1512,10 +1484,10 @@
 <script type="math/tex">max\{i|f(n,i)\leq w\}</script>
 </li>
 </ul>
-<details open="open"><summary>技巧：表示(負)無限大</summary><p>(負)無限大只要設成一個比最大(小)答案還要大(小)的值就行了。</p>
+<details class="tip" open="open"><summary>技巧：表示(負)無限大</summary><p>(負)無限大只要設成一個比最大(小)答案還要大(小)的值就行了。</p>
 </details>
 <h2 id="_3">無限背包問題</h2>
-<details open="open"><summary>無限背包問題</summary><p>給定 <script type="math/tex">n</script> 種物品的重量 <script type="math/tex">w_i</script> 和價值 <script type="math/tex">v_i</script>，和一個容量為 <script type="math/tex">W</script> 的背包。每種物品可選取任意個放入背包，在不超過背包容量的情況下，背包內物品價值總和最大為何?</p>
+<details class="question" open="open"><summary>無限背包問題</summary><p>給定 <script type="math/tex">n</script> 種物品的重量 <script type="math/tex">w_i</script> 和價值 <script type="math/tex">v_i</script>，和一個容量為 <script type="math/tex">W</script> 的背包。每種物品可選取任意個放入背包，在不超過背包容量的情況下，背包內物品價值總和最大為何?</p>
 </details>
 <p>無限背包問題和 0-1 背包問題差異在於無限背包的物品可以選無限多個。</p>
 <p>無限背包問題和 0-1 背包問題的狀態式相同，以下為轉移式：</p>
@@ -1527,13 +1499,13 @@
 <p>可以簡化成：</p>
 <ul>
 <li>
-<script type="math/tex">f(i,j)=max(f(i-1,j),f(i-1,j-w_i)+v_i,f(i,j-w_i)+v_i)</script>。</li>
+<script type="math/tex">f(i,j)=max(f(i-1,j),f(i-1,j-w_i)+v_i,f(i,j-w_i)+v_i)</script> 。</li>
 <li>
-<script type="math/tex">f(i,j)=max(f(i-1,j),max(f(i-1,j-w_i),f(i,j-w_i)+)v_i)</script>。</li>
+<script type="math/tex">f(i,j)=max(f(i-1,j),max(f(i-1,j-w_i),f(i,j-w_i)+)v_i)</script> 。</li>
 </ul>
-<p>為什麼可以這樣優化?是因為當 <script type="math/tex">f(i,j)</script> 當中的 <script type="math/tex">j</script> 由小到大計算時，<script type="math/tex">f(i,j-w_i)</script> 已被 <script type="math/tex">f(i,j-2\times w_i)</script> 更新過，那麼 <script type="math/tex">f(i,j-w_i)</script> 就是選擇第 <script type="math/tex">i</script> 種物品數次的最佳結果。</p>
+<p>為什麼可以這樣優化？是因為當 <script type="math/tex">f(i,j)</script> 當中的 <script type="math/tex">j</script> 由小到大計算時， <script type="math/tex">f(i,j-w_i)</script> 已被 <script type="math/tex">f(i,j-2\times w_i)</script> 更新過，那麼 <script type="math/tex">f(i,j-w_i)</script> 就是選擇第 <script type="math/tex">i</script> 種物品數次的最佳結果。</p>
 <blockquote>
-<p>換言之，我們通過局部最優子結構的性質重複使用了之前的枚舉過程，優化了枚舉的複雜度。(from <a href="https://oi-wiki.org/dp/knapsack/">背包 DP - OI Wiki</a>)</p>
+<p>換言之，我們通過局部最優子結構的性質重複使用了之前的枚舉過程，優化了枚舉的複雜度。(from <a href="https://oi-wiki.org/dp/knapsack/">背包 DP - OI Wiki</a> )</p>
 </blockquote>
 <p>下面為範例程式碼，一樣有用到滾動陣列的技巧：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -1542,31 +1514,28 @@
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">MXW</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">MXW</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
 <span class="n">memset</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">dp</span><span class="p">));</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">MXW</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="err">−</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">MXW</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="err">−</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<p>無限背包問題時間複雜度 <script type="math/tex">O(NW)</script>，空間複雜度 <script type="math/tex">O(W)</script>。</p>
+<p>無限背包問題時間複雜度 <script type="math/tex">O(NW)</script> ，空間複雜度 <script type="math/tex">O(W)</script> 。</p>
 <h2 id="_4">例題練習</h2>
 <ul>
 <li>0-1 背包問題<ul>
-<li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;category=24&amp;page=show_problem&amp;problem=1605">UVa 10664 - Luggage</a></li>
-<li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;category=24&amp;page=show_problem&amp;problem=1071">UVa 10130 - SuperSale</a></li>
-<li><a href="https://atcoder.jp/contests/dp/tasks/dp_d">AtCoder Educational DP Contest D - Knapsack 1</a></li>
+<li><a href="http://uva.onlinejudge.org/external/106/10664.pdf">UVa 10664 - Luggage</a> </li>
+<li><a href="http://uva.onlinejudge.org/external/101/10130.pdf">UVa 10130 - SuperSale</a> </li>
+<li><a href="https://atcoder.jp/contests/dp/tasks/dp_d">AtCoder Educational DP Contest D - Knapsack 1</a> </li>
 </ul>
 </li>
 <li>無限背包問題<ul>
-<li><a href="https://onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=1406">UVa 10465 - Homer Simpson</a> </li>
-<li><a href="https://onlinejudge.org/index.php?option=onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=615">UVa 00825 - Coin Change</a></li>
+<li><a href="http://uva.onlinejudge.org/external/104/10465.pdf">UVa 10465 - Homer Simpson</a> </li>
+<li><a href="http://uva.onlinejudge.org/external/8/825.pdf">UVa 00825 - Coin Change</a> </li>
+<li><a href="http://uva.onlinejudge.org/external/3/357.pdf">UVa 00357 - Let Me Count The Ways</a> </li>
 </ul>
 </li>
 </ul>
