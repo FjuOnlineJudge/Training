@@ -37,7 +37,6 @@ nav:
     - 分治: algorithm/divideandconquer.md
     - 貪心: algorithm/greedy.md
   - 圖論:
-    - 圖論簡介: graph/index.md
     - 圖論概念: graph/concept.md
     - 圖的儲存: graph/save.md
     - 圖的遍歷: graph/traverse.md
