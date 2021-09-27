@@ -8,23 +8,24 @@
     - `C++`: `cctype`
 
 -  `isalnum` : 判斷是否為數字或英文。
-    -  `isalnum(int c)`
+-  `isalnum(int c)` 
 -  `isalpha` : 判斷是否為英文。
-    -  `isalpha(int c)`
+-  `isalpha(int c)` 
 -  `isdigit` : 判斷是否為數字。
-    -  `isdigit(int c)`
+-  `isdigit(int c)` 
 -  `islower` : 判斷是否為小寫字母。
-    -  `islower(int c)`
+-  `islower(int c)` 
 -  `isupper` : 判斷是否為大寫字母。
-    -  `isupper(int c)`
+-  `isupper(int c)` 
 -  `tolower` : 將字母轉乘小寫字母
-    -  `islower(int c)` 
+-  `islower(int c)` 
 -  `toupper` : 將字母轉乘大寫字母
-    -  `toupper(int c)` 
+-  `toupper(int c)` 
 
 ## 實例
 
 - 將所有英文字母轉成小寫字母後輸出
+
 ```cpp
 char str[] = "Cats Like Chatching The Mouses.";
 for (int i = 0; i != (int)strlen(str); ++i) {

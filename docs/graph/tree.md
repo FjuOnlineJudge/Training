@@ -13,33 +13,29 @@
 ## 術語
 
 - 根 (root)：樹的一個代表性的點，通常會被當遍歷的起點，有給定根點的樹叫 有根樹，反之為無根樹。無根樹有時依照題目需求，需要隨機找一個點當根。
-
 - 葉節點 (leaf)：度數 $\leq 1$ 的節點。
-
 - 距離 (distance)：為兩個點所形成路徑之邊數，或是路徑上權重之和。
 
 * * *
 
 - 父節點 (parent)、子節點 (child：有根樹中，兩個相連的節點，較接近樹根的為父節點，另一個為子節點。
 
-- 祖先 (ancestor)：有根樹中，節點到根結點中，所有的節點皆為祖先。依題目所需，有時自己也是自己的祖先(尤其是根最常這樣定義)。
+- 祖先 (ancestor)：有根樹中，節點到根結點中，所有的節點皆為祖先。依題目所需，有時自己也是自己的祖先（尤其是根最常這樣定義）。
 
 - 兄弟 (siblings)：相同父親的節點。
 
-- 後代 (descendant)：所有視自己為祖先的點(不包含自己)。
+- 後代 (descendant)：所有視自己為祖先的點（不包含自己）。
 
 - ![](images/treeRelations.png)
 
 * * *
 
 - 深度 (depth)：有根樹中，節點到根結點之距離。
-
 - 高度 (height)：有根樹中，節點到與它距離最大的葉節點的距離稱為高度。根的高度稱為這整顆樹的高度。
 
 * * *
 
 - 子樹 (subtree)：如果 $T_1$ 為 $T$ 的子樹，則 $V_1\in V$ ， $E_1\in E$ 。
-
 - 森林 (Forest)：由無數個互不連通的樹所形的圖為森林。
 
 ## 二元樹
@@ -98,6 +94,6 @@ int chlid[MXV][2];
 
 ## 例題練習
 
-- [Codeforces 913B - Christmas Spruce](https://codeforces.com/problemset/problem/913/B)
-- 樹的前中後序
-    - [UVa 00548 - Tree](http://uva.onlinejudge.org/external/5/548.pdf)
+-  [Codeforces 913B - Christmas Spruce](https://codeforces.com/problemset/problem/913/B) 
+-   樹的前中後序
+    -  [UVa 00548 - Tree](http://uva.onlinejudge.org/external/5/548.pdf) 

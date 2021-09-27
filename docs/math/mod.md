@@ -50,37 +50,33 @@ T pow(int a, int b, int c) { // calculate a^b%c
 
 整數 $a$ 在 $\operatorname{mod} c$ 下要有模反元素的充分必要條件為 $a,c$ 互質。
 
-模逆元如果存在會有無限個，任意兩相鄰模逆元相差 $c$。
+模逆元如果存在會有無限個，任意兩相鄰模逆元相差 $c$ 。
 
 ### 方法一：擴展歐基里德演算法
 
 ???+ "貝祖定理"
-    令 $a,c$ 為非 $0$ 整數，存在整數解 $x,y$ 使得 $ax+cy=gcd(a,c)$
+    令 $a,c$ 為非 $0$ 整數，存在整數解 $x,y$ 使得 $ax+cy=gcd(a,c)$ 
 
-從上文可得知，如果 $gcd(a,c)=1$，則 $a$ 在 $\operatorname{mod} c$ 下有模反元素，又根據貝祖定理，可知存在整數 $x,y$ ，使得 $ax+cy=gcd(a,c)=1$ ，這裡的 $x$ 即為 $a$ 的反元素。我們可以修改找最大公因數的辦法，找出 $a$ 的模逆元，這個算法稱為擴展歐基里德演算法。這個演算法可以推廣到 $ax+cy=d,d\in\mathbb{Z}$
+從上文可得知，如果 $gcd(a,c)=1$ ，則 $a$ 在 $\operatorname{mod} c$ 下有模反元素，又根據貝祖定理，可知存在整數 $x,y$ ，使得 $ax+cy=gcd(a,c)=1$ ，這裡的 $x$ 即為 $a$ 的反元素。我們可以修改找最大公因數的辦法，找出 $a$ 的模逆元，這個算法稱為擴展歐基里德演算法。這個演算法可以推廣到 $ax+cy=d,d\in\mathbb{Z}$ 
 
 ```cpp
 // ax+by=c
-int extgcd(int a, int b, int c, int &x, int &y)
-{
-    int d = a;
-    if (b)
-    {
-        d = extgcd(b, a % b, c, y, x);
-        y -= (a / b) * x;
-    }
-    else
-    {
-        x = c;
-        y = 0;
-    }
-    return d;
+int extgcd(int a, int b, int c, int &x, int &y) {
+  int d = a;
+  if (b) {
+    d = extgcd(b, a % b, c, y, x);
+    y -= (a / b) * x;
+  } else {
+    x = c;
+    y = 0;
+  }
+  return d;
 }
 ```
 
 ### 方法二：快速冪
 
-根據歐拉定理，如果 $gcd(a,c)=1$ ，則 $a^{\Phi(c)} \equiv 1 (\mod c)$，將式子稍微改變一下，我們得出 $aa^{\Phi(c)-1} \equiv 1 (\operatorname{mod} c)$，$a^{\Phi(c)-1}$ 是 $a$ 在 $\operatorname{mod} c$ 下的一個模逆元。可以利用快速冪計算 $a^{\Phi(c)-1}\operatorname{mod} c$ 算出模逆元。
+根據歐拉定理，如果 $gcd(a,c)=1$ ，則 $a^{\Phi(c)} \equiv 1 (\mod c)$ ，將式子稍微改變一下，我們得出 $aa^{\Phi(c)-1} \equiv 1 (\operatorname{mod} c)$ ， $a^{\Phi(c)-1}$ 是 $a$ 在 $\operatorname{mod} c$ 下的一個模逆元。可以利用快速冪計算 $a^{\Phi(c)-1}\operatorname{mod} c$ 算出模逆元。
 
 ## 中國剩餘定理
 
@@ -94,7 +90,7 @@ $$
 \left \{ \begin{matrix} X\equiv r_1 (\operatorname{mod} m_1)\\ X\equiv r_2 (\operatorname{mod} m_2)\\ \cdot \\ \cdot \\ X\equiv r_n (\operatorname{mod} m_n)\end{matrix}\right.
 $$
 
-解決這類問題最簡單是用枚舉來求解，不過如果範圍太大就會吃 TLE 了。因此我們先列出 $n$ 個數字 $ans_1,ans_2,...,ans_n$:
+解決這類問題最簡單是用枚舉來求解，不過如果範圍太大就會吃 TLE 了。因此我們先列出 $n$ 個數字 $ans_1,ans_2,...,ans_n$ :
 
 $$
 \left \{ \begin{matrix} ans_1\equiv r_1 (\operatorname{mod} m_1)\\ ans_1\equiv 0 (\operatorname{mod} m_2)\\ \cdot \\ \cdot \\ ans_1\equiv 0 (\operatorname{mod} m_n)\end{matrix}\right.
@@ -112,33 +108,31 @@ $$
 \left \{ \begin{matrix} ans_n\equiv 0 (\operatorname{mod} m_1)\\ ans_n\equiv 0 (\operatorname{mod} m_2)\\ \cdot \\ \cdot \\ ans_n\equiv r_n (\operatorname{mod} m_n)\end{matrix}\right.
 $$
 
-分別算出答案後，根據加法在模運算下的性質，$n$ 個數字的和，正是我們想要的答案。
+分別算出答案後，根據加法在模運算下的性質， $n$ 個數字的和，正是我們想要的答案。
 
 將題目分成 $n$ 個式子後，難度一下降低許多，現在我們只要會解開每個式子就行了。以下以 $ans_1$ 為例：
 
-$ans_1$ 顯然整除 $m_2,...,m_n$，令 $Y_1=\frac{\Pi_{i=1}^{n} m_i}{m_1}$，可列出式子 $ans_1=Y_1Z_1\equiv r_1 (\operatorname{mod} m_1)$。於是原式就變成找模逆元的問題。
+ $ans_1$ 顯然整除 $m_2,...,m_n$ ，令 $Y_1=\frac{\Pi_{i=1}^{n} m_i}{m_1}$ ，可列出式子 $ans_1=Y_1Z_1\equiv r_1 (\operatorname{mod} m_1)$ 。於是原式就變成找模逆元的問題。
 
 ```cpp
 LL P = 1, ans = 0;
 for (int i = 0; i < n; ++i)
-    P *= m[i];
-for (int i = 0; i < n; ++i)
-{
-    LL a = P / m[i], x, y;
-    extgcd(a, m[i], x, y);
-    ans = (ans + r[i] * a * x) % P;
+  P *= m[i];
+for (int i = 0; i < n; ++i) {
+  LL a = P / m[i], x, y;
+  extgcd(a, m[i], x, y);
+  ans = (ans + r[i] * a * x) % P;
 }
 cout << (ans + P) % P << '\n';
 ```
 
-
 ## 例題練習
 
 -   快速冪
-    -   [UVa 11609 - Teams](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2656)
+    -  [UVa 11609 - Teams](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2656) 
 -   模逆元
-    -   [Zerojudge a289: Modular Multiplicative Inverse](https://zerojudge.tw/ShowProblem?problemid=a289)
--   中國剩餘定理 
-    -   [Zerojudge c641: 滿滿的糖果屋 #2](https://zerojudge.tw/ShowProblem?problemid=c641) (備註：這一題王老師帶的錢必定能買至少一顆糖果)
+    -  [Zerojudge a289: Modular Multiplicative Inverse](https://zerojudge.tw/ShowProblem?problemid=a289) 
+-   中國剩餘定理
+    -  [Zerojudge c641: 滿滿的糖果屋 #2](https://zerojudge.tw/ShowProblem?problemid=c641) （備註：這一題王老師帶的錢必定能買至少一顆糖果）
 
-[^1]: [Discrete mathematics - Chinese Remainder Theorem](https://wangwilly.github.io/willywangkaa/2018/05/08/Discrete-mathematics-Chinese-Remainder-Theorem/)
+[^1]:  [Discrete mathematics - Chinese Remainder Theorem](https://wangwilly.github.io/willywangkaa/2018/05/08/Discrete-mathematics-Chinese-Remainder-Theorem/) 

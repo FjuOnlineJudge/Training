@@ -65,16 +65,15 @@ void Union(int a, int b) {
 也可以維護並查集的個數，個數大的合併個數小的並查集。
 
 ```cpp
-void Union(int a, int b)
-{
-    a = Find(a);
-    b = Find(b);
-    if (a == b)
-        return;
-    if (sz[a] < sz[b])
-        swap(a, b);
-    sz[a] += sz[b];
-    p[b] = a;
+void Union(int a, int b) {
+  a = Find(a);
+  b = Find(b);
+  if (a == b)
+    return;
+  if (sz[a] < sz[b])
+    swap(a, b);
+  sz[a] += sz[b];
+  p[b] = a;
 }
 ```
 
@@ -111,4 +110,4 @@ void Union(int a, int b) {
 
 ## 例題練習
 
-- [UVa 00615 - Is It A Tree?](http://uva.onlinejudge.org/external/6/615.pdf)
+-  [UVa 00615 - Is It A Tree?](http://uva.onlinejudge.org/external/6/615.pdf) 

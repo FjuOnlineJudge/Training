@@ -51,19 +51,21 @@ void sol(int L, int R) { // [L,R)
 ???+ Question "逆序數對"
     給定一個長度為 $N$ 的序列，求有幾組數對 $i,j$ 滿足 $i < j$ 且 $a_i > a_j$ 。
 
-這題我們可以轉換成，給定一個序列 $N$，在只能將相鄰位置交換的情況下，需要換幾次才能將序列從小排到大。
+這題我們可以轉換成，給定一個序列 $N$ ，在只能將相鄰位置交換的情況下，需要換幾次才能將序列從小排到大。
 
 交換次數可以在合併排序法的「合併」程式碼中計算，只要右序列有元素小於前面的元素，就會形成逆序數對，也就是上面範例程式碼 `arr[i]>arr[j]` 的情況，這時候每一個左序列尚未排序完畢的元素，都會和 `arr[j]` 形成逆序數對。
 
 ??? "參考程式碼"
-    作者：[allem40306](https://github.com/allem40306)
+    作者： [allem40306](https://github.com/allem40306) 
+    
     ```cpp
-    #include <iostream>
     #include <cstdio>
     #include <cstring>
+    #include <iostream>
     using namespace std;
     #define L 500010
     int arr[L], buf[L];
+    ```
 
     long long sol(int left, int right) {
       if (right - left <= 1)return 0;
@@ -192,7 +194,7 @@ int main() {
 
 只要在序列 $[a_L,a_R]$ 中找到一個符合的數字 $A_i=x$ ，那麼所有在 $a_L$ 到 $a_R$ 之間，包含 $a_i$ 的連續子序列都符合，接著再判斷 $[a_L,i-1]$ 和 $[i+1,a_R]$ 兩個子序列是否符合即可。
 
-此外如果 $A_i$ 只從一端開始找，最差的時間複雜度為 $O(N^2)$，為了避免超時，從兩端開始找，最差的情況就是每次都剛好在中間找到 $A_i$，時間複雜度為 $O(N\log N)$。
+此外如果 $A_i$ 只從一端開始找，最差的時間複雜度為 $O(N^2)$ ，為了避免超時，從兩端開始找，最差的情況就是每次都剛好在中間找到 $A_i$ ，時間複雜度為 $O(N\log N)$ 。
 
 ??? "參考程式碼"
     作者： [allem40306](https://github.com/allem40306) 

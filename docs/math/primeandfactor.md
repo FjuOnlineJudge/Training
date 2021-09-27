@@ -29,7 +29,7 @@ void PrimeTable(int n) {
 
 ### 線性篩法
 
-每個合數都只被其最小質因數剔除，此算法時間複雜度為 $O(N)$。
+每個合數都只被其最小質因數剔除，此算法時間複雜度為 $O(N)$ 。
 
 ```cpp
 vector<int> p;
@@ -51,9 +51,7 @@ void PrimeTable(int n) {
 }
 ```
 
-程式碼關鍵在於 `if (i % p[j] == 0)`，由於 $p$ 裡面的元素都是遞增的，當這行成立，代表 $i$ 的 $p[j]$ 最小質數，$i\cdot p[j+1], i\cdot p[j+2], ...$ 都是 $p[j]$ 的倍數，都已經被 $p[j]$ 剔除(例如：$9$ 的最小質因數為 $3$，$9\cdot 5,9\cdot 7$ 都是 $3$ 的倍數，他們會被 $3$ 剔除)，因此不必再篩下去。
-
-
+程式碼關鍵在於 `if (i % p[j] == 0)` ，由於 $p$ 裡面的元素都是遞增的，當這行成立，代表 $i$ 的 $p[j]$ 最小質數， $i\cdot p[j+1], i\cdot p[j+2], ...$ 都是 $p[j]$ 的倍數，都已經被 $p[j]$ 剔除（例如： $9$ 的最小質因數為 $3$ ， $9\cdot 5,9\cdot 7$ 都是 $3$ 的倍數，他們會被 $3$ 剔除），因此不必再篩下去。
 
 ## 因數
 
@@ -81,40 +79,37 @@ int GCD(int a, int b) {
 ## 質因數分解
 
 ???+ "質因數分解"
-    給定一個數字 $N$，請列出他的所有質數。
+    給定一個數字 $N$ ，請列出他的所有質數。
 
 質因數是一道常見的題目，以下有幾個要點：
 
--   只要枚舉所有 $\leq\sqrt{N}$ 的質數。
--   $N$ 在質因數分解的過程中會一直被更新，當找到 $N$ 的一個質數 $p$，請將 $N$ 除以 $p$ 得到新的 $N$，縮小搜尋範圍，若是新的 $N$ 還可被 $p$ 整除，重複上述動作，直到 $N$ 無法被 $p$ 整除。
--   最後再檢查 $N$ 是否為 $1$，若不是，則 $N$ 也是質數。
+- 只要枚舉所有 $\leq\sqrt{N}$ 的質數。
+-  $N$ 在質因數分解的過程中會一直被更新，當找到 $N$ 的一個質數 $p$ ，請將 $N$ 除以 $p$ 得到新的 $N$ ，縮小搜尋範圍，若是新的 $N$ 還可被 $p$ 整除，重複上述動作，直到 $N$ 無法被 $p$ 整除。
+- 最後再檢查 $N$ 是否為 $1$ ，若不是，則 $N$ 也是質數。
 
 ```cpp
-void primeFactorization(int n)
-{
-    for(int i = 0; i < (int)p.size();++i)
-    {
-        if(p[i]*p[i]>n)break;
-        if(n%p[i])continue;
-        cout << p[i] << ' ';
-        while(n%p[i]==0)
-        {
-            n /= p[i];
-        }
+void primeFactorization(int n) {
+  for (int i = 0; i < (int)p.size(); ++i) {
+    if (p[i] * p[i] > n)
+      break;
+    if (n % p[i])
+      continue;
+    cout << p[i] << ' ';
+    while (n % p[i] == 0) {
+      n /= p[i];
     }
-    if(n!=1)
-    {
-        cout << n << ' ';
-    }
-    cout << '\n';
+  }
+  if (n != 1) {
+    cout << n << ' ';
+  }
+  cout << '\n';
 }
 ```
-
 
 ## 例題練習
 
 -   質數篩法
-    -   [UVa 406 - Prime Cuts](https://onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=347)
-    -   只要先求出最大數的平方根內的質數：[UVa 10140 - Prime Distance](https://onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1081)
+    -  [UVa 406 - Prime Cuts](https://onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=347) 
+    - 只要先求出最大數的平方根內的質數： [UVa 10140 - Prime Distance](https://onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1081) 
 -   質因數分解
-    -   [Zerojudge a010: 因數分解](https://zerojudge.tw/ShowProblem?problemid=a010)
+    -  [Zerojudge a010: 因數分解](https://zerojudge.tw/ShowProblem?problemid=a010) 

@@ -159,4 +159,4 @@ int main() {
 }
 ```
 
-[^1]: [指標與位址 in openhome.cc](https://openhome.cc/Gossip/CGossip/Pointer.html)
+[^1]:  [指標與位址 in openhome.cc](https://openhome.cc/Gossip/CGossip/Pointer.html) 

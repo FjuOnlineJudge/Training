@@ -11,8 +11,8 @@
 拓樸排序是對將有向圖轉換成一個線性序列，也用來判斷一張圖是否為有向無環圖，方法如下：
 
 - 將入度 = 0 的點加入 queue
-- 從 queue 當中拿一個點 $u$
-- 拔掉點 $u$
+- 從 queue 當中拿一個點 $u$ 
+- 拔掉點 $u$ 
 - 重複上敘步驟，直到 queue 裡面沒有點
 
 ![](images/topologicalSort.gif)
@@ -48,10 +48,11 @@ bool TopologicalSort(int n) {
 拓譜排序中，從 queue 拿出的順序稱為拓譜順序，拓譜順序不唯一。
 
 ## DFS + 時間戳記
+
 另一種是利用 DFS + 時間戳記，如果發現有任一條邊 $(u,v)$ ， $tin[u]>tin[v]$ ，那就無解，否則依照 $tout$ 由大到小形成拓譜排序。
 
 時間複雜度為 $O(V+E)$ 。
 
 ## 例題練習
 
-- [UVa 10305 - Ordering Tasks](http://uva.onlinejudge.org/external/103/10305.pdf)
+-  [UVa 10305 - Ordering Tasks](http://uva.onlinejudge.org/external/103/10305.pdf) 

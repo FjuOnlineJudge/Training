@@ -6,15 +6,15 @@
 
 ## 性質
 
--   歐拉函數是一個積性函數: 如果 $gcd(p,q)=1,\Phi(p)\cdot\Phi(q)=\Phi(p\cdot q)$
--   如果 $p$ 是質數： $\Phi(p) = p-1$
--   如果 $p$ 是質數： $\Phi(p^k)=p^{k−1}\times (p−1)$
+- 歐拉函數是一個積性函數：如果 $gcd(p,q)=1,\Phi(p)\cdot\Phi(q)=\Phi(p\cdot q)$ 
+- 如果 $p$ 是質數： $\Phi(p) = p-1$ 
+- 如果 $p$ 是質數： $\Phi(p^k)=p^{k−1}\times (p−1)$ 
 
 ## 計算
 
-根據上述性質，可整理出一個公式: $\Phi(N)=N\times\Pi_{p|N}(1-\frac{1}{p})$ 。
+根據上述性質，可整理出一個公式： $\Phi(N)=N\times\Pi_{p|N}(1-\frac{1}{p})$ 。
 
-要計算 $\Phi(n)$，可以利用質因數分解求得。
+要計算 $\Phi(n)$ ，可以利用質因數分解求得。
 
 ```cpp
 int Phi(int n) {
@@ -68,8 +68,7 @@ void phi_table(int n) {
 
 給定一個質數 $p$ ，則： $(p-1)!\equiv -1 (\mod p)$ 
 
-
 ## 例題練習
 
 -   歐拉函數
-    -    [UVa 10820 - Send a Table](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1761)
+    -  [UVa 10820 - Send a Table](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1761) 

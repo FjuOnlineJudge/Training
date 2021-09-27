@@ -8,37 +8,55 @@
     - `C++`: `cstring`
 
 -  `memcpy` : 從 `source` 複製 `num` bytes 記憶體到 `destination` 。
-	-  `memcpy (destination, source, num)`
+
+-  `memcpy (destination, source, num)` 
+
 -  `strcpy` : 從 `source` 複製 C 式字串到 `destination` 。
-	-  `strcpy(destination, source)`
+
+-  `strcpy(destination, source)` 
+
 -  `strncpy` : 從 `source` 複製 `num` 個字元記憶體到 `destination` 。
-	-  `strncpy(destination, source, num)`
+
+-  `strncpy(destination, source, num)` 
+
 -  `srtcat` : 將 `source` 接到 `destination` 後面。
-	-  `strcat(destination, source)`
+
+-  `strcat(destination, source)` 
+
 -  `strncat` : 將 `source` 的前 `num` 個字元接到 `destination` 後面。
-	-  `strncat(destination, source, num)`
+
+-  `strncat(destination, source, num)` 
+
 -  `memcmp` : 比較兩記憶體前 `num` bytes。
-	-  `memcmp(ptr1, ptr2, num)`
+
+-  `memcmp(ptr1, ptr2, num)` 
+
 -  `strcmp` : 比較兩字串。
-	-  `strcmp(str1, str2)`
 
-	???+ 比較函數結果
+-  `strcmp(str1, str2)` 
 
-		| 結果    | 說明       |
-		| ----- | -------- |
-		| &lt;0 | 前者&lt;後者 |
-		| =0    | 前者 = 後者  |
-		| >0    | 前者 > 後者  |
+???+ "比較函數結果"
+
+| 結果    | 說明       |
+| ----- | -------- |
+| &lt;0 | 前者&lt;後者 |
+| =0    | 前者 = 後者  |
+| >0    | 前者 > 後者  |
 
 -  `memset` : 設定 `ptr` 前 `num` bytes 為 `value` 
-	-  `memset(ptr, value, num)`
-	-  `memset` 應該是要設定字元，然而整數型態的 $0$ 和 $-1$ ，的每個 bytes 剛好也是 $0$ 和 $-1$ ，所以 `memset` 也可用來設定整數陣列全為 $0$ 和 $-1$ 。
+
+-  `memset(ptr, value, num)` 
+
+-  `memset` 應該是要設定字元，然而整數型態的 $0$ 和 $-1$ ，的每個 bytes 剛好也是 $0$ 和 $-1$ ，所以 `memset` 也可用來設定整數陣列全為 $0$ 和 $-1$ 。
+
 -  `srtlen` : 回傳 C 式字串的長度
-	-  `strlen(str)`
+
+-  `strlen(str)` 
 
 ## 範例
 
 - 複製字串
+
 ```cpp
 char str1[] = "This is an apple.";
 char str2[] = "That is a banana.";
@@ -59,6 +77,7 @@ This is an apple.
 ```
 
 - 串接字串
+
 ```cpp
 char str[] = "Ha!";
 printf("Before strcpy:\n");
@@ -78,6 +97,7 @@ Ha! Hello!
 ```
 
 - 比較字串大小（字典序）
+
 ```cpp
 char str1[] = "This is an apple.";
 char str2[] = "That is a banana.";
@@ -97,6 +117,7 @@ if (res > 0) {
 ```
 
 - 設定字元陣列
+
 ```cpp
 char str[5];
 printf("Before memeset:\n");
@@ -118,6 +139,7 @@ After memeset:
 ```
 
 - 設定整數陣列
+
 ```cpp
 int arr[5];
 printf("Before memeset:\n");

@@ -19,6 +19,8 @@
     "remark-lint-final-newline",
     "remark-lint-no-tabs",
     "remark-clang-format",
-    "remark-footnotes"
+    "remark-footnotes",
+    "lint-rule-style",
+    "lint-list-item-content-indent"
   ]
 }

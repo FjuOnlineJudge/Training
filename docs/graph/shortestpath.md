@@ -122,13 +122,12 @@ void dijkstra(int ss) {
 
 而 Dijkstra’s Algorithm 不能處理負邊，原因是一旦點加入最短路徑樹，就不會再被更新，以維持良好複雜度，負邊會破壞此規則。
 
-
 ## 例題練習
 
-- 全點源
-    - [Thunder Mountain](http://uva.onlinejudge.org/external/108/10803.pdf)
-    - [Road Construction](https://onlinejudge.org/external/107/10724.pdf)
-- 單點源
-    - [A Walk Through the Forest](https://onlinejudge.org/external/109/10917.pdf)
-- 負環
-    - [Wormholes](https://onlinejudge.org/external/5/558.pdf)
+-   全點源
+    -  [Thunder Mountain](http://uva.onlinejudge.org/external/108/10803.pdf) 
+    -  [Road Construction](https://onlinejudge.org/external/107/10724.pdf) 
+-   單點源
+    -  [A Walk Through the Forest](https://onlinejudge.org/external/109/10917.pdf) 
+-   負環
+    -  [Wormholes](https://onlinejudge.org/external/5/558.pdf) 

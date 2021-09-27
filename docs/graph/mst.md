@@ -40,5 +40,5 @@ Borůvka’s algorithm 和 Prim 一樣都在加入 MST 和最鄰近的點，不�
 
 ## 例題練習
 
-- [UVa 12176 - Bring Your Own Horse](http://uva.onlinejudge.org/external/121/12176.pdf)
-- [UVa 01234 - RACING](http://uva.onlinejudge.org/external/12/1234.pdf)
+-  [UVa 12176 - Bring Your Own Horse](http://uva.onlinejudge.org/external/121/12176.pdf) 
+-  [UVa 01234 - RACING](http://uva.onlinejudge.org/external/12/1234.pdf) 
