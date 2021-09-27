@@ -51,3 +51,7 @@ bool TopologicalSort(int n) {
 另一種是利用 DFS + 時間戳記，如果發現有任一條邊 $(u,v)$ ， $tin[u]>tin[v]$ ，那就無解，否則依照 $tout$ 由大到小形成拓譜排序。
 
 時間複雜度為 $O(V+E)$ 。
+
+## 例題練習
+
+- [UVa 10305 - Ordering Tasks](http://uva.onlinejudge.org/external/103/10305.pdf)

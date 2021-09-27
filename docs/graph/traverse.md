@@ -66,3 +66,10 @@ void bfs(int s) {
   }
 }
 ```
+
+## 例題練習
+
+-   [UVa 00572 - Oil Deposits](http://uva.onlinejudge.org/external/5/572.pdf)
+-   [UVa 11624 - Fire!](http://uva.onlinejudge.org/external/116/11624.pdf)
+-   [UVa 11953 - Battleships](http://uva.onlinejudge.org/external/119/11953.pdf)
+-   [Codeforces 598D - Igor In the Museum](https://codeforces.com/problemset/problem/598/D) 

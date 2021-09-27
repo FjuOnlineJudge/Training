@@ -95,3 +95,9 @@ int chlid[MXV][2];
 -   線段樹及相關可支援區間查詢的樹
     - 區間刪除
     - 區間搬移
+
+## 例題練習
+
+- [Codeforces 913B - Christmas Spruce](https://codeforces.com/problemset/problem/913/B)
+- 樹的前中後序
+    - [UVa 00548 - Tree](http://uva.onlinejudge.org/external/5/548.pdf)

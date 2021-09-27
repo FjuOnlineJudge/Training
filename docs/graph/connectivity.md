@@ -380,13 +380,14 @@ int kosaraju(int n) {
 ## 例題
 
 -   割點模板題
-    -  [UVa00796 - Critical Links](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=737) 
+    -  [UVa 00796 - Critical Links](http://uva.onlinejudge.org/external/7/796.pdf) 
 -   割邊模板題
-    -  [UVa00315 - Network](https://onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=251) 
+    -  [UVa 00315 - Network](http://uva.onlinejudge.org/external/3/315.pdf) 
 -   雙連通元件
-    -  [UVa10972 - RevolC FaeLoN](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=547&problem=1913&mosmsg=Submission+received+with+ID+14127122) 
+    -  [UVa 10972 - RevolC FaeLoN](http://uva.onlinejudge.org/external/109/10972.pdf) 
 -   強連通元件
-    -  [UVa11504 - Dominos](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=0&problem=2499&mosmsg=Submission+received+with+ID+26283005) 
+    -  [UVa 11504 - Dominos](http://uva.onlinejudge.org/external/115/11504.pdf) 
+    -  [UVa 11324 - The Largest Clique](https://onlinejudge.org/external/113/11324.pdf)
 
 [^1]:  [有向圖強連通分量的 Tarjan 算法 in https://byvoid.com/](https://byvoid.com/) 
 

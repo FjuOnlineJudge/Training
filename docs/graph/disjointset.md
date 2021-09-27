@@ -108,3 +108,7 @@ void Union(int a, int b) {
   }
 }
 ```
+
+## 例題練習
+
+- [UVa 00615 - Is It A Tree?](http://uva.onlinejudge.org/external/6/615.pdf)
