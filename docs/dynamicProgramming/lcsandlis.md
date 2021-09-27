@@ -1,10 +1,10 @@
 # LCS 和 LIS
 
 ## 最長共同子序列 (Longest Common Subsequence)
-- 子序列：是指一個序列去除任意個(包含 0)元素後所形成的新序列
-- 最長共同子序列：兩序列 $A,B$ 相同的子序列集合中，找出最長的序列 $C$。
 
----
+???+ Question "最長共同子序列"
+    子序列是指一個序列去除任意個(包含 0)元素後所形成的新序列。
+    給定兩序列 $A,B$，求最長的序列 $C$，$C$ 同時為 $A,B$ 的子序列。
 
 - 狀態：$dp[i][j]$ 表示使用 $a[1:i]$ 和 $b[1:j]$ 的 LCS 長度。
 - 初始狀態：$dp[i][0]=dp[0][i]=0$ when $i\geq 0$
@@ -20,7 +20,9 @@ $$
 求出 LCS 的時間、空間複雜度都是 $O(N^2)$，使用滾動陣列技巧，可將空間複雜度降至 $O(N)$。
 
 ## 最長遞增子序列 (Longest Increasing Subsequence)
-給你一個序列長度為 $N$，求最長遞增子序列的長度。
+
+???+ Question "最長遞增子序列"
+    給你一個序列 $A$，求最長的序列 $B$，$B$ 是一個(非)嚴格遞增序列，且為 $A$ 的子序列。
 
 - 狀態：$dp[i]$：第 $1$ 到 $i$ 個數字所形成最長遞增子序列的長度
 - 轉移：$dp[i]=max\{dp[j]|\forall j<i\ and\ A[j]<A[i]\}+1$
@@ -54,6 +56,7 @@ dp[n-1][i] & \text{else}
 \end{cases}
 $$
 - 初始狀態：$dp[0][0] = -INF, dp[0][i] = INF, dp[i][0]=don't\ care$ when $i \geq 1$
+
 <!-- TODO LIS 示意圖 -->
 
 這樣的狀態轉移式時間和空間複雜度依舊是 $O(N^2)$，不過，有幾點值得觀察：
@@ -81,3 +84,8 @@ int main()
     }
 }
 ```
+
+## 例題練習
+
+- [UVa 10405 - Longest Common Subsequence](http://uva.onlinejudge.org/external/104/10405.pdf)
+- [UVa 00481 - What Goes Up](http://uva.onlinejudge.org/external/4/481.pdf)

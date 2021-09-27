@@ -2,7 +2,7 @@
 
 ## 0-1 背包問題
 
-???+ "0-1 背包問題"
+???+ Question "0-1 背包問題"
 	給定 $N$ 個物品的重量 $w_i$ 和價值 $v_i$，和一個容量為 $W$ 的背包。選取若干件物品放入背包，在不超過背包容量的情況下，背包內物品價值總和最大為何?
 
 每種物品有兩個狀態不放與放，可對應二進位的 $0$ 和 $1$，故稱為「0-1 背包問題」。
@@ -82,7 +82,7 @@ for (int i = 0; i < N; ++i)
 }
 ```
 
-???+ "滾動陣列"
+???+ Tip "滾動陣列"
     覆蓋不會用到的資訊，降低記憶體使用量。
 
 0-1 背包問題時間複雜度 $O(NW)$，空間複雜度 $O(N)$。
@@ -103,12 +103,12 @@ for (int i = 0; i < N; ++i)
 
 - $max\{i|f(n,i)\leq w\}$
 
-???+ "技巧：表示(負)無限大"
+???+ Tip "技巧：表示(負)無限大"
 	(負)無限大只要設成一個比最大(小)答案還要大(小)的值就行了。
 
 ## 無限背包問題
 
-???+ "無限背包問題"
+???+ Question "無限背包問題"
 	給定 $n$ 種物品的重量 $w_i$ 和價值 $v_i$，和一個容量為 $W$ 的背包。每種物品可選取任意個放入背包，在不超過背包容量的情況下，背包內物品價值總和最大為何?
 
 無限背包問題和 0-1 背包問題差異在於無限背包的物品可以選無限多個。
@@ -145,9 +145,10 @@ for (int i = 0; i < N; ++i)
 ## 例題練習
 
 -   0-1 背包問題
-    -  [UVa 10664 - Luggage](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1605)
-    -  [UVa 10130 - SuperSale](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1071)
-	- [AtCoder Educational DP Contest D - Knapsack 1](https://atcoder.jp/contests/dp/tasks/dp_d)
+    -  [UVa 10664 - Luggage](http://uva.onlinejudge.org/external/106/10664.pdf)
+    -  [UVa 10130 - SuperSale](http://uva.onlinejudge.org/external/101/10130.pdf)
+	-  [AtCoder Educational DP Contest D - Knapsack 1](https://atcoder.jp/contests/dp/tasks/dp_d)
 -   無限背包問題
-    -  [UVa 10465 - Homer Simpson](https://onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1406) 
-    -  [UVa 00825 - Coin Change](https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=615)
+    -  [UVa 10465 - Homer Simpson](http://uva.onlinejudge.org/external/104/10465.pdf) 
+    -  [UVa 00825 - Coin Change](http://uva.onlinejudge.org/external/8/825.pdf)
+    -  [UVa 00357 - Let Me Count The Ways](http://uva.onlinejudge.org/external/3/357.pdf)
