@@ -32,7 +32,6 @@ nav:
     - 堆: dataStructure/heap.md
     - 二元平衡樹: dataStructure/bst.md
   - 基礎演算法:
-    - 何謂演算法: algorithm/index.md
     - 枚舉: algorithm/enumerate.md
     - 二分搜: algorithm/binarysearch.md
     - 分治: algorithm/divideandconquer.md

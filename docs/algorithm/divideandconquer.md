@@ -46,57 +46,60 @@ void sol(int L, int R) { // [L,R)
 }
 ```
 
-???+ "經典題目 逆序數對"
+### 逆序數對
+
+???+ Question "逆序數對"
     給定一個長度為 $N$ 的序列，求有幾組數對 $i,j$ 滿足 $i < j$ 且 $a_i > a_j$ 。
 
-    ??? "解題思路"
-        這題我們可以轉換成，給定一個序列 $N$，在只能將相鄰位置交換的情況下，需要換幾次才能將序列從小排到大。
-        交換次數可以在合併排序法的「合併」程式碼中計算，只要右序列有元素小於前面的元素，就會形成逆序數對，也就是上面範例程式碼 `arr[i]>arr[j]` 的情況，這時候每一個左序列尚未排序完畢的元素，都會和 `arr[j]` 形成逆序數對。
-    ??? "參考程式碼"
-        作者：[allem40306](https://github.com/allem40306)
-        ```cpp
-        #include <iostream>
-        #include <cstdio>
-        #include <cstring>
-        using namespace std;
-        #define L 500010
-        int arr[L], buf[L];
+這題我們可以轉換成，給定一個序列 $N$，在只能將相鄰位置交換的情況下，需要換幾次才能將序列從小排到大。
 
-        long long sol(int left, int right) {
-          if (right - left <= 1)return 0;
-          int middle = (right + left) / 2;
-          long long ans = sol(left, middle) + sol(middle, right);
-          int i = left, j = middle, k = left;
-          while (i < middle || j < right) {
-            if (i >= middle)
-              buf[k] = arr[j++];
-            else if (j >= right)
-              buf[k] = arr[i++];
-            else {
-              if (arr[i]<=arr[j])
-                buf[k] = arr[i++];
-              else {
-                buf[k] = arr[j++];
-                ans += middle - i;
-              }
-            }
-            k++;
-          }
-          for (int k = left; k < right; k++)
-            arr[k] = buf[k];
-          return ans;
-        }
+交換次數可以在合併排序法的「合併」程式碼中計算，只要右序列有元素小於前面的元素，就會形成逆序數對，也就是上面範例程式碼 `arr[i]>arr[j]` 的情況，這時候每一個左序列尚未排序完畢的元素，都會和 `arr[j]` 形成逆序數對。
 
-        int main() {
-          int n;
-          while (cin >> n, n){
-            memset(arr, 0, sizeof(arr));
-            memset(buf, 0, sizeof(buf));
-            for (int i = 0; i < n; i++)cin >> arr[i];
-            cout << sol(0, n) << endl;
+??? "參考程式碼"
+    作者：[allem40306](https://github.com/allem40306)
+    ```cpp
+    #include <iostream>
+    #include <cstdio>
+    #include <cstring>
+    using namespace std;
+    #define L 500010
+    int arr[L], buf[L];
+
+    long long sol(int left, int right) {
+      if (right - left <= 1)return 0;
+      int middle = (right + left) / 2;
+      long long ans = sol(left, middle) + sol(middle, right);
+      int i = left, j = middle, k = left;
+      while (i < middle || j < right) {
+        if (i >= middle)
+          buf[k] = arr[j++];
+        else if (j >= right)
+          buf[k] = arr[i++];
+        else {
+          if (arr[i]<=arr[j])
+            buf[k] = arr[i++];
+          else {
+            buf[k] = arr[j++];
+            ans += middle - i;
           }
         }
-        ```
+        k++;
+      }
+      for (int k = left; k < right; k++)
+        arr[k] = buf[k];
+      return ans;
+    }
+
+    int main() {
+      int n;
+      while (cin >> n, n){
+        memset(arr, 0, sizeof(arr));
+        memset(buf, 0, sizeof(buf));
+        for (int i = 0; i < n; i++)cin >> arr[i];
+        cout << sol(0, n) << endl;
+      }
+    }
+    ```
 
 ## 快速排序法
 
@@ -108,7 +111,8 @@ void sol(int L, int R) { // [L,R)
 
 ## 二維平面上最近點對
 
-給定二維平面上的 $N$ 個點，要找出距離最近的兩個點。
+???+ Question "二維平面上最近點對"
+    給定二維平面上的 $N$ 個點，要找出距離最近的兩個點。
 
 一開始先將點依 $x$ 座標排序。
 
@@ -181,82 +185,84 @@ int main() {
 }
 ```
 
-## 其他分治題目
+## UVA 1608：Non-boring sequences
 
-???+ "UVA 1608：Non-boring sequences"
+???+ Question "UVA 1608：Non-boring sequences"
     給定一個序列 $A$ ，判斷使否每一個連續的子序列，都有一個數字，只在該子序列出現一次。
-    ??? "解題思路"
-        只要在序列 $[a_L,a_R]$ 中找到一個符合的數字 $A_i=x$ ，那麼所有在 $a_L$ 到 $a_R$ 之間，包含 $a_i$ 的連續子序列都符合，接著再判斷 $[a_L,i-1]$ 和 $[i+1,a_R]$ 兩個子序列是否符合即可。
-        為了提升搜尋符合的數字，使用中途相遇法，從兩邊一起從中間找尋。
-    ??? "參考程式碼"
-        作者： [allem40306](https://github.com/allem40306) 
-    
-        ```cpp
-        #include <iostream>
-        #include <map>
-        using namespace std;
-        const int N = 200005;
-        int a[N], L[N], R[N];
 
-        bool sol(int a, int b)
+只要在序列 $[a_L,a_R]$ 中找到一個符合的數字 $A_i=x$ ，那麼所有在 $a_L$ 到 $a_R$ 之間，包含 $a_i$ 的連續子序列都符合，接著再判斷 $[a_L,i-1]$ 和 $[i+1,a_R]$ 兩個子序列是否符合即可。
+
+此外如果 $A_i$ 只從一端開始找，最差的時間複雜度為 $O(N^2)$，為了避免超時，從兩端開始找，最差的情況就是每次都剛好在中間找到 $A_i$，時間複雜度為 $O(N\log N)$。
+
+??? "參考程式碼"
+    作者： [allem40306](https://github.com/allem40306) 
+
+    ```cpp
+    #include <iostream>
+    #include <map>
+    using namespace std;
+    const int N = 200005;
+    int a[N], L[N], R[N];
+
+    bool sol(int a, int b)
+    {
+        if (a >= b)
+            return 1;
+        for (int i = 0; i <= (b - a) / 2; i++)
         {
-            if (a >= b)
-                return 1;
-            for (int i = 0; i <= (b - a) / 2; i++)
+            if (L[a + i] < a && b < R[a + i])
             {
-                if (L[a + i] < a && b < R[a + i])
-                {
-                    return sol(a, a + i - 1) && sol(a + i + 1, b);
-                }
-                if (L[b - i] < a && b < R[b - i])
-                {
-                    return sol(a, b - i - 1) && sol(b - i + 1, b);
-                }
+                return sol(a, a + i - 1) && sol(a + i + 1, b);
             }
-            return 0;
-        }
-        int main()
-        {
-            int t, n;
-            map<int, int> tb;
-            cin >> t;
-            while (t--)
+            if (L[b - i] < a && b < R[b - i])
             {
-                cin >> n;
-                for (int i = 0; i < n; i++)
-                {
-                    cin >> a[i];
-                }
-                tb.clear();
-                for (int i = 0; i < n; i++)
-                {
-                    if (tb.find(a[i]) == tb.end())
-                    {
-                        L[i] = -1;
-                    }
-                    else
-                    {
-                        L[i] = tb[a[i]];
-                    }
-                    tb[a[i]] = i;
-                }
-                tb.clear();
-                for (int i = n - 1; i >= 0; i--)
-                {
-                    if (tb.find(a[i]) == tb.end())
-                    {
-                        R[i] = n;
-                    }
-                    else
-                    {
-                        R[i] = tb[a[i]];
-                    }
-                    tb[a[i]] = i;
-                }
-                cout << (sol(0, n - 1) ? "non-boring\n" : "boring\n");
+                return sol(a, b - i - 1) && sol(b - i + 1, b);
             }
         }
-        ```
+        return 0;
+    }
+    int main()
+    {
+        int t, n;
+        map<int, int> tb;
+        cin >> t;
+        while (t--)
+        {
+            cin >> n;
+            for (int i = 0; i < n; i++)
+            {
+                cin >> a[i];
+            }
+            tb.clear();
+            for (int i = 0; i < n; i++)
+            {
+                if (tb.find(a[i]) == tb.end())
+                {
+                    L[i] = -1;
+                }
+                else
+                {
+                    L[i] = tb[a[i]];
+                }
+                tb[a[i]] = i;
+            }
+            tb.clear();
+            for (int i = n - 1; i >= 0; i--)
+            {
+                if (tb.find(a[i]) == tb.end())
+                {
+                    R[i] = n;
+                }
+                else
+                {
+                    R[i] = tb[a[i]];
+                }
+                tb[a[i]] = i;
+            }
+            cout << (sol(0, n - 1) ? "non-boring\n" : "boring\n");
+        }
+    }
+    ```
 
 ## 例題練習
 
