@@ -67,6 +67,27 @@ void bfs(int s) {
 }
 ```
 
+## 時間戳記 (Time stamp)
+
+在 DFS 過程，可以記錄每個點進入和離開的順序，時間戳記可表示兩點的先後關係，通常用在以下地方：
+
+- 最低共同祖先
+- 樹壓平
+- 有向圖的強連通元件
+
+```cpp
+int tin[N], tout[N];
+int timer = 0;
+
+void dfs(int v, int p){
+    tin[v] = ++timer;
+    for(int it: G[v]){
+        if(it != p)dfs(it, v);
+    }
+    tout[v] = ++timer;
+}
+```
+
 ## 例題練習
 
 -  [UVa 00572 - Oil Deposits](http://uva.onlinejudge.org/external/5/572.pdf) 

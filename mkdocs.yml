@@ -40,7 +40,6 @@ nav:
     - 圖論概念: graph/concept.md
     - 圖的儲存: graph/save.md
     - 圖的遍歷: graph/traverse.md
-    - 時間戳記: graph/timestamp.md
     - 有向無環圖: graph/directedacyclicgraph.md
     - 樹: graph/tree.md
     - 最低共同祖先: graph/lca.md
