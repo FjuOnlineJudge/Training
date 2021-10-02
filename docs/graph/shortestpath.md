@@ -23,9 +23,9 @@ Floyd-Warshall 是一種動態規劃問題，以下是他的 dp 式。
 
 ```cpp
 for (k = 0; k < n; k++)
-    for (i = 0; i < n; i++)
-        for (j = 0; j < n; j++)
-            w[i][j] = w[j][i] = min(w[i][j], max(w[i][k], w[k][j]));
+  for (i = 0; i < n; i++)
+    for (j = 0; j < n; j++)
+      w[i][j] = w[j][i] = min(w[i][j], max(w[i][k], w[k][j]));
 ```
 
 執行的時候如果 $dp[i][j]\leq 0$ ，代表存在負環，Floyd-Warshall 是可以判斷負環。
@@ -39,79 +39,67 @@ for (k = 0; k < n; k++)
 為單點源最短路徑，設起點的最短路徑為 0，其他點為無限大，每次對所有邊枚舉，因為最短路徑不會經過同樣的邊第二次，所以只要執行 $V-1$ 輪，複雜度為 $O(VE)$ 。如果執行第 $V$ 次時還有邊可以鬆弛，代表有負環，Bellman-Ford 也可以當成負環的判斷方法。
 
 ```cpp
-void bellman_ford(int s)
-{
-    d[s] = 0;
-    p[s] = s;
-    for (int i = 0; i < V - 1; i++)
-    {
-        for (int ss = 0; ss < V; ss++)
-        {
-            for (auto tt : v[ss])
-            {
-                if (d[ss] + w[ss][tt] < d[tt])
-                {
-                    d[tt] = d[ss] + w[ss][tt];
-                    p[tt] = ss;
-                }
-            }
+void bellman_ford(int s) {
+  d[s] = 0;
+  p[s] = s;
+  for (int i = 0; i < V - 1; i++) {
+    for (int ss = 0; ss < V; ss++) {
+      for (auto tt : v[ss]) {
+        if (d[ss] + w[ss][tt] < d[tt]) {
+          d[tt] = d[ss] + w[ss][tt];
+          p[tt] = ss;
         }
+      }
     }
+  }
 }
-bool has_negative_cycle()
-{
-    for (int i = 0; i < V; i++)
-    {
-        for (int j = 0; j < V; j++)
-        {
-            if (d[i] + w[i][j] < d[j])
-                return true;
-        }
+bool has_negative_cycle() {
+  for (int i = 0; i < V; i++) {
+    for (int j = 0; j < V; j++) {
+      if (d[i] + w[i][j] < d[j])
+        return true;
     }
-    return false;
+  }
+  return false;
 }
 ```
 
 此演算法還有一個優化版本叫做 Shortest Path Faster Algorithm (SPFA)，他的做法是枚舉起點是鬆弛過的邊，以鬆弛過的點除非被重新鬆弛，否則不會更動。預期複雜度為 $O(V+E)$ ，不過最差狀況仍為 $O(VE)$ 。
 
 ```cpp
-struct Edge
-{
-    int t;
-    long long w;
-    Edge(){};
-    Edge(int _t, long long _w) : t(_t), w(_w) {}
+struct Edge {
+  int t;
+  long long w;
+  Edge(){};
+  Edge(int _t, long long _w) : t(_t), w(_w) {}
 };
 
-bool SPFA(int st)
-{
-    vector<int> cnt(n, 0);
-    bitset<MXV> inq(0);
-    queue<int> q;
+bool SPFA(int st) {
+  vector<int> cnt(n, 0);
+  bitset<MXV> inq(0);
+  queue<int> q;
 
-    q.push(st);
-    dis[st] = 0;
-    inq[st] = true;
-    while (!q.empty())
-    {
-        int cur = q.front();
-        q.pop();
-        inq[cur] = false;
-        for (auto &e : G[cur])
-        {
-            if (dis[e.t] <= dis[cur] + e.w)
-                continue;
-            dis[e.t] = dis[cur] + e.w;
-            if (inq[e.t])
-                continue;
-            ++cnt[e.t];
-            if (cnt[e.t] > n)
-                return false; // negtive cycle
-            inq[e.t] = true;
-            q.push(e.t);
-        }
+  q.push(st);
+  dis[st] = 0;
+  inq[st] = true;
+  while (!q.empty()) {
+    int cur = q.front();
+    q.pop();
+    inq[cur] = false;
+    for (auto &e : G[cur]) {
+      if (dis[e.t] <= dis[cur] + e.w)
+        continue;
+      dis[e.t] = dis[cur] + e.w;
+      if (inq[e.t])
+        continue;
+      ++cnt[e.t];
+      if (cnt[e.t] > n)
+        return false; // negtive cycle
+      inq[e.t] = true;
+      q.push(e.t);
     }
-    return true;
+  }
+  return true;
 }
 ```
 
@@ -124,21 +112,19 @@ bool SPFA(int st)
 使用 `priority_queue` 的複雜度為 $O((V+E)\log E)$ ，使用費波那契堆，複雜度為 $O(E+V\log V)$ 
 
 ```cpp
-struct edge
-{
-    int s, t;
-    LL d;
-    edge(){};
-    edge(int s, int t, LL d) : s(s), t(t), d(d) {}
+struct edge {
+  int s, t;
+  LL d;
+  edge(){};
+  edge(int s, int t, LL d) : s(s), t(t), d(d) {}
 };
 
-struct heap
-{
-    LL d;
-    int p; // point
-    heap(){};
-    heap(LL d, int p) : d(d), p(p) {}
-    bool operator<(const heap &b) const { return d > b.d; }
+struct heap {
+  LL d;
+  int p; // point
+  heap(){};
+  heap(LL d, int p) : d(d), p(p) {}
+  bool operator<(const heap &b) const { return d > b.d; }
 };
 
 int d[N], p[N];
@@ -146,34 +132,30 @@ vector<edge> edges;
 vector<int> G[N];
 bitset<N> vis;
 
-void dijkstra(int ss)
-{
-    priority_queue<heap> Q;
-    for (int i = 0; i < V; i++)
-        d[i] = INF;
-    d[ss] = 0;
-    p[ss] = -1;
-    vis.reset() : Q.push(heap(0, ss));
-    heap x;
-    while (!Q.empty())
-    {
-        x = Q.top();
-        Q.pop();
-        int p = x.p;
-        if (vis[p])
-            continue;
-        vis[p] = 1;
-        for (int i = 0; i < G[p].size(); i++)
-        {
-            edge &e = edges[G[p][i]];
-            if (d[e.t] > d[p] + e.d)
-            {
-                d[e.t] = d[p] + e.d;
-                p[e.t] = G[p][i];
-                Q.push(heap(d[e.t], e.t));
-            }
-        }
+void dijkstra(int ss) {
+  priority_queue<heap> Q;
+  for (int i = 0; i < V; i++)
+    d[i] = INF;
+  d[ss] = 0;
+  p[ss] = -1;
+  vis.reset() : Q.push(heap(0, ss));
+  heap x;
+  while (!Q.empty()) {
+    x = Q.top();
+    Q.pop();
+    int p = x.p;
+    if (vis[p])
+      continue;
+    vis[p] = 1;
+    for (int i = 0; i < G[p].size(); i++) {
+      edge &e = edges[G[p][i]];
+      if (d[e.t] > d[p] + e.d) {
+        d[e.t] = d[p] + e.d;
+        p[e.t] = G[p][i];
+        Q.push(heap(d[e.t], e.t));
+      }
     }
+  }
 }
 ```
 
@@ -181,19 +163,19 @@ void dijkstra(int ss)
 
 ## 整理
 
-| 演算法                 | Floyd-Warshall     | Bellman-Ford | SPFA | Dijkstra |
-| ------------------ | ------ | --- | --- |
-| 點源     | 多點源     | 單點源   | 單點源   | 單點源   |
-| 時間複雜度     | $O(V^3)$ | $O(VE)$ | 期望複雜度 $O(V+E)$ | 使用 priority_queue $O(V+E)\log E)$ |
-| 判斷負環 | O | X | X | X |
-| 處理負邊 | O | X | X | X |
+| 演算法   | Floyd-Warshall | Bellman-Ford | SPFA            | Dijkstra                           |
+| ----- | -------------- | ------------ | --------------- | ---------------------------------- |
+| 點源    | 多點源            | 單點源          | 單點源             | 單點源                                |
+| 時間複雜度 |  $O(V^3)$      |  $O(VE)$     | 期望複雜度 $O(V+E)$  | 使用 priority_queue $O(V+E)\log E)$  |
+| 判斷負環  | O              | X            | X               | X                                  |
+| 處理負邊  | O              | X            | X               | X                                  |
 
 ## 例題練習
 
 -   全點源
-    -  [Thunder Mountain](http://uva.onlinejudge.org/external/108/10803.pdf) 
-    -  [Road Construction](https://onlinejudge.org/external/107/10724.pdf) 
+    -  [UVa 10803 - Thunder Mountain](http://uva.onlinejudge.org/external/108/10803.pdf) 
+    -  [UVa 10724 - Road Construction](https://onlinejudge.org/external/107/10724.pdf) 
 -   單點源
-    -  [A Walk Through the Forest](https://onlinejudge.org/external/109/10917.pdf) 
+    -  [UVa 10917 - A Walk Through the Forest](https://onlinejudge.org/external/109/10917.pdf) 
 -   判斷負環
-    -  [Wormholes](https://onlinejudge.org/external/5/558.pdf) 
+    -  [UVa 00558 - Wormholes](https://onlinejudge.org/external/5/558.pdf) 

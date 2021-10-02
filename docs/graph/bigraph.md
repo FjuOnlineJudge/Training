@@ -10,7 +10,7 @@
 ## 判別二分圖
 
 著色問題可以用來判斷一張圖是否為二分圖，用 `color` 紀錄每個點的顏色（無色 `-1` 、白色 `0` 、黑色 `1` )，一開始每個點紀錄為無色。利用 BFS 或 DFS 遍歷所有點，首先，判斷一個點是否有顏色，如果點為無色，就讓這個點變成白色，否則照舊。接著，讓其他相鄰的點的顏色和這個顏色相異，如果在遍歷途中發現有任意相鄰點對同色，則該圖不是二分圖。
-   
+
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
@@ -18,30 +18,32 @@ const int N = 305;
 int color[N];
 vector<int> v[N];
 
-bool dfs(int s){
-    for(auto it: v[s]){
-        if(color[it] == -1){
-            color[it] = 3 - color[s];
-            if(!dfs(it)) return false;
-        }
-        if(color[s] == color[it])return false;
+bool dfs(int s) {
+  for (auto it : v[s]) {
+    if (color[it] == -1) {
+      color[it] = 3 - color[s];
+      if (!dfs(it))
+        return false;
     }
-    return true;
+    if (color[s] == color[it])
+      return false;
+  }
+  return true;
 }
 
-void isBipatirate(){
-    bool ok = true;
-    for(int i = 1; i <= n; ++i){
-        if(color[i] == -1){
-            color[i] = 1;
-            ok &= dfs(i);
-        }
+void isBipatirate() {
+  bool ok = true;
+  for (int i = 1; i <= n; ++i) {
+    if (color[i] == -1) {
+      color[i] = 1;
+      ok &= dfs(i);
     }
-    if(ok){
-        cout << "YES\n";
-    }else{
-        cout << "NO\n";
-    }
+  }
+  if (ok) {
+    cout << "YES\n";
+  } else {
+    cout << "NO\n";
+  }
 }
 ```
 
@@ -75,42 +77,35 @@ void isBipatirate(){
 s 集合個每個點都匹配一次，最多有 $V$ 個點，每次 DFS 的最多找到長度為 $E$ 的增廣路，整體時間複雜度為 $O(VE)$ 。
 
 ![](images/hungarianAlgorithm.gif)
-  
+
 ```cpp
 int lhs, rhs, Left[MXV], G[MXV][MXV];
 bitset<MXV> used;
 
-bool dfs(int s)
-{
-    for (int i = 1; i <= rhs; i++)
-    {
-        if (!G[s][i] || used[i])
-        {
-            continue;
-        }
-        used[i] = true;
-        if (Left[i] == -1 || dfs(Left[i]))
-        {
-            Left[i] = s;
-            return true;
-        }
+bool dfs(int s) {
+  for (int i = 1; i <= rhs; i++) {
+    if (!G[s][i] || used[i]) {
+      continue;
     }
-    return false;
+    used[i] = true;
+    if (Left[i] == -1 || dfs(Left[i])) {
+      Left[i] = s;
+      return true;
+    }
+  }
+  return false;
 }
 
-int sol()
-{
-    int ret = 0;
-    memset(Left, -1, sizeof(Left));
-    for (int i = 1; i <= lhs; i++)
-    {
-        used.reset();
-        if (dfs(i))
-        {
-            ret++;
-        }
+int sol() {
+  int ret = 0;
+  memset(Left, -1, sizeof(Left));
+  for (int i = 1; i <= lhs; i++) {
+    used.reset();
+    if (dfs(i)) {
+      ret++;
     }
-    return ret;
+  }
+  return ret;
 }
 ```
 
@@ -151,87 +146,69 @@ KM 演算法直接在點上調整權重，比在邊上調整權重簡單，作�
 -  $lx(i)+ly(j)\ge w(i,j)$ 
 
 於是這個問題就變成最小化 $\Sigma_{i\in X} lx(i)+\Sigma_{i\in Y} ly(i)$ ，我們透過不斷調整 vertex labeling，找到一條匹配邊皆滿足 $Lx(u)+Ly(v)=w(i,j)$ 的增廣路，最後得出的匹配邊即為答案。把一個最大化所有匹配邊的權重和，轉換成最小化所有點的權重和，在線性規劃中，是 primal problem 和 dual problem 的轉換。
-  
+
 ```cpp
 template <typename T> struct KM {
-    int n;
-    int Left[N];
-    T w[N][N], Lx[N], Ly[N];
-    bitset<N> vx, vy;
+  int n;
+  int Left[N];
+  T w[N][N], Lx[N], Ly[N];
+  bitset<N> vx, vy;
 
-    void init(int _n) { n = _n; }
+  void init(int _n) { n = _n; }
 
-    bool match(int i)
-    {
-        vx[i] = true;
-        for (int j = 1; j <= n; j++)
-        {
-            if ((fabs(Lx[i] + Ly[j] - w[i][j]) < 1e-9) && !vy[j])
-            {
-                vy[j] = 1;
-                if (!Left[j] || match(Left[j]))
-                {
-                    Left[j] = i;
-                    return true;
-                }
-            }
+  bool match(int i) {
+    vx[i] = true;
+    for (int j = 1; j <= n; j++) {
+      if ((fabs(Lx[i] + Ly[j] - w[i][j]) < 1e-9) && !vy[j]) {
+        vy[j] = 1;
+        if (!Left[j] || match(Left[j])) {
+          Left[j] = i;
+          return true;
         }
-        return false;
+      }
     }
+    return false;
+  }
 
-    void update()
-    {
-        T a = 1e9;
-        for (int i = 1; i <= n; i++)
-        {
-            if (vx[i])
-            {
-                for (int j = 1; j <= n; j++)
-                {
-                    if (!vy[j])
-                    {
-                        a = min(a, Lx[i] + Ly[j] - w[i][j]);
-                    }
-                }
-            }
+  void update() {
+    T a = 1e9;
+    for (int i = 1; i <= n; i++) {
+      if (vx[i]) {
+        for (int j = 1; j <= n; j++) {
+          if (!vy[j]) {
+            a = min(a, Lx[i] + Ly[j] - w[i][j]);
+          }
         }
-        for (int i = 1; i <= n; i++)
-        {
-            if (vx[i])
-            {
-                Lx[i] -= a;
-            }
-            if (vy[i])
-            {
-                Ly[i] += a;
-            }
-        }
+      }
     }
+    for (int i = 1; i <= n; i++) {
+      if (vx[i]) {
+        Lx[i] -= a;
+      }
+      if (vy[i]) {
+        Ly[i] += a;
+      }
+    }
+  }
 
-    void hungarian()
-    {
-        for (int i = 1; i <= n; i++)
-        {
-            Left[i] = Lx[i] = Ly[i] = 0;
-            for (int j = 1; j <= n; j++)
-            {
-                Lx[i] = max(Lx[i], w[i][j]);
-            }
-        }
-        for (int i = 1; i <= n; i++)
-        {
-            while (1)
-            {
-                vx.reset();
-                vy.reset();
-                if (match(i))
-                {
-                    break;
-                }
-                update();
-            }
-        }
+  void hungarian() {
+    for (int i = 1; i <= n; i++) {
+      Left[i] = Lx[i] = Ly[i] = 0;
+      for (int j = 1; j <= n; j++) {
+        Lx[i] = max(Lx[i], w[i][j]);
+      }
     }
+    for (int i = 1; i <= n; i++) {
+      while (1) {
+        vx.reset();
+        vy.reset();
+        if (match(i)) {
+          break;
+        }
+        update();
+      }
+    }
+  }
 };
 
 /*
@@ -240,11 +217,11 @@ KM<int> km; // declare with weight type
 km.init(n); // initialize with vertex
 km.hungarian(); // calculate
 km.w[][]; // weight array
-km.Left[i] // y_i match x_Left[i] 
+km.Left[i] // y_i match x_Left[i]
 */
 ```
 
-更多的參考程式碼可參考 [[Kuhn-Munkres Algorithm]二分圖最大權完美匹配 KM 算法 - 日月卦長的模板庫](http://sunmoon-template.blogspot.com/2016/05/kuhn-munkres-algorithm.html) 和 [二分图最大权匹配 - OI Wiki](https://oi-wiki.org/graph/graph-matching/bigraph-weight-match/) 。
+更多的參考程式碼可參考 [\[Kuhn-Munkres Algorithm\]二分圖最大權完美匹配 KM 算法 - 日月卦長的模板庫](http://sunmoon-template.blogspot.com/2016/05/kuhn-munkres-algorithm.html) 和 [二分图最大权匹配 - OI Wiki](https://oi-wiki.org/graph/graph-matching/bigraph-weight-match/) 。
 
 ## 例題練習
 
@@ -267,7 +244,7 @@ km.Left[i] // y_i match x_Left[i]
 
 [^5]:  [二分图最大权匹配 - OI Wiki](https://oi-wiki.org/graph/graph-matching/bigraph-weight-match/) 
 
-[^6]:  [[Kuhn-Munkres Algorithm]二分圖最大權完美匹配 KM 算法 - 日月卦長的模板庫](http://sunmoon-template.blogspot.com/2016/05/kuhn-munkres-algorithm.html) 
+[^6]:  [\[Kuhn-Munkres Algorithm\]二分圖最大權完美匹配 KM 算法 - 日月卦長的模板庫](http://sunmoon-template.blogspot.com/2016/05/kuhn-munkres-algorithm.html) 
 
 [^7]:  [一般圖最大權匹配 - 日月卦長](https://jacky860226.github.io/general-graph-weighted-match-slides/#/) 
 

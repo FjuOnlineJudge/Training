@@ -180,7 +180,9 @@ c++ 原有的型態都根據需要，定義了各種運算子，但 struct 如�
         }   
     };
     ```
+
     多載 (overload) 是指在重新改寫同名寫「參數不同」的函式。
+
     ```cpp
     struct Transportation{
         string color;

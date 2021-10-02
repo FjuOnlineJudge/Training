@@ -1,16 +1,16 @@
 # 最低共同祖先 (Lowest Common Ancestor, LCA)
 
-在有根樹上任意兩點 $u,v$，兩點祖先交集中，深度最深的一個點，稱為兩點的最低共同祖先 (LCA)。利用 DFS 尋找兩點的 LCA 花 $O(V)$ 時間。如果一次要尋找多組點對的 LCA，這種辦法就容易超時。
+在有根樹上任意兩點 $u,v$ ，兩點祖先交集中，深度最深的一個點，稱為兩點的最低共同祖先 (LCA)。利用 DFS 尋找兩點的 LCA 花 $O(V)$ 時間。如果一次要尋找多組點對的 LCA，這種辦法就容易超時。
 
 另一種方法是倍增法，先用動態規劃建表：
 
-- 狀態：$par[v][i]$ 代表 $v$ 的第 $2^i$ 層祖先。
-- 初始狀態：$par[v][0]=u$, $u$ 為 $v$ 的父節點。
-- 轉移：$par[v][i]=par[par[v][i-1]][i-1]$。
+- 狀態： $par[v][i]$ 代表 $v$ 的第 $2^i$ 層祖先。
+- 初始狀態： $par[v][0]=u$ , $u$ 為 $v$ 的父節點。
+- 轉移： $par[v][i]=par[par[v][i-1]][i-1]$ 。
 
-用 DFS 紀錄進入和離開的時間戳記，並且紀錄每個點的父節點 $par[v][0]$。再跑兩層迴圈求出轉移式的結果(倍增法)，建表就完成了。DFS 的時間複雜度為 $O(V+E)$，倍增法的時間複雜度為 $O(V\log V)$。
+用 DFS 紀錄進入和離開的時間戳記，並且紀錄每個點的父節點 $par[v][0]$ 。再跑兩層迴圈求出轉移式的結果（倍增法），建表就完成了。DFS 的時間複雜度為 $O(V+E)$ ，倍增法的時間複雜度為 $O(V\log V)$ 。
 
-建表完成後，由於任意兩點 $u,v$ 的共同祖先有單調性，$u$ 點的所有祖先， 在 $LCA(u,v)$ (包含)之上的祖先是兩點的共同祖先，剩下的只是 $u$ 的祖先，因此可以用二分搜枚舉 $p$ 尋找 $LCA(u,v)$，在二分搜過程，時間戳記用於判斷 $p$ 是否為 $v$ 的祖先，一次查詢操作的時間複雜度為 $O(\log V)$。
+建表完成後，由於任意兩點 $u,v$ 的共同祖先有單調性， $u$ 點的所有祖先，在 $LCA(u,v)$ （包含）之上的祖先是兩點的共同祖先，剩下的只是 $u$ 的祖先，因此可以用二分搜枚舉 $p$ 尋找 $LCA(u,v)$ ，在二分搜過程，時間戳記用於判斷 $p$ 是否為 $v$ 的祖先，一次查詢操作的時間複雜度為 $O(\log V)$ 。
 
 ```cpp
 const int LOG = 20;
@@ -18,42 +18,43 @@ int par[N][LOG];
 int tin[N], tout[N];
 int timer = 0;
 
-void dfs(int v, int p){
-    tin[v] = ++timer;
-    par[v][0] = p;
-    for(int it: G[v]){
-        if(it != p)dfs(it, v);
-    }
-    tout[v] = ++timer;
+void dfs(int v, int p) {
+  tin[v] = ++timer;
+  par[v][0] = p;
+  for (int it : G[v]) {
+    if (it != p)
+      dfs(it, v);
+  }
+  tout[v] = ++timer;
 }
 
-void Doubling(){
-    for(int i = 1; i < N; ++i){
-        for(int j = 1; j < LOG; ++j){
-            par[i][j] = par[par[i][j - 1]][j - 1];
-        }
+void Doubling() {
+  for (int i = 1; i < N; ++i) {
+    for (int j = 1; j < LOG; ++j) {
+      par[i][j] = par[par[i][j - 1]][j - 1];
     }
+  }
 }
 
-bool anc(int v, int u){
-    return tin[v] <= tin[u] && tout[u] <= tout[v]; 
-}
+bool anc(int v, int u) { return tin[v] <= tin[u] && tout[u] <= tout[v]; }
 
-int LCA(int v, int u){
-    if(anc(v, u))return v;
-    for(int j = LOG - 1; j >= 0; --j){
-        if(!anc(par[v][j], u))v = par[v][j];
-    }
-    return par[v][0];
+int LCA(int v, int u) {
+  if (anc(v, u))
+    return v;
+  for (int j = LOG - 1; j >= 0; --j) {
+    if (!anc(par[v][j], u))
+      v = par[v][j];
+  }
+  return par[v][0];
 }
 ```
 
 找出最低共同祖先的算法，可推廣到找尋 $(u,v)$ 路徑上的資訊，例如：
 
 - 路徑長度
-- 最小(大)權重的邊
+- 最小（大）權重的邊
 
-## [UVa 11354 - Bond](https://onlinejudge.org/external/113/11354.pdf)
+##  [UVa 11354 - Bond](https://onlinejudge.org/external/113/11354.pdf) 
 
 ???+ Question "UVa 11354 - Bond"
     給定一張無向帶權圖，有多筆詢問，詢問 $(u,v)$ 之間的路徑最大權重邊權值最小為何。
@@ -62,6 +63,7 @@ int LCA(int v, int u){
 這題要先利用 Krusal 求出最小瓶頸樹，接著利用 LCA 求出每個點 $u$ 到它的第 $2^i$ 層祖先的路徑中的最大邊重權。
 
 ??? "參考程式碼"
+
     ```cpp
     #include <bits/stdc++.h>
     using namespace std;

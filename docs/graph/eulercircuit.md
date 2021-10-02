@@ -3,7 +3,7 @@
 ???+ Question "歐拉迴路"
     柯尼斯堡七橋問題可說是圖論最早的起源，問題如下（from 維基百科）："當時東普魯士柯尼斯堡（今日俄羅斯加里寧格勒）市區跨普列戈利亞河兩岸，河中心有兩個小島。小島與河的兩岸有七條橋連接。在所有橋都只能走一遍的前提下，如何才能把這個地方所有的橋都走遍？" 歐拉解決這個問題，圖論也因此誕生。
 
-七橋問題根據起點與終點是否相同，分成 Euler path (不同) 及 Euler circuit (相同)。
+七橋問題根據起點與終點是否相同，分成 Euler path（不同）及 Euler circuit（相同）。
 
 ## 判斷法
 
@@ -24,7 +24,7 @@
 ???+ Question "UVa 10129 - Play on Words"
     給定 $N$ 個字串，如果一個字串的字尾和另一個字串的字首相同，可以把這兩個字串相連，問是否存在一種辦法可以把所有字串相連。
 
-把英文字母當作點，對於每個字串 $S$，將 $S$ 頭尾兩個字母之間連一條有向邊，這題題目就轉成判斷一張有向圖是否存在 Euler path (circuit)，此外要判斷這張圖是否為一張連通圖。
+把英文字母當作點，對於每個字串 $S$ ，將 $S$ 頭尾兩個字母之間連一條有向邊，這題題目就轉成判斷一張有向圖是否存在 Euler path (circuit)，此外要判斷這張圖是否為一張連通圖。
 
 ??? "參考程式碼"
     ```cpp
@@ -49,12 +49,13 @@
     #define FOR(i, L, R) for (int i = L; i < (int)R; ++i)
     #define FORD(i, L, R) for (int i = L; i > (int)R; --i)
     #define IOS                                                                    \
-        cin.tie(nullptr);                                                          \
-        cout.tie(nullptr);                                                         \
-        ios_base::sync_with_stdio(false);
+      cin.tie(nullptr);                                                            \
+      cout.tie(nullptr);                                                           \
+      ios_base::sync_with_stdio(false);
     vector<int> din(MXV), dout(MXV);
     vector<int> G[MXV];
     bitset<MXV> vis;
+    ```
 
     void init()
     {
@@ -128,7 +129,7 @@
 
 ## 求出一組解
 
-用 DFS 遍歷整張圖，設 $S$ 為離開的順序，無向圖的答案為 $S$，有向圖的答案為反向的 $S$。
+用 DFS 遍歷整張圖，設 $S$ 為離開的順序，無向圖的答案為 $S$ ，有向圖的答案為反向的 $S$ 。
 
 DFS 起點選定：
 
@@ -141,6 +142,7 @@ DFS 起點選定：
 這題判斷是否有解的做法和上的例題相似，差別在於這裡用並查集判斷是否為連通圖。這題需求出擁有最小字典序的解，因此要把字串排序。
 
 ??? "參考程式碼"
+
     ```cpp
     #include <bits/stdc++.h>
     using namespace std;

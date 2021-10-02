@@ -1,6 +1,6 @@
 # 二分搜
 
-對於一個函數 $F(n)$ ，如果存在一個 x，對於所有 $\\geq x$ 的 a， $F(a)=$ true，反之 $F(a)=$ false，基於這樣的單調性，就可以用二分搜。
+對於一個函數 $F(n)$ ，如果存在一個 x，對於所有 $\geq x$ 的 a， $F(a)=$ true，反之 $F(a)=$ false，基於這樣的單調性，就可以用二分搜。
 
 ```cpp
 T binary_search() {
@@ -19,10 +19,12 @@ T binary_search() {
 二分搜要注意兩件事，一個是無限迴圈，要避免它可以在腦中先模擬一下。一個是在實數中二分搜，因為實數的稠密性，題目會有誤差容忍值（例如 $10^{-6}$ )，只要在誤差內都是容許的。
 
 ## 最小瓶頸樹
-???+ Question "最小瓶頸樹"
-	給定一張圖，求一顆生成樹，樹的最大邊權值最小。
 
-枚舉最大邊權值 $w$，用 DFS/BFS 檢查 $\leq w$ 的邊是否可以將所有點相連，如果可以，最大邊權值會 $\leq w$，否則會 $>w$。
+???+ Question "最小瓶頸樹"
+
+    給定一張圖，求一顆生成樹，樹的最大邊權值最小。
+
+枚舉最大邊權值 $w$ ，用 DFS/BFS 檢查 $\leq w$ 的邊是否可以將所有點相連，如果可以，最大邊權值會 $\leq w$ ，否則會 $>w$ 。
 
 ## 三分搜
 
@@ -43,41 +45,36 @@ T binary_search() {
 
 ```cpp
 const double EPS = 1e−7;
-double trinary_search(double L, double R)
-{
-    while (R - L > EPS)
-    {
-        double mL = (L + L + R) / 3, mR = (L + R + R) / 3;
-        if (f(mR) > f(mL))
-            R = mR;
-        else
-            L = mL;
-    }
-    return L;
+double trinary_search(double L, double R) {
+  while (R - L > EPS) {
+    double mL = (L + L + R) / 3, mR = (L + R + R) / 3;
+    if (f(mR) > f(mL))
+      R = mR;
+    else
+      L = mL;
+  }
+  return L;
 }
 ```
 
 另外一種做法，會固定迴圈迭代次數。
 
 ```cpp
-double trinary_search(double L, double R)
-{
-    for (int i = 0; i < 300; ++i)
-    {
-        double mL = (L + L + R) / 3, mR = (L + R + R) / 3;
-        if (f(mR) > f(mL))
-            R = mR;
-        else
-            L = mL;
-    }
-    return L;
+double trinary_search(double L, double R) {
+  for (int i = 0; i < 300; ++i) {
+    double mL = (L + L + R) / 3, mR = (L + R + R) / 3;
+    if (f(mR) > f(mL))
+      R = mR;
+    else
+      L = mL;
+  }
+  return L;
 }
 ```
 
-
 ## 例題練習
 
--  最小瓶頸樹
-	-  [UVa 01395 - Slim Span](https://onlinejudge.org/external/13/1395.pdf)
--  三分搜
-	-  [UVa 01476 - Error Curves](https://onlinejudge.org/external/14/1476.pdf)
+-   最小瓶頸樹
+    -  [UVa 01395 - Slim Span](https://onlinejudge.org/external/13/1395.pdf) 
+-   三分搜
+    -  [UVa 01476 - Error Curves](https://onlinejudge.org/external/14/1476.pdf) 
