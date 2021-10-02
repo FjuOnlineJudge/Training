@@ -14,114 +14,114 @@
 
 ## 例題
 
-???+ "Zerojudge f668 Adjacency Matrix 和 Adjacency List 練習"
+???+ Question "Zerojudge f668 Adjacency Matrix 和 Adjacency List 練習"
 
     - 第一行給定兩個數字 $N, M(0\leq N \leq 10, 0\leq M \leq \frac{N(N-1)}{2})$，表示有 $N$ 個點和 $M$ 條邊，第 $2$ 到 $M+1$ 行，每行有兩個數字 $s_i, t_i$，代表 $s_i$ 和 $t_i$ 之間有一條邊，此圖為無向簡單圖(簡單圖：無自環、無重邊的連通圖)
     - 請輸出每個點的相鄰點
 
-    ??? 範例
+??? "參考程式碼"
 
-        === "範例1 (Adjacency Matrix)"
+    === "範例1 (Adjacency Matrix)"
 
-            ```cpp
-            #include<iostream>
-            #include<bitset>
-            using namespace std;
-            int adj[105][105];
+        ```cpp
+        #include<iostream>
+        #include<bitset>
+        using namespace std;
+        int adj[105][105];
 
-            int main()
+        int main()
+        {
+            int n,m;
+            cin >> n >> m;
+            for(int i = 0; i < m; ++i)
             {
-                int n,m;
-                cin >> n >> m;
-                for(int i = 0; i < m; ++i)
-                {
-                    int x, y;
-                    cin >> x >> y;
-                    adj[x][y] = adj[y][x] = 1;
-                }
-                for(int i = 1; i <= n; ++i)
-                {
-                    cout << i << ':';
-                    for(int j = 1; j <= n; ++j)
-                    {
-                        if(adj[i][j])
-                        {
-                            cout << ' ' << j;
-                        }
-                    }
-                    cout << '\n';
-                }
+                int x, y;
+                cin >> x >> y;
+                adj[x][y] = adj[y][x] = 1;
             }
-            ```
-
-        === "範例2 (Adjacency List)"
-
-            ```cpp
-            #include<iostream>
-            #include<algorithm>
-            #include<vector>
-            using namespace std;
-            int main()
+            for(int i = 1; i <= n; ++i)
             {
-                int n,m;
-                vector<int> G[105];
-                cin >> n >> m;
-                for(int i = 0; i < m; ++i)
+                cout << i << ':';
+                for(int j = 1; j <= n; ++j)
                 {
-                    int x, y;
-                    cin >> x >> y;
-                    G[x].emplace_back(y);
-                    G[y].emplace_back(x);
-                }
-                for(int i = 1; i <= n; ++i)
-                {
-                    cout << i << ':';
-                    sort(G[i].begin(),G[i].end());
-                    for(int j = 0; j != (int)G[i].size(); ++j)
+                    if(adj[i][j])
                     {
-                        cout << ' ' << G[i][j];
+                        cout << ' ' << j;
                     }
-                    cout << '\n';
                 }
+                cout << '\n';
             }
-            ```
+        }
+        ```
 
-        === "範例3 (Adjacency Matrix)"
+    === "範例2 (Adjacency List)"
 
-            ```cpp
-            #include<iostream>
-            #include<algorithm>
-            #include<vector>
-            using namespace std;
-            int main()
+        ```cpp
+        #include<iostream>
+        #include<algorithm>
+        #include<vector>
+        using namespace std;
+        int main()
+        {
+            int n,m;
+            vector<int> G[105];
+            cin >> n >> m;
+            for(int i = 0; i < m; ++i)
             {
-                int n,m;
-                vector<int> G[105];
-                cin >> n >> m;
-                for(int i = 0; i < m; ++i)
-                {
-                    int x, y;
-                    cin >> x >> y;
-                    G[x].emplace_back(y);
-                    G[y].emplace_back(x);
-                }
-                for(int i = 1; i <= n; ++i)
-                {
-                    cout << i << ':';
-                    sort(G[i].begin(),G[i].end());
-                    /*for(int j = 0; j != (int)G[i].size(); ++j)
-                    {
-                        int v = G[i][j];
-                        cout << ' ' << v;
-                    }*/
-                    for(auto v: G[i])
-                    {
-                        cout << ' ' << v;
-                    }
-                    cout << '\n';
-                }
+                int x, y;
+                cin >> x >> y;
+                G[x].emplace_back(y);
+                G[y].emplace_back(x);
             }
-            ```
+            for(int i = 1; i <= n; ++i)
+            {
+                cout << i << ':';
+                sort(G[i].begin(),G[i].end());
+                for(int j = 0; j != (int)G[i].size(); ++j)
+                {
+                    cout << ' ' << G[i][j];
+                }
+                cout << '\n';
+            }
+        }
+        ```
+
+    === "範例3 (Adjacency Matrix)"
+
+        ```cpp
+        #include<iostream>
+        #include<algorithm>
+        #include<vector>
+        using namespace std;
+        int main()
+        {
+            int n,m;
+            vector<int> G[105];
+            cin >> n >> m;
+            for(int i = 0; i < m; ++i)
+            {
+                int x, y;
+                cin >> x >> y;
+                G[x].emplace_back(y);
+                G[y].emplace_back(x);
+            }
+            for(int i = 1; i <= n; ++i)
+            {
+                cout << i << ':';
+                sort(G[i].begin(),G[i].end());
+                /*for(int j = 0; j != (int)G[i].size(); ++j)
+                {
+                    int v = G[i][j];
+                    cout << ' ' << v;
+                }*/
+                for(auto v: G[i])
+                {
+                    cout << ' ' << v;
+                }
+                cout << '\n';
+            }
+        }
+        ```
 
 ## 使用時機
 
