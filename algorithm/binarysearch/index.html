@@ -847,7 +847,21 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    最小瓶頸樹
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     三分搜
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    例題練習
   </a>
   
 </li>
@@ -1247,7 +1261,21 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    最小瓶頸樹
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     三分搜
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    例題練習
   </a>
   
 </li>
@@ -1266,7 +1294,7 @@
                 
                 
                 <h1 id="_1">二分搜</h1>
-<p>對於一個函數 <script type="math/tex">F(n)</script> ，如果存在一個 x，對於所有 <script type="math/tex">\\geq x</script> 的 a， <script type="math/tex">F(a)=</script> true，反之 <script type="math/tex">F(a)=</script> false，基於這樣的單調性，就可以用二分搜。</p>
+<p>對於一個函數 <script type="math/tex">F(n)</script> ，如果存在一個 x，對於所有 <script type="math/tex">\geq x</script> 的 a， <script type="math/tex">F(a)=</script> true，反之 <script type="math/tex">F(a)=</script> false，基於這樣的單調性，就可以用二分搜。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1290,7 +1318,11 @@
 </td></tr></table>
 <p>有些題目為 "最多/最少為何會成立"，那麼如果你可以在良好的時間檢查出 " 如果代價是 <script type="math/tex">x</script> ，那可不可以達成目標 "，並且 <script type="math/tex">x</script> 具有單調性，那麼你可以轉換成 " 如果代價是 <script type="math/tex">x</script> ，那可不可以達成目標 " 傳換成 <script type="math/tex">F(x)</script> ，對答案（x）進行二分搜。
 二分搜要注意兩件事，一個是無限迴圈，要避免它可以在腦中先模擬一下。一個是在實數中二分搜，因為實數的稠密性，題目會有誤差容忍值（例如 <script type="math/tex">10^{-6}</script> )，只要在誤差內都是容許的。</p>
-<h2 id="_2">三分搜</h2>
+<h2 id="_2">最小瓶頸樹</h2>
+<details class="question" open="open"><summary>最小瓶頸樹</summary><p>給定一張圖，求一顆生成樹，樹的最大邊權值最小。</p>
+</details>
+<p>枚舉最大邊權值 <script type="math/tex">w</script> ，用 DFS/BFS 檢查 <script type="math/tex">\leq w</script> 的邊是否可以將所有點相連，如果可以，最大邊權值會 <script type="math/tex">\leq w</script> ，否則會 <script type="math/tex">>w</script> 。</p>
+<h2 id="_3">三分搜</h2>
 <p>對於 U 型函數（例如 <script type="math/tex">y=F(x)=x^2</script> )，我們想要找尋其極值，意謂其左右兩側皆各自遞增/遞減，我們可以利用三分搜來解決（二分搜只能解決全體單調性，不能解決有兩邊的）。
 考慮三分後從左到右四個採樣點的關係</p>
 <ul>
@@ -1321,19 +1353,52 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="nf">trinary_search</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">EPS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="n">e</span><span class="err">−</span><span class="mi">7</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="err">−</span><span class="n">l</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">EPS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">ml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">mr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">mr</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">ml</span><span class="p">))</span><span class="w"></span>
-<span class="w">      </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mr</span><span class="p">;</span><span class="w"></span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">EPS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="n">e</span><span class="err">−</span><span class="mi">7</span><span class="p">;</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">trinary_search</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">L</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">R</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">R</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">EPS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">mL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">L</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">R</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">mR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">L</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">R</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">mR</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">mL</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="n">R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mR</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">else</span><span class="w"></span>
-<span class="w">      </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ml</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mL</span><span class="p">;</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">l</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">L</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
+<p>另外一種做法，會固定迴圈迭代次數。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="nf">trinary_search</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">L</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">R</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">300</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">mL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">L</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">R</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">mR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">L</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">R</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">mR</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">mL</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="n">R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mR</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="w"></span>
+<span class="w">      </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mL</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">L</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="_4">例題練習</h2>
+<ul>
+<li>最小瓶頸樹<ul>
+<li><a href="https://onlinejudge.org/external/13/1395.pdf">UVa 01395 - Slim Span</a> </li>
+</ul>
+</li>
+<li>三分搜<ul>
+<li><a href="https://onlinejudge.org/external/14/1476.pdf">UVa 01476 - Error Curves</a> </li>
+</ul>
+</li>
+</ul>
                 
               
               
