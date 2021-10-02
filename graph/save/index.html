@@ -1044,20 +1044,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../euler/" class="md-nav__link">
+      <a href="../eulercircuit/" class="md-nav__link">
         歐拉回路
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../hamilton/" class="md-nav__link">
-        哈密頓
       </a>
     </li>
   
@@ -1327,11 +1315,12 @@
 <li><img alt="" src="../images/adjacencyList.png" /></li>
 </ul>
 <h2 id="_1">例題</h2>
-<details open="open"><summary>Zerojudge f668 Adjacency Matrix 和 Adjacency List 練習</summary><ul>
+<details class="question" open="open"><summary>Zerojudge f668 Adjacency Matrix 和 Adjacency List 練習</summary><ul>
 <li>第一行給定兩個數字 <script type="math/tex">N, M(0\leq N \leq 10, 0\leq M \leq \frac{N(N-1)}{2})</script>，表示有 <script type="math/tex">N</script> 個點和 <script type="math/tex">M</script> 條邊，第 <script type="math/tex">2</script> 到 <script type="math/tex">M+1</script> 行，每行有兩個數字 <script type="math/tex">s_i, t_i</script>，代表 <script type="math/tex">s_i</script> 和 <script type="math/tex">t_i</script> 之間有一條邊，此圖為無向簡單圖(簡單圖：無自環、無重邊的連通圖)</li>
 <li>請輸出每個點的相鄰點</li>
 </ul>
-<details class="範例"><summary>範例</summary><div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">範例1 (Adjacency Matrix)</label><div class="tabbed-content">
+</details>
+<details><summary>參考程式碼</summary><div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">範例1 (Adjacency Matrix)</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1515,7 +1504,6 @@
 </td></tr></table>
 </div>
 </div>
-</details>
 </details>
 <h2 id="_2">使用時機</h2>
 <p>Adjacency Matrix 實作較簡單，在點數小的時，可以使用（大約在 <script type="math/tex">1000</script> 左右）。其餘情況需使用 Adjacency List，否則會導致記憶體過大。</p>
