@@ -7,7 +7,7 @@
 1. View -> Layout -> Column: 2
 2. View -> Groups -> New Group
 
-![](image/sublimeText.png)
+![](images/sublimeText.png)
 
 ## 常用熱鍵
 

@@ -5,19 +5,19 @@
 ## 建 c/cpp 檔
 
 -   Create a new project
-    - ![](image/codeblocks1.png)
+    - ![](images/codeblocks1.png)
 -   Console application
-    - ![](image/codeblocks2.png)
+    - ![](images/codeblocks2.png)
 -   Select C/C++
-    - ![](image/codeblocks3.png)
+    - ![](images/codeblocks3.png)
 -   輸入 Project title, 選想放的路徑
-    - ![](image/codeblocks4.png)
+    - ![](images/codeblocks4.png)
 -   Finished
-    - ![](image/codeblocks5.png)
+    - ![](images/codeblocks5.png)
 -   點開 Sources, 即可找到 c/cpp 檔
-    - ![](image/codeblocks6.png)
+    - ![](images/codeblocks6.png)
 -   在剛剛選擇存放的路徑也可以找到 Project Folder
-    - ![](image/codeblocks7.png)
+    - ![](images/codeblocks7.png)
 
 ## 常用熱鍵
 

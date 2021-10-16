@@ -3,16 +3,16 @@
 - 載點： <https://code.visualstudio.com/> 
 
 -   C/C++ Extension
-    - ![](image/vsCode1.png)
+    - ![](images/vsCode1.png)
 
 ## 內建終端機
 
 -   呼叫終端機：Ctrl +\`
-    - ![](image/vsCode2.png)
+    - ![](images/vsCode2.png)
 -   預設是 powershell，建議調成 cmd
-    - ![](image/vsCode3.png)
+    - ![](images/vsCode3.png)
 -   選 Command Prompt 按 `+` 打開即是 cmd
-    - ![](image/vsCode4.png)
+    - ![](images/vsCode4.png)
 
 ## 常用熱鍵
 

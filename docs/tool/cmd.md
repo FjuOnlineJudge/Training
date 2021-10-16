@@ -7,27 +7,27 @@
 - 載點： <https://sourceforge.net/projects/mingw/> 
 
 -   其他設定都不用改，直到這邊選 Mark All Upgrade
-    - ![](image/cmdStep1.png)
+    - ![](images/cmdStep1.png)
 
 -   再選 Apply Change
-    - ![](image/cmdStep2.png)
+    - ![](images/cmdStep2.png)
 
 ## 設定環境變數：
 
 -   對本機點右鍵選內容
-    - ![](image/cmdStep3.png)
+    - ![](images/cmdStep3.png)
 -   進階系統設定
-    - ![](image/cmdStep4.png)
+    - ![](images/cmdStep4.png)
 -   環境變數
-    - ![](image/cmdStep5.png)
+    - ![](images/cmdStep5.png)
 -   點開系統變數中的 PATH
-    - ![](image/cmdStep6.png)
+    - ![](images/cmdStep6.png)
 -   新增 `C:\MinGW\bin` （預設在這個 path 下）
-    - ![](image/cmdStep7.png)
+    - ![](images/cmdStep7.png)
 -   打開 cmd
-    - ![](image/cmdStep8.png)
+    - ![](images/cmdStep8.png)
 -   輸入 `gcc --version` （或 `g++ --version` ) 檢查是否安裝成功
-    - ![](image/cmdStep9.png)
+    - ![](images/cmdStep9.png)
 
 ## 格式
 
@@ -43,5 +43,5 @@
 - 到 `a.cpp` 檔案路徑： `cd C:\\Users\\User_name\\Desktop` （若存在桌面通常打開 cmd，可以直接 `cd Desktop` )
 - 編譯： `g++ a.cpp -o a.exe` 
 -   執行： `a.exe` 
-    - ![](image/cmdStep10.png)
+    - ![](images/cmdStep10.png)
 - 輸入和輸出： `a.exe&lt;in.in> out.out` 

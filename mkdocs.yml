@@ -4,9 +4,15 @@ nav:
   - 首頁: index.md
   - 工具:
     - 命令列: tool/cmd.md
-    - Code::Blocks: tool/codeblocks.md
-    - Sublime Text: tool/sublimetext.md
-    - VS Code: tool/vscode.md
+    - 撰寫工具:
+      - Code::Blocks: tool/codeblocks.md
+      - Sublime Text: tool/sublimetext.md
+      - VS Code: tool/vscode.md
+    - 學習資源: tool/resources.md
+    - Online Judge:
+      - UVa Judge: tool/uva.md
+    - 考試軟體:
+      - PC2: tool/pc2.md
   - 語法篇:
     - 基本資料型態: syntax/type.md
     - 輸入輸出: syntax/inputoutput.md
