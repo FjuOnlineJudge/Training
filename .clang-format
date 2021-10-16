@@ -1,0 +1,17 @@
+---
+Language:        Cpp
+BasedOnStyle:  LLVM
+BraceWrapping:   
+  AfterClass:      true
+  AfterControlStatement: true
+  AfterEnum:       true
+  AfterFunction:   true
+  AfterNamespace:  true
+  AfterObjCDeclaration: true
+  AfterStruct:     true
+  AfterUnion:      true
+  AfterExternBlock: true
+  BeforeCatch:     true
+  BeforeElse:      true
+BreakBeforeBraces: Custom
+IndentWidth:     4
