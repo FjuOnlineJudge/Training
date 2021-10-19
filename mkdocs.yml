@@ -13,6 +13,7 @@ nav:
       - UVa Judge: tool/uva.md
     - 考試軟體:
       - PC2: tool/pc2.md
+    - 製作 CodeBook: tool/makeCodeBook.md
   - 語法篇:
     - 基本資料型態: syntax/type.md
     - 輸入輸出: syntax/inputoutput.md
