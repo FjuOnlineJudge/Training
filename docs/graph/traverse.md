@@ -34,37 +34,13 @@
 - DFS
 
 ```cpp
-vector<int> G[N];
-bitset<N> vis;
-void dfs(int s) {
-  vis[s] = 1;
-  for (int t : G[s]) {
-    if (!vis[i])
-      dfs(i);
-  }
-}
+--8<-- "docs/graph/code/dfs.cpp"
 ```
 
 - BFS
 
 ```cpp
-vector<int> G[N];
-bitset<N> vis;
-void bfs(int s) {
-  queue<int> q;
-  q.push(s);
-  vis[s] = 1;
-  while (!q.empty()) {
-    int v = q.front();
-    q.pop();
-    for (int t : G[v]) {
-      if (!vis[t]) {
-        q.push(t);
-        vis[t] = 1;
-      }
-    }
-  }
-}
+--8<-- "docs/graph/code/bfs.cpp"
 ```
 
 ## 時間戳記 (Time stamp)
@@ -76,17 +52,7 @@ void bfs(int s) {
 - 有向圖的強連通元件
 
 ```cpp
-int tin[N], tout[N];
-int timer = 0;
-
-void dfs(int v, int p) {
-  tin[v] = ++timer;
-  for (int it : G[v]) {
-    if (it != p)
-      dfs(it, v);
-  }
-  tout[v] = ++timer;
-}
+--8<-- "docs/graph/code/timeStamp.cpp"
 ```
 
 ## 例題練習

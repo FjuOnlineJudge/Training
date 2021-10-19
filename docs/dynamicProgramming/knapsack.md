@@ -25,18 +25,7 @@
 以下為利用二維陣列儲存答案的範例：
 
 ```cpp
-int dp[MXN + 1][MXW + 1];
-memset(dp, 0, sizeof(dp));
-for (int i = 1; i <= MXN; ++i) {
-  for (int j = 0; j < w[i]; ++j) {
-    dp[i][j] = dp[i - 1][j];
-  }
-  for (int j = w[i]; j <= MXW; ++j) {
-    dp[i][j] = max(dp[i - 1][j − w[i]] + v[i], dp[i - 1][j]);
-  }
-}
-
-cout << dp[MXN][MXW] << '\n';
+--8<-- "docs/dynamicProgramming/code/knapsack1.cpp"
 ```
 
 ### 滾動陣列
@@ -48,16 +37,7 @@ cout << dp[MXN][MXW] << '\n';
 由上圖可得知，當在計算 $f(i,j)$ 時，只會用到上一列的資料，因此我們的需要陣列大小降到 $2\times W$ 。
 
 ```cpp
-int dp[2][MXW + 1];
-memset(dp, 0, sizeof(dp));
-for (int i = 0; i < N; ++i) {
-  for (int j = 0; j < w[i]; ++j) {
-    dp[i & 1][j] = dp[(i & 1) ^ 1][j];
-  }
-  for (int j = w[i]; j <= MXW; ++j) {
-    dp[i & 1][j] = max(dp[(i & 1) ^ 1][j − w[i]] + v[i], dp[(i & 1) ^ 1][j]);
-  }
-}
+--8<-- "docs/dynamicProgramming/code/knapsack2.cpp"
 ```
 
 再來，如果我們將 $f(i,j)$ 當中的 $j$ 由大到小計算。
@@ -67,13 +47,7 @@ for (int i = 0; i < N; ++i) {
 會發現計算 $f(i,j)$ 時， $f(i-1,j),f(i-1,j+1),f(i-1,j+2),...,f(i-1,C)$ 也不會用到，可以將 $f(i,j),f(i,j+1),f(i,j+2),...,f(i,W)$ 覆蓋到 $f(i-1,j),f(i-1,j+1),f(i-1,j+2),...,f(i-1,W)$ 上面。我們可以再次縮小陣列，變成大小為 $W$ 的一維陣列。
 
 ```cpp
-int dp[MXW + 1];
-memset(dp, 0, sizeof(dp));
-for (int i = 0; i < N; ++i) {
-  for (int j = MXW; j >= w[i]; --j) {
-    dp[j] = max(dp[j − w[i]] + v[i], dp[j]);
-  }
-}
+--8<-- "docs/dynamicProgramming/code/knapsack3.cpp"
 ```
 
 ???+ Tip "滾動陣列"
@@ -126,13 +100,7 @@ for (int i = 0; i < N; ++i) {
 下面為範例程式碼，一樣有用到滾動陣列的技巧：
 
 ```cpp
-int dp[MXW + 1];
-memset(dp, 0, sizeof(dp));
-for (int i = 0; i < N; ++i) {
-  for (int j = w[i]; j <= MXW; ++j) {
-    dp[j] = max(dp[j − w[i]] + v[i], dp[j]);
-  }
-}
+--8<-- "docs/dynamicProgramming/code/knapsack4.cpp"
 ```
 
 無限背包問題時間複雜度 $O(NW)$ ，空間複雜度 $O(W)$ 。

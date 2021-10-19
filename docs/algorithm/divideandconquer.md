@@ -16,34 +16,7 @@
 合併排序法是穩定的演算法，會遞迴 $\log N$ 層，合併的時間複雜度為 $O(N)$ ，因此時間複雜度為 $O(N\log N)$ 。
 
 ```cpp
-using namespace std;
-const int N = 100;
-int arr[N], buf[N];
-void sol(int L, int R) { // [L,R)
-  if (R - L <= 1)
-    return;
-  int M = (R + L) / 2;
-  sol(L, M);
-  sol(M, R);
-  int i = L, j = M, k = L;
-  while (i < M || j < R) {
-    if (i >= M)
-      buf[k] = arr[j++];
-    else if (j >= R)
-      buf[k] = arr[i++];
-    else {
-      if (arr[i] <= arr[j])
-        buf[k] = arr[i++];
-      else {
-        buf[k] = arr[j++];
-      }
-    }
-    k++;
-  }
-  for (int k = L; k < R; k++)
-    arr[k] = buf[k];
-  return;
-}
+--8<-- "docs/algorithm/code/mergeSort.cpp"
 ```
 
 ### 逆序數對
@@ -56,51 +29,9 @@ void sol(int L, int R) { // [L,R)
 交換次數可以在合併排序法的「合併」程式碼中計算，只要右序列有元素小於前面的元素，就會形成逆序數對，也就是上面範例程式碼 `arr[i]>arr[j]` 的情況，這時候每一個左序列尚未排序完畢的元素，都會和 `arr[j]` 形成逆序數對。
 
 ??? "參考程式碼"
-    作者： [allem40306](https://github.com/allem40306) 
 
     ```cpp
-    #include <cstdio>
-    #include <cstring>
-    #include <iostream>
-    using namespace std;
-    #define L 500010
-    int arr[L], buf[L];
-
-    long long sol(int left, int right) {
-      if (right - left <= 1)
-        return 0;
-      int middle = (right + left) / 2;
-      long long ans = sol(left, middle) + sol(middle, right);
-      int i = left, j = middle, k = left;
-      while (i < middle || j < right) {
-        if (i >= middle)
-          buf[k] = arr[j++];
-        else if (j >= right)
-          buf[k] = arr[i++];
-        else {
-          if (arr[i] <= arr[j])
-            buf[k] = arr[i++];
-          else {
-            buf[k] = arr[j++];
-            ans += middle - i;
-          }
-        }
-        k++;
-      }
-      for (int k = left; k < right; k++)
-        arr[k] = buf[k];
-      return ans;
-    }
-
-    int main() {
-      int n;
-      while (cin >> n, n){
-        memset(arr, 0, sizeof(arr));
-        memset(buf, 0, sizeof(buf));
-        for (int i = 0; i < n; i++)cin >> arr[i];
-        cout << sol(0, n) << endl;
-      }
-    }
+    --8<-- "docs/algorithm/code/inversionPair.cpp"
     ```
 
 ## 快速排序法
@@ -130,61 +61,7 @@ void sol(int L, int R) { // [L,R)
 合併的算法看似是 $O(N^2)$ ，但實際上只會列舉 $6$ 個點左右（這方面待證實正確個數，在此只要知道是一個很小的數），時間複雜度為 $O(N\log N)$ 。
 
 ```cpp
-#include <algorithm>
-#include <cmath>
-#include <iomanip>
-#include <iostream>
-
-using namespace std;
-using dvt = double;
-const dvt INF = 1e20;
-const int MXN = 1e5 + 5;
-struct dot {
-  dvt x, y;
-} p[MXN], tmp[MXN];
-
-bool cmpX(dot a, dot b) { return a.x < b.x; }
-bool cmpY(dot a, dot b) { return a.y < b.y; }
-
-dvt getDis(dot a, dot b) {
-  return sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
-}
-
-dvt nearestPair(int L, int R) {
-  if (L == R) {
-    return INF;
-  }
-  if (L + 1 == R) {
-    return getDis(p[L], p[R]);
-  }
-  int M = (L + R) >> 1;
-  dvt d = min(nearestPair(L, M), nearestPair(M, R));
-  int k = 0;
-  for (int i = L; i <= R; ++i) {
-    if (fabs(p[i].x - p[M].x) <= d) {
-      tmp[k++] = p[i];
-    }
-  }
-  sort(tmp, tmp + k, cmpY);
-  for (int i = 0; i < k; ++i) {
-    for (int j = i + 1; j < k && tmp[j].y - tmp[i].y < d; ++j) {
-      double d2 = getDis(tmp[i], tmp[j]);
-      d = min(d, d2);
-    }
-  }
-  return d;
-}
-
-int main() {
-  int n;
-  scanf("%d", &n);
-  for (int i = 0; i < n; ++i) {
-    scanf("%lf%lf", &p[i].x, &p[i].y);
-  }
-  sort(p, p + n, cmpX);
-  dvt res = nearestPair(0, n - 1);
-  printf("%.2lf\n", res);
-}
+--8<-- "docs/algorithm/code/nearestPair.cpp"
 ```
 
 ## UVA 1608：Non-boring sequences
@@ -197,73 +74,9 @@ int main() {
 此外如果 $A_i$ 只從一端開始找，最差的時間複雜度為 $O(N^2)$ ，為了避免超時，從兩端開始找，最差的情況就是每次都剛好在中間找到 $A_i$ ，時間複雜度為 $O(N\log N)$ 。
 
 ??? "參考程式碼"
-    作者： [allem40306](https://github.com/allem40306) 
 
     ```cpp
-    #include <iostream>
-    #include <map>
-    using namespace std;
-    const int N = 200005;
-    int a[N], L[N], R[N];
-
-    bool sol(int a, int b)
-    {
-        if (a >= b)
-            return 1;
-        for (int i = 0; i <= (b - a) / 2; i++)
-        {
-            if (L[a + i] < a && b < R[a + i])
-            {
-                return sol(a, a + i - 1) && sol(a + i + 1, b);
-            }
-            if (L[b - i] < a && b < R[b - i])
-            {
-                return sol(a, b - i - 1) && sol(b - i + 1, b);
-            }
-        }
-        return 0;
-    }
-    int main()
-    {
-        int t, n;
-        map<int, int> tb;
-        cin >> t;
-        while (t--)
-        {
-            cin >> n;
-            for (int i = 0; i < n; i++)
-            {
-                cin >> a[i];
-            }
-            tb.clear();
-            for (int i = 0; i < n; i++)
-            {
-                if (tb.find(a[i]) == tb.end())
-                {
-                    L[i] = -1;
-                }
-                else
-                {
-                    L[i] = tb[a[i]];
-                }
-                tb[a[i]] = i;
-            }
-            tb.clear();
-            for (int i = n - 1; i >= 0; i--)
-            {
-                if (tb.find(a[i]) == tb.end())
-                {
-                    R[i] = n;
-                }
-                else
-                {
-                    R[i] = tb[a[i]];
-                }
-                tb[a[i]] = i;
-            }
-            cout << (sol(0, n - 1) ? "non-boring\n" : "boring\n");
-        }
-    }
+    --8<-- "docs/algorithm/code/uva01608.cpp"
     ```
 
 ## 例題練習

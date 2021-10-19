@@ -2,17 +2,10 @@
 
 有兩個端口，一個負責插入，另一個端口負責刪除的資料結構
 
-- ![](images/queue.gif)
+![](images/queue.gif)
 
 ```cpp
-struct Queue {
-  int q[N], head, tail;
-  Queue() : head(0), tail(0) {}
-  int size() { return tail - head; }
-  void push(int x) { q[tail++] = x; }
-  int front() { return q[head]; }
-  void pop() { head++; }
-}
+--8<-- "docs/dataStructure/code/queue1.cpp"
 ```
 
 ## STL
@@ -26,21 +19,7 @@ struct Queue {
 -  `q.empty()` ：回傳是否為空，複雜度 $O(1)$ 
 
 ```cpp
-#include <iostream>
-#include <queue>
-using namespace std;
-
-int main() {
-  queue<int> st;
-  st.push(1);
-  cout << st.front() << '\n'; // 1
-  st.push(2);
-  cout << st.front() << '\n'; // 1
-  st.push(3);
-  cout << st.front() << '\n'; // 1
-  st.pop();
-  cout << st.front() << '\n'; // 2
-}
+--8<-- "docs/dataStructure/code/queue2.cpp"
 ```
 
 ## deque 雙向佇列

@@ -22,10 +22,7 @@ Floyd-Warshall 是一種動態規劃問題，以下是他的 dp 式。
 時/空間複雜度皆為 $O(V^3)$ ，利用滾動陣列技巧，空間複雜度可優化至 $O(V^2)$ 
 
 ```cpp
-for (k = 0; k < n; k++)
-  for (i = 0; i < n; i++)
-    for (j = 0; j < n; j++)
-      w[i][j] = w[j][i] = min(w[i][j], max(w[i][k], w[k][j]));
+--8<-- "docs/graph/code/floydWarshall.cpp"
 ```
 
 執行的時候如果 $dp[i][j]\leq 0$ ，代表存在負環，Floyd-Warshall 是可以判斷負環。
@@ -39,68 +36,13 @@ for (k = 0; k < n; k++)
 為單點源最短路徑，設起點的最短路徑為 0，其他點為無限大，每次對所有邊枚舉，因為最短路徑不會經過同樣的邊第二次，所以只要執行 $V-1$ 輪，複雜度為 $O(VE)$ 。如果執行第 $V$ 次時還有邊可以鬆弛，代表有負環，Bellman-Ford 也可以當成負環的判斷方法。
 
 ```cpp
-void bellman_ford(int s) {
-  d[s] = 0;
-  p[s] = s;
-  for (int i = 0; i < V - 1; i++) {
-    for (int ss = 0; ss < V; ss++) {
-      for (auto tt : v[ss]) {
-        if (d[ss] + w[ss][tt] < d[tt]) {
-          d[tt] = d[ss] + w[ss][tt];
-          p[tt] = ss;
-        }
-      }
-    }
-  }
-}
-bool has_negative_cycle() {
-  for (int i = 0; i < V; i++) {
-    for (int j = 0; j < V; j++) {
-      if (d[i] + w[i][j] < d[j])
-        return true;
-    }
-  }
-  return false;
-}
+--8<-- "docs/graph/code/bellmanFord.cpp"
 ```
 
 此演算法還有一個優化版本叫做 Shortest Path Faster Algorithm (SPFA)，他的做法是枚舉起點是鬆弛過的邊，以鬆弛過的點除非被重新鬆弛，否則不會更動。預期複雜度為 $O(V+E)$ ，不過最差狀況仍為 $O(VE)$ 。
 
 ```cpp
-struct Edge {
-  int t;
-  long long w;
-  Edge(){};
-  Edge(int _t, long long _w) : t(_t), w(_w) {}
-};
-
-bool SPFA(int st) {
-  vector<int> cnt(n, 0);
-  bitset<MXV> inq(0);
-  queue<int> q;
-
-  q.push(st);
-  dis[st] = 0;
-  inq[st] = true;
-  while (!q.empty()) {
-    int cur = q.front();
-    q.pop();
-    inq[cur] = false;
-    for (auto &e : G[cur]) {
-      if (dis[e.t] <= dis[cur] + e.w)
-        continue;
-      dis[e.t] = dis[cur] + e.w;
-      if (inq[e.t])
-        continue;
-      ++cnt[e.t];
-      if (cnt[e.t] > n)
-        return false; // negtive cycle
-      inq[e.t] = true;
-      q.push(e.t);
-    }
-  }
-  return true;
-}
+--8<-- "docs/graph/code/spfa.cpp"
 ```
 
 ## Dijkstra’s Algorithm
@@ -112,51 +54,7 @@ bool SPFA(int st) {
 使用 `priority_queue` 的複雜度為 $O((V+E)\log E)$ ，使用費波那契堆，複雜度為 $O(E+V\log V)$ 
 
 ```cpp
-struct edge {
-  int s, t;
-  LL d;
-  edge(){};
-  edge(int s, int t, LL d) : s(s), t(t), d(d) {}
-};
-
-struct heap {
-  LL d;
-  int p; // point
-  heap(){};
-  heap(LL d, int p) : d(d), p(p) {}
-  bool operator<(const heap &b) const { return d > b.d; }
-};
-
-int d[N], p[N];
-vector<edge> edges;
-vector<int> G[N];
-bitset<N> vis;
-
-void dijkstra(int ss) {
-  priority_queue<heap> Q;
-  for (int i = 0; i < V; i++)
-    d[i] = INF;
-  d[ss] = 0;
-  p[ss] = -1;
-  vis.reset() : Q.push(heap(0, ss));
-  heap x;
-  while (!Q.empty()) {
-    x = Q.top();
-    Q.pop();
-    int p = x.p;
-    if (vis[p])
-      continue;
-    vis[p] = 1;
-    for (int i = 0; i < G[p].size(); i++) {
-      edge &e = edges[G[p][i]];
-      if (d[e.t] > d[p] + e.d) {
-        d[e.t] = d[p] + e.d;
-        p[e.t] = G[p][i];
-        Q.push(heap(d[e.t], e.t));
-      }
-    }
-  }
-}
+--8<-- "docs/graph/code/dijkstra.cpp"
 ```
 
 而 Dijkstra’s Algorithm 不能處理負邊，原因是一旦點加入最短路徑樹，就不會再被更新，以維持良好複雜度，負邊會破壞此規則。

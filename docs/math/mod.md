@@ -33,15 +33,7 @@
 我們常常遇到求 $a^b mod\ c$ 為多少的題目，最簡單的作法是用迴圈花 $b$ 次算出答案，但是在 $b$ 很大時就無法快速算出。這時如果拆成 $a^1,a^2,a^4,...,a^{2^x}$ ，先分別計算在乘起來，這樣只要花費 $O(\log b)$ 的時間即可。
 
 ```cpp
-T pow(int a, int b, int c) { // calculate a^b%c
-  T res = 1, tmp = a;
-  for (; b; b >>= 1) {
-    if (b & 1)
-      res = res * tmp % c;
-    tmp = tmp * tmp % c;
-  }
-  return res;
-}
+--8<-- "docs/math/code/pow.cpp"
 ```
 
 ## 模逆元
@@ -60,25 +52,14 @@ T pow(int a, int b, int c) { // calculate a^b%c
 從上文可得知，如果 $gcd(a,c)=1$ ，則 $a$ 在 $\operatorname{mod} c$ 下有模反元素，又根據貝祖定理，可知存在整數 $x,y$ ，使得 $ax+cy=gcd(a,c)=1$ ，這裡的 $x$ 即為 $a$ 的反元素。我們可以修改找最大公因數的辦法，找出 $a$ 的模逆元，這個算法稱為擴展歐基里德演算法。這個演算法可以推廣到 $ax+cy=d,d\in\mathbb{Z}$ 
 
 ```cpp
-// ax+by=c
-int extgcd(int a, int b, int c, int &x, int &y) {
-  int d = a;
-  if (b) {
-    d = extgcd(b, a % b, c, y, x);
-    y -= (a / b) * x;
-  } else {
-    x = c;
-    y = 0;
-  }
-  return d;
-}
+--8<-- "docs/math/code/extgcd.cpp"
 ```
 
 ### 方法二：快速冪
 
 根據歐拉定理，如果 $gcd(a,c)=1$ ，則 $a^{\Phi(c)} \equiv 1 (\mod c)$ ，將式子稍微改變一下，我們得出 $aa^{\Phi(c)-1} \equiv 1 (\operatorname{mod} c)$ ， $a^{\Phi(c)-1}$ 是 $a$ 在 $\operatorname{mod} c$ 下的一個模逆元。可以利用快速冪計算 $a^{\Phi(c)-1}\operatorname{mod} c$ 算出模逆元。
 
-## 中國剩餘定理
+## 中國剩餘定理 (Chinese Remainder Theorem)
 
 中國剩餘定理，又稱中國餘數定理，是數論中的一個關於一元線性同餘方程組的定理。用來解決像下面這種問題：
 
@@ -115,15 +96,7 @@ $$
  $ans_1$ 顯然整除 $m_2,...,m_n$ ，令 $Y_1=\frac{\Pi_{i=1}^{n} m_i}{m_1}$ ，可列出式子 $ans_1=Y_1Z_1\equiv r_1 (\operatorname{mod} m_1)$ 。於是原式就變成找模逆元的問題。
 
 ```cpp
-LL P = 1, ans = 0;
-for (int i = 0; i < n; ++i)
-  P *= m[i];
-for (int i = 0; i < n; ++i) {
-  LL a = P / m[i], x, y;
-  extgcd(a, m[i], x, y);
-  ans = (ans + r[i] * a * x) % P;
-}
-cout << (ans + P) % P << '\n';
+--8<-- "docs/math/code/crt.cpp"
 ```
 
 ## 例題練習

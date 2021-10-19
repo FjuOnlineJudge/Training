@@ -20,25 +20,7 @@
 做完拓譜排序後，如果所有點都被加入過 queue 過，代表這張圖是 DAG，反之，圖中有環。
 
 ```cpp
-int q[N], din[N];
-vector<int> G[N];
-
-bool TopologicalSort(int n) {
-  int head = -1, tail = -1;
-  for (int i = 0; i < n; ++i) {
-    if (din[i] == 0) {
-      q[++head] = 1;
-    }
-  }
-  while (head > tail) {
-    int s = q[++tail];
-    for (int i : G[s]) {
-      if (--din[i] == 0)
-        q[++head] = i;
-    }
-  }
-  return head == n;
-}
+--8<-- "docs/graph/code/topologicalSort.cpp"
 ```
 
 時間複雜度為 $O(V+E)$ 。

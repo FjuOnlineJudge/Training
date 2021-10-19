@@ -3,16 +3,7 @@
 對於一個函數 $F(n)$ ，如果存在一個 x，對於所有 $\geq x$ 的 a， $F(a)=$ true，反之 $F(a)=$ false，基於這樣的單調性，就可以用二分搜。
 
 ```cpp
-T binary_search() {
-  while (L < R) {
-    int M = (L + R) >> 1;
-    if (F(M))
-      R = M;
-    else
-      L = M + 1;
-  }
-  return L;
-}
+--8<-- "docs/algorithm/code/binarySearch.cpp"
 ```
 
 有些題目為 "最多/最少為何會成立"，那麼如果你可以在良好的時間檢查出 " 如果代價是 $x$ ，那可不可以達成目標 "，並且 $x$ 具有單調性，那麼你可以轉換成 " 如果代價是 $x$ ，那可不可以達成目標 " 傳換成 $F(x)$ ，對答案（x）進行二分搜。
@@ -44,32 +35,13 @@ T binary_search() {
 每次迭代先求出 $b,c$ 的值，再利用簡化過的規則，使區間減少 $\frac{1}{3}$ 。令 $EPS$ 為誤差容忍值，一開始的範圍為 $[L,R]$ ，迴圈大約需迭代 $\log_{1.5}\frac{R-L}{EPS}$ 次（ $\log_{1.5}10$ 大約為 $5.6$ )。
 
 ```cpp
-const double EPS = 1e−7;
-double trinary_search(double L, double R) {
-  while (R - L > EPS) {
-    double mL = (L + L + R) / 3, mR = (L + R + R) / 3;
-    if (f(mR) > f(mL))
-      R = mR;
-    else
-      L = mL;
-  }
-  return L;
-}
+--8<-- "docs/algorithm/code/trinarySearch1.cpp"
 ```
 
 另外一種做法，會固定迴圈迭代次數。
 
 ```cpp
-double trinary_search(double L, double R) {
-  for (int i = 0; i < 300; ++i) {
-    double mL = (L + L + R) / 3, mR = (L + R + R) / 3;
-    if (f(mR) > f(mL))
-      R = mR;
-    else
-      L = mL;
-  }
-  return L;
-}
+--8<-- "docs/algorithm/code/trinarySearch2.cpp"
 ```
 
 ## 例題練習

@@ -51,39 +51,27 @@
 
 ## 儲存
 
-### 紀錄子節點
-
-最常遇到的情況。用 Adjacency Matrix 或 Adjacency List。
-
-### 紀錄父節點
+樹也是一種圖，也可以用 Adjacency Matrix 或 Adjacency List，每個點記錄自己的父節點和子節點，也可以只記錄其一，只有紀錄父節點的樹，可以用一維陣列儲存。
 
 ```cpp
-int par[MXV];
+--8<-- "docs/graph/code/treeSave1.cpp"
 ```
 
-### 儲存二元樹
-
-紀錄左子節點和右子節點
+二元樹最多只有兩個節點(左子節點和右子節點)，可以開一個長度為 $2\times V$ 的二維陣列，或兩個長度為 $2V$ 的一維陣列。
 
 ```cpp
-int Lc[MXV], Rc[MXV];
-// or
-int chlid[MXV][2];
+--8<-- "docs/graph/code/treeSave2.cpp"
 ```
 
-### Complete Binary Tree
+Complete Binary Tree 可用一維陣列儲存，將 Complete Binary Tree 的節點從上到下，從左到右依序編號，根節點為 $0$ 或 $1$：
 
-- 根據 Complete Binary Tree，可以開一個陣列，從上到下，從左到右依序編號。
--   子節點
-    - 根節點可為 $0$ 或 $1$ 
-    -   根為 $0$ ，左子節點是 $2x+1$ ，右子節點是 $2x+2$ 
-        - ![](images/tree_array_1.jpg)
-    -   根為 $1$ ，左子節點是 $2x$ ，右子節點是 $2x+1$ 
-        - ![](images/tree_array_2.jpg)
+-   當根為 $0$ 時，左子節點是 $2x+1$ ，右子節點是 $2x+2$ 
+    ![](images/tree_array_1.jpg)
 
-### 利用指標儲存的樹
+-   當根為 $1$ 時，左子節點是 $2x$ ，右子節點是 $2x+1$ 
+    ![](images/tree_array_2.jpg)
 
-以下為常見用指標儲存的樹，這裡不提如何實作。
+還有一些樹的儲存涉及指標，以下為常見種類，這裡不提如何實作：
 
 -   二元搜尋（平衡）樹
     - 樹的旋轉

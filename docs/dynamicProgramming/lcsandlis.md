@@ -66,20 +66,7 @@ LIS 還有另一種狀態轉移式：
 根據上述性質，可用二分搜更新 $g$ ，藉此找到 LIS 的長度。每次二分搜的時間複雜度為 $O(\log N)$ ，整體時間複雜度為 $O(N\log N)$ 。
 
 ```cpp
-int main() {
-  int n;
-  while (cin >> n) {
-    vector<int> v;
-    for (int i = 0, x; i < n; i++) {
-      cin >> x;
-      if (!v.size() || x > v.back())
-        v.push_back(x);
-      else
-        *lower_bound(v.begin(), v.end(), x) = x;
-    }
-    cout << v.size() << '\n';
-  }
-}
+--8<-- "docs/dynamicProgramming/code/lis.cpp"
 ```
 
 ## 例題練習

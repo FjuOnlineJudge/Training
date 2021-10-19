@@ -58,6 +58,7 @@
 - 複製字串
 
 ```cpp
+--8<-- "docs/syntax/code/.cpp"
 char str1[] = "This is an apple.";
 char str2[] = "That is a banana.";
 printf("Before strcpy:\n");
@@ -79,6 +80,7 @@ This is an apple.
 - 串接字串
 
 ```cpp
+--8<-- "docs/syntax/code/.cpp"
 char str[] = "Ha!";
 printf("Before strcpy:\n");
 printf("%s\n", str);
@@ -99,15 +101,21 @@ Ha! Hello!
 - 比較字串大小（字典序）
 
 ```cpp
+--8<-- "docs/syntax/code/.cpp"
 char str1[] = "This is an apple.";
 char str2[] = "That is a banana.";
 int res = memcmp(str1, str2, sizeof(str1));
-if (res > 0) {
-  printf("'%s' is greater than '%s'.\n", str1, str2);
-} else if (res < 0) {
-  printf("'%s' is less than '%s'.\n", str1, str2);
-} else {
-  printf("'%s' is the same as '%s'.\n", str1, str2);
+if (res > 0)
+{
+    printf("'%s' is greater than '%s'.\n", str1, str2);
+}
+else if (res < 0)
+{
+    printf("'%s' is less than '%s'.\n", str1, str2);
+}
+else
+{
+    printf("'%s' is the same as '%s'.\n", str1, str2);
 }
 
 /*
@@ -119,15 +127,18 @@ if (res > 0) {
 - 設定字元陣列
 
 ```cpp
+--8<-- "docs/syntax/code/.cpp"
 char str[5];
 printf("Before memeset:\n");
-for (int i = 0; i < (int)strlen(str); ++i) {
-  printf("%c", str[i]);
+for (int i = 0; i < (int)strlen(str); ++i)
+{
+    printf("%c", str[i]);
 }
 memset(str, '+', sizeof(str));
 printf("\nAfter memeset:\n");
-for (int i = 0; i < (int)strlen(str); ++i) {
-  printf("%c", str[i]);
+for (int i = 0; i < (int)strlen(str); ++i)
+{
+    printf("%c", str[i]);
 }
 
 /*
@@ -141,15 +152,18 @@ After memeset:
 - 設定整數陣列
 
 ```cpp
+--8<-- "docs/syntax/code/.cpp"
 int arr[5];
 printf("Before memeset:\n");
-for (int i = 0; i < 5; ++i) {
-  printf("%d ", arr[i]);
+for (int i = 0; i < 5; ++i)
+{
+    printf("%d ", arr[i]);
 }
 memset(arr, -1, sizeof(arr));
 printf("\nAfter memeset:\n");
-for (int i = 0; i < 5; ++i) {
-  printf("%d ", arr[i]);
+for (int i = 0; i < 5; ++i)
+{
+    printf("%d ", arr[i]);
 }
 
 /*

@@ -26,31 +26,9 @@
 最直觀的解法是枚舉兩個參數 $x,y$ ，但其實只要知道 $x,y$ 任意一項就可推出另外一項，有根據題目我們可以得出 $y$ 在 $(k,2k]$ 之間（當 $x=y$ 時， $x=y=2k$ )，要枚舉的範圍較小，因此我們選擇枚舉 $y$ 的算法，時間複雜度為 $O(k)$ 
 
 ??? "參考程式碼"
-    作者： [allem40306](https://github.com/allem40306) 
-    
-    ```cpp
-    #include <iostream>
-    using namespace std;
-    #define N 10005
-    ```
 
-    int main(){
-        int n;
-        while (cin >> n){
-            int ans[N][2], ar = 0;
-            for (int i = n + 1; i <= 2 * n; i++){
-                int r = i - n;
-                if ((i*n) % r == 0){
-                    ans[ar][1] = i;
-                    ans[ar][0] = (i*n) / r;
-                    ar++;
-                }
-            }
-            printf("%d\n", ar);
-            for (int i = 0; i < ar; i++)
-                printf("1/%d = 1/%d + 1/%d\n", n, ans[i][0], ans[i][1]);
-        }
-    }
+    ```cpp
+    --8<-- "docs/algorithm/code/uva10976.cpp"
     ```
 
 ### 雙指標
@@ -64,34 +42,9 @@
 接著可以想到對於每個數字 $a_i$ 只要和最小的 $a_j$ ( $min_j$ ) 相減即可，又 $min_j$ 具有單調性，即 $min_j$ 的位置會不變或向右移，因此可以利用一個指標遍歷序列，一個指標紀錄當前 $min_j$ 的位置，時間複雜度 $O(N)$ 。
 
 ??? "參考程式碼"
-    作者： [allem40306](https://github.com/allem40306) 
-    
-    ```cpp
-    #include <iostream>
-    #include <vector>
-    using namespace std;
-    ```
 
-    int main()
-    {
-        int n;
-        vector<int> v(100000);
-        cin >> n;
-        for (int i = 0; i < n; ++i)
-        {
-            cin >> v[i];
-        }
-        int minj = 0, ans = v[1] - v[0];
-        for (int i = 1; i < n; ++i)
-        {
-            ans = max(ans, v[i] - v[minj]);
-            if (v[i] < v[minj])
-            {
-                minj = i;
-            }
-        }
-        cout << ans << '\n';
-    }
+    ```cpp
+    --8<-- "docs/algorithm/code/doublePointer.cpp"
     ```
 
 * * *
@@ -102,42 +55,9 @@
 我們可以設兩個指標，左指標和右指標，每次迭代右指標先往前一個位置，如果左右指標之間有重複的數字，就將左指標往前一個位置，直到沒有左右指標之間沒有重複的數字。利用 `set` 來維護是否有重複數字，時間複雜度 $O(N\log N)$ 。
 
 ??? "參考程式碼"
-    作者： [allem40306](https://github.com/allem40306) 
-    
+  
     ```cpp
-    #include <iostream>
-    #include <set>
-    #include <vector>
-    using namespace std;
-    ```
-
-    int main()
-    {
-        int t, n;
-        cin >> t;
-        vector<int> v(1000000);
-        set<int> st;
-        while (t--)
-        {
-            st.clear();
-            cin >> n;
-            for (int i = 0; i < n; ++i)
-            {
-                cin >> v[i];
-            }
-            int ans = 0;
-            for (int L = 0, R = 0;R < n;++R)
-            {
-                while(st.count(v[R]))
-                {
-                    st.erase(v[L++]);
-                }
-                st.insert(v[R]);
-                ans = max(ans, R - L + 1);
-            }
-            cout << ans << '\n';
-        }
-    }
+    --8<-- "docs/algorithm/code/uva11572.cpp"
     ```
 
 ### 折半枚舉
@@ -170,39 +90,7 @@
 設目前解總和為 $sum$ ，最後一項為 $max$ ，下一項 $i$ 就從 $max$ 開始嘗試，當嘗試到 $sum + i > N$ 時，就停止嘗試（剪枝）。
 
 ??? "參考程式碼"
-    作者： [allem40306](https://github.com/allem40306) 
-    
+
     ```cpp
-    #include <iostream>
-    using namespace std;
-    int ans, tar;
-    ```
-
-    void dfs(int mx, int sum)
-    {
-        if (sum == tar)
-        {
-            ++ans;
-        }
-        for (int i = mx;; ++i)
-        {
-            if (sum + i > tar)
-            {
-                break;
-            }
-            dfs(i, sum + i);
-        }
-        return;
-    }
-
-    int main()
-    {
-        // IOS;
-        while (cin >> tar)
-        {
-            ans = 0;
-            dfs(1, 0);
-            cout << ans << '\n';
-        }
-    }
+    --8<-- "docs/algorithm/code/prune.cpp"
     ```

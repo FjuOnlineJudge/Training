@@ -4,111 +4,32 @@
 
 ##  `C` 的 `struct` 
 
-首先一個 `struct` 的定義語法如下。裡面的成員元素可以為指標，注意右大括號後要加分號。
+- 定義：`{}` 之間存放成員元素，成員元素可以示指標或陣列，`}` 之後要加上 `;`。
+- 宣告：宣告可在定義時宣告(`Line 6`)，也可以獨立宣告一行 (`Line 8-10`)，相似地，可以宣告為指標或是陣列。
 
 ```cpp
-struct structure_name {
-  type1 name1;
-  type2 name2;
-  ...
-}; //<-notice
-```
-
-宣告語法為：
-
-```cpp
-struct structure_name var1, var2, ...;
-```
-
-變數也可以在定義時宣告：
-
-```cpp
-struct structure_name {
-  type1 name1;
-  type2 name2;
-  ...
-} var1, var2, ...;
-```
-
-struct 也可以宣告成陣列。
-
-```cpp
-struct structure_name var1[size];
-```
-
-```cpp
-struct Item {
-  int price, weight;
-} apple;
-
-struct Item banana;
+--8<-- "docs/syntax/code/strcutureInC.cpp"
 ```
 
 ##  `C++` 的 `struct` 和 `class` 
 
-相對於 `C` 的 `struct` ， `C++` 的 `struct` 和 `class` 有物件導向的概念。
+`C++` 的 `struct` 和 `class` 導入物件導向的概念，除了成員元素，還可定義成員函式。獨立宣告時，不用在前面加上 `struct` 和 `class` 。
 
-在定義方面和 `C` 的 `struct` 相似， `C++` 的 `struct` 和 `class` 不只有成員元素，還有成員函式。
-
-宣告方面比 `C` 的 `struct` 的差別是， `C++` 的 `struct` 和 `class` 不用在前面加上 `struct` 和 `class` 。
-
-=== "struct"
-
-    ```cpp
-    struct Item{
-        int price, weight;
-        int getPrice(){
-            return price;
-        }
-    }apple;
-    Item banana;
-    ```
-
-=== "class"
-
-    ```cpp
-    class Item{
-      public:
-        int price, weight;
-        int getPrice(){
-            return price;
-        }
-    }apple;
-    Item banana;
-    ```
-
- `C++` 的 `struct` 和 `class` 不同的地方，在於成員的存取權限，可利用 `public` 、 `protected` 、 `private` 設定權限。
+`C++` 的 `struct` 和 `class` 的差異在於成員的預設存取權限，有 `public` 、 `protected` 、 `private` 三種權限，`strcut` 成員預設為 `public` ， `class` 則是 `private` 。
 
 -  `public` : 所有函式可存取。
 -  `protected` : 成員函式、 `friend` 類別成員或函式，以及衍生類別可存取。
 -  `private` : 成員函式及 `friend` 類別成員或函式可存取。
 
-如果不設定權限， `strcut` 成員預設為 `public` ， `class` 則是 `private` 。
-
 ```cpp
-struct Item {
-public:
-protected:
-private:
-};
+--8<-- "docs/syntax/code/strcutureInCpp.cpp"
 ```
 
 ???+ info "friend 關鍵字"
     每個人社群中的好友，可以看到自己發佈的私人文章， `friend` 就同如社群中的好友，提供 `friend` 類別或函式存取該結構的元素。
-    
+
     ```cpp
-    struct Circle {
-    private:
-      double radius;
-    ```
-
-      friend double area(Circle&);
-    };
-
-    double area(Circle& c)
-    {
-        return c.radius * c.radius * 3.14;
-    }
+    --8<-- "docs/syntax/code/friend.cpp"
     ```
 
 ???+ info "衍生類別"
@@ -118,112 +39,46 @@ private:
 
 ## 訪問元素
 
-如果是 `struct` 的變數 `var` ，用 `var.name` 。
-如果是 `struct` 的指標變數 `ptr` ，用 `ptr->name` 或 `(*ptr).name` 。
+對於一般變數 `var` ，用 `var.name` 。
+對於指標變數 `ptr` ，用 `ptr->name` 或 `(*ptr).name` 。
 
-## 特殊函式
+## 覆載 (Override) 和多載 (Overload)
 
- `C++` 的 `struct` 和 `class` 、有些比較特殊的函式，分別為建構函式、解構函式、運算子多載 (operator overloading)。
+覆載 (Override) 是指在衍生類別重新改寫同名寫「參數相同」的函式。
 
-```cpp
-struct Plane {
-  int x, y;
-  // 建構函式
-  Plane(){};
-  Plane(int _x, int _y) : x(_x), y(_y) {}
-  Plane add(const Plane &rhs) const { return Plane(x + rhs.x, y + rhs.y); }
-  // 運算子多載
-  bool operator<(const Plane &rhs) const {
-    if (x != rhs.x)
-      return x < rhs.x;
-    return y < rhs.y;
-  }
-  // 解構函式
-  ~Plane(){};
-};
-int main() {
-  Plane p1;
-  Plane p2(1, 2);
-  Plane p3 = Plane();
-  Plane p4 = Plane(0, 0);
-}
-```
-
-### 建構函式 (constructor)、解構函式 (destructor)
-
-建構函式同名結構的名稱，是用來初始化結構裡的資料，如果不寫的話，會有預設建構函式，裡面的資料都是亂數。根據情況可多載。然而，如果結構有運算函式多載，一定要寫一個不帶任何參數的運算函式，否則的話，像第 14 行這樣只有宣告，沒加其他東西的的程式碼就不會通過。
-
-解構函式的名字形式為 `~` + 結構的名稱，是在變數離開作用域時運作，不寫的話也是會有預設解構函式，在程式比賽中絕大部分的狀況，不用特別寫解構函式。
-
-建構函式和解構函式的權限必為 `public` 。
-
-### 運算子多載
-
-c++ 原有的型態都根據需要，定義了各種運算子，但 struct 如果有需要的話，須自己定義。而在競賽中，常需要作排序而需要小於運算子（ `<` )。
-
-???+ info "覆載 (override) 和"
-    覆載 (override) 是指在衍生類別重新改寫同名寫「參數相同」的函式。
-    
-    ```cpp
-    struct Transportation {
-      string color;
-      void printColor() {
-        cout << "The transportation's color is " + color + ".\n";
-      }
-    };
-    ```
-
-    struct Car: Transportation{
-        void printColor()
-        {
-            cout << "The car's color is " + color + ".\n";
-        }   
-    };
-    ```
-
-    多載 (overload) 是指在重新改寫同名寫「參數不同」的函式。
-
-    ```cpp
-    struct Transportation{
-        string color;
-        void printColor()
-        {
-            cout << "The transportation's color is " + color + ".\n";
-        }
-        void printColor(int year)
-        {
-            cout << "These transportation was made in" + year + ".\n";
-            cout << "These transportation's color is " + color + ".\n";
-        }       
-    };
-    ```
-
-## 大小
-
-結構的大小，並非為所有元素相加， `C/C++` 的結構大小配置會進行「對齊的最佳化」。struct 會分成很多塊存放，每一塊會是最大元素的大小為對齊基準，元素會依宣告的順序擺放，連續的元素會放在同一塊，如果不夠空間擺放才會放在下一塊。
-
-以下例子作為說明，在這裡，我們 `sizeof` 這個運算子求出結構的大小。
+多載 (Overload) 是指在重新改寫同名寫「參數不同」的函式。
 
 ```cpp
-struct Data1 {
-  char ch1;
-  int i;
-  char ch2;
-};
-
-struct Data2 {
-  char ch1;
-  char ch2;
-  int i;
-};
-
-int main() {
-  cout << sizeof(Data1) << '\n'; // 12
-  cout << sizeof(Data2) << '\n'; // 8
-}
+--8<-- "docs/syntax/code/overrideandOverload.cpp"
 ```
 
- `Data1` 和 `Data2` 當中最大元素大小為 4 ( `int` )。 `Data1` ，用了 $3$ 塊來存 $1$ 個 `struct` ，第一塊存 `char ch1` ，第二塊存 `int i` ，第三塊存 `char ch2` ，因此大小為 $12$ ； `Data2` ，用了 $3$ 塊來存 $2$ 個 `struct` ，第一塊存 `char ch1` 和 `char ch2` ，第二塊存 `int i` ，因此大小為 $8$ 。
+## 建構函式 (Constructor)、解構函式 (Destructor)
+
+建構函式結構的名稱相同，是用來初始化結構裡的資料，如果沒有任何建構函式，會自動產生一個無參數的預設建構函式。然而，如果有一個帶參數的建構函式，就不會自動產生一個無參數的預設建構函式，這時候要寫一個不帶任何參數的運算函式，否則可能導致程式在編譯時發生錯誤。
+
+解構函式的名字形式為 `~結構的名稱`，在變數離開作用域時運作，不寫的話也是會有預設解構函式，在程式比賽中絕大部分的狀況，不用特別寫解構函式。
+
+建構函式和解構函式的存取權限必為 `public` 。
+
+## 多載運算子(Operator overloading)
+
+`C/C++` 定義了各種運算子，自定義結構根據需求可以多載運算子。在競賽中，常需要作排序而需要多載小於運算子（ `<` )。
+
+```cpp
+--8<-- "docs/syntax/code/plane.cpp"
+```
+
+## 長度
+
+結構的長度，並非為所有元素相加， `C/C++` 的結構長度配置會進行「對齊的最佳化」。struct 會分成很多塊存放，每一塊會是最大元素的長度為對齊基準，元素會依宣告的順序擺放，連續的元素會放在同一塊，如果不夠空間擺放才會放在下一塊。
+
+以下例子作為說明，在這裡，我們 `sizeof` 這個運算子求出結構的長度。
+
+```cpp
+--8<-- "docs/syntax/code/structureSize.cpp"
+```
+
+ `Data1` 和 `Data2` 當中最大元素長度為 4 ( `int` )。 `Data1` ，用了 $3$ 塊來存 $1$ 個 `struct` ，第一塊存 `char ch1` ，第二塊存 `int i` ，第三塊存 `char ch2` ，因此長度為 $12$ ； `Data2` ，用了 $3$ 塊來存 $2$ 個 `struct` ，第一塊存 `char ch1` 和 `char ch2` ，第二塊存 `int i` ，因此長度為 $8$ 。
 
 ## 為什麼要用自定義結構
 

@@ -14,14 +14,15 @@
 
 ### 插入
 
-```txt
-對於每個要插入的值 $val$
-從根節點開始
-如果該節點為空，開一個新節點，並存值 $val$
-如果該節館的值 > $val$，$val$ 和該節點的左子節點比較，反之和該節點的右子節點比較
-```
 
-- ![](images/bst_insert.gif)
+1. 對於每個要插入的值 $val$
+2. 從根節點開始
+3. 如果該節點為空，開一個新節點，並存值 $val$
+4. 如果該節館的值 > $val$，$val$ 和該節點的左子節點比較，反之和該節點的右子節點比較
+
+* * *
+
+![](images/bst_insert.gif)
 
 ### 時間複雜度
 
@@ -29,18 +30,18 @@
 
 ### 搜尋
 
-```txt
-從根節點開始搜尋
-1. 比較節點值和搜尋值
-2. 如果沒節點，代表找不到
-3. 如果節點值 = 搜尋值，代表找到
-4. 如果節點值 < 搜尋值，向右子節點走，回到 1.
-5. 如果節點值 > 搜尋值，向左子節點走，回到 1.
-```
+1. 從根節點開始搜尋
+2. 比較節點值和搜尋值
+3. 如果沒節點，代表找不到
+4. 如果節點值 = 搜尋值，代表找到
+5. 如果節點值 < 搜尋值，向右子節點走，回到 2.
+6. 如果節點值 > 搜尋值，向左子節點走，回到 2.
 
-- ![](images/bst_search_1.gif)
+* * *
 
-- ![](images/bst_search_2.gif)
+![](images/bst_search_1.gif)
+
+![](images/bst_search_2.gif)
 
 ## 二元平衡樹
 
@@ -66,29 +67,8 @@ set 和 map 皆為紅黑樹實作，支援插入、刪除及查詢一個值，�
 -  `s.upper_bound(T1 a)` ：回傳指向第一個鍵值大於 a 的迭代器。複雜度 $O(\log size)$ 。
 
 ```cpp
-#include <iostream>
-#include <set>
-using namespace std;
-
-int main() {
-  set<int> sb;
-  sb.insert(1);
-  sb.insert(2);
-  sb.insert(3);
-
-  cout << "1 : " << (sb.find(1) != sb.end() ? "find\n" : "not find\n");
-  cout << "1 : " << (sb.count(1) ? "find\n" : "not find\n");
-
-  sb.erase(1);
-  cout << "1 : " << (sb.find(1) != sb.end() ? "find\n" : "not find\n");
-  cout << "1 : " << (sb.count(1) ? "find\n" : "not find\n");
-}
+--8<-- "docs/dataStructure/code/set.cpp"
 ```
-
-    1 : find
-    1 : find
-    1 : not find
-    1 : not find
 
 ### pair
 
@@ -117,49 +97,16 @@ int main() {
 -  `m.insert(pair<T1,T2> a)` ：加入元素 a，包含鍵值和對應值，複雜度 $O(\log\ size)$ 。
 
 ```cpp
-#include <iostream>
-#include <map>
-using namespace std;
-
-int main() {
-  map<string, int> tb;
-  tb["123"] = 1;
-  tb["owowowo"] = 2;
-  tb["omomo"] = 3;
-  cout << "tb[\"123\"]: " << tb["123"] << '\n';
-  cout << "tb[\"owowowo\"]: " << tb["owowowo"] << '\n';
-  cout << "tb[\"omomo\"]: " << tb["omomo"] << '\n';
-
-  cout << "123 : " << (tb.find("123") != tb.end() ? "find\n" : "not find\n");
-  cout << "123 : " << (tb.count("123") ? "find\n" : "not find\n");
-
-  tb.clear();
-  cout << "123 : " << (tb.find("123") != tb.end() ? "find\n" : "not find\n");
-  cout << "123 : " << (tb.count("123") ? "find\n" : "not find\n");
-
-  cout << "owo : " << (tb.find("owo") != tb.end() ? "find\n" : "not find\n");
-  tb.insert(make_pair("owo", 659));
-  cout << "owo : " << (tb.find("owo") != tb.end() ? "find\n" : "not find\n");
-}
+--8<-- "docs/dataStructure/code/map.cpp"
 ```
 
-    tb["123"]: 1
-    tb["owowowo"]: 2
-    tb["omomo"]: 3
-    123 : find
-    123 : find
-    123 : not find
-    123 : not find
-    owo : not find
-    owo : find
-
-## multi - 系列
+### multi - 系列
 
 可插入重複元素，代價為 map 無法用下標運算子
 
 - equal_range (T1 a)：回傳 iterator 的 `pair<lower_bound (a),upper_bound (a)>` ，為 a 所在範圍
 - erase (T1 a)：刪除所有元素 a，如果只要刪除一個，用 `s.erase (s.find (a))` 
 
-## unorder - 系列
+### unorder - 系列
 
 降低常數，期望複雜度少一個 log，代價為不會排序，沒有 `lower_bound/upper_bound` ，也不會依鍵值大小遍歷。迭代器為單向。

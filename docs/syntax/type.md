@@ -23,15 +23,7 @@
 上表有給出每種型態的範圍。假設兩個相同型態加總後超過範圍，那麼最高位（最左邊）進位後會被捨去，造成結果和正確值不同，這個狀況稱之為溢位。
 
 ```cpp
-#include <cstdio>
-
-int main() {
-  int a = 1000000000, b = 2000000000;
-  printf("%d\n", a + b);
-}
-/*
--1294967296
-*/
+--8<-- "docs/syntax/code/overflow.cpp"
 ```
 
 ![](images/overflow.png)

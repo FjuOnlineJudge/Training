@@ -40,23 +40,7 @@ Tarjan 算法，可解決許多連通性的問題，最核心的是找出每個�
 - ![](images/low.gif)
 
 ```cpp
-int low[MXV], depth[MXV];
-bool visit[MXV];
-vector<int> G[MXV];
-
-void dfs(int now, int cur_depth) {
-  visit[now] = true;
-  depth[now] = low[now] = cur_depth;
-  for (auto i : G[now]) {
-    if (visit[i]) { // ancestor
-      low[now] = min(low[now], depth[i]);
-    } else { // offspring
-      dfs(i, cur_depth + 1);
-      low[now] = min(low[now], low[i]);
-    }
-  }
-  return;
-}
+--8<-- "docs/graph/code/low.cpp"
 ```
 
 ## 點雙連通：找割點
@@ -73,29 +57,7 @@ void dfs(int now, int cur_depth) {
 - 根節點 $root$ ：擁有 $\geq$ 兩個兒子。
 
 ```cpp
-int low[MXV], depth[MXV];
-bool is_cut_vertex[MXV], visit[MXV];
-vector<int> G[MXV];
-
-void dfs(int now, int cur_depth) {
-  visit[now] = true;
-  depth[now] = low[now] = cur_depth;
-  int cut_son = 0;
-  for (auto i : G[now]) {
-    if (visit[i]) { // ancestor
-      low[now] = min(low[now], depth[i]);
-    } else { // offspring
-      dfs(i, cur_depth + 1);
-      cut_son += 1;
-      low[now] = min(low[now], low[i]);
-      if (low[i] >= depth[now])
-        is_cut_vertex[now] = true;
-    }
-  }
-  if (cur_depth == 0)
-    is_cut_vertex[now] = (cut_son != 1);
-  return;
-}
+--8<-- "docs/graph/code/cutVertex.cpp"
 ```
 
 這個演算法主要是做 DFS，所以時間複雜度為 $O(V+E)$ 
@@ -116,37 +78,7 @@ void dfs(int now, int cur_depth) {
     -  $low[v] == depth[u]$ 代表有 $u,v$ 之間存在至少兩條路徑。
 
 ```cpp
-int low[MXV], depth[MXV];
-bool visit[MXV];
-vector<int> G[MXV];
-vector<pair<int, int>> my_cut_edge;
-
-void dfs(int now, int cur_depth, int parent) {
-  visit[now] = true;
-  depth[now] = low[now] = cur_depth;
-  // int cut_son = 0;
-  for (auto i : G[now]) {
-    if (i != parent)
-      continue;
-    if (visit[i]) { // ancestor
-      low[now] = min(low[now], depth[i]);
-    } else { // offspring
-      dfs(i, cur_depth + 1, now);
-      // cut_son += 1;
-      low[now] = min(low[now], low[i]);
-      if (low[i] > depth[now])
-        my_cut_edge.push_bach({now, i});
-    }
-  }
-  return;
-}
-
-bool is_2_edge_connected(int n) {
-  int cut_edge = 0;
-  memset(visit, 0, sizeof(visit));
-  dfs(1, 0, -1);
-  return my_cut_edge.size() == 0;
-}
+--8<-- "docs/graph/code/cutEdge.cpp"
 ```
 
 和前面點雙連通相同，時間複雜度為 $O(V+E)$ 
@@ -174,49 +106,7 @@ bool is_2_edge_connected(int n) {
 - ![](images/bivertexConnected.gif)
 
 ```cpp
-typedef pair<int, int> PII;
-int low[MXV], depth[MXV];
-bool is_cut_vertex[MXV], visit[MXV];
-vector<int> G[MXV];
-vector<PII> BCC[MXV];
-int bcc_cnt = 0;
-stack<PII> st;
-
-void dfs(int now, int cur_depth, int f) {
-  visit[now] = true;
-  depth[now] = low[now] = cur_depth;
-  int cut_son = 0;
-  for (auto i : G[now]) {
-    if (i == f)
-      continue;
-    if (visit[i]) { // ancestor
-      if (depth[i] < depth[now]) {
-        low[now] = min(low[now], depth[i]);
-        st.push({now, i});
-      }
-    } else { // offspring
-      st.push({now, i});
-      dfs(i, cur_depth + 1, now);
-      cut_son += 1;
-      low[now] = min(low[now], low[i]);
-      if (low[i] >= depth[now]) {
-        is_cut_vertex[now] = true;
-        auto t = st.top();
-        st.pop();
-        while (t != make_pair(now, i)) {
-          BCC[bcc_cnt].push_back(t);
-          t = st.top();
-          st.pop();
-        }
-        BCC[bcc_cnt].push_back(t);
-        ++bcc_cnt;
-      }
-    }
-  }
-  if (cur_depth == 0)
-    is_cut_vertex[now] = (cut_son != 1);
-  return;
-}
+--8<-- "docs/graph/code/bivertexConnected.cpp"
 ```
 
 這個演算法一樣有做 DFS，並且維護一個 stack，每條邊都會被丟進去一次，因此時間複雜度為 $O(V+E)$ 。
@@ -244,66 +134,7 @@ Tarjan 的思維如下：SCC 是由一個或多個環組成， $dep$ 改成維�
 以下是程式碼，和上述相似，此算法會做一次 $DFS$ ，時間複雜度為 $O(V+E)$ 。
 
 ```cpp
-#include <bits/stdc++.h>
-using namespace std;
-const int MXV = 100005;
-int sccCnt, sccNo[MXV];
-vector<int> G[MXV], dep(MXV), low(MXV);
-bitset<MXV> isStack, isRoot;
-stack<int> st;
-int t;
-
-void init(int n, int m) {
-  t = 0;
-  fill(dep.begin(), dep.end(), 0);
-  sccCnt = 0;
-  memset(sccNo, 0, sizeof(sccNo));
-  isStack.reset();
-  isRoot.set();
-  while (!st.empty()) {
-    st.pop();
-  }
-  for (int i = 1; i <= n; ++i) {
-    G[i].clear();
-  }
-  for (int i = 0, x, y; i != m; ++i) {
-    cin >> x >> y;
-    G[x].push_back(y);
-  }
-}
-
-void tarjan(int u) {
-  dep[u] = low[u] = ++t;
-  st.push(u);
-  isStack[u] = true;
-  for (auto v : G[u]) {
-    if (dep[v] == 0) {
-      tarjan(v);
-      low[u] = min(low[u], low[v]);
-    } else if (isStack[v]) {
-      low[u] = min(low[u], dep[v]);
-    }
-  }
-  if (low[u] == dep[u]) {
-    ++sccCnt;
-    int tmp;
-    do {
-      tmp = st.top();
-      st.pop();
-      isStack[tmp] = false;
-      sccNo[tmp] = sccCnt;
-    } while (tmp != u);
-  }
-}
-
-int main() {
-  init(n, m); // |V| = n, |E| = m
-  for (int i = 1; i <= n; ++i) {
-    if (dep[i] == 0) {
-      tarjan(i);
-    }
-  }
-}
+--8<-- "docs/graph/code/strongConnectedTarjan.cpp"
 ```
 
 ### Kosaraju's algorithm
@@ -336,49 +167,7 @@ Kosaraju's algorithm 基於觀察到的兩件事而成，第一件事為將原�
 以下是程式碼，此算法會做兩次 $DFS$ ，時間複雜度為 $O(V+E)$ ，效率比 Tarjan 低一些，但 Kosaraju's algorithm 較容易實作。
 
 ```cpp
-vector<int> G[MXN];
-vector<int> rev_G[MXN];
-vector<int> leave;
-bitset<MXN> visit;
-int at_scc[MXN];
-
-void dfs_for_stamp(int now) {
-  visit[now] = true;
-  for (auto i : rev_G[now]) {
-    if (!visit[i]) {
-      dfs_for_stamp(i);
-    }
-  }
-  leave.push_back(now);
-}
-
-void dfs_for_scc(int now, int cur_scc) {
-  visit[now] = true;
-  at_scc[now] = cur_scc;
-  for (auto i : G[now]) {
-    if (!visit[i]) {
-      dfs_for_scc(i, cur_scc);
-    }
-  }
-}
-
-int kosaraju(int n) {
-  visit.reset();
-  leave.clear();
-  for (int i = 0; i < n; ++i) {
-    if (!visit[i]) {
-      dfs_for_stamp(i);
-    }
-  }
-  visit.reset();
-  int scc_count = 0;
-  for (int i = n - 1; i >= 0; --i) {
-    if (!visit[leave[i]]) {
-      dfs_for_scc(leave[i], scc_count++);
-    }
-  }
-  return scc_count;
-}
+--8<-- "docs/graph/code/strongConnectedKosaraju.cpp"
 ```
 
 ## 例題

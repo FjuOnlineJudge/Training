@@ -11,23 +11,7 @@ Kruskal’s algorithm 的概念是，合併兩顆 MST 的時候，加入連接�
 排序需花 $O(E\log E)$ 的時間，選邊需要花 $O(E\alpha(V))$ 的時間，總共時間複雜度 $O(E(\log E+\alpha(V)))$ 
 
 ```cpp
-struct Edge {
-  int s, t, w;
-  bool operaotr < (const Edge &rhs) const { return w < rhs.w; }
-};
-void Kruskal() {
-  int cost = 0;
-  vector<Edge> E;
-  init();
-  for (auto it : E) {
-    it.s = Find(it.s);
-    it.t = Find(it.t);
-    if (it.s == it.t)
-      continue;
-    cost += it.w;
-    Union(it.s, it.t);
-  }
-}
+--8<-- "docs/graph/code/kruskal.cpp"
 ```
 
 ## Prim’s algorithm

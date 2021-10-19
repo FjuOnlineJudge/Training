@@ -3,17 +3,7 @@
 陣列如果要從中間插入一個元素，需要將其後面所有元素搬移一格，需耗費 $O(n)$ ，連結串列（ `linklist` ）能只花 $O(1)$ 完成插入。
 
 ```cpp
-struct Node {
-  int v;
-  Node *next = nullptr;
-};
-```
-
-```cpp
-struct Node {
-  int v;
-  Node *next = nullptr, *prev = nullptr;
-};
+--8<-- "docs/dataStructure/code/linklist.cpp"
 ```
 
 可以利用陣列取代指標來實作 `linklist` 。
@@ -30,16 +20,5 @@ C++ 提供 list 函式庫實作雙向串列。
 -  `L.splice(iterator it,list &x,iterator first,iterator last)` ：first 和 last 是 x 的迭代器。此函式會把 $[first,last)$ 指到的東西從 x 中剪下並加到 it 所指的那項的前面。x 會因為這項函式而改變。若未指定 last, 那只會將 first 所指的東西移到 it 前方。複雜度與轉移個數呈線性關係。
 
 ```cpp
-// adapt from cppreference
-#include <iostream>
-#include <list>
-
-int main() {
-  std::list<char> letters{'o', 'm', 'g', 'w', 't', 'f'};
-
-  if (!letters.empty()) {
-    cout << letters.front() << '\n'; // o
-    cout << letters.back() << '\n';  // f
-  }
-}
+--8<-- "docs/dataStructure/code/list.cpp"
 ```

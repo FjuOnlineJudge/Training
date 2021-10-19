@@ -14,25 +14,9 @@ return_type function_name(parameter list) {
 -  `return_type` : 函式的回傳值型態，可為 `C/C++` 提供的 [基礎資料型態](./type.md) 或是 [自定義的結構](./structure.md) ，如果不需有回傳值，可設為 `void` ，
 -  `return` 是 `C/C++` 關鍵子，回傳函式結果，需與函式的回傳值型態相符。當函式的回傳值型態為 `void` ，可以省略。
 
-=== "範例 1"
-
-    ```cpp
-    int sum(int x, int y) {
-      int sum = 0;
-      sum += x;
-      sum += y;
-      return x + y;
-    }
-    ```
-
-=== "範例 2"
-
-    ```cpp
-    void print_hello() {
-      cout << "Hello\n";
-      return; // 可省略
-    }
-    ```
+```cpp
+--8<-- "docs/syntax/code/functionSample.cpp"
+```
 
  `main` 是 `C/C++` 程式的入口函式，接受命令列的參數，正常情況會回傳 $0$ 代表正常運作。
 
@@ -45,21 +29,7 @@ return_type function_name(parameter list) {
 - 區塊變數：區域變數是指定義在區塊內部的變數，只限該區塊使用，區塊包含 `if` 、 `while` 、 `for` 區塊，區塊變數的生命週期始於區塊開始，終於區塊結束。
 
 ```cpp
-#include <iostream>
-using namespace std;
-const int N = 100; // 全域變數
-int var1 = 1;      // 全域變數
-
-void print_var1() { cout << var1 << '\n'; }
-
-int main() {
-  int var2 = N;                  // 區域變數
-  for (int i = 0; i < var2; ++i) // 區塊變數
-  {
-    ++var1;
-    print_var1();
-  }
-}
+--8<-- "docs/syntax/code/scope1.cpp"
 ```
 
 ???+ warning "注意"
@@ -68,66 +38,13 @@ int main() {
     === "範例 1(名稱空間重疊)"
 
         ```cpp
-        #include <iostream>
-        using namespace std;
-        int i;
-
-        void print_var()
-        {
-            for (i = 0; i < 3; ++i)
-            {
-                cout << i << '\n';
-            }
-        }
-
-        int main()
-        {
-            for (i = 0; i < 3; ++i)
-            {
-                print_var();
-            }
-        }
-
-        /*
-        0
-        1
-        2
-        */
+        --8<-- "docs/syntax/code/scope2.cpp"
         ```
 
     === "範例 2"
 
         ```cpp
-        #include <iostream>
-        using namespace std;
-
-        void print_var()
-        {
-            for (int i = 0; i < 3; ++i)
-            {
-                cout << i << '\n';
-            }
-        }
-
-        int main()
-        {
-            for (int i = 0; i < 3; ++i)
-            {
-                print_var();
-            }
-        }
-
-        /*
-        0
-        1
-        2
-        0
-        1
-        2
-        0
-        1
-        2
-        */
+        --8<-- "docs/syntax/code/scope3.cpp"
         ```
 
 ### 覆蓋
@@ -135,20 +52,7 @@ int main() {
 當範圍不同的變數同名時，範圍小的會覆蓋範圍大的。
 
 ```cpp
-#include <iostream>
-using namespace std;
-
-int main() {
-  int num = 5;
-  for (int i = 0; i < 1; ++i) {
-    int num = 10;
-    cout << num << '\n';
-  }
-}
-
-/*
-10
-*/
+--8<-- "docs/syntax/code/scope4.cpp"
 ```
 
 ###  `static` 關鍵字
@@ -156,28 +60,7 @@ int main() {
 如果一個函式內部的變數前面加上 `static` 關鍵字，那麼這個變數就會在程式一開始就會放在記憶體固定的位置上，只到程式結束才消失，而不是隨著函式結束而消失。
 
 ```cpp
-#include <iostream>
-using namespace std;
-
-void addSum(int i) {
-  static int sum = 0;
-  sum += i;
-  cout << "The current sum is: " << sum << '\n';
-}
-
-int main() {
-  for (int i = 1; i <= 5; ++i) {
-    addSum(i);
-  }
-}
-
-/*
-The current sum is: 1
-The current sum is: 3
-The current sum is: 6
-The current sum is: 10
-The current sum is: 15
-*/
+--8<-- "docs/syntax/code/static.cpp"
 ```
 
 ## 遞迴
@@ -190,15 +73,7 @@ The current sum is: 15
 以階乘為例： $n!=\left\{\begin{array}{}1 && if\ i\leq 1\ (終止條件)\\ n\times (n-1)! && else\ (縮小問題的方式)\end{array}\right.$ 
 
 ```cpp
-int factorial(int i) {
-  if (i <= 1) {
-    return 1;
-  }
-  int ans;
-  ans = factorial(i - 1);
-  ans *= i;
-  return ans;
-}
+--8<-- "docs/syntax/code/factorial.cpp"
 ```
 
 除了階乘之外，還有許多遞迴的基礎題

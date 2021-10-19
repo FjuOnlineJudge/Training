@@ -2,20 +2,10 @@
 
 有兩個端口，其中一個封閉，另一個端口負責插入、刪除的資料結構
 
-- ![](images/stack.gif)
+![](images/stack.gif)
 
 ```cpp
-struct stack {
-  int st[N], top;
-  Stack() : top(0) {}
-  int size() { return top; }
-  void push(int x) { st[++top] = x; }
-  int top() { assert(top > 0) return st[top]; }
-  void pop() {
-    if (top)
-      --top;
-  }
-}
+--8<-- "docs/dataStructure/code/stack1.cpp"
 ```
 
 - 標頭檔： `<stack>` 
@@ -27,19 +17,5 @@ struct stack {
 -  `s.empty()` ：回傳是否為空，複雜度 $O(1)$ 
 
 ```cpp
-#include <iostream>
-#include <stack>
-using namespace std;
-
-int main() {
-  stack<int> st;
-  st.push(1);
-  cout << st.top() << '\n'; // 1
-  st.push(2);
-  cout << st.top() << '\n'; // 2
-  st.push(3);
-  cout << st.top() << '\n'; // 3
-  st.pop();
-  cout << st.top() << '\n'; // 2
-}
+--8<-- "docs/dataStructure/code/stack2.cpp"
 ```

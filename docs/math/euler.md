@@ -17,41 +17,13 @@
 要計算 $\Phi(n)$ ，可以利用質因數分解求得。
 
 ```cpp
-int Phi(int n) {
-  int ret = n;
-  for (int i : p) {
-    if (i * i > n)
-      break;
-    if (n % i == 0) {
-      ret /= i;
-      ret *= i - 1;
-      while (n % i == 0)
-        n /= i;
-    }
-  }
-  if (n != 1) {
-    ret /= n;
-    ret *= n - 1;
-  }
-  return ret;
-}
+--8<-- "docs/math/code/phi1.cpp"
 ```
 
 另一種辦法是利用質數篩法。
 
 ```cpp
-void phi_table(int n) {
-  phi[1] = 1;
-  for (int i = 2; i <= n; i++) {
-    if (phi[i])
-      continue;
-    for (int j = i; j < n; j += i) {
-      if (!phi[j])
-        phi[j] = j;
-      phi[j] = phi[j] / i * (i - 1);
-    }
-  }
-}
+--8<-- "docs/math/code/phi2.cpp"
 ```
 
 ## 相關定理
