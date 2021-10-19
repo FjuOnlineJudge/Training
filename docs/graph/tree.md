@@ -57,19 +57,17 @@
 --8<-- "docs/graph/code/treeSave1.cpp"
 ```
 
-二元樹最多只有兩個節點(左子節點和右子節點)，可以開一個長度為 $2\times V$ 的二維陣列，或兩個長度為 $2V$ 的一維陣列。
+二元樹最多只有兩個節點（左子節點和右子節點），可以開一個長度為 $2\times V$ 的二維陣列，或兩個長度為 $2V$ 的一維陣列。
 
 ```cpp
 --8<-- "docs/graph/code/treeSave2.cpp"
 ```
 
-Complete Binary Tree 可用一維陣列儲存，將 Complete Binary Tree 的節點從上到下，從左到右依序編號，根節點為 $0$ 或 $1$：
+Complete Binary Tree 可用一維陣列儲存，將 Complete Binary Tree 的節點從上到下，從左到右依序編號，根節點為 $0$ 或 $1$ ：
 
--   當根為 $0$ 時，左子節點是 $2x+1$ ，右子節點是 $2x+2$ 
-    ![](images/tree_array_1.jpg)
+- 當根為 $0$ 時，左子節點是 $2x+1$ ，右子節點是 $2x+2$ ![](images/tree_array_1.jpg)
 
--   當根為 $1$ 時，左子節點是 $2x$ ，右子節點是 $2x+1$ 
-    ![](images/tree_array_2.jpg)
+- 當根為 $1$ 時，左子節點是 $2x$ ，右子節點是 $2x+1$ ![](images/tree_array_2.jpg)
 
 還有一些樹的儲存涉及指標，以下為常見種類，這裡不提如何實作：
 

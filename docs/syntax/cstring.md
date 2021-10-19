@@ -58,120 +58,31 @@
 - 複製字串
 
 ```cpp
---8<-- "docs/syntax/code/.cpp"
-char str1[] = "This is an apple.";
-char str2[] = "That is a banana.";
-printf("Before strcpy:\n");
-printf("%s\n", str2);
-strcpy(str2, str1);
-printf("\nAfter strcpy:\n");
-printf("%s\n", str2);
-
-/*
-Before strcpy:
-That is a banana.
-
-After strcpy:
-This is an apple.
-
-*/
+--8<-- "docs/syntax/code/cstring1.cpp"
 ```
 
 - 串接字串
 
 ```cpp
---8<-- "docs/syntax/code/.cpp"
-char str[] = "Ha!";
-printf("Before strcpy:\n");
-printf("%s\n", str);
-strcat(str, " Hello!");
-printf("\nAfter strcpy:\n");
-printf("%s\n", str);
-
-/*
-Before strcpy:
-Ha!
-
-After strcpy:
-Ha! Hello!
-
-*/
+--8<-- "docs/syntax/code/cstring2.cpp"
 ```
 
 - 比較字串大小（字典序）
 
 ```cpp
---8<-- "docs/syntax/code/.cpp"
-char str1[] = "This is an apple.";
-char str2[] = "That is a banana.";
-int res = memcmp(str1, str2, sizeof(str1));
-if (res > 0)
-{
-    printf("'%s' is greater than '%s'.\n", str1, str2);
-}
-else if (res < 0)
-{
-    printf("'%s' is less than '%s'.\n", str1, str2);
-}
-else
-{
-    printf("'%s' is the same as '%s'.\n", str1, str2);
-}
-
-/*
-'This is an apple.' is greater than 'That is a banana.'.
-
-*/
+--8<-- "docs/syntax/code/cstring3.cpp"
 ```
 
 - 設定字元陣列
 
 ```cpp
---8<-- "docs/syntax/code/.cpp"
-char str[5];
-printf("Before memeset:\n");
-for (int i = 0; i < (int)strlen(str); ++i)
-{
-    printf("%c", str[i]);
-}
-memset(str, '+', sizeof(str));
-printf("\nAfter memeset:\n");
-for (int i = 0; i < (int)strlen(str); ++i)
-{
-    printf("%c", str[i]);
-}
-
-/*
-Before memeset:
-
-After memeset:
-+++++
-*/
+--8<-- "docs/syntax/code/cstring4.cpp"
 ```
 
 - 設定整數陣列
 
 ```cpp
---8<-- "docs/syntax/code/.cpp"
-int arr[5];
-printf("Before memeset:\n");
-for (int i = 0; i < 5; ++i)
-{
-    printf("%d ", arr[i]);
-}
-memset(arr, -1, sizeof(arr));
-printf("\nAfter memeset:\n");
-for (int i = 0; i < 5; ++i)
-{
-    printf("%d ", arr[i]);
-}
-
-/*
-Before memeset:
-8 0 2 0 7480496
-After memeset:
--1 -1 -1 -1 -1
-*/
+--8<-- "docs/syntax/code/cstring5.cpp"
 ```
 
 [^1]:  [cstring 函式庫 in cplusplus](http://www.cplusplus.com/reference/cstring/) 

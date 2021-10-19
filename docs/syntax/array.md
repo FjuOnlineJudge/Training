@@ -4,13 +4,13 @@
 
 ## 宣告和初始化
 
-宣告語法為 `type var[size]`
+宣告語法為 `type var[size]` 
 
 - type：資料的型態，可為 `C/C++` 提供的 [基礎資料型態](./type.md) 或是 [自定義的結構](./structure.md) 。
 - var：變數名稱
 - size：陣列大小，必須是數字或常數（ `C++` 的 `const` )，不可是變數，否則會在執行時發生錯誤。
 
-在宣告時期，陣列內的元素是未被初始化的，在宣告的階段，可以利用 `initializer_list` 初始化， `initializer_list` 的格式為 `{val1, val2, val3, ...}`。使用這種方式，一開始所有元素的值都會先設為 $0$ ，再將 `initializer_list` 的值依序放入陣列， `initializer_list` 的元素可以小於陣列長度，未被更動的元素會保持為 $0$ 。`initializer_list` 只可以用在宣告時，不可在宣告後使用：
+在宣告時期，陣列內的元素是未被初始化的，在宣告的階段，可以利用 `initializer_list` 初始化， `initializer_list` 的格式為 `{val1, val2, val3, ...}` 。使用這種方式，一開始所有元素的值都會先設為 $0$ ，再將 `initializer_list` 的值依序放入陣列， `initializer_list` 的元素可以小於陣列長度，未被更動的元素會保持為 $0$ 。 `initializer_list` 只可以用在宣告時，不可在宣告後使用：
 
 ```cpp
 --8<-- "docs/syntax/code/array1.cpp"

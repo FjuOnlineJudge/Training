@@ -12,9 +12,10 @@ struct Transportation
     }
 };
 
-struct Car: Transportation{
+struct Car : Transportation
+{
     void printColor() // override
     {
         cout << "The car's color is " + color + ".\n";
-    }   
+    }
 };

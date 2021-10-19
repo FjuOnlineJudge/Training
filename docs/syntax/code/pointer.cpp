@@ -1,7 +1,7 @@
 int *a, b; // 只有 a 是指標。
 
 int val = 5;
-int *ptr = &val; // 一維指標 ptr
+int *ptr = &val;   // 一維指標 ptr
 int **ptr2 = &ptr; // 二維指標 ptr2
 
 // 記憶體為動態配置，每次跑出的答案不盡相同。
