@@ -985,22 +985,22 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#multi-" class="md-nav__link">
     multi - 系列
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#unorder-" class="md-nav__link">
     unorder - 系列
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1528,22 +1528,22 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#multi-" class="md-nav__link">
     multi - 系列
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#unorder-" class="md-nav__link">
     unorder - 系列
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1574,43 +1574,31 @@
 </ul>
 <p>二元搜尋樹兩個重要的指令為插入和搜尋。</p>
 <h3 id="_2">插入</h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>對於每個要插入的值 $val$
-從根節點開始
-如果該節點為空，開一個新節點，並存值 $val$
-如果該節館的值 &gt; $val$，$val$ 和該節點的左子節點比較，反之和該節點的右子節點比較
-</code></pre></div>
-</td></tr></table>
-<ul>
-<li><img alt="" src="../images/bst_insert.gif" /></li>
-</ul>
+<ol>
+<li>對於每個要插入的值 <script type="math/tex">val</script>
+</li>
+<li>從根節點開始</li>
+<li>如果該節點為空，開一個新節點，並存值 <script type="math/tex">val</script>
+</li>
+<li>如果該節館的值 &gt; <script type="math/tex">val</script>，<script type="math/tex">val</script> 和該節點的左子節點比較，反之和該節點的右子節點比較</li>
+</ol>
+<hr />
+<p><img alt="" src="../images/bst_insert.gif" /></p>
 <h3 id="_3">時間複雜度</h3>
 <p>每一次插入查詢的時間和深度有關，深度越高，效率越低，理想在二元搜尋樹的深度為 <script type="math/tex">O(N\log N)</script> ，但最差狀況會是 <script type="math/tex">O(N)</script>
 </p>
 <h3 id="_4">搜尋</h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>從根節點開始搜尋
-1. 比較節點值和搜尋值
-2. 如果沒節點，代表找不到
-3. 如果節點值 = 搜尋值，代表找到
-4. 如果節點值 &lt; 搜尋值，向右子節點走，回到 1.
-5. 如果節點值 &gt; 搜尋值，向左子節點走，回到 1.
-</code></pre></div>
-</td></tr></table>
-<ul>
-<li>
+<ol>
+<li>從根節點開始搜尋</li>
+<li>比較節點值和搜尋值</li>
+<li>如果沒節點，代表找不到</li>
+<li>如果節點值 = 搜尋值，代表找到</li>
+<li>如果節點值 &lt; 搜尋值，向右子節點走，回到 2.</li>
+<li>如果節點值 &gt; 搜尋值，向左子節點走，回到 2.</li>
+</ol>
+<hr />
 <p><img alt="" src="../images/bst_search_1.gif" /></p>
-</li>
-<li>
 <p><img alt="" src="../images/bst_search_2.gif" /></p>
-</li>
-</ul>
 <h2 id="_5">二元平衡樹</h2>
 <p>二元平衡樹會自動調整高度，常見的有：紅黑樹、AVL 樹等。</p>
 <h3 id="stl">STL</h3>
@@ -1649,32 +1637,39 @@
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;set&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sb</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">sb</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">sb</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">sb</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sb</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">sb</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">sb</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">sb</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
 
-<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;1 : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">sb</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;find</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;not find</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;1 : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">sb</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;find</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;not find</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;1 : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">sb</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;find</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;not find</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;1 : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">sb</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;find</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;not find</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="w">  </span><span class="n">sb</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;1 : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">sb</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;find</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;not find</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;1 : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">sb</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;find</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;not find</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">sb</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;1 : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">sb</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;find</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;not find</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;1 : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">sb</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;find</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;not find</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>1 : find
-1 : find
-1 : not find
-1 : not find
+
+<span class="cm">/*</span>
+<span class="cm">1 : find</span>
+<span class="cm">1 : find</span>
+<span class="cm">1 : not find</span>
+<span class="cm">1 : not find</span>
+<span class="cm">*/</span><span class="w"> </span>
 </code></pre></div>
 </td></tr></table>
 <h3 id="pair">pair</h3>
@@ -1728,58 +1723,65 @@
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;map&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tb</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">tb</span><span class="p">[</span><span class="s">&quot;123&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">tb</span><span class="p">[</span><span class="s">&quot;owowowo&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">tb</span><span class="p">[</span><span class="s">&quot;omomo&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;tb[</span><span class="se">\&quot;</span><span class="s">123</span><span class="se">\&quot;</span><span class="s">]: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">tb</span><span class="p">[</span><span class="s">&quot;123&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;tb[</span><span class="se">\&quot;</span><span class="s">owowowo</span><span class="se">\&quot;</span><span class="s">]: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">tb</span><span class="p">[</span><span class="s">&quot;owowowo&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;tb[</span><span class="se">\&quot;</span><span class="s">omomo</span><span class="se">\&quot;</span><span class="s">]: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">tb</span><span class="p">[</span><span class="s">&quot;omomo&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tb</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tb</span><span class="p">[</span><span class="s">&quot;123&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tb</span><span class="p">[</span><span class="s">&quot;owowowo&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tb</span><span class="p">[</span><span class="s">&quot;omomo&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;tb[</span><span class="se">\&quot;</span><span class="s">123</span><span class="se">\&quot;</span><span class="s">]: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">tb</span><span class="p">[</span><span class="s">&quot;123&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;tb[</span><span class="se">\&quot;</span><span class="s">owowowo</span><span class="se">\&quot;</span><span class="s">]: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">tb</span><span class="p">[</span><span class="s">&quot;owowowo&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;tb[</span><span class="se">\&quot;</span><span class="s">omomo</span><span class="se">\&quot;</span><span class="s">]: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">tb</span><span class="p">[</span><span class="s">&quot;omomo&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;123 : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">tb</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;123&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">tb</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;find</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;not find</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;123 : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">tb</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="s">&quot;123&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;find</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;not find</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;123 : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">tb</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;123&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">tb</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;find</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;not find</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;123 : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">tb</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="s">&quot;123&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;find</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;not find</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="w">  </span><span class="n">tb</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span><span class="w"></span>
-<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;123 : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">tb</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;123&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">tb</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;find</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;not find</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;123 : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">tb</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="s">&quot;123&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;find</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;not find</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">tb</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;123 : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">tb</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;123&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">tb</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;find</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;not find</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;123 : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">tb</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="s">&quot;123&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;find</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;not find</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;owo : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">tb</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;owo&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">tb</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;find</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;not find</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">tb</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">make_pair</span><span class="p">(</span><span class="s">&quot;owo&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">659</span><span class="p">));</span><span class="w"></span>
-<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;owo : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">tb</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;owo&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">tb</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;find</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;not find</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;owo : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">tb</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;owo&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">tb</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;find</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;not find</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">tb</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">make_pair</span><span class="p">(</span><span class="s">&quot;owo&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">659</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;owo : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">tb</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;owo&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">tb</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;find</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;not find</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
+
+<span class="cm">/*</span>
+<span class="cm">tb[&quot;123&quot;]: 1</span>
+<span class="cm">tb[&quot;owowowo&quot;]: 2</span>
+<span class="cm">tb[&quot;omomo&quot;]: 3</span>
+<span class="cm">123 : find</span>
+<span class="cm">123 : find</span>
+<span class="cm">123 : not find</span>
+<span class="cm">123 : not find</span>
+<span class="cm">owo : not find</span>
+<span class="cm">owo : find</span>
+<span class="cm">*/</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>tb[&quot;123&quot;]: 1
-tb[&quot;owowowo&quot;]: 2
-tb[&quot;omomo&quot;]: 3
-123 : find
-123 : find
-123 : not find
-123 : not find
-owo : not find
-owo : find
-</code></pre></div>
-</td></tr></table>
-<h2 id="multi-">multi - 系列</h2>
+<h3 id="multi-">multi - 系列</h3>
 <p>可插入重複元素，代價為 map 無法用下標運算子</p>
 <ul>
 <li>equal_range (T1 a)：回傳 iterator 的 <code>pair&lt;lower_bound (a),upper_bound (a)&gt;</code> ，為 a 所在範圍</li>
 <li>erase (T1 a)：刪除所有元素 a，如果只要刪除一個，用 <code>s.erase (s.find (a))</code> </li>
 </ul>
-<h2 id="unorder-">unorder - 系列</h2>
+<h3 id="unorder-">unorder - 系列</h3>
 <p>降低常數，期望複雜度少一個 log，代價為不會排序，沒有 <code>lower_bound/upper_bound</code> ，也不會依鍵值大小遍歷。迭代器為單向。</p>
                 
               

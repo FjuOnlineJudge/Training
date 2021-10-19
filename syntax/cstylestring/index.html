@@ -1426,21 +1426,13 @@
 </code></pre></div>
 </td></tr></table>
 <h2 id="_2">輸入輸出</h2>
-<p>C 式字串可以一個字元一個字元慢慢輸入，也可以一次輸入整個字串，如下：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">str1</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span><span class="w"></span>
-<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">str1</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+<p>C 式字串可以一個字元一個字元慢慢輸入，也可以一次輸入整個字串。：</p>
 <p><code>scanf</code> 會輸入直到遇見換行字元，輸入的長度有可能大於變數長度，可能造成安全上的疑慮（程式競賽中給的資料都是有長度限制，沒有這個問題）， <code>scanf</code> 可以設定 <code>width</code> 來控制輸入長度。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">str1</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span><span class="w"></span>
-<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%9s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">str1</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
 <p>輸出用 <code>printf</code> ， <code>printf</code> 會一直輸出，直到遇見 <code>\0</code> 。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">str1</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;apple&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">str1</span><span class="p">);</span><span class="w">  </span><span class="c1">// 不安全，但在程式競賽上 OK</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%9s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">str1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 比較安全的寫法</span>
 <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">str1</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>

@@ -711,41 +711,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    特殊函式
+  <a href="#override-overload" class="md-nav__link">
+    覆載 (Override) 和多載 (Overload)
   </a>
   
-    <nav class="md-nav" aria-label="特殊函式">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#constructor-destructor" class="md-nav__link">
-    建構函式 (constructor)、解構函式 (destructor)
+    建構函式 (Constructor)、解構函式 (Destructor)
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
+  <a href="#operator-overloading" class="md-nav__link">
+    多載運算子(Operator overloading)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    長度
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    運算子多載
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    大小
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
     為什麼要用自定義結構
   </a>
   
@@ -1439,41 +1433,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    特殊函式
+  <a href="#override-overload" class="md-nav__link">
+    覆載 (Override) 和多載 (Overload)
   </a>
   
-    <nav class="md-nav" aria-label="特殊函式">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#constructor-destructor" class="md-nav__link">
-    建構函式 (constructor)、解構函式 (destructor)
+    建構函式 (Constructor)、解構函式 (Destructor)
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
+  <a href="#operator-overloading" class="md-nav__link">
+    多載運算子(Operator overloading)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    長度
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    運算子多載
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    大小
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
     為什麼要用自定義結構
   </a>
   
@@ -1495,71 +1483,75 @@
                 <h1 id="_1">自定義結構</h1>
 <p>自定義結構為一些成員元素（資料）的組合體，在 <code>C</code> 有 <code>struct</code> ， <code>C++</code> 有 <code>struct</code> 和 <code>class</code> ， <code>C</code> 和 <code>C++</code> 的 <code>struct</code> 是不同的，以下講解：</p>
 <h2 id="c-struct"><code>C</code> 的 <code>struct</code></h2>
-<p>首先一個 <code>struct</code> 的定義語法如下。裡面的成員元素可以為指標，注意右大括號後要加分號。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">structure_name</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">type1</span><span class="w"> </span><span class="n">name1</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">type2</span><span class="w"> </span><span class="n">name2</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">...</span><span class="w"></span>
-<span class="p">};</span><span class="w"> </span><span class="c1">//&lt;-notice</span>
-</code></pre></div>
-</td></tr></table>
-<p>宣告語法為：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">structure_name</span><span class="w"> </span><span class="n">var1</span><span class="p">,</span><span class="w"> </span><span class="n">var2</span><span class="p">,</span><span class="w"> </span><span class="p">...;</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
-<p>變數也可以在定義時宣告：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">structure_name</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">type1</span><span class="w"> </span><span class="n">name1</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">type2</span><span class="w"> </span><span class="n">name2</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">...</span><span class="w"></span>
-<span class="p">}</span><span class="w"> </span><span class="n">var1</span><span class="p">,</span><span class="w"> </span><span class="n">var2</span><span class="p">,</span><span class="w"> </span><span class="p">...;</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
-<p>struct 也可以宣告成陣列。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">structure_name</span><span class="w"> </span><span class="n">var1</span><span class="p">[</span><span class="n">size</span><span class="p">];</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Item</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">weight</span><span class="p">;</span><span class="w"></span>
+<ul>
+<li>定義：<code>{}</code> 之間存放成員元素，成員元素可以示指標或陣列，<code>}</code> 之後要加上 <code>;</code>。</li>
+<li>宣告：宣告可在定義時宣告(<code>Line 6</code>)，也可以獨立宣告一行 (<code>Line 8-10</code>)，相似地，可以宣告為指標或是陣列。</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// struct</span>
+<span class="k">struct</span> <span class="nc">Item</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">weight</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"> </span><span class="n">apple</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">Item</span><span class="w"> </span><span class="n">banana</span><span class="p">;</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">Item</span><span class="w"> </span><span class="n">banana1</span><span class="p">,</span><span class="w"> </span><span class="n">banana2</span><span class="p">;</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">Item</span><span class="w"> </span><span class="n">cake</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">Item</span><span class="w"> </span><span class="o">*</span><span class="n">itemPointer</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// class</span>
+<span class="k">class</span> <span class="nc">Item</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">weight</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPrice</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">apple</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">Item</span><span class="w"> </span><span class="n">banana</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
 <h2 id="c-struct-class"><code>C++</code> 的 <code>struct</code> 和 <code>class</code></h2>
-<p>相對於 <code>C</code> 的 <code>struct</code> ， <code>C++</code> 的 <code>struct</code> 和 <code>class</code> 有物件導向的概念。</p>
-<p>在定義方面和 <code>C</code> 的 <code>struct</code> 相似， <code>C++</code> 的 <code>struct</code> 和 <code>class</code> 不只有成員元素，還有成員函式。</p>
-<p>宣告方面比 <code>C</code> 的 <code>struct</code> 的差別是， <code>C++</code> 的 <code>struct</code> 和 <code>class</code> 不用在前面加上 <code>struct</code> 和 <code>class</code> 。</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">struct</label><div class="tabbed-content">
+<p><code>C++</code> 的 <code>struct</code> 和 <code>class</code> 導入物件導向的概念，除了成員元素，還可定義成員函式。獨立宣告時，不用在前面加上 <code>struct</code> 和 <code>class</code> 。</p>
+<p><code>C++</code> 的 <code>struct</code> 和 <code>class</code> 的差異在於成員的預設存取權限，有 <code>public</code> 、 <code>protected</code> 、 <code>private</code> 三種權限，<code>strcut</code> 成員預設為 <code>public</code> ， <code>class</code> 則是 <code>private</code> 。</p>
+<ul>
+<li><code>public</code> : 所有函式可存取。</li>
+<li><code>protected</code> : 成員函式、 <code>friend</code> 類別成員或函式，以及衍生類別可存取。</li>
+<li><code>private</code> : 成員函式及 <code>friend</code> 類別成員或函式可存取。</li>
+</ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Item</span><span class="p">{</span><span class="w"></span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Item</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">weight</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPrice</span><span class="p">(){</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="n">apple</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPrice</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">apple</span><span class="p">;</span><span class="w"></span>
+
 <span class="n">Item</span><span class="w"> </span><span class="n">banana</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-</div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">class</label><div class="tabbed-content">
+<details class="info" open="open"><summary>friend 關鍵字</summary><p>每個人社群中的好友，可以看到自己發佈的私人文章， <code>friend</code> 就同如社群中的好友，提供 <code>friend</code> 類別或函式存取該結構的元素。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -1567,60 +1559,73 @@
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Item</span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">weight</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPrice</span><span class="p">(){</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="n">apple</span><span class="p">;</span><span class="w"></span>
-<span class="n">Item</span><span class="w"> </span><span class="n">banana</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
-</div>
-</div>
-<p><code>C++</code> 的 <code>struct</code> 和 <code>class</code> 不同的地方，在於成員的存取權限，可利用 <code>public</code> 、 <code>protected</code> 、 <code>private</code> 設定權限。</p>
-<ul>
-<li><code>public</code> : 所有函式可存取。</li>
-<li><code>protected</code> : 成員函式、 <code>friend</code> 類別成員或函式，以及衍生類別可存取。</li>
-<li><code>private</code> : 成員函式及 <code>friend</code> 類別成員或函式可存取。</li>
-</ul>
-<p>如果不設定權限， <code>strcut</code> 成員預設為 <code>public</code> ， <code>class</code> 則是 <code>private</code> 。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Item</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="k">protected</span><span class="o">:</span><span class="w"></span>
-<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Circle</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="n">Circle</span><span class="w"> </span><span class="o">&amp;</span><span class="p">);</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
+
+<span class="kt">double</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="n">Circle</span><span class="w"> </span><span class="o">&amp;</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">3.14</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<details class="info" open="open"><summary>friend 關鍵字</summary><p>每個人社群中的好友，可以看到自己發佈的私人文章， <code>friend</code> 就同如社群中的好友，提供 <code>friend</code> 類別或函式存取該結構的元素。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Circle</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="k">private</span><span class="o">:</span><span class="w"></span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
-<p>friend double area(Circle&amp;);
-};</p>
-<p>double area(Circle&amp; c)
-{
-    return c.radius * c.radius * 3.14;
-}
-```</p>
 </details>
 <details class="info" open="open"><summary>衍生類別</summary><p>衍生類別是物件導向的概念，如果 <code>B</code> 是一種 <code>A</code> ， <code>B</code> 就是 <code>A</code> 的衍生類別， <code>A</code> 就是 <code>B</code> 的基礎類別。</p>
 <p>例如「汽車」是一種「交通工具」，那麼「汽車」就是「交通工具」的衍生類別，「交通工具」就是「汽車」的基礎類別。</p>
 </details>
 <h2 id="_2">訪問元素</h2>
-<p>如果是 <code>struct</code> 的變數 <code>var</code> ，用 <code>var.name</code> 。
-如果是 <code>struct</code> 的指標變數 <code>ptr</code> ，用 <code>ptr-&gt;name</code> 或 <code>(*ptr).name</code> 。</p>
-<h2 id="_3">特殊函式</h2>
-<p><code>C++</code> 的 <code>struct</code> 和 <code>class</code> 、有些比較特殊的函式，分別為建構函式、解構函式、運算子多載 (operator overloading)。</p>
+<p>對於一般變數 <code>var</code> ，用 <code>var.name</code> 。
+對於指標變數 <code>ptr</code> ，用 <code>ptr-&gt;name</code> 或 <code>(*ptr).name</code> 。</p>
+<h2 id="override-overload">覆載 (Override) 和多載 (Overload)</h2>
+<p>覆載 (Override) 是指在衍生類別重新改寫同名寫「參數相同」的函式。</p>
+<p>多載 (Overload) 是指在重新改寫同名寫「參數不同」的函式。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Transportation</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">color</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">printColor</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The transportation&#39;s color is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">printColor</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">)</span><span class="w"> </span><span class="c1">// overload</span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;These transportation was made in&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;These transportation&#39;s color is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">struct</span> <span class="nc">Car</span><span class="o">:</span><span class="w"> </span><span class="n">Transportation</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">printColor</span><span class="p">()</span><span class="w"> </span><span class="c1">// override</span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The car&#39;s color is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w">   </span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="constructor-destructor">建構函式 (Constructor)、解構函式 (Destructor)</h2>
+<p>建構函式結構的名稱相同，是用來初始化結構裡的資料，如果沒有任何建構函式，會自動產生一個無參數的預設建構函式。然而，如果有一個帶參數的建構函式，就不會自動產生一個無參數的預設建構函式，這時候要寫一個不帶任何參數的運算函式，否則可能導致程式在編譯時發生錯誤。</p>
+<p>解構函式的名字形式為 <code>~結構的名稱</code>，在變數離開作用域時運作，不寫的話也是會有預設解構函式，在程式比賽中絕大部分的狀況，不用特別寫解構函式。</p>
+<p>建構函式和解構函式的存取權限必為 <code>public</code> 。</p>
+<h2 id="operator-overloading">多載運算子(Operator overloading)</h2>
+<p><code>C/C++</code> 定義了各種運算子，自定義結構根據需求可以多載運算子。在競賽中，常需要作排序而需要多載小於運算子（ <code>&lt;</code> )。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1641,90 +1646,38 @@
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Plane</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// 建構函式</span>
-<span class="w">  </span><span class="n">Plane</span><span class="p">(){};</span><span class="w"></span>
-<span class="w">  </span><span class="n">Plane</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">_x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">_y</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">_x</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">_y</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
-<span class="w">  </span><span class="n">Plane</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Plane</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Plane</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">y</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// 運算子多載</span>
-<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Plane</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">x</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">y</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// 解構函式</span>
-<span class="w">  </span><span class="o">~</span><span class="n">Plane</span><span class="p">(){};</span><span class="w"></span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Plane</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Constructor</span>
+<span class="w">    </span><span class="n">Plane</span><span class="p">(){};</span><span class="w"></span>
+<span class="w">    </span><span class="n">Plane</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">_x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">_y</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">_x</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">_y</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Operator overloading</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Plane</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Destructor</span>
+<span class="w">    </span><span class="o">~</span><span class="n">Plane</span><span class="p">(){};</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">Plane</span><span class="w"> </span><span class="n">p1</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">Plane</span><span class="w"> </span><span class="n">p2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">Plane</span><span class="w"> </span><span class="n">p3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Plane</span><span class="p">();</span><span class="w"></span>
-<span class="w">  </span><span class="n">Plane</span><span class="w"> </span><span class="n">p4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Plane</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Plane</span><span class="w"> </span><span class="n">p1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Plane</span><span class="w"> </span><span class="n">p2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">Plane</span><span class="w"> </span><span class="n">p3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Plane</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">Plane</span><span class="w"> </span><span class="n">p4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Plane</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<h3 id="constructor-destructor">建構函式 (constructor)、解構函式 (destructor)</h3>
-<p>建構函式同名結構的名稱，是用來初始化結構裡的資料，如果不寫的話，會有預設建構函式，裡面的資料都是亂數。根據情況可多載。然而，如果結構有運算函式多載，一定要寫一個不帶任何參數的運算函式，否則的話，像第 14 行這樣只有宣告，沒加其他東西的的程式碼就不會通過。</p>
-<p>解構函式的名字形式為 <code>~</code> + 結構的名稱，是在變數離開作用域時運作，不寫的話也是會有預設解構函式，在程式比賽中絕大部分的狀況，不用特別寫解構函式。</p>
-<p>建構函式和解構函式的權限必為 <code>public</code> 。</p>
-<h3 id="_4">運算子多載</h3>
-<p>c++ 原有的型態都根據需要，定義了各種運算子，但 struct 如果有需要的話，須自己定義。而在競賽中，常需要作排序而需要小於運算子（ <code>&lt;</code> )。</p>
-<details class="info" open="open"><summary>覆載 (override) 和</summary><p>覆載 (override) 是指在衍生類別重新改寫同名寫「參數相同」的函式。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Transportation</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">string</span><span class="w"> </span><span class="n">color</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">printColor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The transportation&#39;s color is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
-<p>struct Car: Transportation{
-    void printColor()
-    {
-        cout &lt;&lt; "The car's color is " + color + ".\n";
-    } <br />
-};
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>多載 (overload) 是指在重新改寫同名寫「參數不同」的函式。
-
-```cpp
-struct Transportation{
-    string color;
-    void printColor()
-    {
-        cout &lt;&lt; &quot;The transportation&#39;s color is &quot; + color + &quot;.\n&quot;;
-    }
-    void printColor(int year)
-    {
-        cout &lt;&lt; &quot;These transportation was made in&quot; + year + &quot;.\n&quot;;
-        cout &lt;&lt; &quot;These transportation&#39;s color is &quot; + color + &quot;.\n&quot;;
-    }       
-};
-</code></pre></div>
-</td></tr></table></p>
-</details>
-<h2 id="_5">大小</h2>
-<p>結構的大小，並非為所有元素相加， <code>C/C++</code> 的結構大小配置會進行「對齊的最佳化」。struct 會分成很多塊存放，每一塊會是最大元素的大小為對齊基準，元素會依宣告的順序擺放，連續的元素會放在同一塊，如果不夠空間擺放才會放在下一塊。</p>
-<p>以下例子作為說明，在這裡，我們 <code>sizeof</code> 這個運算子求出結構的大小。</p>
+<h2 id="_3">長度</h2>
+<p>結構的長度，並非為所有元素相加， <code>C/C++</code> 的結構長度配置會進行「對齊的最佳化」。struct 會分成很多塊存放，每一塊會是最大元素的長度為對齊基準，元素會依宣告的順序擺放，連續的元素會放在同一塊，如果不夠空間擺放才會放在下一塊。</p>
+<p>以下例子作為說明，在這裡，我們 <code>sizeof</code> 這個運算子求出結構的長度。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1740,26 +1693,42 @@ struct Transportation{
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Data1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">ch1</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">ch2</span><span class="p">;</span><span class="w"></span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Data1</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">ch1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">ch2</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">Data2</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">ch1</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">ch2</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">Data2</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">ch1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">ch2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">Data1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 12</span>
-<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">Data2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 8</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">Data1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">Data2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
+
+<span class="cm">/*</span>
+<span class="cm">12</span>
+<span class="cm">8</span>
+<span class="cm">*/</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<p><code>Data1</code> 和 <code>Data2</code> 當中最大元素大小為 4 ( <code>int</code> )。 <code>Data1</code> ，用了 <script type="math/tex">3</script> 塊來存 <script type="math/tex">1</script> 個 <code>struct</code> ，第一塊存 <code>char ch1</code> ，第二塊存 <code>int i</code> ，第三塊存 <code>char ch2</code> ，因此大小為 <script type="math/tex">12</script> ； <code>Data2</code> ，用了 <script type="math/tex">3</script> 塊來存 <script type="math/tex">2</script> 個 <code>struct</code> ，第一塊存 <code>char ch1</code> 和 <code>char ch2</code> ，第二塊存 <code>int i</code> ，因此大小為 <script type="math/tex">8</script> 。</p>
-<h2 id="_6">為什麼要用自定義結構</h2>
+<p><code>Data1</code> 和 <code>Data2</code> 當中最大元素長度為 4 ( <code>int</code> )。 <code>Data1</code> ，用了 <script type="math/tex">3</script> 塊來存 <script type="math/tex">1</script> 個 <code>struct</code> ，第一塊存 <code>char ch1</code> ，第二塊存 <code>int i</code> ，第三塊存 <code>char ch2</code> ，因此長度為 <script type="math/tex">12</script> ； <code>Data2</code> ，用了 <script type="math/tex">3</script> 塊來存 <script type="math/tex">2</script> 個 <code>struct</code> ，第一塊存 <code>char ch1</code> 和 <code>char ch2</code> ，第二塊存 <code>int i</code> ，因此長度為 <script type="math/tex">8</script> 。</p>
+<h2 id="_4">為什麼要用自定義結構</h2>
 <p>資料存放有很多種方法，可以利用開多個陣列來取代自定義結構，但有些操作會直接將資料移動，包含排序和刪除，如果用多個陣列儲存，需要確保每個陣列的資料都被正確的移動；使用結構，就不用去維護這件事情。</p>
 <p>再來是多個結構可能會有相同名稱的成員元素。例如 apple 和 banana，它們都有一個成員元素 price，如果用多個陣列儲存，它們不能共用同一個陣列 <code>price[]</code> ，要寫成 <code>priceOfApple</code> 和 <code>priceOfBanana</code> ；如果用結構，就可以讓不同結構擁有相同名稱的成員元素（例如 <code>a.price</code> 和 <code>b.price</code> ) 來區分。</p>
 <div class="footnote">
