@@ -1413,7 +1413,7 @@
                 <h1 id="pointer">指標 (Pointer)</h1>
 <h2 id="pointer_1">指標 (Pointer) 與相關運算子</h2>
 <p>一個變數除了對應一種資料型態、一個值，還對應了一個位址（儲存該變數的記憶體位置）。要知道一個變數的位置，可以用傳址運算子 <code>&amp;</code> ，並附值給一個變數，存放位置的變數稱為「指標」。</p>
-<p>在變數前面加上 <code>*</code>，就成為指標，注意 <code>*</code> 要放在每個變數之前，指標不必在宣告時賦值。</p>
+<p>在變數前面加上 <code>*</code> ，就成為指標，注意 <code>*</code> 要放在每個變數之前，指標不必在宣告時賦值。</p>
 <p>指標有維度的概念，一維指標存放一般變數之位置，二維指標存放一維指標之位置，以此類推。</p>
 <p>利用間接運算子 <code>*</code> ，透過指標間接操作變數。</p>
 <details open="open"><summary>* 的不同功能</summary><p>下面範例程式碼有兩次出現 <code>*ptr</code> ，但意義不同。</p>
@@ -1435,7 +1435,7 @@
 <span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// 只有 a 是指標。</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
-<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val</span><span class="p">;</span><span class="w"> </span><span class="c1">// 一維指標 ptr</span>
+<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val</span><span class="p">;</span><span class="w">   </span><span class="c1">// 一維指標 ptr</span>
 <span class="kt">int</span><span class="w"> </span><span class="o">**</span><span class="n">ptr2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ptr</span><span class="p">;</span><span class="w"> </span><span class="c1">// 二維指標 ptr2</span>
 
 <span class="c1">// 記憶體為動態配置，每次跑出的答案不盡相同。</span>
@@ -1460,13 +1460,11 @@
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
 <span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
 <span class="o">++</span><span class="n">r</span><span class="p">;</span><span class="w"></span>
-<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="c1">// 5</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">r2</span><span class="p">;</span><span class="w"> </span><span class="c1">// Complier error</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 5</span>
+<span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">r2</span><span class="p">;</span><span class="w">           </span><span class="c1">// Complier error</span>
 </code></pre></div>
 </td></tr></table>
 <p>參考有以下優點：</p>

@@ -1487,11 +1487,13 @@
 <p><code>scanf</code> 和 <code>printf</code> 定義在標頭檔 <code>stdio.h</code> 。</p>
 <p><code>scanf</code> 和 <code>printf</code> 會給定一個由格式碼的字串，並根據格式碼，在後面接上相對應個數的參數。</p>
 <h3 id="scanf"><code>scanf</code></h3>
-<p><code>scanf</code> 的格式碼格式為： <code>%[*][width][length]specifier</code>
-- <code>*</code> 可以指定讀入的資料被忽略。
-- <code>width</code> 設定最大可輸入字元的個數，請參考 <a href="./cstylestring">C 式字串章節</a>。
-- <code>length</code> 設定輸入型態大小，和格式碼搭配。
-- <code>specifier</code> 為格式碼，是用來指定輸入的型態。</p>
+<p><code>scanf</code> 的格式碼格式為： <code>%[*][width][length]specifier</code> </p>
+<ul>
+<li><code>*</code> 可以指定讀入的資料被忽略。</li>
+<li><code>width</code> 設定最大可輸入字元的個數，請參考 <a href="./cstylestring">C 式字串章節</a> 。</li>
+<li><code>length</code> 設定輸入型態大小，和格式碼搭配。</li>
+<li><code>specifier</code> 為格式碼，是用來指定輸入的型態。</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -1536,7 +1538,7 @@
 <td>d i</td>
 <td>u o x</td>
 <td>f e g a</td>
-<td>c s [] [^]</td>
+<td>c s[][^]</td>
 <td>p</td>
 <td>n</td>
 </tr>
@@ -1625,19 +1627,19 @@
 </table>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span><span class="w"> </span><span class="c1">// 讀入一個 int</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span><span class="w">     </span><span class="c1">// 讀入一個 int</span>
 <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%*d %d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span><span class="w"> </span><span class="c1">// 讀入兩個 int，第一個整數會被忽略</span>
-<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lld&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span><span class="w"> </span><span class="c1">// 讀入一個 long long int</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lld&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span><span class="w">   </span><span class="c1">// 讀入一個 long long int</span>
 </code></pre></div>
 </td></tr></table>
 <p><code>scanf</code> 的參數前面需要加一個 <code>&amp;</code> ，簡單來說就是 <code>scanf</code> 的參數是記憶體位置，要更詳細理解要先學完指標。（編者認為這是當初設計沒想到的一個 bug)。</p>
 <h3 id="printf"><code>printf</code></h3>
-<p><code>printf</code> 的格式碼格式為： <code>%[flags][width][.precision][length]specifier</code></p>
+<p><code>printf</code> 的格式碼格式為： <code>%[flags][width][.precision][length]specifier</code> </p>
 <ul>
-<li><code>flags</code> 這裡不詳細提，可參考 <a href="https://www.cplusplus.com/reference/cstdio/printf/">cplusplus</a>。</li>
+<li><code>flags</code> 這裡不詳細提，可參考 <a href="https://www.cplusplus.com/reference/cstdio/printf/">cplusplus</a> 。</li>
 <li><code>width</code> 在 <code>printf</code> 的用途為對右靠齊，如果輸出的字元數小於所設寬度，不足部分會用空白填滿；如果輸出的字元數大於所設寬度，則無效，對浮點數也無效。若無法事先知道寬度，可用 <code>*</code> 代替。</li>
 <li><code>precision</code> 在 <code>printf</code> 的用途為指定輸出長度。整數部分，如果是輸出的字元數小於所設長度，不足部分會補 <script type="math/tex">0</script> ；如果輸出的字元數大於所設長度，則無效。浮點數部分，所謂的輸出長度指的是小數點後的位數。若無法事先知道長度，亦可用 <code>*</code> 代替。</li>
-<li><code>length</code> 和 <code>specifier</code> 同 <code>scanf</code>。</li>
+<li><code>length</code> 和 <code>specifier</code> 同 <code>scanf</code> 。</li>
 </ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -1701,7 +1703,7 @@
 <h2 id="c-cin-cout">C++ 輸入輸出，cin 和 cout</h2>
 <p><code>cin</code> 和 <code>cout</code> 定義在標頭檔 <code>iostream</code> 。</p>
 <p><code>cin</code> 和 <code>cout</code> 並不需要先給出格式，直接輸出/輸入變數名稱即可。</p>
-<p><code>endl</code> 的作用是輸出換行，搭配 <code>cout</code> 使用，<code>\n</code> 可以取代。</p>
+<p><code>endl</code> 的作用是輸出換行，搭配 <code>cout</code> 使用， <code>\n</code> 可以取代。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -1724,8 +1726,8 @@
 <h3 id="iomanip">iomanip</h3>
 <p>C++ 的 cout 也有設定寬度和長度的功能，需使用到標頭檔 <code>iomanip</code> 。</p>
 <ul>
-<li>寬度：<code>setw</code>，如果輸出的字元數小於所設寬度，不足部分會用空白填滿，或使用 <code>setfill</code> 改用其他字元補滿；如果輸出的字元數大於所設寬度，則無效。</li>
-<li>長度：<code>setprecision</code>，只對浮點數有效。cout 有兩種表示方式，<code>scientific</code> 和 <code>fixed</code>，<code>scientific</code> 只會輸出有效位數，<code>fixed</code> 會將所有位數印出。</li>
+<li>寬度： <code>setw</code> ，如果輸出的字元數小於所設寬度，不足部分會用空白填滿，或使用 <code>setfill</code> 改用其他字元補滿；如果輸出的字元數大於所設寬度，則無效。</li>
+<li>長度： <code>setprecision</code> ，只對浮點數有效。cout 有兩種表示方式， <code>scientific</code> 和 <code>fixed</code> ， <code>scientific</code> 只會輸出有效位數， <code>fixed</code> 會將所有位數印出。</li>
 </ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>

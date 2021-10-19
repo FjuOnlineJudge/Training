@@ -726,7 +726,7 @@
       
         <li class="md-nav__item">
   <a href="#operator-overloading" class="md-nav__link">
-    多載運算子(Operator overloading)
+    多載運算子（Operator overloading)
   </a>
   
 </li>
@@ -1448,7 +1448,7 @@
       
         <li class="md-nav__item">
   <a href="#operator-overloading" class="md-nav__link">
-    多載運算子(Operator overloading)
+    多載運算子（Operator overloading)
   </a>
   
 </li>
@@ -1484,8 +1484,8 @@
 <p>自定義結構為一些成員元素（資料）的組合體，在 <code>C</code> 有 <code>struct</code> ， <code>C++</code> 有 <code>struct</code> 和 <code>class</code> ， <code>C</code> 和 <code>C++</code> 的 <code>struct</code> 是不同的，以下講解：</p>
 <h2 id="c-struct"><code>C</code> 的 <code>struct</code></h2>
 <ul>
-<li>定義：<code>{}</code> 之間存放成員元素，成員元素可以示指標或陣列，<code>}</code> 之後要加上 <code>;</code>。</li>
-<li>宣告：宣告可在定義時宣告(<code>Line 6</code>)，也可以獨立宣告一行 (<code>Line 8-10</code>)，相似地，可以宣告為指標或是陣列。</li>
+<li>定義： <code>{}</code> 之間存放成員元素，成員元素可以示指標或陣列， <code>}</code> 之後要加上 <code>;</code> 。</li>
+<li>宣告：宣告可在定義時宣告（ <code>Line 6</code> )，也可以獨立宣告一行 ( <code>Line 8-10</code> )，相似地，可以宣告為指標或是陣列。</li>
 </ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -1530,7 +1530,7 @@
 </td></tr></table>
 <h2 id="c-struct-class"><code>C++</code> 的 <code>struct</code> 和 <code>class</code></h2>
 <p><code>C++</code> 的 <code>struct</code> 和 <code>class</code> 導入物件導向的概念，除了成員元素，還可定義成員函式。獨立宣告時，不用在前面加上 <code>struct</code> 和 <code>class</code> 。</p>
-<p><code>C++</code> 的 <code>struct</code> 和 <code>class</code> 的差異在於成員的預設存取權限，有 <code>public</code> 、 <code>protected</code> 、 <code>private</code> 三種權限，<code>strcut</code> 成員預設為 <code>public</code> ， <code>class</code> 則是 <code>private</code> 。</p>
+<p><code>C++</code> 的 <code>struct</code> 和 <code>class</code> 的差異在於成員的預設存取權限，有 <code>public</code> 、 <code>protected</code> 、 <code>private</code> 三種權限， <code>strcut</code> 成員預設為 <code>public</code> ， <code>class</code> 則是 <code>private</code> 。</p>
 <ul>
 <li><code>public</code> : 所有函式可存取。</li>
 <li><code>protected</code> : 成員函式、 <code>friend</code> 類別成員或函式，以及衍生類別可存取。</li>
@@ -1598,7 +1598,8 @@
 <span class="normal">17</span>
 <span class="normal">18</span>
 <span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Transportation</span><span class="w"></span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Transportation</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">color</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">printColor</span><span class="p">()</span><span class="w"></span>
@@ -1612,19 +1613,20 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">Car</span><span class="o">:</span><span class="w"> </span><span class="n">Transportation</span><span class="p">{</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">Car</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Transportation</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">printColor</span><span class="p">()</span><span class="w"> </span><span class="c1">// override</span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The car&#39;s color is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w">   </span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
 <h2 id="constructor-destructor">建構函式 (Constructor)、解構函式 (Destructor)</h2>
 <p>建構函式結構的名稱相同，是用來初始化結構裡的資料，如果沒有任何建構函式，會自動產生一個無參數的預設建構函式。然而，如果有一個帶參數的建構函式，就不會自動產生一個無參數的預設建構函式，這時候要寫一個不帶任何參數的運算函式，否則可能導致程式在編譯時發生錯誤。</p>
-<p>解構函式的名字形式為 <code>~結構的名稱</code>，在變數離開作用域時運作，不寫的話也是會有預設解構函式，在程式比賽中絕大部分的狀況，不用特別寫解構函式。</p>
+<p>解構函式的名字形式為 <code>~結構的名稱</code> ，在變數離開作用域時運作，不寫的話也是會有預設解構函式，在程式比賽中絕大部分的狀況，不用特別寫解構函式。</p>
 <p>建構函式和解構函式的存取權限必為 <code>public</code> 。</p>
-<h2 id="operator-overloading">多載運算子(Operator overloading)</h2>
+<h2 id="operator-overloading">多載運算子（Operator overloading)</h2>
 <p><code>C/C++</code> 定義了各種運算子，自定義結構根據需求可以多載運算子。在競賽中，常需要作排序而需要多載小於運算子（ <code>&lt;</code> )。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
