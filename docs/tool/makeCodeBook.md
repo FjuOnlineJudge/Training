@@ -4,10 +4,10 @@
 
 ## A. GitHub
 * 註冊一個 github 帳號
-    * https://github.com/
+    * [https://github.com/](https://github.com/)
 
 ## B. 建立你的倉庫
-* 範例頁面：https://github.com/HJackH/CodeBook-Sample
+* 範例頁面：[https://github.com/HJackH/CodeBook-Sample](https://github.com/HJackH/CodeBook-Sample)
 * 有兩種方法(選擇一種就可以)
 
 1. fork
@@ -29,8 +29,8 @@
 
 * 點鍵盤上的 `.`
 * 或是改變網址
-    * 原本: https://github.com/YOUR_NAME/mycodebook
-    * 修改: https://github.dev/YOUR_NAME/mycodebook
+    * 原本: [https://github.com/YOUR_NAME/mycodebook](https://github.com/YOUR_NAME/mycodebook)
+    * 修改: [https://github.dev/YOUR_NAME/mycodebook](https://github.dev/YOUR_NAME/mycodebook)
     * ![](images/makeCodeBook06.png)
 
 ## D. 將你的程式碼加到 codebook 中
