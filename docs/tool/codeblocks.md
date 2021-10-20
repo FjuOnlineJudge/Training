@@ -2,7 +2,7 @@
 
 - 載點： <http://www.codeblocks.org/downloads> 
 
-## 建 c/cpp 檔
+## 建立 c/cpp 檔
 
 -   Create a new project
     - ![](images/codeblocks1.png)

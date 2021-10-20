@@ -4,8 +4,8 @@
 
 ## 常用版面配置
 
-1. View -> Layout -> Column: 2
-2. View -> Groups -> New Group
+1. `View -> Layout -> Column: 2`
+2. `View -> Groups -> New Group`
 
 ![](images/sublimeText.png)
 

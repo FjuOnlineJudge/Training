@@ -9,9 +9,9 @@
 
 -   呼叫終端機：Ctrl +\`
     - ![](images/vsCode2.png)
--   預設是 powershell，建議調成 cmd
+-   預設是 powershell，建議調成 `cmd`
     - ![](images/vsCode3.png)
--   選 Command Prompt 按 `+` 打開即是 cmd
+-   選 Command Prompt 按 `+` 打開即是 `cmd`
     - ![](images/vsCode4.png)
 
 ## 常用熱鍵
