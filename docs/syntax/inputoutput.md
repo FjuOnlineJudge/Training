@@ -84,3 +84,22 @@ C++ 的 cout 也有設定寬度和長度的功能，需使用到標頭檔 `ioman
 ```cpp
 --8<-- "docs/syntax/code/iomanip.cpp"
 ```
+
+### 輸入輸出優化
+
+有時候使用 `cin/cout` 會造成超時的結果，換成 `scanf/printf` 就會正確。造成 `cin/cout` 過慢的原因簡單來說可列出以下幾點：
+
+- 為了和 `stdin/stdout` 同步。
+- 使用 `endl` 會強制清空緩衝區。
+-  `cin` 綁住了 `cout` ，在輸入的時候輸出也會被強制清空緩衝區。
+
+解決辦法如下：
+
+- 用 `\n` 取代 `endl` 。
+- 在程式開頭加入這三行：
+
+```cpp
+--8<-- "docs/syntax/code/optimize.cpp"
+```
+
+詳細的可以參考： [C++ 的輸出入 cin/cout 和 scanf/printf 誰比較快？](https://chino.taipei/note-2016-0311C-%E7%9A%84%E8%BC%B8%E5%87%BA%E5%85%A5cin-cout%E5%92%8Cscanf-printf%E8%AA%B0%E6%AF%94%E8%BC%83%E5%BF%AB%EF%BC%9F/) 

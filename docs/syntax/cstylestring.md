@@ -50,4 +50,15 @@ C 式字串可以一個字元一個字元慢慢輸入，也可以一次輸入整
     - $s=pencil,t=pencilbox$
     - 前第 $6$ 個字元都相等，因為 $s$ 已經比較完所有字元，因此 $s < t$
 
+## Scan Set
+
+Scan Set 可以設定字串輸入只包含哪些字元，主要用於輸入格式較複雜的題目。舉例如下：
+
+-  `%[abc]s` ：輸入包含 `abc` 的字串
+-  `%[^abc]s` ：輸入不包含 `abc` 的字串
+
+```cpp
+--8<-- "docs/syntax/code/scanSet.cpp"
+```
+
 [^1]:  [字典序 in 維基百科](https://zh.wikipedia.org/wiki/%E5%AD%97%E5%85%B8%E5%BA%8F) 
