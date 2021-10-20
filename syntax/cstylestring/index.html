@@ -397,7 +397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/codeblocks.md" class="md-nav__link">
+      <a href="../../tool/codeblocks/" class="md-nav__link">
         Code::Blocks
       </a>
     </li>
@@ -409,7 +409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/sublimetext.md" class="md-nav__link">
+      <a href="../../tool/sublimetext/" class="md-nav__link">
         Sublime Text
       </a>
     </li>
@@ -421,7 +421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/vscode.md" class="md-nav__link">
+      <a href="../../tool/vscode/" class="md-nav__link">
         VS Code
       </a>
     </li>
@@ -529,7 +529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/makeCodeBook/" class="md-nav__link">
+      <a href="../../tool/makecodebook/" class="md-nav__link">
         製作 CodeBook
       </a>
     </li>
@@ -682,6 +682,13 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     字典序
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scan-set" class="md-nav__link">
+    Scan Set
   </a>
   
 </li>
@@ -1409,6 +1416,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#scan-set" class="md-nav__link">
+    Scan Set
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1486,6 +1500,43 @@
 </ul>
 </div>
 </div>
+<h2 id="scan-set">Scan Set</h2>
+<p>Scan Set 可以設定字串輸入只包含哪些字元，主要用於輸入格式較複雜的題目。舉例如下：</p>
+<ul>
+<li><code>%[abc]s</code> ：輸入包含 <code>abc</code> 的字串</li>
+<li><code>%[^abc]s</code> ：輸入不包含 <code>abc</code> 的字串</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%[abc]s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">);</span><span class="w"></span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">);</span><span class="w"></span>
+
+<span class="cm">/*</span>
+<span class="cm">輸入：abcdef</span>
+<span class="cm">輸出：abc</span>
+<span class="cm">*/</span><span class="w"></span>
+
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%[^abc]s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">);</span><span class="w"></span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">);</span><span class="w"></span>
+
+<span class="cm">/*</span>
+<span class="cm">輸入：fedcba</span>
+<span class="cm">輸出：cba</span>
+<span class="cm">*/</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
 <div class="footnote">
 <hr />
 <ol>

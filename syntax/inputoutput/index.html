@@ -397,7 +397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/codeblocks.md" class="md-nav__link">
+      <a href="../../tool/codeblocks/" class="md-nav__link">
         Code::Blocks
       </a>
     </li>
@@ -409,7 +409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/sublimetext.md" class="md-nav__link">
+      <a href="../../tool/sublimetext/" class="md-nav__link">
         Sublime Text
       </a>
     </li>
@@ -421,7 +421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/vscode.md" class="md-nav__link">
+      <a href="../../tool/vscode/" class="md-nav__link">
         VS Code
       </a>
     </li>
@@ -529,7 +529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/makeCodeBook/" class="md-nav__link">
+      <a href="../../tool/makecodebook/" class="md-nav__link">
         製作 CodeBook
       </a>
     </li>
@@ -662,6 +662,13 @@
           <li class="md-nav__item">
   <a href="#iomanip" class="md-nav__link">
     iomanip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    輸入輸出優化
   </a>
   
 </li>
@@ -1470,6 +1477,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    輸入輸出優化
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1822,6 +1836,26 @@
 <span class="cm">*/</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
+<h3 id="_3">輸入輸出優化</h3>
+<p>有時候使用 <code>cin/cout</code> 會造成超時的結果，換成 <code>scanf/printf</code> 就會正確。造成 <code>cin/cout</code> 過慢的原因簡單來說可列出以下幾點：</p>
+<ul>
+<li>為了和 <code>stdin/stdout</code> 同步。</li>
+<li>使用 <code>endl</code> 會強制清空緩衝區。</li>
+<li><code>cin</code> 綁住了 <code>cout</code> ，在輸入的時候輸出也會被強制清空緩衝區。</li>
+</ul>
+<p>解決辦法如下：</p>
+<ul>
+<li>用 <code>\n</code> 取代 <code>endl</code> 。</li>
+<li>在程式開頭加入這三行：</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="k">nullptr</span><span class="p">);</span><span class="w"></span>
+<span class="n">cout</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="k">nullptr</span><span class="p">);</span><span class="w"></span>
+<span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+<p>詳細的可以參考： <a href="https://chino.taipei/note-2016-0311C-%E7%9A%84%E8%BC%B8%E5%87%BA%E5%85%A5cin-cout%E5%92%8Cscanf-printf%E8%AA%B0%E6%AF%94%E8%BC%83%E5%BF%AB%EF%BC%9F/">C++ 的輸出入 cin/cout 和 scanf/printf 誰比較快？</a> </p>
                 
               
               
