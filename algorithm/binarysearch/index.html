@@ -1452,7 +1452,9 @@
 <p>有些題目為 "最多/最少為何會成立"，那麼如果你可以在良好的時間檢查出 " 如果代價是 <script type="math/tex">x</script> ，那可不可以達成目標 "，並且 <script type="math/tex">x</script> 具有單調性，那麼你可以轉換成 " 如果代價是 <script type="math/tex">x</script> ，那可不可以達成目標 " 傳換成 <script type="math/tex">F(x)</script> ，對答案（x）進行二分搜。
 二分搜要注意兩件事，一個是無限迴圈，要避免它可以在腦中先模擬一下。一個是在實數中二分搜，因為實數的稠密性，題目會有誤差容忍值（例如 <script type="math/tex">10^{-6}</script> )，只要在誤差內都是容許的。</p>
 <h2 id="_2">最小瓶頸樹</h2>
-<details class="question" open="open"><summary>最小瓶頸樹</summary><p>給定一張圖，求一顆生成樹，樹的最大邊權值最小。</p>
+<details class="question" open="open">
+<summary>最小瓶頸樹</summary>
+<p>給定一張圖，求一顆生成樹，樹的最大邊權值最小。</p>
 </details>
 <p>枚舉最大邊權值 <script type="math/tex">w</script> ，用 DFS/BFS 檢查 <script type="math/tex">\leq w</script> 的邊是否可以將所有點相連，如果可以，最大邊權值會 <script type="math/tex">\leq w</script> ，否則會 <script type="math/tex">>w</script> 。</p>
 <h2 id="_3">三分搜</h2>

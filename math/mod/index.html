@@ -1573,7 +1573,9 @@
 <p>整數 <script type="math/tex">a</script> 在 <script type="math/tex">\operatorname{mod} c</script> 下要有模反元素的充分必要條件為 <script type="math/tex">a,c</script> 互質。</p>
 <p>模逆元如果存在會有無限個，任意兩相鄰模逆元相差 <script type="math/tex">c</script> 。</p>
 <h3 id="_6">方法一：擴展歐基里德演算法</h3>
-<details open="open"><summary>貝祖定理</summary><p>令 <script type="math/tex">a,c</script> 為非 <script type="math/tex">0</script> 整數，存在整數解 <script type="math/tex">x,y</script> 使得 <script type="math/tex">ax+cy=gcd(a,c)</script>
+<details open="open">
+<summary>貝祖定理</summary>
+<p>令 <script type="math/tex">a,c</script> 為非 <script type="math/tex">0</script> 整數，存在整數解 <script type="math/tex">x,y</script> 使得 <script type="math/tex">ax+cy=gcd(a,c)</script>
 </p>
 </details>
 <p>從上文可得知，如果 <script type="math/tex">gcd(a,c)=1</script> ，則 <script type="math/tex">a</script> 在 <script type="math/tex">\operatorname{mod} c</script> 下有模反元素，又根據貝祖定理，可知存在整數 <script type="math/tex">x,y</script> ，使得 <script type="math/tex">ax+cy=gcd(a,c)=1</script> ，這裡的 <script type="math/tex">x</script> 即為 <script type="math/tex">a</script> 的反元素。我們可以修改找最大公因數的辦法，找出 <script type="math/tex">a</script> 的模逆元，這個算法稱為擴展歐基里德演算法。這個演算法可以推廣到 <script type="math/tex">ax+cy=d,d\in\mathbb{Z}</script>

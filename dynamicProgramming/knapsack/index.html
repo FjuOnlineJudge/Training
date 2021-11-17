@@ -1464,7 +1464,9 @@
                 
                 <h1 id="dp-knapsack-dp">背包 DP (Knapsack DP)</h1>
 <h2 id="0-1">0-1 背包問題</h2>
-<details class="question" open="open"><summary>0-1 背包問題</summary><p>給定 <script type="math/tex">N</script> 個物品的重量 <script type="math/tex">w_i</script> 和價值 <script type="math/tex">v_i</script>，和一個容量為 <script type="math/tex">W</script> 的背包。選取若干件物品放入背包，在不超過背包容量的情況下，背包內物品價值總和最大為何?</p>
+<details class="question" open="open">
+<summary>0-1 背包問題</summary>
+<p>給定 <script type="math/tex">N</script> 個物品的重量 <script type="math/tex">w_i</script> 和價值 <script type="math/tex">v_i</script>，和一個容量為 <script type="math/tex">W</script> 的背包。選取若干件物品放入背包，在不超過背包容量的情況下，背包內物品價值總和最大為何?</p>
 </details>
 <p>每種物品有兩個狀態不放與放，可對應二進位的 <script type="math/tex">0</script> 和 <script type="math/tex">1</script> ，故稱為「0-1 背包問題」。</p>
 <p>題目有三項資料，物品個數、物品重量、物品價值，利用這些資料設計出狀態式：</p>
@@ -1571,7 +1573,9 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<details class="tip" open="open"><summary>滾動陣列</summary><p>覆蓋不會用到的資訊，降低記憶體使用量。</p>
+<details class="tip" open="open">
+<summary>滾動陣列</summary>
+<p>覆蓋不會用到的資訊，降低記憶體使用量。</p>
 </details>
 <p>0-1 背包問題時間複雜度 <script type="math/tex">O(NW)</script> ，空間複雜度 <script type="math/tex">O(N)</script> 。</p>
 <h3 id="_2">背包問題另一種狀態式</h3>
@@ -1595,10 +1599,14 @@
 <script type="math/tex">max\{i|f(n,i)\leq w\}</script>
 </li>
 </ul>
-<details class="tip" open="open"><summary>技巧：表示(負)無限大</summary><p>(負)無限大只要設成一個比最大(小)答案還要大(小)的值就行了。</p>
+<details class="tip" open="open">
+<summary>技巧：表示(負)無限大</summary>
+<p>(負)無限大只要設成一個比最大(小)答案還要大(小)的值就行了。</p>
 </details>
 <h2 id="_3">無限背包問題</h2>
-<details class="question" open="open"><summary>無限背包問題</summary><p>給定 <script type="math/tex">n</script> 種物品的重量 <script type="math/tex">w_i</script> 和價值 <script type="math/tex">v_i</script>，和一個容量為 <script type="math/tex">W</script> 的背包。每種物品可選取任意個放入背包，在不超過背包容量的情況下，背包內物品價值總和最大為何?</p>
+<details class="question" open="open">
+<summary>無限背包問題</summary>
+<p>給定 <script type="math/tex">n</script> 種物品的重量 <script type="math/tex">w_i</script> 和價值 <script type="math/tex">v_i</script>，和一個容量為 <script type="math/tex">W</script> 的背包。每種物品可選取任意個放入背包，在不超過背包容量的情況下，背包內物品價值總和最大為何?</p>
 </details>
 <p>無限背包問題和 0-1 背包問題差異在於無限背包的物品可以選無限多個。</p>
 <p>無限背包問題和 0-1 背包問題的狀態式相同，以下為轉移式：</p>

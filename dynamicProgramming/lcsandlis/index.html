@@ -1452,7 +1452,9 @@
                 
                 <h1 id="lcs-lis">LCS 和 LIS</h1>
 <h2 id="longest-common-subsequence">最長共同子序列 (Longest Common Subsequence)</h2>
-<details class="question" open="open"><summary>最長共同子序列</summary><p>子序列是指一個序列去除任意個（包含 0）元素後所形成的新序列。
+<details class="question" open="open">
+<summary>最長共同子序列</summary>
+<p>子序列是指一個序列去除任意個（包含 0）元素後所形成的新序列。
 給定兩序列 <script type="math/tex">A,B</script> ，求最長的序列 <script type="math/tex">C</script> ， <script type="math/tex">C</script> 同時為 <script type="math/tex">A,B</script> 的子序列。</p>
 </details>
 <ul>
@@ -1471,7 +1473,9 @@
 </ul>
 <p>求出 LCS 的時間、空間複雜度都是 <script type="math/tex">O(N^2)</script> ，使用滾動陣列技巧，可將空間複雜度降至 <script type="math/tex">O(N)</script> 。</p>
 <h2 id="longest-increasing-subsequence">最長遞增子序列 (Longest Increasing Subsequence)</h2>
-<details class="question" open="open"><summary>最長遞增子序列</summary><p>給你一個序列 <script type="math/tex">A</script> ，求最長的序列 <script type="math/tex">B</script> ， <script type="math/tex">B</script> 是一個（非）嚴格遞增序列，且為 <script type="math/tex">A</script> 的子序列。</p>
+<details class="question" open="open">
+<summary>最長遞增子序列</summary>
+<p>給你一個序列 <script type="math/tex">A</script> ，求最長的序列 <script type="math/tex">B</script> ， <script type="math/tex">B</script> 是一個（非）嚴格遞增序列，且為 <script type="math/tex">A</script> 的子序列。</p>
 </details>
 <ul>
 <li>狀態： <script type="math/tex">dp[i]</script> ：第 <script type="math/tex">1</script> 到 <script type="math/tex">i</script> 個數字所形成最長遞增子序列的長度</li>
@@ -1519,8 +1523,7 @@
 <li>初始狀態： <script type="math/tex">dp[0][0] = -INF, dp[0][i] = INF, dp[i][0]=don't\ care</script> when <script type="math/tex">i \geq 1</script>
 </li>
 </ul>
-<!-- TODO LIS 示意圖 -->
-
+<p><img alt="" src="../images/LIS.gif" /></p>
 <p>這樣的狀態轉移式時間和空間複雜度依舊是 <script type="math/tex">O(N^2)</script> ，不過，有幾點值得觀察：</p>
 <p>令 <script type="math/tex">g[i]=dp[x][i]</script> , where <script type="math/tex">1\leq x \leq N</script> ，忽略 <script type="math/tex">\infty</script> ， <script type="math/tex">g</script> 為一個嚴格遞增序列，當 <script type="math/tex">x</script> 每次 <script type="math/tex">+1</script> ， <script type="math/tex">g</script> 每次都有一個數字改變，改變的數字皆為 <script type="math/tex">a[i]</script> ，被改的數字為 <script type="math/tex">lower\_bound(a[i])</script> 。</p>
 <p>根據上述性質，可用二分搜更新 <script type="math/tex">g</script> ，藉此找到 LIS 的長度。每次二分搜的時間複雜度為 <script type="math/tex">O(\log N)</script> ，整體時間複雜度為 <script type="math/tex">O(N\log N)</script> 。</p>

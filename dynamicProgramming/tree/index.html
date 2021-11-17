@@ -1451,7 +1451,9 @@
                 <h1 id="dp">樹 DP</h1>
 <p>在樹上 DP，通常會使用 DFS（遞迴），從父節點遞迴到子節點，再合併子節點的答案。</p>
 <h2 id="_1">最小點覆蓋</h2>
-<details class="question" open="open"><summary>最小點覆蓋</summary><p>給定一棵樹 <script type="math/tex">T</script> ，樹上所有點一開始為白色，要求將一些點塗成黑色，使得所有的邊至少與一個黑色點相連，求最少要塗幾個點？</p>
+<details class="question" open="open">
+<summary>最小點覆蓋</summary>
+<p>給定一棵樹 <script type="math/tex">T</script> ，樹上所有點一開始為白色，要求將一些點塗成黑色，使得所有的邊至少與一個黑色點相連，求最少要塗幾個點？</p>
 </details>
 <ul>
 <li>
@@ -1484,7 +1486,9 @@
 <h2 id="dp-dp">換根 DP（全方位樹 DP)</h2>
 <p>進行兩次 DFS，第一次求子節點對當前節點的貢獻（樹 DP)，第二次：根據求父節點點對當前節點的貢獻。</p>
 <h3 id="_2">樹直徑</h3>
-<details class="question" open="open"><summary>樹直徑</summary><p>一棵樹中，最長的路徑稱為樹直徑。給定一顆樹，求直徑長度。</p>
+<details class="question" open="open">
+<summary>樹直徑</summary>
+<p>一棵樹中，最長的路徑稱為樹直徑。給定一顆樹，求直徑長度。</p>
 </details>
 <p>第一種做法是枚舉所有的點為根，求出兩顆深度最深的子樹 <script type="math/tex">h_1,h_2</script> ，找出最大的 <script type="math/tex">h_1+h_2+1</script> ，一次 DFS 的時間複雜度為 <script type="math/tex">O(V+E)</script> ，整體時間複雜度 <script type="math/tex">O(V(V+E))</script> 。</p>
 <p>第二種做法是用換根 DP。第一次 DFS 固定一點為根，求出每個點最深的兩顆子樹高度 ( <script type="math/tex">h_1,h_2</script> )。第二次 DFS 對於每個點 <script type="math/tex">u</script> ，求出經過父節點最長的路徑 ( <script type="math/tex">h_3</script> )。取 <script type="math/tex">h_1,h_2,h_3</script> 前兩大數值和再加 <script type="math/tex">1</script> 即為答案。這種作法使用了兩次 DFS，時間複雜度 <script type="math/tex">O(V+E)</script>

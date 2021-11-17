@@ -1636,12 +1636,16 @@
 </ul>
 <h2 id="_4">二分圖最大匹配</h2>
 <h3 id="hungarian-algorithm">匈牙利演算法 (Hungarian algorithm)</h3>
-<details open="open"><summary>交錯路 (Alternating Path) 及增廣路 (Agumenting Path)</summary><p>交錯路：依序經過非匹配邊、匹配邊、。。。、非匹配邊、匹配邊、非匹配邊所形成的路徑。</p>
+<details open="open">
+<summary>交錯路 (Alternating Path) 及增廣路 (Agumenting Path)</summary>
+<p>交錯路：依序經過非匹配邊、匹配邊、。。。、非匹配邊、匹配邊、非匹配邊所形成的路徑。</p>
 <p>增廣路：從非匹配點出發，經過交錯路，最後經過另一個集合的非匹配點，該路徑稱為增廣路。把增廣路上的非匹配邊和匹配邊替換，就能使匹配數量 <script type="math/tex">+1</script> 。</p>
 <p><img alt="" src="../images/matching.png" />
 <img alt="" src="../images/agumentingPath.png" /></p>
 </details>
-<details open="open"><summary>Berge's Theorem</summary><p>如果一個匹配 <script type="math/tex">M</script> 找不到任何增廣路，那麼 <script type="math/tex">M</script> 就是一個最大匹配。</p>
+<details open="open">
+<summary>Berge's Theorem</summary>
+<p>如果一個匹配 <script type="math/tex">M</script> 找不到任何增廣路，那麼 <script type="math/tex">M</script> 就是一個最大匹配。</p>
 <p>此定理可延伸出，如果一個非匹配點 <script type="math/tex">v</script> 找不到增廣路，那麼存在不包含 <script type="math/tex">v</script> 的最大匹配 <script type="math/tex">M'</script> 。</p>
 </details>
 <p>根據 Berge's Theorem，我們得到一個算法：枚舉集合 <script type="math/tex">X</script> 未匹配的點 <script type="math/tex">s</script> ，如果找到增廣路，則翻轉所有邊，否則就把 <script type="math/tex">s</script> 移出匹配。找出增廣路的方式為，從 <script type="math/tex">X</script> 集合的每個點 <script type="math/tex">s</script> 開始 DFS，去拜訪集合 <script type="math/tex">Y</script> 的每個和 <script type="math/tex">s</script> 相連的點 <script type="math/tex">t</script> ，如果 <script type="math/tex">t</script> 是未匹配點，則找到一條增廣路；如果 <script type="math/tex">t</script> 是匹配點，則從和 <script type="math/tex">t</script> 匹配點 <script type="math/tex">s'</script> 開始 DFS 尋找增廣路。</p>

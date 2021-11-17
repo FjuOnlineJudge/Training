@@ -1668,7 +1668,9 @@
                 
                 <h1 id="_1">基礎題目</h1>
 <h2 id="_2">費式數列</h2>
-<details class="question" open="open"><summary>費式數列</summary><p>費式數列的定義： <script type="math/tex">f(n)=f(n-1)+f(n-2),f(0)=0,f(1)=1</script> 。
+<details class="question" open="open">
+<summary>費式數列</summary>
+<p>費式數列的定義： <script type="math/tex">f(n)=f(n-1)+f(n-2),f(0)=0,f(1)=1</script> 。
 給定 <script type="math/tex">i</script> ，請求出 <script type="math/tex">f(i)</script> 。</p>
 </details>
 <p>狀態轉移式如下：</p>
@@ -1735,10 +1737,14 @@
 </code></pre></div>
 </td></tr></table>
 <p>一開始將每個 <script type="math/tex">dp</script> 設為 <script type="math/tex">-1</script> ，代表該狀態未被計算。</p>
-<details class="tip" open="open"><summary>技巧：表示未計算狀態</summary><p>將陣列的數值初始化一個不可能成為答案的數字 (例如：<script type="math/tex">-1,0</script>)，代表該狀態未被計算。</p>
+<details class="tip" open="open">
+<summary>技巧：表示未計算狀態</summary>
+<p>將陣列的數值初始化一個不可能成為答案的數字 (例如：<script type="math/tex">-1,0</script>)，代表該狀態未被計算。</p>
 </details>
 <p>時間複雜度為 <script type="math/tex">O(N)</script> 。</p>
-<details class="note"><summary>時間複雜度證明</summary><p>這種版本的時間複雜度我們用以下程式碼解釋：</p>
+<details class="note">
+<summary>時間複雜度證明</summary>
+<p>這種版本的時間複雜度我們用以下程式碼解釋：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1868,7 +1874,9 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<details class="tip" open="open"><summary>DP 實作辦法</summary><ul>
+<details class="tip" open="open">
+<summary>DP 實作辦法</summary>
+<ul>
 <li>遞迴</li>
 <li>迴圈 (向前看)</li>
 <li>迴圈 (向後看)</li>
@@ -1876,7 +1884,9 @@
 </details>
 <p>除了費式數列，任何數列可以寫成 <script type="math/tex">f(i)=a_1f(i-1)+a_2f(i-2)+...+a_nf(i-n)+k</script> 的形式，皆可利用 DP 來解出。</p>
 <h2 id="pascals-triangle">帕斯卡三角形 (Pascal's triangle)</h2>
-<details class="question" open="open"><summary>Question</summary><p>帕斯卡三角形的第 <script type="math/tex">m</script> 層第 <script type="math/tex">n</script> 項 <script type="math/tex">=C_n^m</script> ，給定 <script type="math/tex">i,j</script> ，請求出帕斯卡三角形的第 <script type="math/tex">i</script> 層第 <script type="math/tex">j</script> 項。</p>
+<details class="question" open="open">
+<summary>Question</summary>
+<p>帕斯卡三角形的第 <script type="math/tex">m</script> 層第 <script type="math/tex">n</script> 項 <script type="math/tex">=C_n^m</script> ，給定 <script type="math/tex">i,j</script> ，請求出帕斯卡三角形的第 <script type="math/tex">i</script> 層第 <script type="math/tex">j</script> 項。</p>
 </details>
 <p>帕斯卡三角形有以下性質： <script type="math/tex">C^n_k=C_k^{n-1}+C_{k-1}^{n-1}</script> ，根據性質設計出狀態轉移式：</p>
 <ul>
@@ -1918,7 +1928,9 @@
 </code></pre></div>
 </td></tr></table>
 <h2 id="atcoder-educational-dp-contest-a-frog-1"><a href="https://atcoder.jp/contests/dp/tasks/dp_a">AtCoder Educational DP Contest A - Frog 1</a></h2>
-<details class="question" open="open"><summary>Frog</summary><p>有隻青蛙要從第 <script type="math/tex">1</script> 塊石頭跳到第 <script type="math/tex">N</script> 塊石頭，每塊石頭都有高度 <script type="math/tex">h_i</script> ，每一次可以從第 <script type="math/tex">i</script> 塊跳到第 <script type="math/tex">i+1</script> 塊，成本為兩塊石頭的高低差，求最小成本。</p>
+<details class="question" open="open">
+<summary>Frog</summary>
+<p>有隻青蛙要從第 <script type="math/tex">1</script> 塊石頭跳到第 <script type="math/tex">N</script> 塊石頭，每塊石頭都有高度 <script type="math/tex">h_i</script> ，每一次可以從第 <script type="math/tex">i</script> 塊跳到第 <script type="math/tex">i+1</script> 塊，成本為兩塊石頭的高低差，求最小成本。</p>
 </details>
 <p>狀態轉移式如下：</p>
 <ul>
@@ -1926,7 +1938,9 @@
 <li>初始狀態： <script type="math/tex">f(0)=0</script> 。</li>
 <li>轉移： <script type="math/tex">f(n)=min(abs(h_{n}-h_{n-1})+f(i-1),abs(h_{n}-h_{n-2})+f(i-2))</script> 。</li>
 </ul>
-<details><summary>參考程式碼</summary><p>作者： <a href="https://github.com/allem40306">allem40306</a> </p>
+<details>
+<summary>參考程式碼</summary>
+<p>作者： <a href="https://github.com/allem40306">allem40306</a> </p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1965,10 +1979,14 @@
 </code></pre></div>
 </td></tr></table>
 </details>
-<details class="tip" open="open"><summary>技巧：<script type="math/tex">dp[i]=1\to i</script> (前綴狀態)</summary><p>一維 DP 常用狀態，經典的例子為前綴和。</p>
+<details class="tip" open="open">
+<summary>技巧：<script type="math/tex">dp[i]=1\to i</script> (前綴狀態)</summary>
+<p>一維 DP 常用狀態，經典的例子為前綴和。</p>
 </details>
 <h2 id="_7">最大連續區間和</h2>
-<details class="question" open="open"><summary>最大連續區間和</summary><p>給定一個長度為 <script type="math/tex">N</script> 的序列 <script type="math/tex">A</script> ，求出一組 <script type="math/tex">i,j(i\leq j)</script> ，使得 <script type="math/tex">\sum_{x=i}^{j}A[x]</script> 最大。</p>
+<details class="question" open="open">
+<summary>最大連續區間和</summary>
+<p>給定一個長度為 <script type="math/tex">N</script> 的序列 <script type="math/tex">A</script> ，求出一組 <script type="math/tex">i,j(i\leq j)</script> ，使得 <script type="math/tex">\sum_{x=i}^{j}A[x]</script> 最大。</p>
 </details>
 <h3 id="1-ij">方法 1：枚舉 <script type="math/tex">i,j</script>
 </h3>
@@ -2068,7 +2086,9 @@
 </code></pre></div>
 </td></tr></table>
 <h3 id="_8">加上長度限制</h3>
-<details class="question" open="open"><summary>最大連續區間和 2</summary><p>給定一個長度為 <script type="math/tex">N</script> 的序列 <script type="math/tex">A</script> ，求出一組 <script type="math/tex">i,j(i\leq j,j-i<L)</script> ，使得 <script type="math/tex">\sum_{x=i}^{j}A[x]</script> 最大。</p>
+<details class="question" open="open">
+<summary>最大連續區間和 2</summary>
+<p>給定一個長度為 <script type="math/tex">N</script> 的序列 <script type="math/tex">A</script> ，求出一組 <script type="math/tex">i,j(i\leq j,j-i<L)</script> ，使得 <script type="math/tex">\sum_{x=i}^{j}A[x]</script> 最大。</p>
 </details>
 <p>一樣先計算出前綴和，對於每個 <script type="math/tex">sum[i]</script> ，找出 <script type="math/tex">min_{max(0,i-L)\le j< i}sum[j]</script> ，直接枚舉的時間複雜度 <script type="math/tex">O(N^2)</script> 。</p>
 <p>觀察以下性質：假設 <script type="math/tex">i<j</script> 且 <script type="math/tex">sum[i]>sum[j]</script> ，當遍歷到 <script type="math/tex">j</script> ， <script type="math/tex">sum[i]</script> 這項資料因為位置和本身數值兩項因素，不可能比 <script type="math/tex">sum[j]</script> 還要好，因此不再需要考慮 <script type="math/tex">sum[i]</script> 是否為解。</p>
@@ -2135,10 +2155,14 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<details class="tip" open="open"><summary>技巧：單調對列優化</summary><p>利用題目中的「單調性」，利用資料結構維護可能的解，通常可以讓時間複雜度降低 <script type="math/tex">1</script> 個維度 (e.g. <script type="math/tex">O(N^2)\to O(N)</script>)。</p>
+<details class="tip" open="open">
+<summary>技巧：單調對列優化</summary>
+<p>利用題目中的「單調性」，利用資料結構維護可能的解，通常可以讓時間複雜度降低 <script type="math/tex">1</script> 個維度 (e.g. <script type="math/tex">O(N^2)\to O(N)</script>)。</p>
 </details>
 <h2 id="_9">最大矩形面積</h2>
-<details class="question" open="open"><summary>最大矩形面積</summary><p>給定 <script type="math/tex">N</script> 條相連的長條圖，求圖內最大長方形面積。</p>
+<details class="question" open="open">
+<summary>最大矩形面積</summary>
+<p>給定 <script type="math/tex">N</script> 條相連的長條圖，求圖內最大長方形面積。</p>
 </details>
 <p><img alt="" src="../images/maxRectangleAreaSample.png" /></p>
 <p>對於每個高度 <script type="math/tex">H[i]</script> ，計算左右邊界 <script type="math/tex">L[i],R[i]</script> ，面積 <script type="math/tex">A[i]=H[i]\times(R[i]-L[i]+1)</script>
@@ -2266,7 +2290,9 @@
 </code></pre></div>
 </td></tr></table>
 <h3 id="_10">延伸題目</h3>
-<details class="question" open="open"><summary>最大矩形面積 2</summary><p>給定 <script type="math/tex">N\times M</script> 的格子 <script type="math/tex">A</script> ，每格格子只有數字 <script type="math/tex">0</script> 或 <script type="math/tex">1</script> ，請求出只包含 <script type="math/tex">1</script> 的最大矩形。</p>
+<details class="question" open="open">
+<summary>最大矩形面積 2</summary>
+<p>給定 <script type="math/tex">N\times M</script> 的格子 <script type="math/tex">A</script> ，每格格子只有數字 <script type="math/tex">0</script> 或 <script type="math/tex">1</script> ，請求出只包含 <script type="math/tex">1</script> 的最大矩形。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -2311,7 +2337,9 @@
 <h2 id="dag-dp">DAG DP</h2>
 <p>將點當成狀態，邊當成轉移方向，時間複雜度為 <script type="math/tex">O(V+E)</script> 。</p>
 <h3 id="dag">DAG 上最長路徑</h3>
-<details class="question" open="open"><summary>DAG 上最長路徑</summary><p>給定一顆有向無環圖，求出圖上最長的路徑</p>
+<details class="question" open="open">
+<summary>DAG 上最長路徑</summary>
+<p>給定一顆有向無環圖，求出圖上最長的路徑</p>
 </details>
 <p>狀態轉移式如下：</p>
 <ul>

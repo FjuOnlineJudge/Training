@@ -1845,14 +1845,18 @@
 <h3 id="eof">EOF 版</h3>
 <p>這種題目通常沒有明確的終止條件，或是直接告訴你「以 EOF 結尾」。</p>
 <p>檔案結尾 (End of File, EOF)，是指作業系統無法從資料來源讀取更多資料的情形，也就是一個程式讀資料讀到檔尾，程式遇到檔尾會回傳值，下列列出常用輸入函式（函式請參考 <a href="../functionandrecursive/">函式與遞迴章節</a> )：</p>
-<details open="open"><summary>如何模擬 EOF</summary><ul>
+<details open="open">
+<summary>如何模擬 EOF</summary>
+<ul>
 <li>在 windows 的命令提示字元按 <code>Crtl + Z</code> </li>
 <li>類 Linux 系統按 <code>Crtl + D</code> </li>
 <li>也可以用 command line 編譯程式，重新導向輸入輸出</li>
 </ul>
 </details>
 <p>當讀到檔尾時， <code>scanf</code> 會回傳 <code>-1</code> ，利用 <code>scanf</code> 的回傳值判斷是否獨到檔尾。</p>
-<details open="open"><summary>錯誤觀念</summary><ul>
+<details open="open">
+<summary>錯誤觀念</summary>
+<ul>
 <li>錯誤：讀不到數字會變成 -1</li>
 <li>正確：讀不到 <code>scanf()</code> 會回傳 -1，也只有 C 的 <code>scanf</code> 會回傳 -1</li>
 </ul>

@@ -1527,12 +1527,16 @@
 <h2 id="_4">技巧</h2>
 <h3 id="_5">減少枚舉維度</h3>
 <p>找出需要枚舉的參數後，有些參數可能是和結果無關，或是可由其他參數推導出，移除該參數可降低時間複雜度。</p>
-<details class="question" open="open"><summary>uva10976 - Fractions Again?</summary><p>給定 <script type="math/tex">k(0 < k \leq 100)</script> ，請求出所有正整數解 <script type="math/tex">x,y(x \geq y)</script> ，使得 <script type="math/tex">\frac{1}{k}=\frac{1}{x}+\frac{1}{y}</script>
+<details class="question" open="open">
+<summary>uva10976 - Fractions Again?</summary>
+<p>給定 <script type="math/tex">k(0 < k \leq 100)</script> ，請求出所有正整數解 <script type="math/tex">x,y(x \geq y)</script> ，使得 <script type="math/tex">\frac{1}{k}=\frac{1}{x}+\frac{1}{y}</script>
 </p>
 </details>
 <p>最直觀的解法是枚舉兩個參數 <script type="math/tex">x,y</script> ，但其實只要知道 <script type="math/tex">x,y</script> 任意一項就可推出另外一項，有根據題目我們可以得出 <script type="math/tex">y</script> 在 <script type="math/tex">(k,2k]</script> 之間（當 <script type="math/tex">x=y</script> 時， <script type="math/tex">x=y=2k</script> )，要枚舉的範圍較小，因此我們選擇枚舉 <script type="math/tex">y</script> 的算法，時間複雜度為 <script type="math/tex">O(k)</script>
 </p>
-<details><summary>參考程式碼</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<details>
+<summary>參考程式碼</summary>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -1586,11 +1590,15 @@
 </details>
 <h3 id="_6">雙指標</h3>
 <p>利用兩個指標線性遍歷陣列，得出答案。「雙指標」可為兩個指標或是兩個整數型態變數紀錄位置。</p>
-<details class="question" open="open"><summary>Question</summary><p>給定一個長度為 <script type="math/tex">N,(N \leq 100000)</script> 的序列 <script type="math/tex">A</script> ，求出一組 <script type="math/tex">i,j(i>j)</script> 使得 <script type="math/tex">a_i-a_j</script> 最大</p>
+<details class="question" open="open">
+<summary>Question</summary>
+<p>給定一個長度為 <script type="math/tex">N,(N \leq 100000)</script> 的序列 <script type="math/tex">A</script> ，求出一組 <script type="math/tex">i,j(i>j)</script> 使得 <script type="math/tex">a_i-a_j</script> 最大</p>
 </details>
 <p>首先會直觀的想到一個 <script type="math/tex">O(N^2)</script> 的算法：枚舉 <script type="math/tex">i,j</script> 算出結果後取最大值。
 接著可以想到對於每個數字 <script type="math/tex">a_i</script> 只要和最小的 <script type="math/tex">a_j</script> ( <script type="math/tex">min_j</script> ) 相減即可，又 <script type="math/tex">min_j</script> 具有單調性，即 <script type="math/tex">min_j</script> 的位置會不變或向右移，因此可以利用一個指標遍歷序列，一個指標紀錄當前 <script type="math/tex">min_j</script> 的位置，時間複雜度 <script type="math/tex">O(N)</script> 。</p>
-<details><summary>參考程式碼</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<details>
+<summary>參考程式碼</summary>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -1641,10 +1649,14 @@
 </td></tr></table>
 </details>
 <hr />
-<details class="question" open="open"><summary>11572 - Unique Snowflakes</summary><p>給定一個長度為 <script type="math/tex">N,(N \leq 100000)</script> 的序列 <script type="math/tex">A</script> ，求出最長序列，當中沒有重複的數字</p>
+<details class="question" open="open">
+<summary>11572 - Unique Snowflakes</summary>
+<p>給定一個長度為 <script type="math/tex">N,(N \leq 100000)</script> 的序列 <script type="math/tex">A</script> ，求出最長序列，當中沒有重複的數字</p>
 </details>
 <p>我們可以設兩個指標，左指標和右指標，每次迭代右指標先往前一個位置，如果左右指標之間有重複的數字，就將左指標往前一個位置，直到沒有左右指標之間沒有重複的數字。利用 <code>set</code> 來維護是否有重複數字，時間複雜度 <script type="math/tex">O(N\log N)</script> 。</p>
-<details><summary>參考程式碼</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<details>
+<summary>參考程式碼</summary>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -1712,7 +1724,9 @@
 </details>
 <h3 id="_7">折半枚舉</h3>
 <p>有時遇到複雜度 <script type="math/tex">O(2^n)</script> 的算法，在無法用其他方法降低複雜度情況下，可以試著將元素切成兩半，分別算出答案，再用其他算法組合起來，時間複雜度通常為 <script type="math/tex">O(2^{\frac{n}{2}})</script> 或 <script type="math/tex">O(2^{\frac{n}{2}}\log 2^{\frac{n}{2}})</script> 等。</p>
-<details class="question" open="open"><summary>uva01326 - Jurassic Remains</summary><p>給定 <script type="math/tex">N(N\leq 24)</script> 串英文字串，請最多可以包含幾個字串，使得這些字串內每個字元都出現偶數次。</p>
+<details class="question" open="open">
+<summary>uva01326 - Jurassic Remains</summary>
+<p>給定 <script type="math/tex">N(N\leq 24)</script> 串英文字串，請最多可以包含幾個字串，使得這些字串內每個字元都出現偶數次。</p>
 </details>
 <p>先把每個字串轉成一個二進位，第 <script type="math/tex">i</script> 位表示字串有（0: 偶數，1: 奇數）個字元 i (0:A, 1:B, ...)。如果有一堆字串內每個字元都出現偶數次，那麼他們的 xor 值 <script type="math/tex">=0</script> 。</p>
 <p>這題關於「集合」，可用二進位枚舉，加上判斷，時間複雜度 <script type="math/tex">O(N\times 2^N)</script> 。</p>
@@ -1725,11 +1739,15 @@
 <li>發現解答是不合法的。</li>
 <li>在最佳化問題，發現無法成為最佳解。</li>
 </ul>
-<details class="qusetion" open="open"><summary>Qusetion</summary><p>給定一個數字 <script type="math/tex">N</script> ，要你求出有幾組正整數解 <script type="math/tex">x_1,x_2,x_3,...,x_m</script> ，使得 <script type="math/tex">x_1+x_2+x_3+...+x_m = N</script> 。順序不同視為相同解，例如 <script type="math/tex">1+2</script> 和 <script type="math/tex">2+1</script> 視為相同組解。</p>
+<details class="qusetion" open="open">
+<summary>Qusetion</summary>
+<p>給定一個數字 <script type="math/tex">N</script> ，要你求出有幾組正整數解 <script type="math/tex">x_1,x_2,x_3,...,x_m</script> ，使得 <script type="math/tex">x_1+x_2+x_3+...+x_m = N</script> 。順序不同視為相同解，例如 <script type="math/tex">1+2</script> 和 <script type="math/tex">2+1</script> 視為相同組解。</p>
 </details>
 <p>為了避免算到重複組合，我們讓 <script type="math/tex">x_1 \leq x_2 \leq ...</script> 。</p>
 <p>設目前解總和為 <script type="math/tex">sum</script> ，最後一項為 <script type="math/tex">max</script> ，下一項 <script type="math/tex">i</script> 就從 <script type="math/tex">max</script> 開始嘗試，當嘗試到 <script type="math/tex">sum + i > N</script> 時，就停止嘗試（剪枝）。</p>
-<details><summary>參考程式碼</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<details>
+<summary>參考程式碼</summary>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>

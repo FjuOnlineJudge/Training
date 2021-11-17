@@ -1423,7 +1423,9 @@
                 
                 
                 <h1 id="_1">歐拉迴路</h1>
-<details class="question" open="open"><summary>歐拉迴路</summary><p>柯尼斯堡七橋問題可說是圖論最早的起源，問題如下（from 維基百科）："當時東普魯士柯尼斯堡（今日俄羅斯加里寧格勒）市區跨普列戈利亞河兩岸，河中心有兩個小島。小島與河的兩岸有七條橋連接。在所有橋都只能走一遍的前提下，如何才能把這個地方所有的橋都走遍？" 歐拉解決這個問題，圖論也因此誕生。</p>
+<details class="question" open="open">
+<summary>歐拉迴路</summary>
+<p>柯尼斯堡七橋問題可說是圖論最早的起源，問題如下（from 維基百科）："當時東普魯士柯尼斯堡（今日俄羅斯加里寧格勒）市區跨普列戈利亞河兩岸，河中心有兩個小島。小島與河的兩岸有七條橋連接。在所有橋都只能走一遍的前提下，如何才能把這個地方所有的橋都走遍？" 歐拉解決這個問題，圖論也因此誕生。</p>
 </details>
 <p>七橋問題根據起點與終點是否相同，分成 Euler path（不同）及 Euler circuit（相同）。</p>
 <h2 id="_2">判斷法</h2>
@@ -1432,7 +1434,9 @@
 <li>Euler path：奇點數為 0 或 2</li>
 <li>Euler circuit：沒有奇點</li>
 </ul>
-<details><summary>證明 from wiki</summary><p>必要性：如果一個圖能一筆畫成，那麼對每一個頂點，要麼路徑中「進入」這個點的邊數等於「離開」這個點的邊數：這時點的度為偶數。要麼兩者相差一：這時這個點必然是起點或終點之一。注意到有起點就必然有終點，因此奇頂點的數目要麼是 0，要麼是 2。
+<details>
+<summary>證明 from wiki</summary>
+<p>必要性：如果一個圖能一筆畫成，那麼對每一個頂點，要麼路徑中「進入」這個點的邊數等於「離開」這個點的邊數：這時點的度為偶數。要麼兩者相差一：這時這個點必然是起點或終點之一。注意到有起點就必然有終點，因此奇頂點的數目要麼是 0，要麼是 2。
 充分性：如果圖中沒有奇頂點，那麼隨便選一個點出發，連一個環 <script type="math/tex">C_{1}</script> 。如果這個環就是原圖，那麼結束。如果不是，那麼由於原圖是連通的，<script type="math/tex"> C\_{1}</script> 和原圖的其它部分必然有公共頂點 <script type="math/tex">s\_{1}</script> 。從這一點出發，在原圖的剩餘部分中重複上述步驟。由於原圖是連通圖，經過若干步後，全圖被分為一些環。由於兩個相連的環就是一個環，原來的圖也就是一個歐拉環了。如果圖中有兩個奇頂點 <script type="math/tex">u</script> 和 <script type="math/tex">v</script> ，那麼加多一條邊將它們連上後得到一個無奇頂點的連通圖。由上知這個圖是一個環，因此去掉新加的邊後成為一條路徑，起點和終點是 <script type="math/tex">u</script> 和 <script type="math/tex">v</script> 。證畢。</p>
 </details>
 <p>有向圖部分，將點分成出點（出度 - 入度 = 1）和入點（入度 - 出度 = 1）還有平衡點（出度 = 入度）。</p>
@@ -1440,10 +1444,14 @@
 <li>Euler path：出點和入點個數同時為 0 或 1。</li>
 <li>Euler circuit：只有平衡點。</li>
 </ul>
-<details class="question" open="open"><summary>UVa 10129 - Play on Words</summary><p>給定 <script type="math/tex">N</script> 個字串，如果一個字串的字尾和另一個字串的字首相同，可以把這兩個字串相連，問是否存在一種辦法可以把所有字串相連。</p>
+<details class="question" open="open">
+<summary>UVa 10129 - Play on Words</summary>
+<p>給定 <script type="math/tex">N</script> 個字串，如果一個字串的字尾和另一個字串的字首相同，可以把這兩個字串相連，問是否存在一種辦法可以把所有字串相連。</p>
 </details>
 <p>把英文字母當作點，對於每個字串 <script type="math/tex">S</script> ，將 <script type="math/tex">S</script> 頭尾兩個字母之間連一條有向邊，這題題目就轉成判斷一張有向圖是否存在 Euler path (circuit)，此外要判斷這張圖是否為一張連通圖。</p>
-<details><summary>參考程式碼</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<details>
+<summary>參考程式碼</summary>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -1644,10 +1652,14 @@
 <li>Euler path：無向圖選擇任意一個奇點，有向圖選擇出點。</li>
 <li>Euler circuit：任意一點。</li>
 </ul>
-<details class="question" open="open"><summary>UVa 10441 - Catenyms</summary><p>給定 <script type="math/tex">N</script> 個字串，如果一個字串的字尾和另一個字串的字首相同，可以把這兩個字串相連，問是否存在一種辦法可以把所有字串相連。如果存在解，請輸出擁有最小字典序的解。</p>
+<details class="question" open="open">
+<summary>UVa 10441 - Catenyms</summary>
+<p>給定 <script type="math/tex">N</script> 個字串，如果一個字串的字尾和另一個字串的字首相同，可以把這兩個字串相連，問是否存在一種辦法可以把所有字串相連。如果存在解，請輸出擁有最小字典序的解。</p>
 </details>
 <p>這題判斷是否有解的做法和上的例題相似，差別在於這裡用並查集判斷是否為連通圖。這題需求出擁有最小字典序的解，因此要把字串排序。</p>
-<details><summary>參考程式碼</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<details>
+<summary>參考程式碼</summary>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
 <span class="normal">  4</span>

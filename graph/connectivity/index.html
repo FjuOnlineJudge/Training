@@ -1818,7 +1818,9 @@
 </td></tr></table>
 <p>和前面點雙連通相同，時間複雜度為 <script type="math/tex">O(V+E)</script>
 </p>
-<details open="open"><summary>重邊處理</summary><p>如果不處理重邊，有可能讓一條邊從非割邊判成割邊。
+<details open="open">
+<summary>重邊處理</summary>
+<p>如果不處理重邊，有可能讓一條邊從非割邊判成割邊。
 處理方式為用 <code>set,map</code> 存邊的兩點編號，當遇到一條往父親的邊 <script type="math/tex">e</script> ，如果出現過相同起始點的邊 <script type="math/tex">e_1</script> ，那麼 <script type="math/tex">e</script> 不是樹邊，可以透過 <script type="math/tex">e</script> 回到父親。</p>
 </details>
 <h2 id="_4">雙連通元件</h2>

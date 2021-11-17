@@ -1507,7 +1507,9 @@
 <h2 id="boruvkas-algorithm">Borůvka’s algorithm</h2>
 <p>Borůvka’s algorithm 和 Prim 一樣都在加入 MST 和最鄰近的點，不一樣的是，它讓所有的 MST 一起做這件事。每次找出每棵 MST 外權重最小的邊，並加入 MST（如果權重一樣，就找索引值最小的），檢查是否只剩一棵 MST，如果不是就重複掃描的動作，這裡一樣用並查集維護聯通性。\最差的情況為每次都剛好兩兩成對合併，這樣最多只會執行 <script type="math/tex">\log V</script> 次，整題複雜度為 <script type="math/tex">O((V+E)\log V)</script> )。期望複雜度可以達到 <script type="math/tex">O((V+E))</script> （因為每次並查集都會被合併 + 查詢，所以 <script type="math/tex">\alpha</script> 可以完全省略）。</p>
 <h2 id="_1">最小瓶頸樹</h2>
-<details class="question" open="open"><summary>最小瓶頸樹</summary><p>給定一張圖，求一顆生成樹，樹的最大邊權值最小。</p>
+<details class="question" open="open">
+<summary>最小瓶頸樹</summary>
+<p>給定一張圖，求一顆生成樹，樹的最大邊權值最小。</p>
 </details>
 <p>最小生成樹必定是一顆最小瓶頸樹（但最小瓶頸樹不一定是一顆最小生成樹），因此求出最小生成樹即為答案。</p>
 <h2 id="_2">例題練習</h2>
