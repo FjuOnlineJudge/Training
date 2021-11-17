@@ -55,9 +55,9 @@ LIS 還有另一種狀態轉移式：
     dp[n-1][i] & \text{else}
     \end{cases}
     $$
-- 初始狀態： $dp[0][0] = -INF, dp[0][i] = INF, dp[i][0]=don't\ care$ when $i \geq 1$ 
+- 初始狀態： $dp[0][0] = -INF, dp[0][i] = INF, dp[i][0]=don't\ care$ when $i \geq 1$
 
-<!-- TODO LIS 示意圖 -->
+![](images/LIS.gif)
 
 這樣的狀態轉移式時間和空間複雜度依舊是 $O(N^2)$ ，不過，有幾點值得觀察：
 
