@@ -66,6 +66,8 @@ nav:
     - 質數和因數: math/primeandfactor.md
     - 模: math/mod.md
     - 歐拉函數: math/euler.md
+  - 比賽整理:
+    - ICPC 台灣賽區 2021: contest/icpctaiwan2021.md
 
 theme:
   name: material
