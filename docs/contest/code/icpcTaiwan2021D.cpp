@@ -47,11 +47,8 @@ int main()
                 int nr = (r * 10 + a[s]) % k;
                 if (dp[j][r] == false)
                     continue;
-                // cout << r << ' ' << a[s] << ' ' << k << '\n';
-                // cout << nj << ' ' << nr << '\n';
                 dp[nj][nr] = true;
                 LL tmp = ans[j][r] * 10 + a[s];
-                // cout << ans[nj][nr] << ' ' << tmp << '\n';
                 if (ans[nj][nr] < tmp)
                     ans[nj][nr] = tmp;
             }
