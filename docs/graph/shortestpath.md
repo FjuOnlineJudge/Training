@@ -19,6 +19,8 @@ Floyd-Warshall 是一種動態規劃問題，以下是他的 dp 式。
     dp[0][i][j] = \left\{ \begin{array}{cc}w[i][j] & if\ w[i][j]\ exists\\INF & else\end{array} \right\}
     $$
 
+- ![](images/floyd.gif)
+
 時/空間複雜度皆為 $O(V^3)$ ，利用滾動陣列技巧，空間複雜度可優化至 $O(V^2)$ 
 
 ```cpp

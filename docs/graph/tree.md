@@ -49,6 +49,8 @@
     - Complete Binary Tree：每層節點全滿，除了最後一層，最後一層節點靠左。
     - Perfect Binary Tree：每層節點全滿，perfect binary tree 也是 full binary tree 和 complete binary tree。
 
+![](images/binaryTree.png)
+
 ## 儲存
 
 樹也是一種圖，也可以用 Adjacency Matrix 或 Adjacency List，每個點記錄自己的父節點和子節點，也可以只記錄其一，只有紀錄父節點的樹，可以用一維陣列儲存。
