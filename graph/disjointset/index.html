@@ -1144,13 +1144,20 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    完整程式碼
+    合併
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    完整程式碼
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     例題練習
   </a>
   
@@ -1469,13 +1476,20 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    完整程式碼
+    合併
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    完整程式碼
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     例題練習
   </a>
   
@@ -1503,6 +1517,8 @@
 <p>我們把集合轉化成樹，一顆樹代表一個集合，樹根代表集合的老大，查詢隸屬集合就回傳樹根是誰（一個樹餔可能有兩顆樹根吧），合併的時侯，就把一顆樹的樹根只到另一顆，以下為詳細的描述。</p>
 <h2 id="_2">初始</h2>
 <p>一開始的時候，每個點自成一個集合，所以把樹根都設為自己。</p>
+<h2 id="_3">查詢</h2>
+<p>查詢的時候，要查到樹根為自己的點，為止否則的話就要繼續查。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -1530,8 +1546,9 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="_3">查詢</h2>
-<p>查詢的時候，要查到樹根為自己的點，為止否則的話就要繼續查。</p>
+<p><img alt="" src="../images/disjointsetFind.gif" /></p>
+<h2 id="_4">合併</h2>
+<p>找出兩個點的樹根，將一個樹根合併指到另一個樹根。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -1549,6 +1566,7 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
+<p><img alt="" src="../images/disjointsetUnion.gif" /></p>
 <p>啟發式合併：建立一個 <script type="math/tex">h[i]</script> 代表樹的高度，亦是元素最大遞迴次數， <script type="math/tex">h[i]</script> 一開始為 <script type="math/tex">1</script> 。再來，我們每次都讓高度小的高度大的合併，如果遇到高度一樣的，就讓合併別人的樹高度加 <script type="math/tex">1</script> 。如果要把高度變為 <script type="math/tex">x</script> ，則至少需要 <script type="math/tex">2^x</script> 個點，由此推出 N 個點所形成最高之高度為 <script type="math/tex">\log(N)</script> 。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -1607,7 +1625,7 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="_4">完整程式碼</h2>
+<h2 id="_5">完整程式碼</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1671,7 +1689,7 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="_5">例題練習</h2>
+<h2 id="_6">例題練習</h2>
 <ul>
 <li><a href="http://uva.onlinejudge.org/external/6/615.pdf">UVa 00615 - Is It A Tree?</a> </li>
 </ul>

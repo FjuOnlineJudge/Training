@@ -1551,10 +1551,15 @@ Floyd-Warshall 是一種動態規劃問題，以下是他的 dp 式。</p>
 <li>狀態： <script type="math/tex">dp[k][i][j]</script> 代表，若只以點 <script type="math/tex">1 ∼ k</script> 當中繼點的話， <script type="math/tex">i</script> 到 <script type="math/tex">j</script> 的最短路徑長。</li>
 <li>轉移： <script type="math/tex">dp[k][i][j] = min(dp[k − 1][i][k] + dp[k − 1][k][j], dp[k − 1][i][j])</script>
 </li>
-<li>基底：
+<li>
+<p>基底：
     <script type="math/tex; mode=display">
     dp[0][i][j] = \left\{ \begin{array}{cc}w[i][j] & if\ w[i][j]\ exists\\INF & else\end{array} \right\}
     </script>
+</p>
+</li>
+<li>
+<p><img alt="" src="../images/floyd.gif" /></p>
 </li>
 </ul>
 <p>時/空間複雜度皆為 <script type="math/tex">O(V^3)</script> ，利用滾動陣列技巧，空間複雜度可優化至 <script type="math/tex">O(V^2)</script>
