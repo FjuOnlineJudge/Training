@@ -24,13 +24,13 @@ nav:
     - 函式與遞迴: syntax/functionandrecursive.md
     - 指標: syntax/pointer.md
     - 自定義結構: syntax/structure.md
+    - 其他語法: syntax/other.md
     - 函式庫:
         - cctype: syntax/cctype.md
         - cstring: syntax/cstring.md
         - algorithm: syntax/algorithm.md
   - 雜項:
     - 複雜度: other/complexity.md
-    - define: other/define.md
   - 資料結構:
     - 標準函式庫: dataStructure/stl.md
     - 堆疊: dataStructure/stack.md
