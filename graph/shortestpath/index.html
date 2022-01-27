@@ -552,6 +552,57 @@
   
 
           
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      <label class="md-nav__link" for="__nav_2_7">
+        準備比賽
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="準備比賽" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          準備比賽
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool/domjudgeadmin/" class="md-nav__link">
+        Domjudge
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool/contesttool/" class="md-nav__link">
+        Contest Tool
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -1616,7 +1667,7 @@ Floyd-Warshall 是一種動態規劃問題，以下是他的 dp 式。</p>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">ss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">ss</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">V</span><span class="p">;</span><span class="w"> </span><span class="n">ss</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="nl">tt</span> <span class="p">:</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">ss</span><span class="p">])</span><span class="w"></span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">tt</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">ss</span><span class="p">])</span><span class="w"></span>
 <span class="w">            </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">ss</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">ss</span><span class="p">][</span><span class="n">tt</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">tt</span><span class="p">])</span><span class="w"></span>
 <span class="w">                </span><span class="p">{</span><span class="w"></span>
@@ -1679,7 +1730,7 @@ Floyd-Warshall 是一種動態規劃問題，以下是他的 dp 式。</p>
 <span class="normal">35</span>
 <span class="normal">36</span>
 <span class="normal">37</span>
-<span class="normal">38</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Edge</span><span class="w"></span>
+<span class="normal">38</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Edge</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">w</span><span class="p">;</span><span class="w"></span>
@@ -1701,7 +1752,7 @@ Floyd-Warshall 是一種動態規劃問題，以下是他的 dp 式。</p>
 <span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span><span class="w"></span>
 <span class="w">        </span><span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span><span class="w"></span>
 <span class="w">        </span><span class="n">inq</span><span class="p">[</span><span class="n">cur</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="nl">e</span> <span class="p">:</span><span class="w"> </span><span class="n">G</span><span class="p">[</span><span class="n">cur</span><span class="p">])</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">e</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">G</span><span class="p">[</span><span class="n">cur</span><span class="p">])</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dis</span><span class="p">[</span><span class="n">e</span><span class="p">.</span><span class="n">t</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">dis</span><span class="p">[</span><span class="n">cur</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">w</span><span class="p">)</span><span class="w"></span>
 <span class="w">                </span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
@@ -1776,7 +1827,7 @@ Floyd-Warshall 是一種動態規劃問題，以下是他的 dp 式。</p>
 <span class="normal">48</span>
 <span class="normal">49</span>
 <span class="normal">50</span>
-<span class="normal">51</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">edge</span><span class="w"></span>
+<span class="normal">51</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">edge</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">LL</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
@@ -1784,7 +1835,7 @@ Floyd-Warshall 是一種動態規劃問題，以下是他的 dp 式。</p>
 <span class="w">    </span><span class="n">edge</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">LL</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">s</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="w"> </span><span class="n">d</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">heap</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">heap</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">LL</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">// point</span>

@@ -14,7 +14,7 @@
     
     
       
-        <title>堆疊 - FJCU CPC 訓練網</title>
+        <title>Domjudge - FJCU CPC 訓練網</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#stack" class="md-skip">
+        <a href="#domjudge" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              堆疊
+              Domjudge
             
           </span>
         </div>
@@ -162,13 +162,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../tool/cmd/" class="md-tabs__link">
+      <a href="../cmd/" class="md-tabs__link md-tabs__link--active">
         工具
       </a>
     </li>
@@ -210,15 +212,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../stl/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../dataStructure/stl/" class="md-tabs__link">
         資料結構
       </a>
     </li>
@@ -357,12 +357,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       <label class="md-nav__link" for="__nav_2">
         工具
@@ -380,7 +382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/cmd/" class="md-nav__link">
+      <a href="../cmd/" class="md-nav__link">
         命令列
       </a>
     </li>
@@ -413,7 +415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/codeblocks/" class="md-nav__link">
+      <a href="../codeblocks/" class="md-nav__link">
         Code::Blocks
       </a>
     </li>
@@ -425,7 +427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/sublimetext/" class="md-nav__link">
+      <a href="../sublimetext/" class="md-nav__link">
         Sublime Text
       </a>
     </li>
@@ -437,7 +439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/vscode/" class="md-nav__link">
+      <a href="../vscode/" class="md-nav__link">
         VS Code
       </a>
     </li>
@@ -455,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/resources/" class="md-nav__link">
+      <a href="../resources/" class="md-nav__link">
         學習資源
       </a>
     </li>
@@ -488,7 +490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/uva/" class="md-nav__link">
+      <a href="../uva/" class="md-nav__link">
         UVa Judge
       </a>
     </li>
@@ -527,7 +529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/pc2/" class="md-nav__link">
+      <a href="../pc2/" class="md-nav__link">
         PC2
       </a>
     </li>
@@ -545,7 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/makecodebook/" class="md-nav__link">
+      <a href="../makecodebook/" class="md-nav__link">
         製作 CodeBook
       </a>
     </li>
@@ -555,12 +557,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" checked>
       
       <label class="md-nav__link" for="__nav_2_7">
         準備比賽
@@ -576,11 +580,72 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../tool/domjudgeadmin/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Domjudge
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Domjudge
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    啟動 docker compose
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#judgehost" class="md-nav__link">
+    設定 judgehost
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teamaccount" class="md-nav__link">
+    上傳 team/account 資料
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contest" class="md-nav__link">
+    上傳 contest
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -590,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/contesttool/" class="md-nav__link">
+      <a href="../contesttool/" class="md-nav__link">
         Contest Tool
       </a>
     </li>
@@ -870,14 +935,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
       <label class="md-nav__link" for="__nav_5">
         資料結構
@@ -895,7 +958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../stl/" class="md-nav__link">
+      <a href="../../dataStructure/stl/" class="md-nav__link">
         標準函式庫
       </a>
     </li>
@@ -905,21 +968,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../dataStructure/stack/" class="md-nav__link">
         堆疊
       </a>
-      
     </li>
   
 
@@ -929,7 +982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../queue/" class="md-nav__link">
+      <a href="../../dataStructure/queue/" class="md-nav__link">
         佇列
       </a>
     </li>
@@ -941,7 +994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../list/" class="md-nav__link">
+      <a href="../../dataStructure/list/" class="md-nav__link">
         List
       </a>
     </li>
@@ -953,7 +1006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../heap/" class="md-nav__link">
+      <a href="../../dataStructure/heap/" class="md-nav__link">
         堆
       </a>
     </li>
@@ -965,7 +1018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../bst/" class="md-nav__link">
+      <a href="../../dataStructure/bst/" class="md-nav__link">
         二元平衡樹
       </a>
     </li>
@@ -1447,6 +1500,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    啟動 docker compose
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#judgehost" class="md-nav__link">
+    設定 judgehost
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teamaccount" class="md-nav__link">
+    上傳 team/account 資料
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contest" class="md-nav__link">
+    上傳 contest
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1458,97 +1547,79 @@
               
                 
                 
-                <h1 id="stack">stack 堆疊</h1>
-<p>有兩個端口，其中一個封閉，另一個端口負責插入、刪除的資料結構</p>
-<p><img alt="" src="../images/stack.gif" /></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">stack</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">st</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">top</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">Stack</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">top</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">top</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">push</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">st</span><span class="p">[</span><span class="o">++</span><span class="n">top</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">top</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">assert</span><span class="p">(</span><span class="n">top</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">st</span><span class="p">[</span><span class="n">top</span><span class="p">];</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">pop</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="o">--</span><span class="n">top</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+                <h1 id="domjudge">Domjudge</h1>
+<p>請先確認有安裝 docker 和 docker-compose</p>
+<h3 id="docker-compose">啟動 docker compose</h3>
+<ul>
+<li><code>docker-compose.yml</code> 可調整 <code>Judgehost</code> 的數量。</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&gt; git clone https://github.com/roy4801/domjudge-setup
+&gt; cd domjudge-setup/
+&gt; sudo docker-compose up -d
 </code></pre></div>
 </td></tr></table>
 <ul>
-<li>標頭檔： <code>&lt;stack&gt;</code> </li>
-<li>建構式： <code>stack &lt;T&gt; s</code> </li>
-<li><code>s.push(T a)</code> ：插入頂端元素，複雜度 <script type="math/tex">O(1)</script>
-</li>
-<li><code>s.pop()</code> ：刪除頂端元素，複雜度 <script type="math/tex">O(1)</script>
-</li>
-<li><code>s.top()</code> ：回傳頂端元素，複雜度 <script type="math/tex">O(1)</script>
-</li>
-<li><code>s.size()</code> ：回傳元素個數，複雜度 <script type="math/tex">O(1)</script>
-</li>
-<li><code>s.empty()</code> ：回傳是否為空，複雜度 <script type="math/tex">O(1)</script>
-</li>
+<li>檢查是否成功開啟，這時候 <code>domjudge/judgehost:latest</code> 開啟失敗是正確的</li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stack&gt;</span><span class="cp"></span>
-<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">st</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">st</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">st</span><span class="p">.</span><span class="n">top</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">st</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">st</span><span class="p">.</span><span class="n">top</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">st</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">st</span><span class="p">.</span><span class="n">top</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">st</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">st</span><span class="p">.</span><span class="n">top</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="cm">/*</span>
-<span class="cm">1</span>
-<span class="cm">2</span>
-<span class="cm">3</span>
-<span class="cm">2</span>
-<span class="cm">*/</span><span class="w"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&gt;sudo docker ps -a
+CONTAINER ID   IMAGE                       COMMAND                  CREATED             STATUS                     PORTS                                         NAMES
+73d206ecc5f8   domjudge/judgehost:latest   &quot;/usr/bin/dumb-init …&quot;   7 seconds ago       Exited (1) 5 seconds ago                                                 judgedaemon-0
+bd34e340e120   domjudge/domserver:latest   &quot;/scripts/start.sh&quot;      About an hour ago   Up 6 seconds               0.0.0.0:80-&gt;80/tcp, :::80-&gt;80/tcp             domserver
+09962ae62b21   mariadb                     &quot;docker-entrypoint.s…&quot;   About an hour ago   Up 6 seconds               0.0.0.0:13306-&gt;3306/tcp, :::13306-&gt;3306/tcp   dj-mariadb
 </code></pre></div>
 </td></tr></table>
+<ul>
+<li>取得 <code>admin</code> 密碼</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&gt; sudo docker exec -it domserver cat /opt/domjudge/domserver/etc/initial_admin_password.secret
+</code></pre></div>
+</td></tr></table>
+<ul>
+<li>登入 domjudge</li>
+</ul>
+<h2 id="judgehost">設定 judgehost</h2>
+<ul>
+<li>這時候 <code>.docker-compose.yml</code> 中的 judgehost 密碼和 domjudge 的 judgehost 密碼不同，必須一致 judgehost container 才會正確啟動。到 <code>domjudge</code> 的 <code>jury/users</code> 中把密碼改成 <code>.docker-compose.yml</code> 中的 judgehost 密碼。</li>
+<li><img alt="" src="https://i.imgur.com/17GnYlN.png" /></li>
+<li>接著重啟 <code>judgehost</code></li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&gt; sudo docker-compose up -d
+</code></pre></div>
+</td></tr></table>
+<ul>
+<li>進入 <code>/jury/judgehosts</code> 就可以看到 judgehost 正常開啟</li>
+</ul>
+<h2 id="teamaccount">上傳 team/account 資料</h2>
+<p><a href="https://ccs-specs.icpc.io/2021-11/ccs_system_requirements#teamstsv">參考連結</a></p>
+<ul>
+<li>
+<p>teams.tsv格式
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>teams    1
+team number    external_ID    group_id    team_name    institution_name    institution_short_name    country_code
+</code></pre></div>
+</td></tr></table></p>
+</li>
+<li>
+<p>accounts.tsv格式：For accounts of type <code>team</code> username is on the form "team-nnn" where "nnn" is the zero padded team number as given in teams.tsv.
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>accounts    1
+account_type    fullname    username    password
+</code></pre></div>
+</td></tr></table></p>
+</li>
+</ul>
+<h2 id="contest">上傳 contest</h2>
+<ul>
+<li>手動設定。</li>
+<li>上傳壓縮檔：參考 <a href="../contesttool/#_3">這裡</a>，同樣的資料會以新增方式加入而非覆蓋。</li>
+</ul>
                 
               
               
@@ -1568,7 +1639,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../stl/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 標準函式庫" rel="prev">
+        <a href="../makecodebook/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 製作 CodeBook" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1577,20 +1648,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              標準函式庫
+              製作 CodeBook
             </div>
           </div>
         </a>
       
       
         
-        <a href="../queue/" class="md-footer__link md-footer__link--next" aria-label="Next: 佇列" rel="next">
+        <a href="../contesttool/" class="md-footer__link md-footer__link--next" aria-label="Next: Contest Tool" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              佇列
+              Contest Tool
             </div>
           </div>
           <div class="md-footer__button md-icon">

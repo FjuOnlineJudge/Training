@@ -552,6 +552,57 @@
   
 
           
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      <label class="md-nav__link" for="__nav_2_7">
+        準備比賽
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="準備比賽" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          準備比賽
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool/domjudgeadmin/" class="md-nav__link">
+        Domjudge
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool/contesttool/" class="md-nav__link">
+        Contest Tool
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -1577,18 +1628,18 @@
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// struct</span>
-<span class="k">struct</span> <span class="nc">Item</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Item</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">weight</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"> </span><span class="n">apple</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">Item</span><span class="w"> </span><span class="n">banana1</span><span class="p">,</span><span class="w"> </span><span class="n">banana2</span><span class="p">;</span><span class="w"></span>
-<span class="k">struct</span> <span class="nc">Item</span><span class="w"> </span><span class="n">cake</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span><span class="w"></span>
-<span class="k">struct</span> <span class="nc">Item</span><span class="w"> </span><span class="o">*</span><span class="n">itemPointer</span><span class="p">;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Item</span><span class="w"> </span><span class="n">banana1</span><span class="p">,</span><span class="w"> </span><span class="n">banana2</span><span class="p">;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Item</span><span class="w"> </span><span class="n">cake</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Item</span><span class="w"> </span><span class="o">*</span><span class="n">itemPointer</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// class</span>
-<span class="k">class</span> <span class="nc">Item</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Item</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">weight</span><span class="p">;</span><span class="w"></span>
@@ -1612,7 +1663,7 @@
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Item</span><span class="w"></span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Item</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">weight</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPrice</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
@@ -1631,7 +1682,7 @@
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Circle</span><span class="w"></span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Circle</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span><span class="w"></span>
@@ -1673,7 +1724,7 @@
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Transportation</span><span class="w"></span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Transportation</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">color</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">printColor</span><span class="p">()</span><span class="w"></span>
@@ -1687,7 +1738,7 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">Car</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Transportation</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Car</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Transportation</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">printColor</span><span class="p">()</span><span class="w"> </span><span class="c1">// override</span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
@@ -1725,7 +1776,7 @@
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Plane</span><span class="w"></span>
+<span class="normal">24</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Plane</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// Constructor</span>
@@ -1777,14 +1828,14 @@
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Data1</span><span class="w"></span>
+<span class="normal">24</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Data1</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">ch1</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">ch2</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">Data2</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Data2</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">ch1</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">ch2</span><span class="p">;</span><span class="w"></span>
