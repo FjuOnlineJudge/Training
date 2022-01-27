@@ -26,6 +26,13 @@
 -  [台大劉邦峰 C 語言課程](https://sites.google.com/view/ntucsiec2019/)，更久以前的可以參考 [Judgegirl](https://judgegirl.csie.org/)。
 -  [程式語言教學誌](https://pydoing.blogspot.com/)
 
+### AP325
+
+- [AP325 講義網址](https://drive.google.com/drive/folders/10hZCMHH0YgsfguVZCHU7EYiG8qJE5f-m?usp=sharing)：請留意修改歷程與勘誤。
+- [PythAPCS123 的 YouTube 播放清單](https://youtube.com/playlist?list=PLpmg1QLbgMuSIDOgOcwf0Fbbn2ZDR7s-X)
+- [PythAPCS123 講義所在位置](https://drive.google.com/drive/folders/1mnVdO2LHq7e4vesn6pt_R0-S6YWtz4Q4?usp=sharing)
+- [PyAPCS45 四五級題目的 Python 題解教學影片撥放清單](https://youtube.com/playlist?list=PLpmg1QLbgMuRQXHRkX9iDHyAVIW1D6OJF)
+
 ### 視覺化學習
 
 -  [visualgo](https://visualgo.net/en) 
