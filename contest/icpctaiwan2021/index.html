@@ -1554,6 +1554,10 @@
                 
                 
                 <h1 id="icpc-2021">ICPC 台灣賽區 2021</h1>
+<ul>
+<li><a href="https://icpc2021.ntub.edu.tw/">官網</a></li>
+<li><a href="https://codeforces.com/gym/103443">線上提交</a></li>
+</ul>
 <h2 id="c-community-service">C - Community Service</h2>
 <p>題意：給定區間 <script type="math/tex">[0,n)</script> 和 <script type="math/tex">e</script> 筆操作，有兩種類型操作。</p>
 <ul>
@@ -1563,7 +1567,7 @@
 <p>作法：將每個 <code>name</code> 編號，利用線段樹維護編號，每個節點除了紀錄代表區間外，還要記錄 1) 所有完全覆蓋該節點區間的編號 <code>vector&lt;int&gt; semiStack</code> 2) 紀錄所有子節點的 <code>semiStack</code> 中最大的編號 (<code>mx</code>)。有兩種修改操作 <code>update</code> 和 <code>rePushup</code>，他們兩個的唯一差異是，前者在 <code>semiStack</code> 新增編號，後者在 <code>semiStack</code> 刪除編號，兩種操作可以分開寫成兩個函式，或合併寫成一個函式，如果合併成一個函式比較好維護，<code>update/rePushup</code> 的 <code>pull</code>，將 <code>sumUp</code> 更新成左右子節點的 <code>sumUp</code> 和 <code>mx</code>。有一種查詢操作 <code>query</code> 查詢 <script type="math/tex">[L,R]</script> 之間最大的編號，查詢除了取所有完全覆蓋該節點區間的 <code>sumUp</code> 和 <code>mx</code>，還要取沿路上所有拜訪過點的 <code>mx</code>，例如下圖中要查詢 <script type="math/tex">[2,4]</script> 的最大值，除了要參考 <script type="math/tex">[2,3]</script> 和 <script type="math/tex">[4,4]</script> 的 <code>sumUp</code> 和 <code>mx</code>，還要參考 <script type="math/tex">[0,7]</script>、<script type="math/tex">[0,3]</script>、<script type="math/tex">[4,7]</script> 和 <script type="math/tex">[4,5]</script>的 <code>mx</code>。</p>
 <p><img alt="" src="../images/icpcTaiwan2021C.png" /></p>
 <p>複雜度分析：所有操作的複雜度為 <script type="math/tex">O(log\ n)</script>，整題時間複雜度為 <script type="math/tex">O(elog\ n)</script>。</p>
-<p>後記：範例程式碼用指標寫的，原本比較喜歡指標的寫法，但參考別人的程式碼後，發現陣列寫法也有好處，例如可以一次把記憶體開好。</p>
+<p>後記：範例程式碼用指標寫的，原本比較喜歡指標的寫法，但參考別人的程式碼後，發現陣列比較好寫，除非要動態開點，不然不需要用指標。</p>
 <details>
 <summary>參考程式碼 ( <code>update</code> 和 <code>rePushup</code> 分開寫)</summary>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
