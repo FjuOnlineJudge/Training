@@ -32,8 +32,6 @@ nav:
         - cctype: syntax/cctype.md
         - cstring: syntax/cstring.md
         - algorithm: syntax/algorithm.md
-  - 雜項:
-    - 複雜度: other/complexity.md
   - 資料結構:
     - 標準函式庫: dataStructure/stl.md
     - 堆疊: dataStructure/stack.md
@@ -44,7 +42,8 @@ nav:
     - Sparse Table: dataStructure/sparetable.md
     - 線段樹: dataStructure/segmenttree.md
     - 樹狀數組: dataStructure/bitindextree.md
-  - 基礎演算法:
+  - 演算法:
+    - 複雜度: algorithm/complexity.md
     - 枚舉: algorithm/enumerate.md
     - 二分搜: algorithm/binarysearch.md
     - 分治: algorithm/divideandconquer.md
