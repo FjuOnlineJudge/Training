@@ -1,4 +1,4 @@
-# Domjudge
+# Domjudge Admin
 
 請先確認有安裝 docker 和 docker-compose
 

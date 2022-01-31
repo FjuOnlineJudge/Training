@@ -9,13 +9,13 @@ nav:
       - Sublime Text: tool/sublimetext.md
       - VS Code: tool/vscode.md
     - 學習資源: tool/resources.md
-    - Online Judge:
-      - UVa Judge: tool/uva.md
-    - 考試軟體:
-      - PC2: tool/pc2.md
     - 製作 CodeBook: tool/makecodebook.md
+    - Judge:
+      - UVa Judge: tool/uva.md
+      - Domjudge Team: tool/domjudgeteam.md
+      - PC2: tool/pc2.md
     - 準備比賽:
-      - Domjudge: tool/domjudgeadmin.md
+      - Domjudge Admin: tool/domjudgeadmin.md
       - Contest Tool: tool/contesttool.md
   - 語法篇:
     - 基本資料型態: syntax/type.md
