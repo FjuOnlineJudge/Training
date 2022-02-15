@@ -7,7 +7,7 @@
 -  [Zerojudge](http://zerojudge.tw/) ：中文，有大量簡單題目。
 -  [TIOJ](http://tioj.infor.org/) ：中文，題目偏難。
 -  [Atcoder](https://atcoder.jp/) ：固定週末晚上有比賽。
--  [Atcoder Problem](http://kenkoooo.com/atcoder/) 
+-  [Atcoder Problem](https://kenkoooo.com/atcoder/#/table/) 
 -  [Codeforces](http://codeforces.com/) ：有比賽但時間不固定。
 -  [Virtual Judge](https://vjudge.net/) ：提供提交程式碼到各大 OJ 的平台。
 -  [Uva](http://uva.onlinejudge.org/) ：最古老的 OJ，有 ICPC 題目。
@@ -60,6 +60,7 @@
 -  [CS Academy - Geometry tool](https://csacademy.com/app/geometry_widget/) 
 -  [CS Academy - Diff tool](https://csacademy.com/app/diffing_tool/) 
 -  [Visualize Code Execution](https://pythontutor.com/) ：透過視覺化圖式來了解程式碼執行過程(https://hackmd.io/@wuhunghsiang/BkVV54Wrt)
+-  [洛谷生測資](https://github.com/luogu-dev/cyaron)
 
 ## 更多
 -  [Awesome Competitive Programming](https://github.com/lnishan/awesome-competitive-programming) ：一個詳細的資源整理列表。
