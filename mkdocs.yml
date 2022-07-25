@@ -17,6 +17,7 @@ nav:
     - 準備比賽:
       - Domjudge Admin: tool/domjudgeadmin.md
       - Contest Tool: tool/contesttool.md
+    - ICPC 註冊事宜: tool/icpcregistration.md
   - 語法篇:
     - 基本資料型態: syntax/type.md
     - 輸入輸出: syntax/inputoutput.md
