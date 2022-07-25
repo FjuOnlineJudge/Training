@@ -9,7 +9,9 @@ nav:
       - Sublime Text: tool/sublimetext.md
       - VS Code: tool/vscode.md
     - 學習資源: tool/resources.md
-    - 製作 CodeBook: tool/makecodebook.md
+    - CodeBook:
+      - 準備 Codebook: tool/codebook.md
+      - 製作 CodeBook: tool/makecodebook.md
     - Judge:
       - UVa Judge: tool/uva.md
       - Domjudge Team: tool/domjudgeteam.md
