@@ -1,4 +1,4 @@
-mkdocs==1.1.2
-pymdown-extensions==8.0
+mkdocs
+pymdown-extensions
 python-markdown-math @ https://github.com/mitya57/python-markdown-math/archive/master.zip
 mkdocs-material
