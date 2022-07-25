@@ -2,6 +2,16 @@
 
 請先確認有安裝 docker 和 docker-compose
 
+### docker-compose.yml
+
+確保時區和本機相同
+
+```
+volumes:
+  - "/etc/timezone:/etc/timezone:ro"
+  - "/etc/localtime:/etc/localtime:ro"
+```
+
 ### 啟動 docker compose
 
 * `docker-compose.yml` 可調整 `Judgehost` 的數量。
