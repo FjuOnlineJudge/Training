@@ -477,10 +477,57 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          CodeBook
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CodeBook" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          CodeBook
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codebook/" class="md-nav__link">
+        準備 Codebook
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../makecodebook/" class="md-nav__link">
         製作 CodeBook
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -627,6 +674,13 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-composeyml" class="md-nav__link">
+    docker-compose.yml
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#docker-compose" class="md-nav__link">
@@ -1676,6 +1730,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#docker-composeyml" class="md-nav__link">
+    docker-compose.yml
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#docker-compose" class="md-nav__link">
     啟動 docker compose
   </a>
@@ -1719,6 +1780,14 @@
 
 <h1 id="domjudge-admin">Domjudge Admin</h1>
 <p>請先確認有安裝 docker 和 docker-compose</p>
+<h3 id="docker-composeyml">docker-compose.yml</h3>
+<p>確保時區和本機相同</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>volumes:
+  - &quot;/etc/timezone:/etc/timezone:ro&quot;
+  - &quot;/etc/localtime:/etc/localtime:ro&quot;
+</code></pre></div></td></tr></table></div>
 <h3 id="docker-compose">啟動 docker compose</h3>
 <ul>
 <li><code>docker-compose.yml</code> 可調整 <code>Judgehost</code> 的數量。</li>
