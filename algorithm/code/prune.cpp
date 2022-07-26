@@ -5,15 +5,11 @@ int ans, tar;
 void dfs(int mx, int sum)
 {
     if (sum == tar)
-    {
         ++ans;
-    }
     for (int i = mx;; ++i)
     {
         if (sum + i > tar)
-        {
             break;
-        }
         dfs(i, sum + i);
     }
     return;
