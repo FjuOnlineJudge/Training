@@ -24,16 +24,16 @@
   },
   "homepage": "https://github.com/FjuOnlineJudge/Training#readme",
   "dependencies": {
-    "remark": "^12.0.1",
+    "remark": "^14.0.2",
     "remark-clang-format": "^1.5.0",
-    "remark-cli": "^8.0.1",
-    "remark-copywriting-correct": "^0.5.0",
-    "remark-details": "^2.0.2",
-    "remark-footnotes": "^2.0.0",
-    "remark-lint-final-newline": "^1.0.5",
-    "remark-lint-no-tabs": "^2.0.1",
-    "remark-math": "^3.0.1",
-    "remark-math-space": "^1.4.0",
-    "remark-preset-lint-markdown-style-guide": "^3.0.1"
+    "remark-cli": "^11.0.0",
+    "remark-copywriting-correct": "^0.6.0",
+    "remark-details": "^4.0.4",
+    "remark-footnotes": "^4.0.1",
+    "remark-lint-final-newline": "^2.1.1",
+    "remark-lint-no-tabs": "^3.1.1",
+    "remark-math": "^5.1.1",
+    "remark-math-space": "^3.0.0",
+    "remark-preset-lint-markdown-style-guide": "^5.1.2"
   }
 }
