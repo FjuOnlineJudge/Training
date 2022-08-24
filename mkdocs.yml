@@ -48,9 +48,10 @@ nav:
   - 演算法:
     - 複雜度: algorithm/complexity.md
     - 枚舉: algorithm/enumerate.md
+    - 貪心: algorithm/greedy.md
     - 二分搜: algorithm/binarysearch.md
     - 分治: algorithm/divideandconquer.md
-    - 貪心: algorithm/greedy.md
+    - 倍增: algorithm/binarylifting.md
   - 圖論:
     - 圖論概念: graph/concept.md
     - 圖的儲存: graph/save.md
