@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.1">
     
     
       
@@ -17,7 +17,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -36,7 +36,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -1158,6 +1158,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../algorithm/greedy/" class="md-nav__link">
+        貪心
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../algorithm/binarysearch/" class="md-nav__link">
         二分搜
       </a>
@@ -1186,8 +1200,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm/greedy/" class="md-nav__link">
-        貪心
+      <a href="../../algorithm/binarylifting/" class="md-nav__link">
+        倍增
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/prefixsum/" class="md-nav__link">
+        前綴和
       </a>
     </li>
   
@@ -1389,8 +1417,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#minimum-bottleneck-spanning-tree" class="md-nav__link">
+    最小瓶頸樹 (Minimum Bottleneck Spanning Tree)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    最小瓶頸樹
+    相關題目
   </a>
   
 </li>
@@ -1458,10 +1493,57 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_12" type="checkbox" id="__nav_6_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_12">
+          二分圖與網路流
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="二分圖與網路流" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_12">
+          <span class="md-nav__icon md-icon"></span>
+          二分圖與網路流
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../bigraph/" class="md-nav__link">
         二分圖
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flow/" class="md-nav__link">
+        網路流
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1749,8 +1831,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#minimum-bottleneck-spanning-tree" class="md-nav__link">
+    最小瓶頸樹 (Minimum Bottleneck Spanning Tree)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    最小瓶頸樹
+    相關題目
   </a>
   
 </li>
@@ -1783,8 +1872,7 @@
 <ul>
 <li><img alt="" src="../images/kruskal.gif" /></li>
 </ul>
-<p>排序需花 <script type="math/tex">O(E\log E)</script> 的時間，選邊需要花 <script type="math/tex">O(E\alpha(V))</script> 的時間，總共時間複雜度 <script type="math/tex">O(E(\log E+\alpha(V)))</script>
-</p>
+<p>排序需花 <script type="math/tex">O(E\log E)</script> 的時間，選邊需要花 <script type="math/tex">O(E\alpha(V))</script> 的時間，總共時間複雜度 <script type="math/tex">O(E(\log E+\alpha(V)))</script>。Kruskal’s algorithm 實作相對簡單，時間複雜度也在合理範圍，在程式競賽中，絕大部分最小生成樹的問題，都是實作這個演算法。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1831,12 +1919,39 @@
 <p>Prim’s algorithm 的思維則是，將一棵 MST 連出的邊中，加入權重最小的邊（距離最近的點），重複執行後得出最小的生成樹。在實作上，首先取一個點當 MST，更新所有與它相鄰的點，更新後把距離最小的點加入 MST（不用並查集），持續執行更新及加入點的動作，直到所有點都已加入 MST。維護最小距離用 priority_queue 維護，每個點只會被合併一次，每條邊都只會遍歷一次，複雜度 <script type="math/tex">O((V+E)logE)</script> 。另外有一個資料結構用費波那契堆（fibonacci heap）可以達到 <script type="math/tex">O(E+V\log V)</script> 。但是因為它常數比較大，實作複雜，我們不會使用它。總體而言，Kruskal 比 Prim 好用。</p>
 <h2 id="boruvkas-algorithm">Borůvka’s algorithm</h2>
 <p>Borůvka’s algorithm 和 Prim 一樣都在加入 MST 和最鄰近的點，不一樣的是，它讓所有的 MST 一起做這件事。每次找出每棵 MST 外權重最小的邊，並加入 MST（如果權重一樣，就找索引值最小的），檢查是否只剩一棵 MST，如果不是就重複掃描的動作，這裡一樣用並查集維護聯通性。\最差的情況為每次都剛好兩兩成對合併，這樣最多只會執行 <script type="math/tex">\log V</script> 次，整題複雜度為 <script type="math/tex">O((V+E)\log V)</script> )。期望複雜度可以達到 <script type="math/tex">O((V+E))</script> （因為每次並查集都會被合併 + 查詢，所以 <script type="math/tex">\alpha</script> 可以完全省略）。</p>
-<h2 id="_1">最小瓶頸樹</h2>
+<h2 id="minimum-bottleneck-spanning-tree">最小瓶頸樹 (Minimum Bottleneck Spanning Tree)</h2>
 <details class="question" open="open">
 <summary>最小瓶頸樹</summary>
 <p>給定一張圖，求一顆生成樹，樹的最大邊權值最小。</p>
 </details>
 <p>最小生成樹必定是一顆最小瓶頸樹（但最小瓶頸樹不一定是一顆最小生成樹），因此求出最小生成樹即為答案。</p>
+<ul>
+<li><img alt="" src="../images/mbst.png" /></li>
+</ul>
+<h2 id="_1">相關題目</h2>
+<details class="question" open="open">
+<summary>UVa 11631 - Dark roads</summary>
+<p>城市中有 <script type="math/tex">N</script> 條道路，為了節省電費需要關閉路燈，路燈的費用等於道路的長度，為了不讓整個城市都看不到，會保留一些路燈，讓任兩個地方之間都有一個明亮的路徑，問最多可以解省多少費用?</p>
+</details>
+<p>把地方當成點，道路當成邊，「任兩個地方之間都有一個明亮的路徑」指的是圖要是一張連通圖，要降低成本，選擇的邊數要越少越好，點數固定的情況下，邊數最少的連通圖為樹，權重和最低的樹是最小生成樹。</p>
+<p>因此，這題要找最小生成樹，將所有路的權重和扣除最小生成樹的權重，就是答案。</p>
+<details class="question" open="open">
+<summary>UVa 11747 - Heavy Cycle Edges</summary>
+<p>給定一張圖 <script type="math/tex">G</script>，請輸出所有環上權重最大的邊。</p>
+</details>
+<p>其中一個樹的性質是：「沒有環，但加上一條邊會形成環」，又 Kruskal’s algorithm 是將邊依權重從小到大排序，如果一條邊 <script type="math/tex">e</script> 加入最小生成樹後會形成環，那麼該條邊 <script type="math/tex">e</script> 不會加入最小生成樹裡，也就是說，所有被剃除的邊 <script type="math/tex">e</script> 都是至少一個環上權重最大的邊。</p>
+<p>用 Kruskal’s algorithm 找出所有環上權重最大的邊並輸出，即為答案。</p>
+<details class="question" open="open">
+<summary>TIOJ 1795</summary>
+<p>給定一張圖 <script type="math/tex">G</script>，邊的權重非 <script type="math/tex">0</script> 即 <script type="math/tex">1</script>，問是否能找出一顆權重和為 <script type="math/tex">k</script> 的生成樹。</p>
+</details>
+<p>結論：<script type="math/tex">G</script> 的權重和介於最小生成樹 <script type="math/tex">w_{min}</script> 和最大生成樹的權重和 <script type="math/tex">w_{max}</script> 之間。如果 <script type="math/tex">w_{min}\le k\le w_{max}</script> 則符合題目條件。</p>
+<p>以下解釋為什麼會是對的：假設已求出一組最小生成樹的邊集，要找到次小生成樹，每次選擇以下 <script type="math/tex">3</script> 條動作之一：
+    - 移除一條權重為 <script type="math/tex">0</script> 的邊，增加一條權重為 <script type="math/tex">0</script> 的邊。
+    - 移除一條權重為 <script type="math/tex">1</script> 的邊，增加一條權重為 <script type="math/tex">1</script> 的邊。
+    - 移除一條權重為 <script type="math/tex">0</script> 的邊，增加一條權重為 <script type="math/tex">1</script> 的邊。</p>
+<p>前面兩種選擇不會更動生成樹的權重和，後面一種會使生成樹的權重和 <script type="math/tex">+1</script>，並找到次小生成樹。</p>
+<p>根據上述方法，可以找到第 <script type="math/tex">3,4,5,...</script> 小生成樹，每次的權重和都 <script type="math/tex">+1</script>，生成樹的權重和最大為 <script type="math/tex">w_{max}</script>。</p>
 <h2 id="_2">例題練習</h2>
 <ul>
 <li><a href="http://uva.onlinejudge.org/external/121/12176.pdf">UVa 12176 - Bring Your Own Horse</a> </li>
@@ -1846,6 +1961,9 @@
 </ul>
 </li>
 </ul>
+
+
+
 
               
             </article>
@@ -1913,10 +2031,11 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
       

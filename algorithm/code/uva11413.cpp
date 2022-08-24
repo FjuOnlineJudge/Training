@@ -18,7 +18,6 @@ bool f(long long x)
 
 int main()
 {
-    IOS;
     while (cin >> n >> m)
     {
         long long sum = 0;

@@ -9,6 +9,6 @@ for (int i = 0; i < N; ++i)
     for (int j = w[i]; j <= MXW; ++j)
     {
         dp[i & 1][j] =
-            max(dp[(i & 1) ^ 1][j − w[i]] + v[i], dp[(i & 1) ^ 1][j]);
+            max(dp[(i & 1) ^ 1][j - w[i]] + v[i], dp[(i & 1) ^ 1][j]);
     }
 }

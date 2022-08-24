@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.1">
     
     
       
@@ -17,7 +17,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -36,7 +36,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -1160,6 +1160,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../greedy/" class="md-nav__link">
+        貪心
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../binarysearch/" class="md-nav__link">
         二分搜
       </a>
@@ -1242,14 +1256,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#uva-1608non-boring-sequences" class="md-nav__link">
-    UVA 1608：Non-boring sequences
+  <a href="#_6" class="md-nav__link">
+    相關題目
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     例題練習
   </a>
   
@@ -1270,8 +1284,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../greedy/" class="md-nav__link">
-        貪心
+      <a href="../binarylifting/" class="md-nav__link">
+        倍增
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prefixsum/" class="md-nav__link">
+        前綴和
       </a>
     </li>
   
@@ -1471,10 +1499,57 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_12" type="checkbox" id="__nav_6_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_12">
+          二分圖與網路流
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="二分圖與網路流" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_12">
+          <span class="md-nav__icon md-icon"></span>
+          二分圖與網路流
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../graph/bigraph/" class="md-nav__link">
         二分圖
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/flow/" class="md-nav__link">
+        網路流
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1775,14 +1850,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#uva-1608non-boring-sequences" class="md-nav__link">
-    UVA 1608：Non-boring sequences
+  <a href="#_6" class="md-nav__link">
+    相關題目
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     例題練習
   </a>
   
@@ -1989,6 +2064,16 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 </details>
+<details class="question" open="open">
+<summary>UVa 10810 - Ultra-QuickSort</summary>
+<p>給定序列 <script type="math/tex">A</script>，求使用泡沫排序法需要交換的次數，泡沫排序法會從左到右比較相鄰兩數，如果左邊的數較大就交換兩數。</p>
+</details>
+<p>一個數字 <script type="math/tex">x</script> 會跟所有在 <script type="math/tex">x</script> 右邊，且小於 <script type="math/tex">x</script> 的數字交換位置，換句話說，就是和 <script type="math/tex">x</script> 形成逆序數對的數字，所以這題要求的是逆序數對的數量。</p>
+<details class="question" open="open">
+<summary>UVa 11495 - Bubbles and Buckets</summary>
+<p>給定序列 <script type="math/tex">A</script>，兩個輪流交換兩個相鄰數字(左邊數字必須大於右邊才可交換)，讓序列由小到大排序的人獲勝，請問獲勝的是先手還是後手?</p>
+</details>
+<p>同樣求逆序數對的數量，奇數先手勝，偶數後手勝。</p>
 <h2 id="_4">快速排序法</h2>
 <ul>
 <li>切割：選定一個基準點 <script type="math/tex">x</script> ，將其他數字分成兩堆， <script type="math/tex">< x</script> 的數字排在 <script type="math/tex">x</script> 前面， <script type="math/tex">\geq x</script> 的數字排放在 <script type="math/tex">x</script> 的後面，分堆完成，再分別遞迴排序兩堆。</li>
@@ -2148,7 +2233,7 @@
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%.2lf</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<h2 id="uva-1608non-boring-sequences">UVA 1608：Non-boring sequences</h2>
+<h2 id="_6">相關題目</h2>
 <details class="question" open="open">
 <summary>UVA 1608：Non-boring sequences</summary>
 <p>給定一個序列 <script type="math/tex">A</script> ，判斷使否每一個連續的子序列，都有一個數字，只在該子序列出現一次。</p>
@@ -2286,12 +2371,16 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 </details>
-<h2 id="_6">例題練習</h2>
+<details class="question" open="open">
+<summary>Codefocdes 1490D - Permutation Transformation</summary>
+<p>給定一組 permutation <script type="math/tex">a</script>，要將這個排列轉成一顆二元樹，作法為：
+- 將最大的數字當成根，該數字左右兩邊的數列，分別當成左右子樹。
+- 子樹依相同方式建構。</p>
+<p>請問在轉化成二元樹後，每一個數字的深度為何?</p>
+</details>
+<p>大小最多為 <script type="math/tex">100</script>，用遞迴解的時間複雜度 <script type="math/tex">O(N^2)</script> 不會超過時限的。搜尋一個區間 <script type="math/tex">[L,R]</script>，找到最大的數字 <script type="math/tex">a_x</script>，更新他的深度，繼續遞迴 <script type="math/tex">[L,x-1]</script> 和 <script type="math/tex">[x+1,R]</script>。</p>
+<h2 id="_7">例題練習</h2>
 <ul>
-<li>合併排序法/逆序數對<ul>
-<li><a href="https://onlinejudge.org/index.php?option=onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=1751">UVa 10810 - Ultra-QuickSort</a> </li>
-</ul>
-</li>
 <li>二維平面上最近點對<ul>
 <li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=1186">UVa 10245 - The Closest Pair Problem</a> </li>
 </ul>
@@ -2308,6 +2397,9 @@
 </li>
 </ol>
 </div>
+
+
+
 
               
             </article>
@@ -2339,13 +2431,13 @@
       
       
         
-        <a href="../greedy/" class="md-footer__link md-footer__link--next" aria-label="Next: 貪心" rel="next">
+        <a href="../binarylifting/" class="md-footer__link md-footer__link--next" aria-label="Next: 倍增" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              貪心
+              倍增
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -2375,10 +2467,11 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
       

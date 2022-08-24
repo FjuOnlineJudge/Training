@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.1">
     
     
       
@@ -17,7 +17,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -36,7 +36,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -1158,6 +1158,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../greedy/" class="md-nav__link">
+        貪心
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -1257,8 +1271,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../greedy/" class="md-nav__link">
-        貪心
+      <a href="../binarylifting/" class="md-nav__link">
+        倍增
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prefixsum/" class="md-nav__link">
+        前綴和
       </a>
     </li>
   
@@ -1458,10 +1486,57 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_12" type="checkbox" id="__nav_6_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_12">
+          二分圖與網路流
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="二分圖與網路流" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_12">
+          <span class="md-nav__icon md-icon"></span>
+          二分圖與網路流
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../graph/bigraph/" class="md-nav__link">
         二分圖
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/flow/" class="md-nav__link">
+        網路流
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1891,8 +1966,7 @@
 <summary>UVa 12032 - The Monkey and the Oiled Bamboo</summary>
 <p>一開始位置在 <script type="math/tex">0</script>，依序抵達座標 <script type="math/tex">r_1,r_2,...,r_n</script>，找出最小的 <script type="math/tex">k</script> 滿足：每一次最多只能前進 <script type="math/tex">k</script> 步，如果這次前進 <script type="math/tex">k</script> 步，之後最多只能前進 <script type="math/tex">k-1</script> 步，以此類推。</p>
 </details>
-<p>二分搜答案 <script type="math/tex">k</script>，<script type="math/tex">F(x)</script> 代表一開始 <script type="math/tex">k=x</script> 是否可以題目要求，利用題目敘述實現 <script type="math/tex">F(x)</script>
-</p>
+<p>二分搜答案 <script type="math/tex">k</script>，<script type="math/tex">F(x)</script> 代表一開始 <script type="math/tex">k=x</script> 是否可以題目要求，利用題目敘述實現 <script type="math/tex">F(x)</script>。</p>
 <details>
 <summary>參考程式碼</summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2025,8 +2099,7 @@
 <span class="normal">40</span>
 <span class="normal">41</span>
 <span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="n">MXN</span><span class="p">);</span><span class="w"></span>
+<span class="normal">43</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="n">MXN</span><span class="p">);</span><span class="w"></span>
 <span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"></span>
 
 <span class="kt">bool</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"></span>
@@ -2046,7 +2119,6 @@
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">IOS</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
@@ -2076,9 +2148,9 @@
 <summary>UVa 12190 - Electric Bill</summary>
 <p>給定電力價格表，你和你的鄰居合併計算電費為 <script type="math/tex">A</script> 元，分開計算的差額為 <script type="math/tex">B</script> 元，請問如果分開計算的情況下，你的電費為何(你的電費比較便宜)?</p>
 </details>
-<p>設 <script type="math/tex">Bill(a)</script> 計算使用 <script type="math/tex">a</script> 度電的電費，先用二分搜找出兩個人總共使用的電量 <script type="math/tex">tot</script>，接著找出你的電量 <script type="math/tex">x</script>，有以下三種情況：</p>
+<p>設 <script type="math/tex">Bill(a)</script> 計算使用 <script type="math/tex">a</script> 度電的電費，先用二分搜找出兩個人總共使用的電量 <script type="math/tex">tot</script>，接著二分搜你的電量 <script type="math/tex">x</script>，有以下三種情況：</p>
 <ul>
-<li>如果 <script type="math/tex">Bill(total-x)-Bill(x)==B</script>，輸出 <script type="math/tex">x</script>
+<li>如果 <script type="math/tex">Bill(total-x)-Bill(x)==B</script>，輸出 <script type="math/tex">Bill(x)</script>
 </li>
 <li>如果 <script type="math/tex">Bill(total-x)-Bill(x)<B</script>，<script type="math/tex">R=x-1</script>
 </li>
@@ -2442,6 +2514,9 @@
 </li>
 </ul>
 
+
+
+
               
             </article>
             
@@ -2456,7 +2531,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../enumerate/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 枚舉" rel="prev">
+        <a href="../greedy/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 貪心" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2465,7 +2540,7 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              枚舉
+              貪心
             </div>
           </div>
         </a>
@@ -2508,10 +2583,11 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
       

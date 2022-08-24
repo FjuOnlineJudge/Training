@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.1">
     
     
       
@@ -17,7 +17,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -36,7 +36,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -1158,6 +1158,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../algorithm/greedy/" class="md-nav__link">
+        貪心
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../algorithm/binarysearch/" class="md-nav__link">
         二分搜
       </a>
@@ -1186,8 +1200,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm/greedy/" class="md-nav__link">
-        貪心
+      <a href="../../algorithm/binarylifting/" class="md-nav__link">
+        倍增
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/prefixsum/" class="md-nav__link">
+        前綴和
       </a>
     </li>
   
@@ -1391,6 +1419,34 @@
     
   
   
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_12" type="checkbox" id="__nav_6_12" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_12">
+          二分圖與網路流
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="二分圖與網路流" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_12">
+          <span class="md-nav__icon md-icon"></span>
+          二分圖與網路流
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
@@ -1425,27 +1481,40 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    性質
+    基本介紹
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    判別二分圖
+    著色問題
   </a>
+  
+    <nav class="md-nav" aria-label="著色問題">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     匹配
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     二分圖最大匹配
   </a>
   
@@ -1465,34 +1534,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    獨立集和覆蓋
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    二分圖最大權重匹配
+    匹配相關問題
   </a>
-  
-    <nav class="md-nav" aria-label="二分圖最大權重匹配">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#kuhn-munkres-algorithm" class="md-nav__link">
-    Kuhn-Munkres Algorithm
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
+    二分圖最大權重匹配
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    相關題目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     例題練習
   </a>
   
@@ -1502,6 +1565,27 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flow/" class="md-nav__link">
+        網路流
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1769,27 +1853,40 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    性質
+    基本介紹
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    判別二分圖
+    著色問題
   </a>
+  
+    <nav class="md-nav" aria-label="著色問題">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     匹配
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     二分圖最大匹配
   </a>
   
@@ -1809,34 +1906,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    獨立集和覆蓋
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    二分圖最大權重匹配
+    匹配相關問題
   </a>
-  
-    <nav class="md-nav" aria-label="二分圖最大權重匹配">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#kuhn-munkres-algorithm" class="md-nav__link">
-    Kuhn-Munkres Algorithm
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
+    二分圖最大權重匹配
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    相關題目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     例題練習
   </a>
   
@@ -1858,13 +1949,27 @@
 
 <h1 id="bipartite-graph">二分圖（Bipartite graph)</h1>
 <p>如果一張圖的點可以分成兩個集合，集合內的點彼此沒有邊相連。</p>
-<h2 id="_1">性質</h2>
+<h2 id="_1">基本介紹</h2>
 <ul>
 <li>不存在奇環，奇環為邊數為奇數的環。</li>
 <li>用兩種顏色塗所有的點，存在至少一種辦法使得任兩相鄰點對顏色相異。（著色問題）</li>
+<li>現實中二分圖應用範圍<ul>
+<li>配對：男女配對，機器人分配工作</li>
+<li>輪替：二維座標、棋盤，座標是點，鄰居關係是邊</li>
+<li>交錯：二維座標、棋盤，行列式點，座標是邊</li>
 </ul>
-<h2 id="_2">判別二分圖</h2>
-<p>著色問題可以用來判斷一張圖是否為二分圖，用 <code>color</code> 紀錄每個點的顏色（無色 <code>-1</code> 、白色 <code>0</code> 、黑色 <code>1</code> )，一開始每個點紀錄為無色。利用 BFS 或 DFS 遍歷所有點，首先，判斷一個點是否有顏色，如果點為無色，就讓這個點變成白色，否則照舊。接著，讓其他相鄰的點的顏色和這個顏色相異，如果在遍歷途中發現有任意相鄰點對同色，則該圖不是二分圖。</p>
+</li>
+</ul>
+<p><img alt="" src="../images/bigraph.png" /></p>
+<h2 id="_2">著色問題</h2>
+<details class="question" open="open">
+<summary>著色問題</summary>
+<p>給定一張圖 <script type="math/tex">G</script>，用兩種顏色(黑色和紅色)塗所有的點，是否存在至少一種辦法，使得任兩相鄰點對顏色相異?</p>
+</details>
+<p>這題其實也在判斷一張圖是否為二分圖：一張圖有奇環，表示至少有一對相鄰的點同色。</p>
+<h3 id="_3">算法</h3>
+<p>用 <code>color</code> 紀錄每個點的顏色（無色 <code>-1</code> 、紅色 <code>0</code> 、黑色 <code>1</code> )，一開始每個點紀錄為無色。利用 BFS 或 DFS 遍歷所有點，首先，判斷一個點是否有顏色，如果點為無色，就讓這個點變成紅色，否則照舊。接著，讓其他相鄰且無色的點 <script type="math/tex">v</script> 的顏色和這個顏色相異，並遍歷點 <script type="math/tex">v</script>，如果在遍歷途中發現有任意相鄰點對同色，則該圖不是二分圖。</p>
+<p>所有點和邊最多遍歷一次，時間複雜度 <script type="math/tex">O(V+E)</script>。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1949,7 +2054,7 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<h2 id="_3">匹配</h2>
+<h2 id="_4">匹配</h2>
 <ul>
 <li>匹配：在圖論中是指一個邊集合，集合中任意兩條邊沒有共同頂點。<ul>
 <li>匹配點、非匹配點、匹配邊、非匹配邊</li>
@@ -1959,22 +2064,39 @@
 </ul>
 </li>
 </ul>
-<h2 id="_4">二分圖最大匹配</h2>
-<h3 id="hungarian-algorithm">匈牙利演算法 (Hungarian algorithm)</h3>
+<p><img alt="" src="../images/matching1.png" /></p>
+<h2 id="_5">二分圖最大匹配</h2>
+<p>假設今天有一個配對節目，這個環節男生選擇一到多位女生，工作人員要依照男生的選擇，讓越多對男女配對越好。</p>
+<p><img alt="" src="../images/matching2.png" /></p>
+<p>一開始讓一號男生和一號女生配對。</p>
+<p><img alt="" src="../images/matching3.png" /></p>
+<p>再來讓二號男生跟其他人配對，但很不巧他唯一的選擇，一號女生已經和一號男生配對，為了讓配對數增加，讓一號男生和其他選擇(二號女生)配對，如此一來配對數增加到兩對。</p>
+<p><img alt="" src="../images/matching4.png" />
+<img alt="" src="../images/matching5.png" />
+<img alt="" src="../images/matching6.png" /></p>
+<p>匹配演算法的概念就是如此：為一條匹配邊的兩個點，各自找到一個非匹配點，讓兩個匹配點改成和非匹配點匹配，增加匹配數。</p>
 <details open="open">
 <summary>交錯路 (Alternating Path) 及增廣路 (Agumenting Path)</summary>
 <p>交錯路：依序經過非匹配邊、匹配邊、。。。、非匹配邊、匹配邊、非匹配邊所形成的路徑。</p>
-<p>增廣路：從非匹配點出發，經過交錯路，最後經過另一個集合的非匹配點，該路徑稱為增廣路。把增廣路上的非匹配邊和匹配邊替換，就能使匹配數量 <script type="math/tex">+1</script> 。</p>
-<p><img alt="" src="../images/matching.png" />
-<img alt="" src="../images/agumentingPath.png" /></p>
+<p>增廣路：從非匹配點出發，經過交錯路，最後經過另一個集合的非匹配點，該路徑稱為增廣路。</p>
+<p>增廣路上的未匹配邊會比匹配邊多一條，將未匹配邊變成匹配邊，匹配邊變成未匹配邊(在這裡稱為翻轉)，匹配數量會多一條。</p>
+<p>下面的例子，兩條路徑都是增廣路，但只有上面一條路徑稱為增廣路。</p>
+<p><img alt="" src="../images/matching7.png" /></p>
 </details>
+<p>在圖上持續尋找增廣路，翻轉增廣路，直到無法再找到任何一條增廣路，就是最大匹配。</p>
+<h3 id="hungarian-algorithm">匈牙利演算法 (Hungarian algorithm)</h3>
+<p>要介紹演算法前，先引入 Berge's Theorem。</p>
 <details open="open">
 <summary>Berge's Theorem</summary>
 <p>如果一個匹配 <script type="math/tex">M</script> 找不到任何增廣路，那麼 <script type="math/tex">M</script> 就是一個最大匹配。</p>
 <p>此定理可延伸出，如果一個非匹配點 <script type="math/tex">v</script> 找不到增廣路，那麼存在不包含 <script type="math/tex">v</script> 的最大匹配 <script type="math/tex">M'</script> 。</p>
 </details>
-<p>根據 Berge's Theorem，我們得到一個算法：枚舉集合 <script type="math/tex">X</script> 未匹配的點 <script type="math/tex">s</script> ，如果找到增廣路，則翻轉所有邊，否則就把 <script type="math/tex">s</script> 移出匹配。找出增廣路的方式為，從 <script type="math/tex">X</script> 集合的每個點 <script type="math/tex">s</script> 開始 DFS，去拜訪集合 <script type="math/tex">Y</script> 的每個和 <script type="math/tex">s</script> 相連的點 <script type="math/tex">t</script> ，如果 <script type="math/tex">t</script> 是未匹配點，則找到一條增廣路；如果 <script type="math/tex">t</script> 是匹配點，則從和 <script type="math/tex">t</script> 匹配點 <script type="math/tex">s'</script> 開始 DFS 尋找增廣路。</p>
-<p>s 集合個每個點都匹配一次，最多有 <script type="math/tex">V</script> 個點，每次 DFS 的最多找到長度為 <script type="math/tex">E</script> 的增廣路，整體時間複雜度為 <script type="math/tex">O(VE)</script> 。</p>
+<p>根據 Berge's Theorem，我們得到一個算法：假設二分圖分成兩個集合 <script type="math/tex">X,Y</script>，枚舉集合 <script type="math/tex">X</script> 未匹配的點 <script type="math/tex">X_i</script> ，如果找到增廣路，則翻轉所有邊，否則就把 <script type="math/tex">X_i</script> 移出匹配。找出增廣路的方式為：
+- 從 <script type="math/tex">X</script> 集合的每個點 <script type="math/tex">X_i</script> 開始 DFS，去拜訪集合 <script type="math/tex">Y</script> 的每個和 <script type="math/tex">X_i</script> 相連的點 <script type="math/tex">Y_j</script> ，
+    - 如果 <script type="math/tex">Y_j</script> 是未匹配點，則找到一條增廣路。
+    - 如果 <script type="math/tex">Y_j</script> 是匹配點，則從和 <script type="math/tex">Y_j</script> 匹配點 <script type="math/tex">X_{i'}</script> 開始 DFS 尋找增廣路。</p>
+<p>
+<script type="math/tex">X</script> 集合個每個點都匹配一次，最多有 <script type="math/tex">V</script> 個點，每次 DFS 的時間複雜度為 <script type="math/tex">O(V+E)</script> / <script type="math/tex">O(V^2)</script>，整體時間複雜度為 <script type="math/tex">O(V(V+E))</script> / <script type="math/tex">O(V^3)</script>。</p>
 <p><img alt="" src="../images/hungarianAlgorithm.gif" /></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2046,13 +2168,14 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<h2 id="_5">獨立集和覆蓋</h2>
+<h2 id="_6">匹配相關問題</h2>
 <ul>
 <li>最大邊獨立集 <script type="math/tex">M</script> （最大匹配）：為圖上最大的邊集使得每個點至多和一條邊相鄰。</li>
 <li>最大點獨立集 <script type="math/tex">I</script> ：是一張圖中，最多有幾個點互不相鄰的最大集合。</li>
 <li>最小點覆蓋 <script type="math/tex">C_V</script> ：最小的點集使得圖上每條邊都至少與點集中一個點相鄰。</li>
 <li>最小邊覆蓋 <script type="math/tex">C_E</script> ：最小的邊集使得圖上每個點都至少與邊集中一條邊相鄰。</li>
 </ul>
+<p><img alt="" src="../images/matchingProblem.png" /></p>
 <p>根據 König’s theorem，可以整理出下列事項：</p>
 <ul>
 <li>
@@ -2062,15 +2185,14 @@
 <script type="math/tex">|I|=|C_E|=|V|-|M|</script>
 </li>
 </ul>
-<p>下列說明，在找出最大匹配後，如何找出這些問題的其中一組解：</p>
+<p>下列說明，在找出最大匹配後，如何找出這些問題的其中一組解(可以對照上圖)：</p>
 <ul>
 <li>最小點覆蓋：對於每個匹配邊上的兩點，如果有一個匹配點有連接到未匹配點，將該點加入最小點覆蓋中，否則任選一點加入最小點覆蓋中。</li>
 <li>最大點獨立集：剛好跟最小點覆蓋互補。</li>
 <li>最小邊覆蓋：最大匹配的邊，加上每個未匹配點所連接的任意一條。</li>
 </ul>
 <p>因此，只要算出最大匹配，就可以算出其他問題。</p>
-<h2 id="_6">二分圖最大權重匹配</h2>
-<h3 id="kuhn-munkres-algorithm">Kuhn-Munkres Algorithm</h3>
+<h2 id="_7">二分圖最大權重匹配</h2>
 <p>KM 演算法 (Kuhn-Munkres Algorithm) 用於二分圖最大權重匹配，此演算法必須應用到完美匹配的情況，我們要增加一些點或邊來滿足：</p>
 <ul>
 <li>
@@ -2163,27 +2285,7 @@
 <span class="normal">67</span>
 <span class="normal">68</span>
 <span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span>
-<span class="normal">80</span>
-<span class="normal">81</span>
-<span class="normal">82</span>
-<span class="normal">83</span>
-<span class="normal">84</span>
-<span class="normal">85</span>
-<span class="normal">86</span>
-<span class="normal">87</span>
-<span class="normal">88</span>
-<span class="normal">89</span>
-<span class="normal">90</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">KM</span><span class="w"></span>
+<span class="normal">70</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">KM</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">Left</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"></span>
@@ -2196,7 +2298,6 @@
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">vx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
 <span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">fabs</span><span class="p">(</span><span class="n">Lx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Ly</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1e-9</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">vy</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"></span>
 <span class="w">            </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="n">vy</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
@@ -2206,36 +2307,21 @@
 <span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
 <span class="w">                </span><span class="p">}</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">update</span><span class="p">()</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">T</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1e9</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">vx</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"></span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">vy</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"></span>
+<span class="w">                </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Lx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Ly</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span><span class="w"></span>
 <span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">vx</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">                </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">vy</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"></span>
-<span class="w">                    </span><span class="p">{</span><span class="w"></span>
-<span class="w">                        </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Lx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Ly</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span><span class="w"></span>
-<span class="w">                    </span><span class="p">}</span><span class="w"></span>
-<span class="w">                </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">vx</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="n">Lx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">vy</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="n">Ly</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 
@@ -2245,9 +2331,7 @@
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="n">Left</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Lx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ly</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="n">Lx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">Lx</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 <span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2256,9 +2340,7 @@
 <span class="w">                </span><span class="n">vx</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span><span class="w"></span>
 <span class="w">                </span><span class="n">vy</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span><span class="w"></span>
 <span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">match</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
-<span class="w">                </span><span class="p">{</span><span class="w"></span>
 <span class="w">                    </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">                </span><span class="p">}</span><span class="w"></span>
 <span class="w">                </span><span class="n">update</span><span class="p">();</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
@@ -2275,7 +2357,19 @@
 <span class="cm">*/</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <p>更多的參考程式碼可參考 <a href="http://sunmoon-template.blogspot.com/2016/05/kuhn-munkres-algorithm.html">二分圖最大權完美匹配 KM 算法 - 日月卦長的模板庫</a> 和 <a href="https://oi-wiki.org/graph/graph-matching/bigraph-weight-match/">二分图最大权匹配 - OI Wiki</a> 。</p>
-<h2 id="_7">例題練習</h2>
+<h2 id="_8">相關題目</h2>
+<details class="question" open="open">
+<summary>LibreOJ 6000</summary>
+<p>有 <script type="math/tex">N</script> 位正駕駛和 <script type="math/tex">M</script> 位副駕駛，一位正駕駛要搭配一位副駕駛，給定可以一起執勤的名單，請問最多可以一次出動幾組人員?</p>
+</details>
+<p>最大二分圖匹配練習。</p>
+<details class="question" open="open">
+<summary>LibreOJ - 6226</summary>
+<p>給定一張 <script type="math/tex">N\times N</script> 的棋盤，放置 <script type="math/tex">M</script> 個障礙物，請問最多可以放多少騎士，彼此之間不會互相攻擊?(騎士走日字形)</p>
+</details>
+<p>-
+騎士的走法不存在奇環，因此可以把問題轉成二分圖，將座標 <script type="math/tex">(x,y)</script> 和所有騎士從 <script type="math/tex">(x,y)</script> 可以走到的點相連，不能互相攻擊代表要找到越多不相連的點越好，也就是最大點獨立集數量。</p>
+<h2 id="_9">例題練習</h2>
 <ul>
 <li>二分圖判定<ul>
 <li><a href="https://onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2391">UVa 11396 - Claw Decomposition</a> </li>
@@ -2283,6 +2377,7 @@
 </li>
 <li>二分圖最大匹配<ul>
 <li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=3235">UVa 12083 - Guardian of Decency</a> </li>
+<li><a href="https://vjudge.net/problem/UVA-12549">UVa 12549 - Sentry Robots</a></li>
 </ul>
 </li>
 <li>獨立集和覆蓋<ul>
@@ -2324,6 +2419,9 @@
 </ol>
 </div>
 
+
+
+
               
             </article>
             
@@ -2354,13 +2452,13 @@
       
       
         
-        <a href="../../dynamicProgramming/intro/" class="md-footer__link md-footer__link--next" aria-label="Next: 動態規劃簡介" rel="next">
+        <a href="../flow/" class="md-footer__link md-footer__link--next" aria-label="Next: 網路流" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              動態規劃簡介
+              網路流
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -2390,10 +2488,11 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
       

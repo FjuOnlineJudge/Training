@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.1">
     
     
       
@@ -17,7 +17,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -36,7 +36,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -1158,6 +1158,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../algorithm/greedy/" class="md-nav__link">
+        貪心
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../algorithm/binarysearch/" class="md-nav__link">
         二分搜
       </a>
@@ -1186,8 +1200,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm/greedy/" class="md-nav__link">
-        貪心
+      <a href="../../algorithm/binarylifting/" class="md-nav__link">
+        倍增
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/prefixsum/" class="md-nav__link">
+        前綴和
       </a>
     </li>
   
@@ -1387,10 +1415,57 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_12" type="checkbox" id="__nav_6_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_12">
+          二分圖與網路流
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="二分圖與網路流" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_12">
+          <span class="md-nav__icon md-icon"></span>
+          二分圖與網路流
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../graph/bigraph/" class="md-nav__link">
         二分圖
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/flow/" class="md-nav__link">
+        網路流
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1535,14 +1610,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lis-on2-onlog-n" class="md-nav__link">
-    LIS 的時間複雜度從 O(N^2) 降至 O(N\log N)
+  <a href="#lis" class="md-nav__link">
+    LIS 的時間複雜度優化
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    相關題目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     例題練習
   </a>
   
@@ -1749,14 +1831,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lis-on2-onlog-n" class="md-nav__link">
-    LIS 的時間複雜度從 O(N^2) 降至 O(N\log N)
+  <a href="#lis" class="md-nav__link">
+    LIS 的時間複雜度優化
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    相關題目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     例題練習
   </a>
   
@@ -1777,24 +1866,33 @@
 
 
 <h1 id="lcs-lis">LCS 和 LIS</h1>
+<details open="open">
+<summary>子序列</summary>
+<p>子序列是指一個序列去除任意個(包含 <script type="math/tex">0</script>)元素後所形成的新序列。
+例如：<script type="math/tex">A,AB,AC,ABC</script> 都是 <script type="math/tex">ABC</script> 的子序列，但 <script type="math/tex">CA,CAB</script> 不是</p>
+</details>
 <h2 id="longest-common-subsequence">最長共同子序列 (Longest Common Subsequence)</h2>
 <details class="question" open="open">
 <summary>最長共同子序列</summary>
-<p>子序列是指一個序列去除任意個（包含 0）元素後所形成的新序列。
-給定兩序列 <script type="math/tex">A,B</script> ，求最長的序列 <script type="math/tex">C</script> ， <script type="math/tex">C</script> 同時為 <script type="math/tex">A,B</script> 的子序列。</p>
+<p>給定兩序列 <script type="math/tex">A,B</script> ，求最長的序列 <script type="math/tex">C</script> ， <script type="math/tex">C</script> 同時為 <script type="math/tex">A,B</script> 的子序列。</p>
 </details>
 <ul>
-<li>狀態： <script type="math/tex">dp[i][j]</script> 表示使用 <script type="math/tex">a[1:i]</script> 和 <script type="math/tex">b[1:j]</script> 的 LCS 長度。</li>
-<li>初始狀態： <script type="math/tex">dp[i][0]=dp[0][i]=0</script> when <script type="math/tex">i\geq 0</script>
+<li>狀態： <script type="math/tex">f(i,j)</script> 表示使用 <script type="math/tex">a[1:i]</script> 和 <script type="math/tex">b[1:j]</script> 的 LCS 長度。</li>
+<li>初始狀態： <script type="math/tex">f(i,0)=f(0,i)=0</script> when <script type="math/tex">i\geq 0</script>
 </li>
 <li>轉移：
     <script type="math/tex; mode=display">
-    dp[i][j]=
+    f(i,j)=
     \begin{cases}
     dp[i-1][j-1]+1 & a[i]=b[j]\\
-    max(dp[i-1][j],dp[i][j-1]) & \text{else}
+    max(dp[i-1][j],f(i)[j-1]) & \text{else}
     \end{cases}
     </script>
+<ul>
+<li>
+<script type="math/tex">a[i]=b[j]</script> 代表可以從 <script type="math/tex">a[1:i]</script> 和 <script type="math/tex">b[1:j]</script> 所形成的 LCS，再加上 <script type="math/tex">a[i]</script> 成為新的 LCS。</li>
+<li><img alt="" src="../images/lcs.png" /></li>
+</ul>
 </li>
 </ul>
 <p>求出 LCS 的時間、空間複雜度都是 <script type="math/tex">O(N^2)</script> ，使用滾動陣列技巧，可將空間複雜度降至 <script type="math/tex">O(N)</script> 。</p>
@@ -1804,10 +1902,10 @@
 <p>給你一個序列 <script type="math/tex">A</script> ，求最長的序列 <script type="math/tex">B</script> ， <script type="math/tex">B</script> 是一個（非）嚴格遞增序列，且為 <script type="math/tex">A</script> 的子序列。</p>
 </details>
 <ul>
-<li>狀態： <script type="math/tex">dp[i]</script> ：第 <script type="math/tex">1</script> 到 <script type="math/tex">i</script> 個數字所形成最長遞增子序列的長度</li>
-<li>轉移： <script type="math/tex">dp[i]=max\{dp[j]|\forall j<i\ and\ A[j]<A[i]\}+1</script>
+<li>狀態： <script type="math/tex">f(i)</script> ：第 <script type="math/tex">1</script> 到 <script type="math/tex">i</script> 個數字所形成最長遞增子序列的長度</li>
+<li>轉移： <script type="math/tex">f(i)=max\{f(j)|\forall j<i\ and\ A[j]<A[i]\}+1</script>
 </li>
-<li>初始化： <script type="math/tex">dp[0]=0</script>
+<li>初始化： <script type="math/tex">f(0)=0</script>
 </li>
 </ul>
 <p>求出 LIS 的時間複雜度 <script type="math/tex">O(N^2)</script> ，空間複雜度 <script type="math/tex">O(N)</script>
@@ -1832,26 +1930,25 @@
 </ul>
 </li>
 </ul>
-<h2 id="lis-on2-onlog-n">LIS 的時間複雜度從 <script type="math/tex">O(N^2)</script> 降至 <script type="math/tex">O(N\log N)</script>
-</h2>
+<h2 id="lis">LIS 的時間複雜度優化</h2>
 <p>LIS 還有另一種狀態轉移式：</p>
 <ul>
-<li>狀態： <script type="math/tex">dp[n][i]</script> 表示使用前 <script type="math/tex">n</script> 個數字湊出長度 <script type="math/tex">i</script> 的 LIS, 末端數字最小為何。</li>
+<li>狀態： <script type="math/tex">f(n,i)</script> 表示使用前 <script type="math/tex">n</script> 個數字湊出長度 <script type="math/tex">i</script> 的 LIS, 末端數字最小為何。</li>
 <li>轉移：
     <script type="math/tex; mode=display">
-    dp[i][j]=
+    f(n,i)=
     \begin{cases}
-    min(dp[n-1][i],a[n]) & a[n]>dp[n-1][i-1]\\
-    dp[n-1][i] & \text{else}
+    min(f(n-1,i),a[n]) & a[n]>f(n-1,i-1)\\
+    f(n-1,i) & \text{else}
     \end{cases}
     </script>
 </li>
-<li>初始狀態： <script type="math/tex">dp[0][0] = -INF, dp[0][i] = INF, dp[i][0]=don't\ care</script> when <script type="math/tex">i \geq 1</script>
+<li>初始狀態： <script type="math/tex">f(0,0) = -INF, f(0,i) = INF, f(i,0)=don't\ care</script> when <script type="math/tex">i \geq 1</script>
 </li>
 </ul>
-<p><img alt="" src="../images/LIS.gif" /></p>
+<p><img alt="" src="images/lis.gif" /></p>
 <p>這樣的狀態轉移式時間和空間複雜度依舊是 <script type="math/tex">O(N^2)</script> ，不過，有幾點值得觀察：</p>
-<p>令 <script type="math/tex">g[i]=dp[x][i]</script> , where <script type="math/tex">1\leq x \leq N</script> ，忽略 <script type="math/tex">\infty</script> ， <script type="math/tex">g</script> 為一個嚴格遞增序列，當 <script type="math/tex">x</script> 每次 <script type="math/tex">+1</script> ， <script type="math/tex">g</script> 每次都有一個數字改變，改變的數字皆為 <script type="math/tex">a[i]</script> ，被改的數字為 <script type="math/tex">lower\_bound(a[i])</script> 。</p>
+<p>令 <script type="math/tex">g[i]=f(x,i)</script> , where <script type="math/tex">1\leq x \leq N</script> ，忽略 <script type="math/tex">\infty</script> ， <script type="math/tex">g</script> 為一個嚴格遞增序列，當 <script type="math/tex">x</script> 每次 <script type="math/tex">+1</script> ， <script type="math/tex">g</script> 每次都有一個數字改變，改變的數字皆為 <script type="math/tex">a[i]</script> ，被改的數字為 <script type="math/tex">lower\_bound(a[i])</script> 。</p>
 <p>根據上述性質，可用二分搜更新 <script type="math/tex">g</script> ，藉此找到 LIS 的長度。每次二分搜的時間複雜度為 <script type="math/tex">O(\log N)</script> ，整體時間複雜度為 <script type="math/tex">O(N\log N)</script> 。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -1887,11 +1984,20 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<h2 id="_1">例題練習</h2>
+<h2 id="_1">相關題目</h2>
+<details class="question" open="open">
+<summary>UVa 10534 - Wavio Sequence</summary>
+<p>給定一個序列 <script type="math/tex">A</script>，要求一個最腸子序列，長度為 <script type="math/tex">2n+1</script>，前 <script type="math/tex">n</script> 個數字遞增，後 <script type="math/tex">n</script> 個數字遞減。</p>
+</details>
+<p>從左到右和從右到左做兩次 LIS 得到 <script type="math/tex">dp1,dp2</script>，接著枚舉所有點為中心，以第 <script type="math/tex">i</script> 個點為中心的最腸子序列長度為 <script type="math/tex">2\times min(dp1[i],dp2[i])-1</script>。</p>
+<h2 id="_2">例題練習</h2>
 <ul>
 <li><a href="http://uva.onlinejudge.org/external/104/10405.pdf">UVa 10405 - Longest Common Subsequence</a> </li>
 <li><a href="http://uva.onlinejudge.org/external/4/481.pdf">UVa 00481 - What Goes Up</a> </li>
 </ul>
+
+
+
 
               
             </article>
@@ -1959,10 +2065,11 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
       
