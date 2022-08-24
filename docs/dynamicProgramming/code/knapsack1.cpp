@@ -8,7 +8,7 @@ for (int i = 1; i <= MXN; ++i)
     }
     for (int j = w[i]; j <= MXW; ++j)
     {
-        dp[i][j] = max(dp[i - 1][j − w[i]] + v[i], dp[i - 1][j]);
+        dp[i][j] = max(dp[i - 1][j - w[i]] + v[i], dp[i - 1][j]);
     }
 }
 

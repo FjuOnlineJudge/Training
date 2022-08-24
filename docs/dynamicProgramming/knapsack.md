@@ -82,8 +82,6 @@
 
     給定 $n$ 種物品的重量 $w_i$ 和價值 $v_i$，和一個容量為 $W$ 的背包。每種物品可選取任意個放入背包，在不超過背包容量的情況下，背包內物品價值總和最大為何?
 
-無限背包問題和 0-1 背包問題差異在於無限背包的物品可以選無限多個。
-
 無限背包問題和 0-1 背包問題的狀態式相同，以下為轉移式：
 
 -  $f(i,j)=max(f(i-1,j-k\times w_i)+ k\times v_i), \forall k\times w_i\leq j$ 
@@ -113,5 +111,5 @@
     -  [AtCoder Educational DP Contest D - Knapsack 1](https://atcoder.jp/contests/dp/tasks/dp_d) 
 -   無限背包問題
     -  [UVa 10465 - Homer Simpson](http://uva.onlinejudge.org/external/104/10465.pdf) 
-    -  [UVa 00825 - Coin Change](http://uva.onlinejudge.org/external/8/825.pdf) 
+    -  [UVa 00674 - Coin Change](https://vjudge.net/problem/UVA-674) 
     -  [UVa 00357 - Let Me Count The Ways](http://uva.onlinejudge.org/external/3/357.pdf) 
