@@ -63,7 +63,9 @@ nav:
     - 最短路徑: graph/shortestpath.md
     - 歐拉回路: graph/eulercircuit.md
     - 連通性: graph/connectivity.md
-    - 二分圖: graph/bigraph.md
+    - 二分圖與網路流: 
+      - 二分圖: graph/bigraph.md
+      - 網路流: graph/flow.md
   - 動態規劃:
     - 動態規劃簡介: dynamicProgramming/intro.md
     - 基礎問題: dynamicProgramming/basic.md

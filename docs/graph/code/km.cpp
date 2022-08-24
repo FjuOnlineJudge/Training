@@ -11,7 +11,6 @@ template <typename T> struct KM
     {
         vx[i] = true;
         for (int j = 1; j <= n; j++)
-        {
             if ((fabs(Lx[i] + Ly[j] - w[i][j]) < 1e-9) && !vy[j])
             {
                 vy[j] = 1;
@@ -21,36 +20,21 @@ template <typename T> struct KM
                     return true;
                 }
             }
-        }
         return false;
     }
 
     void update()
     {
         T a = 1e9;
+        for (int i = 1; i <= n; i++)if (vx[i])
+            for (int j = 1; j <= n; j++)if (!vy[j])
+                a = min(a, Lx[i] + Ly[j] - w[i][j]);
         for (int i = 1; i <= n; i++)
         {
             if (vx[i])
-            {
-                for (int j = 1; j <= n; j++)
-                {
-                    if (!vy[j])
-                    {
-                        a = min(a, Lx[i] + Ly[j] - w[i][j]);
-                    }
-                }
-            }
-        }
-        for (int i = 1; i <= n; i++)
-        {
-            if (vx[i])
-            {
                 Lx[i] -= a;
-            }
             if (vy[i])
-            {
                 Ly[i] += a;
-            }
         }
     }
 
@@ -60,9 +44,7 @@ template <typename T> struct KM
         {
             Left[i] = Lx[i] = Ly[i] = 0;
             for (int j = 1; j <= n; j++)
-            {
                 Lx[i] = max(Lx[i], w[i][j]);
-            }
         }
         for (int i = 1; i <= n; i++)
         {
@@ -71,9 +53,7 @@ template <typename T> struct KM
                 vx.reset();
                 vy.reset();
                 if (match(i))
-                {
                     break;
-                }
                 update();
             }
         }
