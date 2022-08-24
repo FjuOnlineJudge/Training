@@ -34,6 +34,16 @@
     --8<-- "docs/algorithm/code/inversionPair.cpp"
     ```
 
+???+ Question "UVa 10810 - Ultra-QuickSort"
+    給定序列 $A$，求使用泡沫排序法需要交換的次數，泡沫排序法會從左到右比較相鄰兩數，如果左邊的數較大就交換兩數。
+
+一個數字 $x$ 會跟所有在 $x$ 右邊，且小於 $x$ 的數字交換位置，換句話說，就是和 $x$ 形成逆序數對的數字，所以這題要求的是逆序數對的數量。
+
+???+ Question "UVa 11495 - Bubbles and Buckets"
+    給定序列 $A$，兩個輪流交換兩個相鄰數字(左邊數字必須大於右邊才可交換)，讓序列由小到大排序的人獲勝，請問獲勝的是先手還是後手?
+
+同樣求逆序數對的數量，奇數先手勝，偶數後手勝。
+
 ## 快速排序法
 
 - 切割：選定一個基準點 $x$ ，將其他數字分成兩堆， $< x$ 的數字排在 $x$ 前面， $\geq x$ 的數字排放在 $x$ 的後面，分堆完成，再分別遞迴排序兩堆。
@@ -64,7 +74,7 @@
 --8<-- "docs/algorithm/code/nearestPair.cpp"
 ```
 
-## UVA 1608：Non-boring sequences
+## 相關題目
 
 ???+ Question "UVA 1608：Non-boring sequences"
     給定一個序列 $A$ ，判斷使否每一個連續的子序列，都有一個數字，只在該子序列出現一次。
@@ -79,10 +89,17 @@
     --8<-- "docs/algorithm/code/uva01608.cpp"
     ```
 
+???+ Question "Codefocdes 1490D - Permutation Transformation"
+    給定一組 permutation $a$，要將這個排列轉成一顆二元樹，作法為：
+    - 將最大的數字當成根，該數字左右兩邊的數列，分別當成左右子樹。
+    - 子樹依相同方式建構。
+
+    請問在轉化成二元樹後，每一個數字的深度為何?
+
+大小最多為 $100$，用遞迴解的時間複雜度 $O(N^2)$ 不會超過時限的。搜尋一個區間 $[L,R]$，找到最大的數字 $a_x$，更新他的深度，繼續遞迴 $[L,x-1]$ 和 $[x+1,R]$。
+
 ## 例題練習
 
--   合併排序法/逆序數對
-    -  [UVa 10810 - Ultra-QuickSort](https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=1751) 
 -   二維平面上最近點對
     -  [UVa 10245 - The Closest Pair Problem](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1186) 
 
