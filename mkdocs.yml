@@ -52,6 +52,7 @@ nav:
     - 二分搜: algorithm/binarysearch.md
     - 分治: algorithm/divideandconquer.md
     - 倍增: algorithm/binarylifting.md
+    - 前綴和: algorithm/prefixsum.md
   - 圖論:
     - 圖論概念: graph/concept.md
     - 圖的儲存: graph/save.md
