@@ -83,8 +83,17 @@ nav:
 
 theme:
   name: material
+  custom_dir: overrides
   features:
     - navigation.tabs
+
+plugins:
+  - search
+  - git-revision-date-localized
+  - git-committers:
+        repository: FjuOnlineJudge/Training
+        branch: master
+        token: !ENV ["MKDOCS_GIT_COMMITTERS_APIKEY"]
 
 python:
    version: 2 # for unicode

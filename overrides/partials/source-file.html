@@ -1,0 +1,17 @@
+<hr />
+<div class="md-source-file">
+  <small>
+    <ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+      <li class="last-updated-holder displayDate loading">
+          <span class="last-updated-text">最近更新:</span>
+          <time role="presentation" datetime="2018-10-25T00:00:00.000Z" data-article-date-source="ms.date">{% if last_commit_date %}{{ last_commit_date }}{% endif %}</time>
+      </li>
+      <li class="last-updated-holder displayDate loading">
+      <span class="contributors-text">本文貢獻者: </span>
+      {%- for user in committers -%}
+      <a href="https://github.com/{{ user.name }}" title="{{ user.name }}" data-bi-name="contributorprofile" target="_blank">{{ user.name }}</a>, 
+      {%- endfor -%}
+      </li>
+    </ul>
+  </small>
+</div>
