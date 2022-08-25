@@ -93,7 +93,6 @@ plugins:
   - git-committers:
         repository: FjuOnlineJudge/Training
         branch: master
-        token: !ENV ["MKDOCS_GIT_COMMITTERS_APIKEY"]
 
 python:
    version: 2 # for unicode
