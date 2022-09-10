@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.1">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.3">
     
     
       
@@ -17,7 +17,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6b80c2a2.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -1886,14 +1886,16 @@
 </ul>
 </li>
 <li><code>domjudge-problem.ini</code>： Domjudge 設定檔。</li>
-<li><code>*.tex</code>：題本。<ul>
+<li><code>*.tex</code>：題本 <code>tex</code> 檔。<ul>
 <li><code>statment</code>：題目敘述。</li>
 <li><code>input</code>：輸入說明。</li>
 <li><code>output</code>：輸出說明。</li>
 <li><code>spec</code>：測資範圍說明。</li>
+<li><code>hint</code>：提示。</li>
 </ul>
 </li>
 <li><code>generate.py</code>：生測資工具。</li>
+<li><code>problem.{pdf,html,txt}</code>：題本。</li>
 <li><code>submissions</code>：範例程式，程式碼的命名不拘，子資料夾名稱如下：<ul>
 <li><code>accecpted</code>：預設結果 <code>AC</code>。</li>
 <li><code>wrong_answer</code>：預設結果 <code>WA</code>。</li>
@@ -1928,7 +1930,9 @@
 <span class="normal">22</span>
 <span class="normal">23</span>
 <span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code>|-- data
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code>|-- data
 |   |-- sample
 |   |   |-- 1.ans
 |   |   |-- 1.in
@@ -1943,8 +1947,10 @@
 |       `-- ....
 |-- domjudge-problem.ini
 |-- generate.py
+|-- hint.tex
 |-- input.tex
 |-- output.tex
+|-- problem.{pdf,html,txt}
 |-- spec.tex
 |-- statment.tex
 `-- submissions
@@ -1999,43 +2005,34 @@ python script/folderCompressor.py -d <span class="nb">test</span> <span class="c
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1"># server ip</span>
-<span class="n">contest_id</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1"># server ip</span>
 <span class="n">adminName</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <span class="n">adminPassword</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-<span class="n">onlyCorrectCode</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># get the correct code ID</span>
-<span class="n">teamId</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="mi">200</span><span class="p">)]</span> <span class="c1"># range of team ID</span>
-<span class="n">problemDict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;&quot;</span><span class="p">:</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">:</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">:</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">:</span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">:</span><span class="s2">&quot;E&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">:</span><span class="s2">&quot;F&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">:</span><span class="s2">&quot;G&quot;</span><span class="p">}</span> <span class="c1"># map problem ID to alphabet</span>
+<span class="n">cid</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># contest id</span>
 </code></pre></div></td></tr></table></div>
 <p>設定完請執行。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>python script/domjudgeExportSubmissions.py
 </code></pre></div></td></tr></table></div>
 <p>成功後會生成一個資料夾名稱為 <code>submit</code>，每個有繳交紀錄的 Team 有一個對應 ID 的資料夾和壓縮檔。</p>
 <h2 id="_5">寄出程式碼</h2>
-<p>在 <code>script/sendEmail.py</code> 設定以下參數，<code>self.password</code> 請參考註解內容取得。<code>text_template</code> 和 <code>html_template</code> 需修改。</p>
+<p>將收件人資訊整理在 <code>maillist.csv</code>，包含電子郵件、姓名和登入帳號密碼。</p>
+<p>在 <code>script/sendEmail.py</code> 建立 class 時可設定 port、SMTP Server Domain、寄件人電子郵件、電子郵件密碼和標題。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">465</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">smtp_server_domain_name</span> <span class="o">=</span> <span class="s2">&quot;smtp.gmail.com&quot;</span>
-    <span class="c1"># https://stackoverflow.com/questions/16512592/login-credentials-not-working-with-gmail-smtp</span>
-    <span class="c1"># https://www.google.com/settings/security/lesssecureapps</span>
-    <span class="c1"># https://www.learncodewithmike.com/2020/02/python-email.html</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">sender_mail</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">subject</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">]</span>
+    <span class="n">mail</span> <span class="o">=</span> <span class="n">Mail</span><span class="p">()</span> <span class="c1"># 設定資訊</span>
+    <span class="n">mail</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>設定完請執行。執行的輸入格式為 <code>email teamid passwd</code>，如果 <code>teamid</code> 有對應的壓縮檔 <code>submit/teamid.zip</code> 會當成附件寄出。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>python script/sendEmail.py
+<p>常用 SMTP server：</p>
+<ul>
+<li>smtp.gmail.com，port 為 465。</li>
+<li>smtp.office365.com，port 為 587。</li>
+</ul>
+<p><code>send</code> 函式有幾處需要修改，<code>text_template</code> 和 <code>html_template</code> 設定信件內容，前者為純文字，後者為 html 格式，如果信件包含附件，在 <code>file_path_set</code> 填入附件路徑。</p>
+<p>設定完之後，請執行下面指令。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>python script/sendEmail.py &lt; maillist.csv
 </code></pre></div></td></tr></table></div>
 <p>如果一次寄太多信，可能會遇到部分信件無法寄出，請稍後再寄。</p>
 
@@ -2045,7 +2042,7 @@ python script/folderCompressor.py -d <span class="nb">test</span> <span class="c
     <ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
       <li class="last-updated-holder displayDate loading">
           <span class="last-updated-text">最近更新:</span>
-          <time role="presentation" datetime="2018-10-25T00:00:00.000Z" data-article-date-source="ms.date">2022-08-25</time>
+          <time role="presentation" datetime="2018-10-25T00:00:00.000Z" data-article-date-source="ms.date">2022-09-10</time>
       </li>
       <li class="last-updated-holder displayDate loading">
       <span class="contributors-text">本文貢獻者: </span><a href="https://github.com/allem40306" title="allem40306" data-bi-name="contributorprofile" target="_blank">allem40306</a>,</li>
@@ -2126,7 +2123,7 @@ python script/folderCompressor.py -d <span class="nb">test</span> <span class="c
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      <script src="../../assets/javascripts/bundle.2ab50757.min.js"></script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
       
