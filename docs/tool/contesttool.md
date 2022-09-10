@@ -16,12 +16,14 @@
     * `sample` 為範例測資，`secret` 為隱藏測資。
     * 輸入為 `in` 檔，輸出為 `ans` 檔。
 * `domjudge-problem.ini`： Domjudge 設定檔。
-* `*.tex`：題本。
+* `*.tex`：題本 `tex` 檔。
     * `statment`：題目敘述。
     * `input`：輸入說明。
     * `output`：輸出說明。
     * `spec`：測資範圍說明。
+    * `hint`：提示。
 * `generate.py`：生測資工具。
+* `problem.{pdf,html,txt}`：題本。
 * `submissions`：範例程式，程式碼的命名不拘，子資料夾名稱如下：
     * `accecpted`：預設結果 `AC`。
     * `wrong_answer`：預設結果 `WA`。
@@ -45,8 +47,10 @@
     |       `-- ....
     |-- domjudge-problem.ini
     |-- generate.py
+    |-- hint.tex
     |-- input.tex
     |-- output.tex
+    |-- problem.{pdf,html,txt}
     |-- spec.tex
     |-- statment.tex
     `-- submissions
@@ -117,12 +121,9 @@ python script/folderCompressor.py -d test # 將 test 資料夾壓縮成 `domjudg
 
 ```py
 server = "" # server ip
-contest_id = 1
 adminName = ""
 adminPassword = ""
-onlyCorrectCode = True # get the correct code ID
-teamId = [i for i in range(101,200)] # range of team ID
-problemDict = {"":"A","":"B","":"C","":"D","":"E","":"F","":"G"} # map problem ID to alphabet
+cid = 0 # contest id
 ```
 
 設定完請執行。
@@ -135,24 +136,28 @@ python script/domjudgeExportSubmissions.py
 
 ## 寄出程式碼
 
-在 `script/sendEmail.py` 設定以下參數，`self.password` 請參考註解內容取得。`text_template` 和 `html_template` 需修改。
+將收件人資訊整理在 `maillist.csv`，包含電子郵件、姓名和登入帳號密碼。
+
+在 `script/sendEmail.py` 建立 class 時可設定 port、SMTP Server Domain、寄件人電子郵件、電子郵件密碼和標題。
 
 ```py
-def __init__(self):
-    self.port = 465
-    self.smtp_server_domain_name = "smtp.gmail.com"
-    # https://stackoverflow.com/questions/16512592/login-credentials-not-working-with-gmail-smtp
-    # https://www.google.com/settings/security/lesssecureapps
-    # https://www.learncodewithmike.com/2020/02/python-email.html
-    self.sender_mail = ""
-    self.password = ""
-    self.subject = ""
+if __name__ == '__main__':
+    data = [s.split(",") for s in sys.stdin]
+    mail = Mail() # 設定資訊
+    mail.send(data)
 ```
 
-設定完請執行。執行的輸入格式為 `email teamid passwd`，如果 `teamid` 有對應的壓縮檔 `submit/teamid.zip` 會當成附件寄出。
+常用 SMTP server：
+
+- smtp.gmail.com，port 為 465。
+- smtp.office365.com，port 為 587。
+
+`send` 函式有幾處需要修改，`text_template` 和 `html_template` 設定信件內容，前者為純文字，後者為 html 格式，如果信件包含附件，在 `file_path_set` 填入附件路徑。
+
+設定完之後，請執行下面指令。
 
 ```shell
-python script/sendEmail.py
+python script/sendEmail.py < maillist.csv
 ```
 
 如果一次寄太多信，可能會遇到部分信件無法寄出，請稍後再寄。
