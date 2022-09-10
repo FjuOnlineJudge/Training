@@ -4,3 +4,4 @@ python-markdown-math @ https://github.com/mitya57/python-markdown-math/archive/m
 mkdocs-material
 mkdocs-git-committers-plugin-2
 mkdocs-git-revision-date-localized-plugin
+lxml
