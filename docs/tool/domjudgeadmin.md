@@ -171,7 +171,7 @@ account_type	fullname	username	password
 
 例如：`1.cpp` 預設結果是 `correct`，路徑為 `submissions/accecpted/1.cpp`。
 
-藉由壓縮檔上傳的範例程式稱為 jury solution，jury solution 用來檢查測資是否正確，到 `jury` 頁面
+藉由壓縮檔上傳的範例程式稱為 jury solution，jury solution 用來檢查測資是否正確，到 `jury` 頁面點選 `Judging verifier`，讓系統自動判斷 jury solution 的結果是否和預期的一樣，再到 `jury` 頁面點選 `Submissions`，查看 `verified` 欄位，如果符合預期結果會顯示 `yes`。
 
 測資放在 `data` 資料夾，分成公開測資和隱藏測資，分別放在 `data/sample` 和 `data/secret`，輸入輸出檔同名，輸入檔為 `.in`，輸出檔為 `.out`。
 
