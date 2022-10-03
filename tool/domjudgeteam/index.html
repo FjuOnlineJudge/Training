@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
@@ -17,13 +17,14 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6b80c2a2.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
+
     
     
     
@@ -40,6 +41,7 @@
     
       
 
+    
     
     
   </head>
@@ -116,7 +118,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -633,6 +635,19 @@
     提交
   </a>
   
+    <nav class="md-nav" aria-label="提交">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#domjudge" class="md-nav__link">
+    Domjudge 提交結果
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -640,10 +655,23 @@
     提問
   </a>
   
+    <nav class="md-nav" aria-label="提問">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    自辦賽提問事宜
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     切換比賽
   </a>
   
@@ -1823,6 +1851,19 @@
     提交
   </a>
   
+    <nav class="md-nav" aria-label="提交">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#domjudge" class="md-nav__link">
+    Domjudge 提交結果
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1830,10 +1871,23 @@
     提問
   </a>
   
+    <nav class="md-nav" aria-label="提問">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    自辦賽提問事宜
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     切換比賽
   </a>
   
@@ -1847,10 +1901,11 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <h1 id="domjudge-team">Domjudge Team</h1>
@@ -1878,10 +1933,53 @@
 <li>下載程式碼</li>
 </ul>
 <p><img alt="" src="../images/domjudgeTeam5.png" /></p>
+<h3 id="domjudge">Domjudge 提交結果</h3>
+<p>測資包含範例測資和隱藏測資，題目只會給範例測資，範例測資測試過不保證提交在 Domjudge 會對。</p>
+<p>下面介紹幾種提交結果：</p>
+<ul>
+<li><code>Correct</code>：你的程式碼通過所有測資，恭喜!!!</li>
+<li><code>Compile Error</code>：程式編譯錯誤，本機如果編譯成功可詢問我</li>
+<li><code>Wrong Answer</code>：程式執行成功，但輸出結果跟正確解答有出入，有可能但不僅限於下列情況<ul>
+<li>答案範圍到 <code>long long</code>，程式碼只用 <code>int</code></li>
+<li>想法有誤</li>
+<li>輸出了其他東西</li>
+</ul>
+</li>
+<li><code>Runtime Error</code>：程式執行到一半當機，有可能但不僅限於下列情況<ul>
+<li>陣列的 index 超過範圍、陣列開太小</li>
+<li>除以 <script type="math/tex">0</script>
+</li>
+</ul>
+</li>
+<li><code>Time Limit</code>：時間超過限制，有可能但不僅限於下列情況<ul>
+<li>無限迴圈的情況</li>
+<li>程式碼指令執行次數過高：程式一秒大約執行 <script type="math/tex">10^9</script> 次，如果發現程式執行的次數會超過限制秒數乘上 <script type="math/tex">10^9</script>，那麼很有機會會出現 <code>TimeLimit</code></li>
+</ul>
+</li>
+<li><code>Meomery Limit</code>：記憶體使用超過限制，幾乎不會出現，遇到就直接提問</li>
+<li><code>Output Limit</code>：程式輸出大小超過限制，幾乎不會出現，遇到就直接提問</li>
+<li><code>No Output</code>：程式沒有出現任何東西，偶爾會出現，有可能是想法錯誤(可以當成 <code>Wrong Answer</code> 的一種)，或者是測資有問題，遇到時候可以我我是不是測資的問題</li>
+</ul>
 <h2 id="_4">提問</h2>
 <p>點擊右方 <code>request clarification</code>，選擇所要問的問題以及輸入內容，點擊發送，等待主辦方回應，主辦方也可能會發布公告，需要注意一下訊息以免錯過。</p>
 <p><img alt="" src="../images/domjudgeTeam7.png" /></p>
-<h2 id="_5">切換比賽</h2>
+<h3 id="_5">自辦賽提問事宜</h3>
+<ul>
+<li>可以提問<ul>
+<li>題本缺失、勘誤</li>
+<li>題意問題</li>
+<li>本機編譯成功、上傳編譯失敗</li>
+<li>出現 <code>Meomery Limit</code>、<code>Output Limit</code></li>
+<li>詢問測資是否有誤</li>
+</ul>
+</li>
+<li>不行提問<ul>
+<li>出現 <code>Wrong Answer</code>、<code>Runtime Error</code>、<code>Time Limit</code> 詢問哪裡有錯。</li>
+<li>為什麼範例測資都對，上傳沒有答對。</li>
+</ul>
+</li>
+</ul>
+<h2 id="_6">切換比賽</h2>
 <p>如果有多場比賽，可點擊右上角的冠軍獎盃切換。</p>
 <p><img alt="" src="../images/domjudgeTeam6.png" /></p>
 
@@ -1891,7 +1989,7 @@
     <ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
       <li class="last-updated-holder displayDate loading">
           <span class="last-updated-text">最近更新:</span>
-          <time role="presentation" datetime="2018-10-25T00:00:00.000Z" data-article-date-source="ms.date">2022-09-10</time>
+          <time role="presentation" datetime="2018-10-25T00:00:00.000Z" data-article-date-source="ms.date">2022-10-03</time>
       </li>
       <li class="last-updated-holder displayDate loading">
       <span class="contributors-text">本文貢獻者: </span><a href="https://github.com/allem40306" title="allem40306" data-bi-name="contributorprofile" target="_blank">allem40306</a>,</li>
@@ -1902,10 +2000,12 @@
 
 
 
-              
-            </article>
-            
-          </div>
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
       </main>
@@ -1969,10 +2069,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.2ab50757.min.js"></script>
+      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
       
