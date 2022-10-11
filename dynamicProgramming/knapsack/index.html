@@ -1591,21 +1591,21 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    背包問題另一種狀態式
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     無限背包問題
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    二維背包問題
   </a>
   
 </li>
@@ -1621,6 +1621,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interval/" class="md-nav__link">
+        區間 DP
+      </a>
     </li>
   
 
@@ -1648,6 +1662,20 @@
     <li class="md-nav__item">
       <a href="../tree/" class="md-nav__link">
         樹 DP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digit/" class="md-nav__link">
+        數位 DP
       </a>
     </li>
   
@@ -1825,21 +1853,21 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    背包問題另一種狀態式
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     無限背包問題
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    二維背包問題
   </a>
   
 </li>
@@ -1979,32 +2007,40 @@
 <p>覆蓋不會用到的資訊，降低記憶體使用量。</p>
 </details>
 <p>0-1 背包問題時間複雜度 <script type="math/tex">O(NW)</script> ，空間複雜度 <script type="math/tex">O(N)</script> 。</p>
-<h3 id="_2">背包問題另一種狀態式</h3>
-<ul>
-<li><a href="https://atcoder.jp/contests/dp/tasks/dp_e">AtCoder Educational DP Contest E - Knapsack 2</a> </li>
-</ul>
-<p>這題的 <script type="math/tex">W</script> 範圍在 <script type="math/tex">[1,10^9]</script> ，用上述的狀態式肯定 <code>TLE</code> ，因此我們將狀態式改成：</p>
+<details class="question" open="open">
+<summary>UVa 10664 - Luggage</summary>
+<p>給定 <script type="math/tex">N</script> 樣物品，每件物品的重量為 <script type="math/tex">w_i</script>，問可不可以將物品分成等重的兩堆。</p>
+</details>
+<p>需要用 <code>stringstream</code> 處裡輸入。</p>
+<p>假設總重 <script type="math/tex">W</script>，如果 <script type="math/tex">W</script> 為奇數無解，否則用 0/1 背包 DP 判斷是否可以拿總重 <script type="math/tex">=W/2</script> 的物品。</p>
+<details class="question" open="open">
+<summary><a href="https://atcoder.jp/contests/dp/tasks/dp_e">AtCoder Educational DP Contest E - Knapsack 2</a></summary>
+<p>承 0/1 背包 DP，<script type="math/tex">W</script> 範圍在 <script type="math/tex">[1,10^9]</script>。</p>
+</details>
+<p>原本的狀態式會超過時間限制，用價值取代重量當作狀態，再間接取得答案。</p>
 <ul>
 <li>狀態： <script type="math/tex">f(i,j)</script> 代表前 <script type="math/tex">i</script> 樣物品在價值總和為 <script type="math/tex">j</script> 的情況下，重量總和最小值。</li>
 <li>初始狀態： <script type="math/tex">f(i,0)=0,\ where\ 0\leq 1< n,else\ f(i,j)=\infty</script> 。</li>
-</ul>
-<p>轉移式改成：</p>
-<ul>
-<li>
-<script type="math/tex">f(i,j)=min(f(i-1,j),f(i-1,j-v_i)+w_i)</script>
+<li>轉移：<script type="math/tex">f(i,j)=min(f(i-1,j),f(i-1,j-v_i)+w_i)</script>
 </li>
 </ul>
-<p>最後找出：</p>
-<ul>
-<li>
-<script type="math/tex">max\{i|f(n,i)\leq w\}</script>
-</li>
-</ul>
+<p>最後找出：<script type="math/tex">max\{i|f(n,i)\leq w\}</script>
+</p>
 <details class="tip" open="open">
 <summary>技巧：表示(負)無限大</summary>
 <p>(負)無限大只要設成一個比最大(小)答案還要大(小)的值就行了。</p>
 </details>
-<h2 id="_3">無限背包問題</h2>
+<details class="question" open="open">
+<summary>UVa 10616 - Divisible Group Sums</summary>
+<p>給定 <script type="math/tex">N</script> 個數字，求取 <script type="math/tex">M</script> 個數字總和為 <script type="math/tex">D</script> 的倍數的方法數。</p>
+</details>
+<p>先將所有數字對 <script type="math/tex">D</script> 取餘數(負數 <script type="math/tex">x</script>：<script type="math/tex">x\%D+D</script>)。</p>
+<ul>
+<li>狀態：<script type="math/tex">f(i,j,k)=</script> 前 <script type="math/tex">i</script> 個數字取 <script type="math/tex">j</script> 個數字 <script type="math/tex">=k</script> 的方法數。</li>
+<li>答案 <script type="math/tex">=f(N,M,0)+f(N,M,D)+f(N,M,2D)+...</script>
+</li>
+</ul>
+<h2 id="_2">無限背包問題</h2>
 <details class="question" open="open">
 <summary>無限背包問題</summary>
 <p>給定 <script type="math/tex">n</script> 種物品的重量 <script type="math/tex">w_i</script> 和價值 <script type="math/tex">v_i</script>，和一個容量為 <script type="math/tex">W</script> 的背包。每種物品可選取任意個放入背包，在不超過背包容量的情況下，背包內物品價值總和最大為何?</p>
@@ -2046,17 +2082,95 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <p>無限背包問題時間複雜度 <script type="math/tex">O(NW)</script> ，空間複雜度 <script type="math/tex">O(W)</script> 。</p>
+<details class="question" open="open">
+<summary>UVa 00674 - Coin Change</summary>
+<p>有 <script type="math/tex">C=[1,5,10,25,50]</script> 五種硬幣，有多少種方法湊出 <script type="math/tex">N</script> 元?</p>
+</details>
+<ul>
+<li>狀態： <script type="math/tex">f(i,j)</script> 前 <script type="math/tex">i</script> 種硬幣才能湊出 <script type="math/tex">N</script> 元的方法數</li>
+<li>初始狀態：<script type="math/tex">f(0,0)=1</script>
+</li>
+<li>轉移：<script type="math/tex">f(i,j)=f(i-1,j)+f(i,j-c_i)</script>
+</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">coin</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">};</span><span class="w"></span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">poss</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">7500</span><span class="p">];</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">poss</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">coin</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">poss</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">poss</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coin</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">7500</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">poss</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">poss</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">poss</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">coin</span><span class="p">[</span><span class="n">i</span><span class="p">]];</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">poss</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<details class="question" open="open">
+<summary>UVa 12955 - Factorial</summary>
+<p>給定一個數字 <script type="math/tex">N</script>，最少可以使用幾個 <script type="math/tex">x!</script> 的和表示?</p>
+</details>
+<p>和 UVa 00674 - Coin Change 相似，幣值改成 <script type="math/tex">1!,2!,3!,...</script>。</p>
+<h2 id="_3">二維背包問題</h2>
+<p>限制變為兩項。</p>
+<details class="question" open="open">
+<summary>HDU - 2159 FATE</summary>
+<p>打怪遊戲，每種怪物有忍耐度 <script type="math/tex">t_i</script> 和經驗值 <script type="math/tex">e_i</script>，給定數量和忍耐度限制，是否可以獲得至少 <script type="math/tex">N</script> 經驗值?</p>
+</details>
+<ul>
+<li>狀態：<script type="math/tex">f(i,j,k)</script>：在前 <script type="math/tex">i</script> 種怪物選 <script type="math/tex">\le j</script> 隻攻擊，忍耐度 <script type="math/tex">\le k</script> 的情況下的最大經驗值。</li>
+<li>初始狀態：<script type="math/tex">f(0,j,k)=0</script>
+</li>
+<li>轉移：<script type="math/tex">f(i,j,k)=max(f(i-1,j,k),f(i,j-1,k-t_i)+e_i)</script>
+</li>
+</ul>
+<details class="question" open="open">
+<summary>OpenJ_Bailian 1948 - Triangular Pastures</summary>
+<p>給定 <script type="math/tex">N</script> 根棍子，第 <script type="math/tex">i</script> 根棍子長度為 <script type="math/tex">h_i</script>，問 <script type="math/tex">N</script> 根棍子組成最大三角形面積為何(每根棍子都要用到)?</p>
+</details>
+<p>先用動態規劃找出所有可能。</p>
+<ul>
+<li>狀態：<script type="math/tex">f(i,j,k)</script> 前 <script type="math/tex">i</script> 根棍子是否可以形成第一條邊長為 <script type="math/tex">i</script>，第二條邊長為 <script type="math/tex">j</script> 的情況。<ul>
+<li>boolean 函數</li>
+</ul>
+</li>
+<li>初始狀態：<script type="math/tex">f(0,0,0)=true</script>。</li>
+<li>轉移式子：<script type="math/tex">f(i,j,k)= (j-h_i>0\ and\ f(i,j-h_i,k))\ or\ (k-h_i>0\ and\ f(i,j,k-h_i))</script>。<ul>
+<li>試著把第 <script type="math/tex">i</script> 根棍子放到第一條邊或第二條邊。</li>
+</ul>
+</li>
+</ul>
+<p>枚舉三邊長 <script type="math/tex">i,j,k</script>，邊長最大為棍子和 <script type="math/tex">/2</script>，檢查是否有解，如果有解更新最大面積。</p>
 <h2 id="_4">例題練習</h2>
 <ul>
-<li>0-1 背包問題<ul>
-<li><a href="http://uva.onlinejudge.org/external/106/10664.pdf">UVa 10664 - Luggage</a> </li>
+<li>0-1 背包問題 <ul>
 <li><a href="http://uva.onlinejudge.org/external/101/10130.pdf">UVa 10130 - SuperSale</a> </li>
 <li><a href="https://atcoder.jp/contests/dp/tasks/dp_d">AtCoder Educational DP Contest D - Knapsack 1</a> </li>
 </ul>
 </li>
 <li>無限背包問題<ul>
-<li><a href="http://uva.onlinejudge.org/external/104/10465.pdf">UVa 10465 - Homer Simpson</a> </li>
-<li><a href="https://vjudge.net/problem/UVA-674">UVa 00674 - Coin Change</a> </li>
+<li><a href="http://uva.onlinejudge.org/external/104/10465.pdf">UVa 10465 - Homer Simpson</a></li>
 <li><a href="http://uva.onlinejudge.org/external/3/357.pdf">UVa 00357 - Let Me Count The Ways</a> </li>
 </ul>
 </li>
@@ -2068,7 +2182,7 @@
     <ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
       <li class="last-updated-holder displayDate loading">
           <span class="last-updated-text">最近更新:</span>
-          <time role="presentation" datetime="2018-10-25T00:00:00.000Z" data-article-date-source="ms.date">2022-10-03</time>
+          <time role="presentation" datetime="2018-10-25T00:00:00.000Z" data-article-date-source="ms.date">2022-10-11</time>
       </li>
       <li class="last-updated-holder displayDate loading">
       <span class="contributors-text">本文貢獻者: </span><a href="https://github.com/allem40306" title="allem40306" data-bi-name="contributorprofile" target="_blank">allem40306</a>,</li>
@@ -2111,13 +2225,13 @@
       
       
         
-        <a href="../lcsandlis/" class="md-footer__link md-footer__link--next" aria-label="Next: LCS 和 LIS" rel="next">
+        <a href="../interval/" class="md-footer__link md-footer__link--next" aria-label="Next: 區間 DP" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              LCS 和 LIS
+              區間 DP
             </div>
           </div>
           <div class="md-footer__button md-icon">

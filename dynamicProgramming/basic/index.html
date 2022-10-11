@@ -1679,26 +1679,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dag-dp" class="md-nav__link">
-    DAG DP
-  </a>
-  
-    <nav class="md-nav" aria-label="DAG DP">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dag" class="md-nav__link">
-    DAG 上最長路徑
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
     例題練習
   </a>
@@ -1734,6 +1714,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../interval/" class="md-nav__link">
+        區間 DP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../lcsandlis/" class="md-nav__link">
         LCS 和 LIS
       </a>
@@ -1750,6 +1744,20 @@
     <li class="md-nav__item">
       <a href="../tree/" class="md-nav__link">
         樹 DP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digit/" class="md-nav__link">
+        數位 DP
       </a>
     </li>
   
@@ -2019,26 +2027,6 @@
           <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
     延伸題目
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dag-dp" class="md-nav__link">
-    DAG DP
-  </a>
-  
-    <nav class="md-nav" aria-label="DAG DP">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dag" class="md-nav__link">
-    DAG 上最長路徑
   </a>
   
 </li>
@@ -2725,22 +2713,6 @@
 0 0 0 0 0
 </code></pre></div></td></tr></table></div>
 <p>如果單求矩形底部落在某一條水平線上的最大矩形面積，可利用上文提過的單調隊列優化求得；對每一條水平線求一次最大矩形面積，再取最大值，就會是本題答案。</p>
-<h2 id="dag-dp">DAG DP</h2>
-<p>將點當成狀態，邊當成轉移方向，時間複雜度為 <script type="math/tex">O(V+E)</script> 。</p>
-<h3 id="dag">DAG 上最長路徑</h3>
-<details class="question" open="open">
-<summary>DAG 上最長路徑</summary>
-<p>給定一顆有向無環圖，求出圖上最長的路徑</p>
-</details>
-<p>狀態轉移式如下：</p>
-<ul>
-<li>狀態： <script type="math/tex">f(i)</script> : 終點為 <script type="math/tex">i</script> 的情況下，路徑長度最長為何？</li>
-<li>初始狀態： <script type="math/tex">f(i)=0,\forall i\ s.t. in[i]=0</script>
-</li>
-<li>轉移： <script type="math/tex">dp[j]=max\{dp[i]|(i,j)\in E\}+1</script>
-</li>
-</ul>
-<p>答案為 <script type="math/tex">max\{dp[i]|i\in V\}</script> 。</p>
 <h2 id="_11">例題練習</h2>
 <ul>
 <li>數列<ul>
@@ -2766,7 +2738,7 @@
     <ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
       <li class="last-updated-holder displayDate loading">
           <span class="last-updated-text">最近更新:</span>
-          <time role="presentation" datetime="2018-10-25T00:00:00.000Z" data-article-date-source="ms.date">2022-10-03</time>
+          <time role="presentation" datetime="2018-10-25T00:00:00.000Z" data-article-date-source="ms.date">2022-10-11</time>
       </li>
       <li class="last-updated-holder displayDate loading">
       <span class="contributors-text">本文貢獻者: </span><a href="https://github.com/allem40306" title="allem40306" data-bi-name="contributorprofile" target="_blank">allem40306</a>,</li>
