@@ -2,8 +2,6 @@
 
 在樹上 DP，通常會使用 DFS（遞迴），從父節點遞迴到子節點，再合併子節點的答案。
 
-## 最小點覆蓋
-
 ???+ Question "最小點覆蓋"
     給定一棵樹 $T$ ，樹上所有點一開始為白色，要求將一些點塗成黑色，使得所有的邊至少與一個黑色點相連，求最少要塗幾個點？
 
@@ -17,9 +15,16 @@
     -  $dp[u][0]=\Sigma_{(u,v)\in E}dp[v][1]$ 
     -  $dp[u][1]=\Sigma_{(u,v)\in E}min(dp[v][0],dp[v][1])$ 
 
--   其他題目
-    - 最大獨立集
-    - 最小支配集
+???+ Question "最大獨立集 / AtCoder Educational DP Contest P"
+    給定一棵樹 $T$ ，樹上所有點一開始為白色，要求將一些點塗成黑色，任兩個相鄰點不能皆為黑色，問有幾種塗法。
+
+- 狀態：$f(u,c)$ 代表以 $u$ 為根的子樹，在點 $u$ 為 ($c=$ 0: 白色；1: 黑色），合法的塗法數。
+- 初始狀態：如果 $u$ 是葉節點， $f(u,0)=f(u,1)=1$ 。
+- 轉移
+    - 當 $u$ 為白色， $u$ 的子節點應為白色或黑色：$f(u,0)=\Pi_{(u,v)\in E}(f(v,0)+f(v,1))$ 
+    - 當 $u$ 為黑色， $u$ 的子節點可為白色：$f(u,1)=\Pi_{(u,v)\in E}f(v,0)$ 
+
+<!-- 最大獨立集 最小支配集 -->
 
 ## 換根 DP（全方位樹 DP)
 
@@ -42,9 +47,32 @@
 --8<-- "docs/dynamicProgramming/code/treeDiameter.cpp"
 ```
 
+???+ Question "AtCoder Educational DP Contest V - Subtree"
+    給定一棵樹 $T$ ，樹上所有點一開始為白色，要求將一些點塗成黑色，滿足任兩個黑點之間沒有白點。對於任意點 $v$，輸出點 $v$ 塗黑點的方法數。
+
+第一次 DFS 做樹 DP。
+
+- 狀態：$f(u)=$ 點 $u$ 為黑色，所有子樹的塗法數。
+- 轉移：$f(u)=\Pi_{(u,v)\in E}(f(v)+1)$。
+
+第二次 DFS 計算父親 $f$ 對點 $u$ 貢獻，將所有 $f$ 的不所有子樹但包含點 $u$ 的答案相乘 ($f(i)/f(u)$)，用迴圈掃描所有子樹一次需要 $O(V)$，$V$ 個子樹需要 $O(V^2)$，會超過時間限制；取模數不一定是質數，不能用模逆元；利用前綴積和後綴積，分別代表為 $f$ 前 $i$ 顆子樹答案乘積以及 $f$ 前 $j$ 顆子樹答案乘積，求出前綴積和後綴積的時間複雜度是 $O(V)$，計算 $f(i)/f(u)$ 的時間複雜度為 $O(1)$。
+
+## DAG DP
+
+將點當成狀態，邊當成轉移方向，實作從拓譜排序延伸，時間複雜度為 $O(V+E)$ 。
+
+???+ Question "DAG 上最長路徑 / AtCoder Educational DP Contest G"
+    給定一顆有向無環圖，求出圖上最長的路徑。
+
+狀態轉移式如下：
+
+- 狀態： $f(i)$ : 終點為 $i$ 的情況下，路徑長度最長為何？
+- 初始狀態： $f(i)=0,\forall i\ s.t. in[i]=0$
+- 轉移： $dp[j]=max\{dp[i]|(i,j)\in E\}+1$
+
+答案為 $max\{dp[i]|i\in V\}$ 。
+
 ## 例題練習
 
 -   最小點覆蓋
     -  [UVa 01292 - Strategic game](http://uva.onlinejudge.org/external/12/1292.pdf) 
--   換根 DP
-    -  [AtCoder Educational DP Contest V - Subtree](https://atcoder.jp/contests/dp/tasks/dp_v) 

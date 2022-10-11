@@ -72,8 +72,10 @@ nav:
     - 動態規劃簡介: dynamicProgramming/intro.md
     - 基礎問題: dynamicProgramming/basic.md
     - 背包 DP: dynamicProgramming/knapsack.md
+    - 區間 DP: dynamicProgramming/interval.md
     - LCS 和 LIS: dynamicProgramming/lcsandlis.md
     - 樹 DP: dynamicProgramming/tree.md
+    - 數位 DP: dynamicProgramming/digit.md
   - 數論:
     - 質數和因數: math/primeandfactor.md
     - 模: math/mod.md
