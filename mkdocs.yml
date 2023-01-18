@@ -76,6 +76,7 @@ nav:
     - LCS 和 LIS: dynamicProgramming/lcsandlis.md
     - 樹 DP: dynamicProgramming/tree.md
     - 數位 DP: dynamicProgramming/digit.md
+    - 狀態 DP: dynamicProgramming/state.md
   - 數論:
     - 質數和因數: math/primeandfactor.md
     - 模: math/mod.md
