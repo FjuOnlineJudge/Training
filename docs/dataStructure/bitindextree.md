@@ -74,5 +74,16 @@ $$
 
 如此一來，只要維護 $D_i$ 和 $D_i\times i$，就能實現區間修改的功能。
 
+
+???+ Question "逆序數對"
+    給定一個長度為 $N$ 的序列 $A$，求有幾組數對 $i,j$ 滿足 $i < j$ 且 $A_i > A_j$ 。
+
+對於每個位置 $i$，計算出有幾個 $j$ 滿足 $i < j$ 且 $a_i > a_j$，逆序數對維護每一個數字各出現幾次，從左到右拜訪，每次找出目前有幾個數字 $>=a[i]$ (全部的個數 - $<a[i]$ 的個數)，再把 $a[i]$ 出現個數 $+1$。
+
+
+```cpp
+--8<-- "docs/dataStructure/code/inversion.cpp"
+```
+
 [^1]: [樹狀數組 - WiwiHo 的競程筆記](https://cp.wiwiho.me/fenwick-tree/)
 [^2]: [前缀和 & 差分 - OI Wiki](https://oi-wiki.org/basic/prefix-sum/)
