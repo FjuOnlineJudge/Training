@@ -11,12 +11,9 @@ struct Edge
     Edge(int _s, int _t, int _w) : s(_s), t(_t), w(_w) {}
     bool operator<(const Edge &rhs) const { return w < rhs.w; }
 };
-
 int n, m, djs[N], depth[N], par[N][LOG], maxcost[N][LOG];
 vector<Edge> edges;
 vector<int> G[N];
-
-int query(int x) { return (x == djs[x] ? x : djs[x] = query(djs[x])); }
 
 void init()
 {
@@ -29,6 +26,8 @@ void init()
         G[i].clear();
     }
 }
+
+int query(int x) { return (x == djs[x] ? x : djs[x] = query(djs[x])); }
 
 void MST()
 {
@@ -50,7 +49,8 @@ void dfs(int s, int f)
     par[s][0] = f;
     for (auto i : G[s])
     {
-        int t = edges[i].s ^ edges[i].t ^ s;
+        // 不知道 s 存在這條邊的哪個位置，用 xor 消除同樣的數字，留下來的就是另外一個點
+        int t = edges[i].s ^ edges[i].t ^ s; 
         if (t != f)
         {
             maxcost[t][0] = edges[i].w;
@@ -62,7 +62,6 @@ void dfs(int s, int f)
 void preprocess()
 {
     for (int i = 1; i <= LOG; i++)
-    {
         for (int j = 1; j <= n; j++)
         {
             if (par[j][i - 1] == -1 || par[par[j][i - 1]][i - 1] == -1)
@@ -71,7 +70,6 @@ void preprocess()
             maxcost[j][i] =
                 max(maxcost[j][i - 1], maxcost[par[j][i - 1]][i - 1]);
         }
-    }
 }
 
 int solve(int p, int q)
@@ -79,20 +77,18 @@ int solve(int p, int q)
     if (depth[p] < depth[q])
         swap(p, q);
     int hibit, ans = -INF;
-    for (hibit = 1; (1 << hibit) <= depth[p]; ++hibit)
+    for (hibit = 1; (1 << hibit) <= depth[p]; ++hibit)// p 的深度以二進位表示的最高位
         ;
+    // 把 p,q 兩個點的深度調整到一樣
     for (int i = hibit - 1; i >= 0; i--)
-    {
         if (depth[p] - (1 << i) >= depth[q])
         {
             ans = max(ans, maxcost[p][i]);
             p = par[p][i];
         }
-    }
     if (p == q)
-    {
         return ans;
-    }
+    // 讓 p,q 變成最低共同祖先的兒子
     for (int i = hibit - 1; i >= 0; i--)
     {
         if (par[p][i] == -1 || par[p][i] == par[q][i])
@@ -106,10 +102,10 @@ int solve(int p, int q)
 
 int main()
 {
+    cin.tie(NULL);
     for (int ti = 0; cin >> n >> m; ++ti)
     {
-        if (ti)
-            cout << '\n';
+        if (ti) cout << '\n';
         init();
         for (int i = 0; i < m; i++)
         {

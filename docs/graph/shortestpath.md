@@ -66,9 +66,13 @@ Floyd-Warshall 是一種動態規劃問題，以下是他的 dp 式。
 | 演算法   | Floyd-Warshall | Bellman-Ford | SPFA            | Dijkstra                           |
 | ----- | -------------- | ------------ | --------------- | ---------------------------------- |
 | 點源    | 多點源            | 單點源          | 單點源             | 單點源                                |
-| 時間複雜度 |  $O(V^3)$      |  $O(VE)$     | 期望複雜度 $O(V+E)$  | 使用 priority_queue $O(V+E)\log E)$  |
-| 判斷負環  | O              | X            | X               | X                                  |
-| 處理負邊  | O              | X            | X               | X                                  |
+| 時間複雜度 |  $O(V^3)$      |  $O(VE)$     | 期望複雜度 $O(V+E)$  | 使用 priority_queue $O((V+E)\log E)$  |
+| 判斷負環  | O              | O            | O               | X                                  |
+| 處理負邊  | O              | O            | O               | X                                  |
+
+- 如果 $V\le 1000$，可以直接使用 Floyd，有時候需要計算許多點對的距離。
+- 沒有負邊且起點固定(單點源)的問題使用 Dijkstra。
+- 其他狀況使用 Bellmam Ford / SPFA。
 
 ## 例題練習
 
@@ -79,3 +83,24 @@ Floyd-Warshall 是一種動態規劃問題，以下是他的 dp 式。
     -  [UVa 10917 - A Walk Through the Forest](https://onlinejudge.org/external/109/10917.pdf) 
 -   判斷負環
     -  [UVa 00558 - Wormholes](https://onlinejudge.org/external/5/558.pdf) 
+
+???+ Question "UVa 12519 - The Farnsworth Parabox"
+    在多重宇宙中旅行，有 $M$ 條路線，第 $i$ 條路線可以從宇宙 $A_i$ 到 $y_i$ 年後的宇宙 $B_i$，也可以從宇宙 $B_i$ 到 $y_i$ 年前的宇宙 $A_i$，問有沒有一種走法可以到同一個宇宙的未來?
+
+如果可以有一種方法可以到同一個宇宙的未來，反過來走可以到同一個宇宙的過去，將 $y_i$ 當成邊的權重，這題變成判斷有沒有負環。
+
+???+ Question "AtCoder Beginner Contest 061D - Score Attack"
+    給定一張有向圖，求 $1$ 走到 $N$ 的路徑中，權重和最大為何，如果為無限大，請輸出 `inf`。
+
+把所有權重乘上 $-1$，就變成了求最短路徑，和判斷是否有負環。找到負環，還要判斷負環是不是對終點有影響，如果不影響終點，答案就不是 `inf`。
+
+???+ Question "UVa 534 - Frogger"
+    給定 $N$ 顆石頭的位置，假設一條路徑 $P=p_1,p_2,p_3,...$ 的 cost $=max(distance(p_i,p_{i+1}))$，請問 $1$ 號石頭到 $2$ 號石頭路徑 cost 最小為何?
+
+這題可以修改 Floyd-Warshall 算法，定義 $dis[i][j]$ 為從 $i$ 號石頭到 $j$ 號石頭路徑 cost 最小值。
+
+???+ Question "AtCoder Beginner Contest 243E - Edge Deletion"
+    給定一張圖，問最多可以移除幾條邊，滿足：1. 原圖是連通圖 2. 任兩點最短距離不變
+
+先用 Floyd-Warshall 計算任兩點之間距離，枚舉每一條邊 $i,j,w$，如果找到一個 $k(i,j\neq k)$ $dis[i][k]+dis[k][j]<=w$ 的情況，那麼這條邊可以移除。
+
