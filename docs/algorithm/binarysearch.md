@@ -1,13 +1,33 @@
 # 二分搜
 
-對於一個函數 $F(n)$ ，如果存在一個 x，對於所有 $\geq x$ 的 a， $F(a)=$ true，反之 $F(a)=$ false，基於這樣的單調性，就可以用二分搜。
+對於一個函數 $F(n)$ ，如果存在一個 $x$，對於所有 $\geq x$ 的 $a$， $F(a)=$ true (false)，反之 $F(a)=$ false(true)，基於這樣的單調性，就可以用二分搜找尋 $x$。每次跌代會根據目前邊界中間值的結果，決定下次搜尋範圍為左半部分或右半部分。
+
+## 搜尋範圍更新
+
+下文會介紹兩種範圍更新的技巧。
+
+$F(x)$ 輸出有 True 和 False 兩種結果，$F(x)$ 有兩種分布情況：
+
+- 情況 1：True 都在 False 的左邊，要找最右邊的 True
+    - True, True, True, True, False, False
+- 情況 2：True 都在 False 的右邊，要找最左邊的 True
+    - False, False, True, True, True, True
+
+紀錄搜尋範圍左右界：$L$ 和 $R$ 為目前紀錄搜尋範圍左右界，情況 1 要注意無限迴圈的問題，解決辦法如程式碼所示。
 
 ```cpp
---8<-- "docs/algorithm/code/binarySearch.cpp"
+--8<-- "docs/algorithm/code/binarySearch1.cpp"
 ```
 
+紀錄 True 和 False 最後一次出現的位置[^1]：令 $ok$ 和 $ng$ 為 True 和 False 最後一次出現的位置，這種辦法的優勢在於兩種情況只差在初始化，較不容易打錯。
 
-二分搜要注意兩件事，一個是無限迴圈，要避免它可以在腦中先模擬一下。一個是在實數中二分搜，因為實數的稠密性，題目會有誤差容忍值（例如 $10^{-6}$ )，只要在誤差內都是容許的。
+```cpp
+--8<-- "docs/algorithm/code/binarySearch2.cpp"
+```
+
+## 注意事項
+
+二分搜要注意兩件事，一個是無限迴圈，在「紀錄搜尋範圍左右界」部分有提到。一個是在實數中二分搜，因為實數的稠密性，題目會有誤差容忍值（例如 $10^{-6}$ )，只要在誤差內都是容許的，在實作時會設一個數字 $eps$ 並使 $|L-R|\le eps$ 或 $|ok-ng|\le eps$。
 
 ## 有序序列二分搜
 
@@ -102,7 +122,9 @@ equal_range(a, a+n, k);
 ## 三分搜
 
 對於凸函數（例如 $y=F(x)=x^2$ )，我們想要找尋其極值，意謂其左右兩側皆各自遞增/遞減，我們可以利用三分搜來解決（二分搜只能解決全體單調性，不能解決有兩邊的）。
-考慮三分後從左到右四個採樣點的關係
+考慮三分後從左到右四個採樣點的關係：
+
+- ![](images/trinarySearch.png)
 
 -  $S(a) < S(b) < S(c) < S(d)$ ，此時最小值一定不在最右邊
 -  $S(a) > S(b) < S(c) < S(d)$ ，此時最小值一定不在最右邊
@@ -152,3 +174,5 @@ equal_range(a, a+n, k);
 
 -   最小瓶頸樹
     -  [UVa 01395 - Slim Span](https://onlinejudge.org/external/13/1395.pdf) 
+
+- [^1]: [Twitter 上的圖片說明](https://twitter.com/meguru_comp/status/697008509376835584?)

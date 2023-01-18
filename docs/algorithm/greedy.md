@@ -147,7 +147,7 @@
 ??? "參考程式碼"
 
     ```cpp
-    --8<-- "docs/algorithm/code/uva12694.cpp"
+    --8<-- "docs/algorithm/code/uva01615.cpp"
     ```
 
 ## 工作排程相關問題
