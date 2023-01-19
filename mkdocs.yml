@@ -62,6 +62,7 @@ nav:
     - 最低共同祖先: graph/lca.md
     - 並查集: graph/disjointset.md
     - 最小生成樹: graph/mst.md
+    - 最小樹形圖: graph/dmst.md
     - 最短路徑: graph/shortestpath.md
     - 歐拉回路: graph/eulercircuit.md
     - 連通性: graph/connectivity.md
