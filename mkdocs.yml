@@ -78,6 +78,7 @@ nav:
     - 樹 DP: dynamicProgramming/tree.md
     - 數位 DP: dynamicProgramming/digit.md
     - 狀態 DP: dynamicProgramming/state.md
+    - 機率 DP: dynamicProgramming/probability.md
   - 數論:
     - 質數和因數: math/primeandfactor.md
     - 模: math/mod.md
