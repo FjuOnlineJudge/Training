@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../digit/">
+        <link rel="prev" href="../state/">
       
       
-        <link rel="next" href="../probability/">
+        <link rel="next" href="../../math/primeandfactor/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>狀態 DP - FJCU CPC 訓練網</title>
+        <title>機率 DP - FJCU CPC 訓練網</title>
       
     
     
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              狀態 DP
+              機率 DP
             
           </span>
         </div>
@@ -1642,6 +1642,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../state/" class="md-nav__link">
+        狀態 DP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -1654,12 +1668,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          狀態 DP
+          機率 DP
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        狀態 DP
+        機率 DP
       </a>
       
         
@@ -1679,7 +1693,14 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    二進位
+    計算機率
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    計算期望值
   </a>
   
 </li>
@@ -1688,20 +1709,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../probability/" class="md-nav__link">
-        機率 DP
-      </a>
     </li>
   
 
@@ -1867,7 +1874,14 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    二進位
+    計算機率
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    計算期望值
   </a>
   
 </li>
@@ -1888,41 +1902,86 @@
 
 
 
-<h1 id="dp">狀態壓縮 DP</h1>
-<p>遇到多個狀態(<script type="math/tex">\ge 5</script>)的題目，如果依然用多維陣列，在除錯方面會有困難，為了避免在除錯花費大量時間和適當減少程式碼長度，可以將每個狀態用編號來表示。</p>
+<h1 id="dp">機率 DP</h1>
+<p>跟機率有關的 DP，包含機率和期望值。</p>
+<h2 id="_1">計算機率</h2>
 <details class="question" open="open">
-<summary>UVa 10898 - Combo Deal</summary>
-<p>給定每種單點和套餐的價錢，現在問每種食物分別買 <script type="math/tex">x_1,x_2,...</script> 份最少需要多少錢。</p>
+<summary>AtCoder Educational DP Contest I. Coins</summary>
+<p>有 <script type="math/tex">N</script> 枚硬幣，<script type="math/tex">N</script> 是奇數。第 <script type="math/tex">i</script> 枚丟的時候正⾯機率是 <script type="math/tex">p_i</script>，反⾯機率是 <script type="math/tex">1-p_i</script>。現在想要⼀次丟這 <script type="math/tex">N</script> 個硬幣，問有多少機率正⾯的硬幣個數比反⾯的個數還要更多。</p>
 </details>
-<p>最多種有 <script type="math/tex">6</script> 種食物，每種最多需要 <script type="math/tex">9</script> 份，可利用 <script type="math/tex">0</script> 到 <script type="math/tex">10^6-1</script> 這些數字表示每種組合，例如 <script type="math/tex">142352</script> 代表六種食物分別有 <script type="math/tex">1,4,2,3,5,2</script> 份。</p>
-<h2 id="_1">二進位</h2>
-<p>集合常以二進位表示取或不取，比賽中常見以集合當為狀態的，在狀態壓縮 DP 中常會用到 <code>&amp;</code>、<code>&gt;&gt;</code>、<code>&lt;&lt;</code> 這三種二元運算子</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">(</span><span class="n">n</span><span class="o">&gt;&gt;</span><span class="n">i</span><span class="p">)</span><span class="o">&amp;</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// get i-th bit of n</span>
-<span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="o">&amp;</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="p">);</span><span class="w"> </span><span class="c1">// set i-th bit of n = 1</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>狀態：<script type="math/tex">f(i,j,k)</script> 代表前 <script type="math/tex">i</script> 枚硬幣，<script type="math/tex">j</script> 枚正面硬幣，<script type="math/tex">k</script> 枚反面硬幣的機率。<ul>
+<li>
+<script type="math/tex">k=i-j</script>，最後一個維度可以去除。</li>
+</ul>
+</li>
+<li>轉移<ul>
+<li>
+<script type="math/tex">f(i+1,j+1)+=f(i,j)\times p_i</script>
+</li>
+<li>
+<script type="math/tex">f(i+1,j)+=f(i,j)\times (1.0-p_i)</script>
+</li>
+</ul>
+</li>
+<li>答案：<script type="math/tex">\sum\limits_{i=n/2+1}^{n}f(n,i)</script>
+</li>
+</ul>
+<h2 id="_2">計算期望值</h2>
 <details class="question" open="open">
-<summary>UVa 10944 (TSP 旅行銷售員問題)</summary>
-<p>給定人的起始位置和 <script type="math/tex">N</script> 個物品位置，問收集所有物品再回到原點的最短距離。</p>
-<p>設位置 <script type="math/tex">0</script> 是人所在的位置，先計算每個物品(包含人的起始位置)之間的距離。</p>
+<summary>落谷 P1291 - 百事世界盃之旅</summary>
+<p>每瓶飲料上有 <script type="math/tex">1</script> 名球星的名字，每位球星出線機率相同，平均需要幾瓶飲料才能收集完所有 <script type="math/tex">N</script> 位球星的名字。</p>
 </details>
-<p>
-<script type="math/tex">dp[S][i]=</script> 目前已經收集 <script type="math/tex">S</script>，目前在第 <script type="math/tex">i</script> 樣物品的位置，每個狀態 <script type="math/tex">S</script> 枚舉所有未走過的點，得到新的狀態 <script type="math/tex">S'</script>，轉移方向依二進位位元數由少到多。</p>
+<ul>
+<li>狀態：<script type="math/tex">f(i)=</script> 已收集 <script type="math/tex">i</script> 位球星的期望值。</li>
+<li>轉移：<script type="math/tex">f(i)=\frac{n-i}{n}f(i-1)+\frac{i}{n}f(i)+1</script>
+<ul>
+<li>買到新的球星：<script type="math/tex">\frac{n-i}{n}f(i-1)</script>
+</li>
+<li>買到重複的球星：<script type="math/tex">\frac{i}{n}f(i)</script>
+</li>
+</ul>
+</li>
+</ul>
 <details class="question" open="open">
-<summary>UVa 11795 - Mega Man's Mission</summary>
-<p>今天有 <script type="math/tex">N</script> 個敵人要擊敗，一開始拿的武器不可以擊敗所有人，但是擊敗敵人後可以強奪他的武器攻擊別人，每種武器可以擊敗不同敵人，問有幾種攻擊順序可以擊敗所有敵人。</p>
+<summary>UVa 12730 - Skyrk's Bar</summary>
+<p>紳士們上小便的時候，彼此之間會隔著 <script type="math/tex">K</script> 個小便斗 (空著人的小便斗)，請問當有 <script type="math/tex">N</script> 個一排的小便斗，請問壅塞個數的期望值為何 (一次平均可以多少人上小便)。<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 </details>
-<p>先把每個武器可以擊敗的敵人用二進位表示，<script type="math/tex">dp[S]</script> 代表擊敗集合 <script type="math/tex">S</script> 的方法數，<script type="math/tex">state[S]</script> 代表擊敗集合 <script type="math/tex">S</script> 後可以擊敗哪些敵人，每個狀態 <script type="math/tex">S</script> 可以攻擊的士兵 <script type="math/tex">=S</script> 未走過的和 <script type="math/tex">state[i]</script> 的交集。</p>
-<p>可參考 <a href="https://naivered.github.io/2016/06/03/Problem_Solving/UVa/UVa-11795-Mega-Man-s-Mission/">NaiveRed's Blog 的題解</a>。</p>
+<ul>
+<li>狀態：<script type="math/tex">f(i)</script>：<script type="math/tex">i</script> 個小便斗壅塞個數的期望值。</li>
+<li>初始狀態：<script type="math/tex">f(i)=1\ if\ i\le K</script>
+</li>
+<li>轉移：<script type="math/tex">f(i)=2(\sum\limits_{j=1}^{i-k-1}f(j))/i+1</script>。</li>
+</ul>
+<p>枚舉最後一個人進入的位置 <script type="math/tex">x</script>，期望值為 <script type="math/tex">1+f(p-K-1)+f(i-(p+K))</script>。</p>
+<p><img alt="" src="../images/uva12730.png" /></p>
+<p>將所有可能狀況加總，可得轉移式 <script type="math/tex">f(i)=2(\sum\limits_{j=1}^{i-k-1}f(j))/i+1</script>。</p>
+<p>當 <script type="math/tex">i\le K</script> 時，同時只能有 <script type="math/tex">1</script> 個小便斗使用，這時 <script type="math/tex">f(i)=1</script>。</p>
 <details class="question" open="open">
-<summary>Atcoder Beginner Contest 213 G Connectivity 2</summary>
-<p>給定一張圖，問有幾張子圖其中點 <script type="math/tex">1</script> 和點 <script type="math/tex">k</script> 相連。</p>
+<summary>UVa 10529 - Dumb Bones</summary>
+<p>要擺放骨牌，放一張骨牌左倒機率為 <script type="math/tex">P_L</script>，右倒機率為 <script type="math/tex">P_R</script>，問放 <script type="math/tex">N</script> 張連續骨牌的期望次數最小為何?</p>
 </details>
-<p>令 <script type="math/tex">S\subseteq V</script>，是點集的一個子集合，<script type="math/tex">g[S]=</script> 點集 <script type="math/tex">S</script> 的子圖數，<script type="math/tex">f[S]=</script> 點集 <script type="math/tex">S</script> 的連通子圖數，點 <script type="math/tex">1</script> 和點 <script type="math/tex">k</script> 相連的子圖數 <script type="math/tex">C(k)=\sum_{\{i,k\}\subseteq S\subseteq V}f[S]g[V\setminus S]</script>。</p>
-<p>
-<script type="math/tex">g[S]=2^{E[S]}</script>，<script type="math/tex">E[S]</script> 為 <script type="math/tex">S</script> 內的邊數。</p>
-<p>
-<script type="math/tex">f[S]</script> 為所有點集 <script type="math/tex">S</script> 的子圖數，扣到所有 <script type="math/tex">S</script> 的非連通圖，根據排容原理，<script type="math/tex">f[S]=g[S]-\sum_{T\in S\ and\ S\neq T}F[T]\times g[S\setminus T]</script>，這裡特別提一點，這個式子其實是從 <script type="math/tex">V</script> 裡面選一些點當 <script type="math/tex">S</script> 再從 <script type="math/tex">S</script> 選一堆點當 <script type="math/tex">T</script>，也就是把點分三堆，時間複雜度 <script type="math/tex">O(3^V)</script>。</p>
+<p>設 <script type="math/tex">dp[i]</script> 為放 <script type="math/tex">i</script> 張連續骨牌的最小期望次數，枚舉最後一張放骨牌的位置 <script type="math/tex">x</script>，試 <script type="math/tex">1</script> 次的期望值為 <script type="math/tex">((1-P_L)*f(x-1)+(1-P_R)*f(i-x))/(1-P_L-P_R)</script>，<script type="math/tex">1/(1-P_L-P_R)</script> 為平均要嘗試的次數。</p>
+<details class="question" open="open">
+<summary>AtCoder Educational DP Contest J. Sushi</summary>
+<p>有 <script type="math/tex">N</script> 個盤子，每個盤子中有 <script type="math/tex">0</script> 到 <script type="math/tex">3</script> 個壽司，每次隨機選一盤吃到一個壽司，如果沒壽司就不吃，問把所有壽司吃完花費次數的期望值是多少?</p>
+</details>
+<ul>
+<li>狀態：<script type="math/tex">f(i,j,k)=</script> 壽司數量為 <script type="math/tex">1,2,3</script> 的盤子數時，所需次數的期望值。</li>
+</ul>
+<p>一種狀態定義為 <script type="math/tex">f(p_1,p_2,...,p_N)</script>，但狀態數太多且不固定在這裡不考慮，在這裡定義 <script type="math/tex">f(h,i,j,k)</script> 為壽司數量為 <script type="math/tex">0,1,2,3</script> 的盤子數時，所需次數的期望值，又 <script type="math/tex">N=h+i+j+k</script>，可以去除一個狀態。</p>
+<ul>
+<li>轉移：<script type="math/tex">f(i,j,k)=\frac{N-i-j-k}{N}f(i,j,k)+\frac{i}{N}f(i-1,j,k)+\frac{j}{N}f(i+1,j-1,k)+\frac{k}{N}f(i,j+1,k-1)+1</script>。</li>
+</ul>
+<p>把轉移式移項變成 <script type="math/tex">\frac{i+j+k}{N}f(i,j,k)=\frac{i}{N}f(i-1,j,k)+\frac{j}{N}f(i+1,j-1,k)+\frac{k}{N}f(i,j+1,k-1)+1</script>，算完右式後再除以 <script type="math/tex">\frac{i+j+k}{N}</script> 即為所求。</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://morris821028.github.io/2014/08/30/oj/uva/uva-12730/">UVa 12730 in Morris' Blog</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
   <hr />
 <div class="md-source-file">
