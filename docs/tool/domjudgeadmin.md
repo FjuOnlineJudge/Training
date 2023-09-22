@@ -79,18 +79,28 @@ sudo docker-compose up -d
 
 需要一次新增大量 `user` 和 `teams`，可以將資料整理成 `.tsv` 檔 [^1] [^2]，在 `jury` 頁面點擊 `Import / export` 進入匯入匯出頁面，找到 `Teams & groups` 區塊匯入 `.tsv` 檔，先匯入 `teams.tsv`，再匯入 `accounts.tsv`。
 
-* `teams.tsv` 格式
+- `teams.tsv` 格式
 ```
 teams    1
 team number    external_ID    group_id    team_name    institution_name    institution_short_name    country_code
 ```
+    - `team number`: team 的編號，系統已經預設兩個帳號，所以要從 $3$ 開始編號，可以空號。
+    - `external_ID`: ICPC 區域賽、 World Final 使用的隊伍編號。
+    - `group_id`: 對應 `jury/categories` 的 ID，一般參賽者設 $3$。
+    - `team_name`: 記分板顯示的名稱。
+    - `institution_name`: 隊伍所屬單位。
+    - `institution_short_name`: 隊伍所屬單位縮寫。
+    - `country_code`: 隊伍所屬國家代碼。
 
-* `accounts.tsv` 格式
+- `accounts.tsv` 格式
 ```
 accounts	1
 account_type	fullname	username	password
 ```
-    * 如果設 Role 為 `team` 的帳號，其 `username` 為 `team-{tid}`， 那麼系統會自動連結 ID 為 `tid` 的 `team`，因此採用上傳 `.tsv` 檔方式新增帳號，會先上傳 `teams.tsv` 再上傳 `accounts.tsv`。
+    - `account_type`: 帳號身分 `team`, `judge`, `admin`, `analyst`，繳交題目的帳號設 `team`。
+    - `fullname`: 帳號名稱，用來識別帳號所有人，只有管理者看得到。
+    - `username`: 登入帳號，如果設 Role 為 `team` 的帳號，其 `username` 為 `team-{tid}`， 那麼系統會自動連結 ID 為 `tid` 的 `team`，例如帳號設 team3，就會連結編號為 $3$ 的 team。
+    - `password`: 登入密碼，可以到 `/users/generate-passwords` 讓系統生成密碼。
 
 ### 開放自行註冊
 
