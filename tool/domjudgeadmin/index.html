@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.1">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.72749a73.min.css">
       
       
 
@@ -2695,6 +2695,15 @@ bd34e340e120   domjudge/domserver:latest   &quot;/scripts/start.sh&quot;      Ab
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>teams    1
 team number    external_ID    group_id    team_name    institution_name    institution_short_name    country_code
 </code></pre></div></td></tr></table></div></p>
+<ul>
+<li><code>team number</code>: team 的編號，系統已經預設兩個帳號，所以要從 <script type="math/tex">3</script> 開始編號，可以空號。</li>
+<li><code>external_ID</code>: ICPC 區域賽、 World Final 使用的隊伍編號。</li>
+<li><code>group_id</code>: 對應 <code>jury/categories</code> 的 ID，一般參賽者設 <script type="math/tex">3</script>。</li>
+<li><code>team_name</code>: 記分板顯示的名稱。</li>
+<li><code>institution_name</code>: 隊伍所屬單位。</li>
+<li><code>institution_short_name</code>: 隊伍所屬單位縮寫。</li>
+<li><code>country_code</code>: 隊伍所屬國家代碼。</li>
+</ul>
 </li>
 <li>
 <p><code>accounts.tsv</code> 格式
@@ -2703,7 +2712,10 @@ team number    external_ID    group_id    team_name    institution_name    insti
 account_type    fullname    username    password
 </code></pre></div></td></tr></table></div></p>
 <ul>
-<li>如果設 Role 為 <code>team</code> 的帳號，其 <code>username</code> 為 <code>team-{tid}</code>， 那麼系統會自動連結 ID 為 <code>tid</code> 的 <code>team</code>，因此採用上傳 <code>.tsv</code> 檔方式新增帳號，會先上傳 <code>teams.tsv</code> 再上傳 <code>accounts.tsv</code>。</li>
+<li><code>account_type</code>: 帳號身分 <code>team</code>, <code>judge</code>, <code>admin</code>, <code>analyst</code>，繳交題目的帳號設 <code>team</code>。</li>
+<li><code>fullname</code>: 帳號名稱，用來識別帳號所有人，只有管理者看得到。</li>
+<li><code>username</code>: 登入帳號，如果設 Role 為 <code>team</code> 的帳號，其 <code>username</code> 為 <code>team-{tid}</code>， 那麼系統會自動連結 ID 為 <code>tid</code> 的 <code>team</code>，例如帳號設 team3，就會連結編號為 <script type="math/tex">3</script> 的 team。</li>
+<li><code>password</code>: 登入密碼，可以到 <code>/users/generate-passwords</code> 讓系統生成密碼。</li>
 </ul>
 </li>
 </ul>
@@ -2803,7 +2815,7 @@ account_type    fullname    username    password
     <ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
       <li class="last-updated-holder displayDate loading">
           <span class="last-updated-text">最近更新:</span>
-          <time role="presentation" datetime="2018-10-25T00:00:00.000Z" data-article-date-source="ms.date">2023-09-07</time>
+          <time role="presentation" datetime="2018-10-25T00:00:00.000Z" data-article-date-source="ms.date">2023-09-22</time>
       </li>
       <li class="last-updated-holder displayDate loading">
       <span class="contributors-text">本文貢獻者: </span><a href="https://github.com/allem40306" title="allem40306" data-bi-name="contributorprofile" target="_blank">allem40306</a>,</li>
@@ -2847,10 +2859,10 @@ account_type    fullname    username    password
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
       
