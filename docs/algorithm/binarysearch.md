@@ -172,7 +172,4 @@ equal_range(a, a+n, k);
 
 ## 例題練習
 
--   最小瓶頸樹
-    -  [UVa 01395 - Slim Span](https://onlinejudge.org/external/13/1395.pdf) 
-
 - [^1]: [Twitter 上的圖片說明](https://twitter.com/meguru_comp/status/697008509376835584?)
