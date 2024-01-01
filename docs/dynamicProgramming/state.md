@@ -36,3 +36,47 @@ $dp[S][i]=$ 目前已經收集 $S$，目前在第 $i$ 樣物品的位置，每�
 $g[S]=2^{E[S]}$，$E[S]$ 為 $S$ 內的邊數。
 
 $f[S]$ 為所有點集 $S$ 的子圖數，扣到所有 $S$ 的非連通圖，根據排容原理，$f[S]=g[S]-\sum_{T\in S\ and\ S\neq T}F[T]\times g[S\setminus T]$，這裡特別提一點，這個式子其實是從 $V$ 裡面選一些點當 $S$ 再從 $S$ 選一堆點當 $T$，也就是把點分三堆，時間複雜度 $O(3^V)$。
+
+## 輪廓線 DP
+
+在 $N\times M$ 的格子，決策過程為從上到下、從左到右，用一條線分開決策和未決策的格子，這條線成為輪廓線（下圖紅線）。
+
+![](images/contourLine.png)
+
+決策點(黃格子)需要考慮上方和左方的格子，因為需要保存輪廓線上格子的資訊，被稱為輪廓線 DP。
+
+???+ Question "UVa 11270 - Tiling Dominoes"
+    給定 $N\times M$ 的方塊，有幾種辦法可以被 $1\times 2$ 的骨牌放滿?
+
+對於每一格格子，通過上方和左方格子的資訊（0:沒放、1:沒放），判斷是否能直放、橫放或不放骨牌。
+
+![](images/uva11270.png)
+
+- 狀態：$f(i,j,s)=$ 從 $(i,j)$ 往前連續 $M$ 格格子狀態為 $s$ 的情況下，排列的方格數。
+
+轉移的方向是一個座標轉移到另一個座標，利用滾動陣列技巧，在實作時只要開一個 $2\times 2^M$ 的陣列即可。
+
+```cpp
+--8<-- "docs/dynamicProgramming/code/uva11270.cpp"
+```
+
+## 插頭 DP
+
+插頭代表格子之間的連通性，如果 $(i,j)$ 和 $(i,j+1)$ 相連，那麼 $(i,j)$ 有一個右插頭，$(i,j+1)$ 有一個左插頭，插頭是成雙成對存在。
+
+![](images/plug.png)
+
+??? Question "Ural 1519 - Formula 1"
+    給定 $N\times M$ 的方格，請問有幾種哈密頓迴路覆蓋所有沒有障礙的格子?
+
+一個合法的哈密頓迴路，每個沒有障礙的格子都有兩個插頭，且輪廓線以上是由數條互不相交的路徑組成。
+
+把插頭分成三種：無狀態插頭、左括號插頭、右括號插頭，分別用 $0,1,2$ 表示
+
+<!-- https://zigzagk.top/2019/02/10/BZOJ1814 -->
+
+[^1]: [插头 DP - OI Wiki](https://oi-wiki.org/dp/plug/)
+[^2]: [插头DP - 知乎](https://zhuanlan.zhihu.com/p/268278214)
+[^3]: [插头 DP - OI Wiki](https://oi-wiki.org/dp/plug/)
+[^4]: [【SDUACM-暑期专题div1】插头DP入门 in bilibili](https://www.bilibili.com/video/BV1Tt4y1S7gB/)
+[^5]: [基于连通性状态压缩的动态规划问题 Cdq](https://www.docin.com/p-46797997.html)
