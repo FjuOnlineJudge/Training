@@ -9,7 +9,7 @@
 
 ## B. 建立你的倉庫
 
-- 範例頁面： <https://github.com/HJackH/CodeBook-Sample> 
+- 範例頁面： <https://github.com/FjuOnlineJudge/CodeBook-Sample> 
 - 有兩種方法（選擇一種就可以）
 
 1.  fork
@@ -70,3 +70,26 @@
 -   切換到 `pdf` branch
     - ![](images/makeCodeBook12.png)
     - ![](images/makeCodeBook13.png)
+
+## 補充：在本地開發
+
+熟悉 Git 的讀者，也可以選擇在本地修改。
+
+-   在 Github 新增專案
+
+-   clone 此專案在本地
+```
+git clone https://github.com/FjuOnlineJudge/CodeBook-Sample.git
+```
+
+- 上傳到你所新增的新專案
+```
+cd CodeBook-Sample
+rm -rf .git
+git init
+git add .
+git commit -m "init files"
+git branch -M main
+git remote add origin https://github.com/Yourname/new-repository.git
+git push -u origin main
+```
