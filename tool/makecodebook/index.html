@@ -3492,20 +3492,42 @@
 <p>更改 <code>content.tex</code> </p>
 <ul>
 <li>程式碼檔案用 <code>lstinputisting</code> </li>
-<li>latex 檔案用 <code>input</code> </li>
-<li><img alt="" src="../images/makeCodeBook08.png" /></li>
+<li>latex 檔案用 <code>input</code> 
+<!-- - <img alt="" src="images/makeCodeBook08.png" /> --></li>
 </ul>
 </li>
 </ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">\section</span><span class="nb">{</span>Section1<span class="nb">}</span>
+<span class="k">\subsection</span><span class="nb">{</span>basic<span class="nb">}</span>
+    <span class="k">\lstinputlisting</span><span class="nb">{</span>Contents/section1/basic.cpp<span class="nb">}</span>
+<span class="k">\subsection</span><span class="nb">{</span>test<span class="nb">}</span>
+    <span class="k">\lstinputlisting</span><span class="nb">{</span>Contents/section1/test.cpp<span class="nb">}</span>
+
+<span class="k">\section</span><span class="nb">{</span>Section2<span class="nb">}</span>
+    <span class="k">\subsection</span><span class="nb">{</span>thm<span class="nb">}</span>
+        <span class="k">\input</span><span class="nb">{</span>Contents/section2/thm.tex<span class="nb">}</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="e-codebooktex">E. <code>codebook.tex</code> 中可設定的地方</h2>
 <ul>
 <li>修改個人、隊伍資訊<ul>
 <li><code>\fancyhead[C]</code> 是中間的標題</li>
-<li><code>\fancyhead[L]</code> 是左邊的標題</li>
-<li><img alt="" src="../images/makeCodeBook09.png" /></li>
+<li><code>\fancyhead[L]</code> 是左邊的標題
+<!-- - <img alt="" src="images/makeCodeBook09.png" /> --></li>
 </ul>
 </li>
 </ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">\fancyhead</span><span class="na">[C]</span><span class="nb">{</span>標題一<span class="nb">}</span>
+<span class="k">\fancyhead</span><span class="na">[L]</span><span class="nb">{</span>標題二<span class="nb">}</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="f-github">F. 上傳到 GitHub</h2>
 <ol>
 <li>git add<ul>
@@ -3565,10 +3587,10 @@ git push -u origin main
     <ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
       <li class="last-updated-holder displayDate loading">
           <span class="last-updated-text">最近更新:</span>
-          <time role="presentation" datetime="2018-10-25T00:00:00.000Z" data-article-date-source="ms.date">2026-04-30</time>
+          <time role="presentation" datetime="2018-10-25T00:00:00.000Z" data-article-date-source="ms.date">2026-05-01</time>
       </li>
       <li class="last-updated-holder displayDate loading">
-      <span class="contributors-text">本文貢獻者: </span></li>
+      <span class="contributors-text">本文貢獻者: </span><a href="https://github.com/allem40306" title="allem40306" data-bi-name="contributorprofile" target="_blank">allem40306</a>,</li>
     </ul>
   </small>
 </div>
