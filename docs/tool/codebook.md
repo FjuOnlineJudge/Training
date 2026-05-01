@@ -75,3 +75,10 @@ equal_range(a, a+n, k);
 - 一些用有的函式(要確定內建)
 - eof 寫法
 - eval
+
+## 參考 Codebook
+
+可以在 Github 參考其他人的 Codebook
+
+- [交大 PCCA](https://github.com/NCTU-PCCA)
+- [8BQube](https://github.com/brianbbsu/8BQube)

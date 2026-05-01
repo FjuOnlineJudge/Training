@@ -46,14 +46,31 @@
 2.  更改 `content.tex` 
     - 程式碼檔案用 `lstinputisting` 
     - latex 檔案用 `input` 
-    - ![](images/makeCodeBook08.png)
+    <!-- - ![](images/makeCodeBook08.png) -->
+
+```tex
+\section{Section1}
+\subsection{basic}
+    \lstinputlisting{Contents/section1/basic.cpp}
+\subsection{test}
+    \lstinputlisting{Contents/section1/test.cpp}
+
+\section{Section2}
+    \subsection{thm}
+        \input{Contents/section2/thm.tex}
+```
 
 ## E. `codebook.tex` 中可設定的地方
 
 -   修改個人、隊伍資訊
     -  `\fancyhead[C]` 是中間的標題
     -  `\fancyhead[L]` 是左邊的標題
-    - ![](images/makeCodeBook09.png)
+    <!-- - ![](images/makeCodeBook09.png) -->
+
+```tex
+\fancyhead[C]{標題一}
+\fancyhead[L]{標題二}
+```
 
 ## F. 上傳到 GitHub
 
