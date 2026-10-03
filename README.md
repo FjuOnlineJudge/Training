@@ -8,3 +8,26 @@
 目前已將原講義大部分內容搬至於此，現在致力於工具篇和語法篇的撰寫。
 
 本網站受到 [OI Wiki](https://oi-wiki.org/) 啟發，參考了 github repo 建立，在此感謝。
+
+## 如何貢獻
+
+- 在本機安裝 Python
+
+- 使用虛擬環境 (建議)
+
+```
+python -m venv .venv
+source .venv/Scripts/Activate
+```
+
+- 安裝套件
+
+```
+pip install -r requirements.txt
+```
+
+- 測試
+
+```
+mkdocs serve
+```

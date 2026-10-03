@@ -83,6 +83,8 @@ nav:
     - 質數和因數: math/primeandfactor.md
     - 模: math/mod.md
     - 歐拉函數: math/euler.md
+  - 字串:
+    - 字串基礎: string/basic.md
   - 比賽整理:
     - ICPC 台灣賽區 2021: contest/icpctaiwan2021.md
 
@@ -100,9 +102,9 @@ plugins:
         branch: master
         token: !ENV ["MKDOCS_GIT_COMMITTERS_APIKEY"]
 
-python:
-   version: 2 # for unicode
-   setup_py_install: true
+# python:
+#    version: 2 # for unicode
+#    setup_py_install: true
 
 #the third-party extenison mdx_math.py comes with a setup.py script
 # Thank you Dmitry Shachnev (https://github.com/mitya57/python-markdown-math) 
