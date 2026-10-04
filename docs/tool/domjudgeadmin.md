@@ -3,9 +3,9 @@
 ## 啟動 server
 
 ???+ 環境
-    請先確認有安裝 docker 和 docker-compose
+    請先確認有安裝 docker 和 docker compose v2
 
-* `generate.py` 生成 `docker-compose.yml`，`-j` 調整 `Judgehost` 的數量（預設為 $1$）。
+* `generate.py` 生成 `compose.yml`，`-j` 調整 `Judgehost` 的數量（預設為 $1$）。
 
 ```
 git clone https://github.com/FjuOnlineJudge/domjudge-setup
